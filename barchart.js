@@ -1,3 +1,4 @@
+var data = [4,8,15,16,23,42];
 var margin = 50;
 var width = 300;
 var height = 300;
