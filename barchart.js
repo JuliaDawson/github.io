@@ -24,5 +24,5 @@ d3.select("svg")
   .append("g")
     .attr("transform", "translate("+margin+","+margin+")").call(y_axis)
   .append("g")
-    .attr("transform", "translate("+margin+",250)").call(x_axis);
+    .attr("transform", "translate(0,200)").call(x_axis);
 
