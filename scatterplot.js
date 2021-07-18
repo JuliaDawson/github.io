@@ -21,8 +21,8 @@ var svg = d3.select("svg"),
         height = svg.attr("height"),
         margin = 50;
         g = svg.append("g").attr("transform", "translate(" +margin+ "," +margin+ ")");
-var xscale = d3.scaleLog().domain([10, 150]).range([0, width - 100]);
-var yscale = d3.scaleLog().domain([10, 150]).range([height - 100, 0]);
+var xscale = d3.scaleLog().domain([10, 150]).range([0, width]);
+var yscale = d3.scaleLog().domain([10, 150]).range([height, 0]);
 
 var x_axis = d3.axisBottom().scale(xscale).tickValues([10, 20, 50, 100])
     .tickFormat(d3.format(",.0f"));
@@ -37,8 +37,8 @@ d3.select("svg")
 .attr("width", width)
 .attr("height", height)
  .selectAll("dot").data(data).enter().append("circle")
- .attr("cx", function(d) {return (xscale(d[2]-margin))})
- .attr("cy", function(d) {return (yscale(d[1]-margin))})
+ .attr("cx", function(d) {return xscale(d[2])})
+ .attr("cy", function(d) {return yscale(d[1])})
   .attr("r", function(d) {return d[0] + 2});
 d3.select("svg")
 .attr("width", width+2*margin)
