@@ -1,10 +1,3 @@
-<html>
-<script src='https://d3js.org/d3.v5.min.js'></script>
-<style> path {stroke: black;}</style>
-<body>
-<svg width=300 height=300>
-</svg>
-<script>
 var data = [4,8,15,16,23,42];
 var color = ['pink','lightyellow','lightgreen','lightcyan','lightblue','violet'];
 var pie = d3.pie();
@@ -33,6 +26,3 @@ var svg = d3.select("svg"),
                      return color(i);
                  });
 
-</script>
-</body>
-</html>
