@@ -37,6 +37,7 @@ d3.select("svg")
 .attr("width", width)
 .attr("height", height)
  .selectAll("dot").data(data).enter().append("circle")
+ .attr("transform", "translate(" +margin+ "," +margin+ ")")
  .attr("cx", function(d) {return xscale(d[2])})
  .attr("cy", function(d) {return yscale(d[1])})
   .attr("r", function(d) {return d[0] + 2});
