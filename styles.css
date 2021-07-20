@@ -1,11 +1,12 @@
 body {
+	<style>
 	margin: 0;
 	background: white;
 	text-align: center;
-	<style>
+
 	.country {
 	.fill: #cccccc;
-	.stroke: #999; 
+	.stroke: #999999; 
         }
 	</style>
 }
