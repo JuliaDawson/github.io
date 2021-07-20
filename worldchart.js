@@ -17,12 +17,17 @@ const g = svg.append('g');
 d3.json('https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json')
   .then(data => {
 
-   const countries = topojson.feature(data, data.objects.countries); 
+   var countries = topojson.feature(data, data.objects.countries).features; 
    
-   g.selectAll('path').data(countries.features).enter().append('path').attr('class','country').attr('d', path)
-	.on('click', function(d) {
-	   d3.select(this).classed("selected". true)
-   })
+   g.selectAll('.counry')
+	   .data(countries)
+	   .enter().append('path')
+	   .attr('class','country')
+	   .attr('d', path)
+	   /* Could replace with mouseover, mouseout, see www.youtube.com watch?v=aNbgrqRuoiE */
+	   .on('click', function(d) {
+	       d3.select(this).classed("selected". true)
+            })
        .attr('fill','#cccccc')	
        .attr('stroke','#333333')	
        .attr('stroke-width', 0.5);	
