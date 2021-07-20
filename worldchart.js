@@ -1,9 +1,9 @@
 const width = 900;
-const height = 600
+const height = 600;
 
 const svg = d3.select('body').append('svg')
                 .attr('width',width)
-				.attr('height',height)
+		.attr('height',height)
 				
 //https://www.youtube.com/watch?v=urfyp-r255A
 //cdn.jsdeliv.net/npm/world-atlas@2/countries-110m.json		
@@ -20,6 +20,9 @@ d3.json('https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json')
    const countries = topojson.feature(data, data.objects.countries); 
    
    g.selectAll('path').data(countries.features).enter().append('path').attr('class','country').attr('d', path)
+	.on('click', function(d) {
+	   d3.select(this).classed("selected". true)
+   })
        .attr('fill','#cccccc')	
        .attr('stroke','#333333')	
        .attr('stroke-width', 0.5);	
