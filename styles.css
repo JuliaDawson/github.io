@@ -2,9 +2,10 @@ body {
 	margin: 0;
 	background: white;
 	text-align: center;
-	
+	<style>
 	.country {
-	.fill: #ccc;
+	.fill: #cccccc;
 	.stroke: #999; 
         }
+	</style>
 }
