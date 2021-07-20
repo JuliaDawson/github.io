@@ -2,4 +2,9 @@ body {
 	margin: 0;
 	background: white;
 	text-align: center;
+	
+	.country {
+	.fill: #ccc;
+	.stroke: #999; 
+        }
 }
