@@ -1,12 +1,15 @@
-body {
-	<style>
-	margin: 0;
-	background: white;
-	text-align: center;
 
-	.country {
-	.fill: #cccccc;
-	.stroke: #999999; 
-        }
+	<style>
+		svg {
+			margin: 0;
+			background: white;
+			text-align: center;
+		}
+
+		.country {
+			.fill: #cccccc;
+			.stroke: #333333; 
+			.stroke-width: 0.5;
+        	}
 	</style>
-}
+
