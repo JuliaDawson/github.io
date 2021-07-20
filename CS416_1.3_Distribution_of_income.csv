@@ -1,4 +1,4 @@
-﻿Country (1.3!Distribution!of!income!or!c),Refer Year,Region (1.3!Distribution!of!income!or!c),Gini Index,PctIncShareFourth20,PctIncShareHighest10,PctIncShareHighest20,PctIncShareLowest10,PctIncShareLowest20,PctIncShareSecond20,PctIncShareThird20
+﻿Country,Year,Region,GiniIndex,PctIncShareFourth20,PctIncShareHighest10,PctIncShareHighest20,PctIncShareLowest10,PctIncShareLowest20,PctIncShareSecond20,PctIncShareThird20
 Afghanistan,..,Asia & Pacific,,,,,,,,
 Albania,2017,Europe,33.2,23.3,24.8,40.7,3.1,7.5,12,16.5
 Algeria,2011,Arab States,27.6,22.3,22.9,37.2,4,9.4,13.7,17.5
