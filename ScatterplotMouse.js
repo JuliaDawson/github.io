@@ -61,6 +61,7 @@ d3.select("svg")
 .attr("width", width)
 .attr("height", height)
  .selectAll("dot").data(data).enter().append("circle")
+ .attr("transform", "translate(50,50)") 
  .attr("cx", function(d) {return xscale(d[2])})
  .attr("cy", function(d) {return yscale(d[1])})
  .attr("r", function(d) {return d[0] + 2})
@@ -80,11 +81,17 @@ d3.select("svg")
       function handleMouseOver(d, i) {  // Add interactivity
             console.log("in handleMouseOver ",d, i);
             // Use D3 to select element, change color and size
-            d3.select(this).attr({fill: "orange"});
+            d3.select(this).attr({
+		    fill: "orange",
+		    r: d[0] + 2
+	    });
           }
 
       function handleMouseOut(d, i) {
             console.log("in handleMouseOut ",d, i);	      
             // Use D3 to select element, change color back to normal
-            d3.select(this).attr({fill: "lightblue"});
+            d3.select(this).attr({
+		    fill: "lightblue",
+		    r: d[0] + 2
+	    });
          }
