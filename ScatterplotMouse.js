@@ -61,8 +61,8 @@ d3.select("svg")
  .attr("r", function(d) {return d[0] + 2})
  .attr("fill","lightblue")
  .attr("stroke","black")
- .on("mouseover", handleMouseOver)
- .on("mouseout", handleMouseOut);
+ .on("mouseover", handleMouseOver())
+ .on("mouseout", handleMouseOut());
 
 d3.select("svg")
 .attr("width", width+2*margin)
@@ -78,12 +78,10 @@ d3.select("svg")
             console.log("in handleMouseOver ",d, i);
             // Use D3 to select element, change color and size
             d3.select(this).attr("fill": "orange");
-	    });
           }
 
       function handleMouseOut(d, i) {
             console.log("in handleMouseOut ",d, i);	      
             // Use D3 to select element, change color back to normal
             d3.select(this).attr("fill": "lightblue");
-	    });
          }
