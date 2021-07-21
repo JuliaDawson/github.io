@@ -63,9 +63,9 @@ d3.select("svg")
  .selectAll("dot").data(data).enter().append("circle")
  .attr("cx", function(d) {return xscale(d[2])})
  .attr("cy", function(d) {return yscale(d[1])})
- .attr("r", function(d) {return d[0] + 2});
- //.on("mouseover", handleMouseOver)
- //.on("mouseout", handleMouseOut);
+ .attr("r", function(d) {return d[0] + 2})
+ .on("mouseover", handleMouseOver)
+ .on("mouseout", handleMouseOut);
 
 d3.select("svg")
 .attr("width", width+2*margin)
@@ -73,7 +73,7 @@ d3.select("svg")
 .append("g")
    .attr("transform", "translate("+margin+","+margin+")").call(y_axis)
 .append("g")
-   .attr("transform", "translate(50,250)").call(x_axis);
+   .attr("transform", "translate(0,200)").call(x_axis);
 
       //from  http://bl.ocks.org/WilliamQLiu/76ae20060e19bf42d774
       // Create Event Handlers for mouse
