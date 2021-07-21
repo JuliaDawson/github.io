@@ -48,12 +48,6 @@ var x_axis = d3.axisBottom().scale(xscale).tickValues([10, 20, 50, 100])
 var y_axis = d3.axisLeft().scale(yscale).tickValues([10, 20, 50, 100]) 
     .tickFormat(d3.format(",.0f"));
 
-//from http://bl.ocks.org/WilliamQLiu/76ae20060e19bf42d774
-var circleAttrs = {
-    cx: function(d) { return xScale(d[2]); },
-    cy: function(d) { return yScale(d[1]); },
-    r: function(d) { return (d[0] + 2); }
-    };
 	
 var xAxisTranslate = height/2 + 10;
 
@@ -65,6 +59,8 @@ d3.select("svg")
  .attr("cx", function(d) {return xscale(d[2])})
  .attr("cy", function(d) {return yscale(d[1])})
  .attr("r", function(d) {return d[0] + 2})
+ .attr("fill","lightblue")
+ .attr("stroke","black")
  .on("mouseover", handleMouseOver)
  .on("mouseout", handleMouseOut);
 
