@@ -77,17 +77,13 @@ d3.select("svg")
       function handleMouseOver(d, i) {  // Add interactivity
             console.log("in handleMouseOver ",d, i);
             // Use D3 to select element, change color and size
-            d3.select(this).attr({
-		    fill: "orange",
-		    r: d[0] + 2
+            d3.select(this).attr("fill": "orange");
 	    });
           }
 
       function handleMouseOut(d, i) {
             console.log("in handleMouseOut ",d, i);	      
             // Use D3 to select element, change color back to normal
-            d3.select(this).attr({
-		    fill: "lightblue",
-		    r: d[0] + 2
+            d3.select(this).attr("fill": "lightblue");
 	    });
          }
