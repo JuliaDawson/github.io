@@ -35,8 +35,8 @@ var data = [
 
 // set the dimensions and margins of the graph
 var svg = d3.select("svg"),
-        width = svg.attr("width"),
-        height = svg.attr("height"),
+        width = 800,
+        height = 600,
         margin = 50;
         g = svg.append("g").attr("transform", "translate(" +margin+ "," +margin+ ")");
 var xscale = d3.scaleLog().domain([10, 150]).range([0, width - 100]);
