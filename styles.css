@@ -9,7 +9,7 @@
 		.country {
 			fill: #cccccc;
 			stroke: #333333; 
-			stroke-width: 1;
+			stroke-width: 0.5;
         	}
                 .selected {
 			fill: yellow;
