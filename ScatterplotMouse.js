@@ -59,7 +59,7 @@ d3.select("svg")
  .attr("cx", function(d) {return xscale(d[2])})
  .attr("cy", function(d) {return yscale(d[1])})
  .attr("r", function(d) {return d[0] + 2})
- .attr("fill","lightblue")
+ .attr("fill","none")
  .attr("stroke","black")
  .on("mouseover", handleMouseOver)
  .on("mouseout", handleMouseOut);
