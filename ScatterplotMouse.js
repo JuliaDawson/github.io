@@ -61,7 +61,9 @@ d3.select("svg")
 .attr("width", width)
 .attr("height", height)
  .selectAll("dot").data(data).enter().append("circle")
- .attr(circleAttrs)  // Get attributes from circleAttrs var
+ .attr("cx", function(d) {return xscale(d[2])})
+ .attr("cy", function(d) {return yscale(d[1])})
+ .attr("r", function(d) {return d[0] + 2})
  .on("mouseover", handleMouseOver)
  .on("mouseout", handleMouseOut);
 
