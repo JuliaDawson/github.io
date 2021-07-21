@@ -82,7 +82,6 @@ d3.select("svg")
             // Use D3 to select element, change color and size
             d3.select(this).attr({
               fill: "orange",
-              r: radius * 2
             });
           }
 
@@ -90,6 +89,5 @@ d3.select("svg")
             // Use D3 to select element, change color back to normal
             d3.select(this).attr({
               fill: "lightblue",
-              r: radius
             });
          }
