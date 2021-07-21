@@ -35,12 +35,14 @@ d3.json('https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json')
  // Create Event Handlers for mouse
       function handleMouseOver(d, i) {  // Add interactivity
             // Use D3 to select element, change color and size
-            d3.select(this).attr({
-              fill: "orange"
-            });
+	      console.log("handleMouseIn  ",d, i);
+	      d3.select(this).attr({    
+                fill: "orange"
+              });
           }
 
       function handleMouseOut(d, i) {
+	    console.log("handleMouseOut ",d, i);	
             // Use D3 to select element, change color back to normal
             d3.select(this).attr({
               fill: "#cccccc"
