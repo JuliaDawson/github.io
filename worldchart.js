@@ -19,7 +19,7 @@ d3.json('https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json')
 
    var countries = topojson.feature(data, data.objects.countries).features; 
    
-   g.selectAll('.counry')
+   g.selectAll('.country')
 	   .data(countries)
 	   .enter().append('path')
 	   .attr('class','country')
