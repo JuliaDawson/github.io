@@ -9,7 +9,7 @@ const svg = d3.select('body').append('svg')
 //cdn.jsdeliv.net/npm/world-atlas@2/countries-110m.json		
 //github.com/d3/d3-geo
 
-const projection = d3.geoMercator().scale(140).translate([width/2,height/1.4]).scale(100);
+const projection = d3.geoMercator().scale(140).translate([width/2,height/2]).scale(100);
 const path = d3.geoPath(projection);
 
 const g = svg.append('g');
