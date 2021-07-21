@@ -78,7 +78,7 @@ d3.select("svg")
       //from  http://bl.ocks.org/WilliamQLiu/76ae20060e19bf42d774
       // Create Event Handlers for mouse
       function handleMouseOver(d, i) {  // Add interactivity
-            console.log('in handleMouseOver ",d, i);
+            console.log("in handleMouseOver ",d, i);
             // Use D3 to select element, change color and size
             d3.select(this).attr({
               fill: "orange",
@@ -86,7 +86,7 @@ d3.select("svg")
           }
 
       function handleMouseOut(d, i) {
-            console.log('in handleMouseOut ",d, i);	      
+            console.log("in handleMouseOut ",d, i);	      
             // Use D3 to select element, change color back to normal
             d3.select(this).attr({
               fill: "lightblue",
