@@ -1,28 +1,27 @@
-const width = 900;
-const height = 600;
+var width = 900;
+var height = 600;
 
 //https://www.youtube.com/watch?v=urfyp-r255A
 //cdn.jsdeliv.net/npm/world-atlas@2/countries-110m.json		
 //github.com/d3/d3-geo
 //https://www.youtube.com/watch?v=dJbpo8R47D0
-const projection = d3.geoMercator().translate([width/2,height/2]).scale(100);
-const path = d3.geoPath().projection(projection);
+var projection = d3.geoMercator().translate([width/2,height/2]).scale(140);
+var path = d3.geoPath().projection(projection);
 
-const svg = d3.select('body').append('svg')
-                .attr('width',width)
-		.attr('height',height)
-                .attr('margin', 50);
+var svg = d3.select('body')
+	.append('svg')
+        .attr('width',width)
+	.attr('height',height)
+  svg.append('rect')
+    .attr('width', w)
+    .attr('height', h)
+    .attr('fill', 'white');
+  // Append empty placeholder g element to the SVG
+  // g will contain geometry elements
+  var g = svg.append("g");
 
-svg.append("text")
-   .attr("x", (width/2))
-   .attr("y", 25)
-   .style("font-size", "16px")
-   .style("text-decoration", "underline")
-   .text("Income Disparity around the World"); 
 
-
-
-const g = svg.append('g').attr("transform", "translate(50,50)");
+// const g = svg.append('g').attr("transform", "translate(50,50)");
 		
 d3.json('https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json')
   .then(data => {
