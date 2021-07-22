@@ -9,7 +9,7 @@ g = svg.append("g").attr("transform", "translate(" +margin+ "," +margin+ ")");
 
 svg.append("text")
    .attr("x", (width/2))
-   .attr("y", 0 - (margin/2))
+   .attr("y", 25)
    .style("font-size", "16px")
    .style("text-decoration", "underline")
    .text("Income Disparity around the World"); 
