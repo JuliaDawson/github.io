@@ -1,17 +1,17 @@
 const width = 900;
 const height = 600;
 
+const svg = d3.select('body').append('svg')
+                .attr('width',width)
+		.attr('height',height)
+                .attr('margin', 50);
+
 svg.append("text")
    .attr("x", (width/2))
    .attr("y", 25)
    .style("font-size", "16px")
    .style("text-decoration", "underline")
    .text("Income Disparity around the World"); 
-
-const svg = d3.select('body').append('svg')
-                .attr('width',width)
-		.attr('height',height)
-                .attr('margin', 50)
 
 //https://www.youtube.com/watch?v=urfyp-r255A
 //cdn.jsdeliv.net/npm/world-atlas@2/countries-110m.json		
