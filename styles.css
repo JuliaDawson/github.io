@@ -1,5 +1,12 @@
 
 	<style>
+		body {
+			background-color: lightgrey;
+			text-align: center;
+		}
+		h1, h3, p{
+			text-align:center;
+		}
 		svg {
 			margin: 0;
 			background: pink;
