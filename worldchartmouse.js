@@ -1,8 +1,7 @@
 var width = 900;
 var height = 600;
 
-<div id="visualization" align="center"></div> 
-  <!--SVG is appended to this div-->  
+<div id="map"></div> 
 
 //https://www.youtube.com/watch?v=urfyp-r255A
 //cdn.jsdeliv.net/npm/world-atlas@2/countries-110m.json		
@@ -11,7 +10,7 @@ var height = 600;
 var projection = d3.geoMercator().translate([width/2,height/2]).scale(140);
 var path = d3.geoPath().projection(projection);
 
-var svg = d3.select('body')
+var svg = d3.select('body').append("div")
 	.append('svg')
         .attr('width',width)
 	.attr('height',height)
