@@ -7,9 +7,9 @@ h1, h3, h5, p{
 }
 
 path {
-  stroke: red;          
-  stroke-width: 0.5px;  
-  fill: orange;        
+  stroke: black;          
+  stroke-width: 1;  
+  fill: lightgrey;        
 }
 
 #tooltip {
@@ -31,8 +31,8 @@ svg {
 
 <!-- I don't think below is working -->
 .country {
-	fill: 'lightgrey';
-	stroke: 'black'; 
+	fill: lightgrey;
+	stroke: black; 
 	stroke-width: 1;
       	}
 .selected {
