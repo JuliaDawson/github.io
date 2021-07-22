@@ -6,6 +6,13 @@ const svg = d3.select('body').append('svg')
 		.attr('height',height)
                 .attr('margin', 50);
 g = svg.append("g").attr("transform", "translate(" +margin+ "," +margin+ ")");
+
+svg.append("text")
+   .attr("x", (width/2))
+   .attr("y", 0 - (margin/2))
+   .style("font-size", "16px")
+   .style("text-decoration", "underline")
+   .text("Income Disparity around the World"); 
 				
 //https://www.youtube.com/watch?v=urfyp-r255A
 //cdn.jsdeliv.net/npm/world-atlas@2/countries-110m.json		
