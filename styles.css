@@ -31,9 +31,9 @@ svg {
 
 <!-- I don't think below is working -->
 .country {
-	fill: #cccccc;
-	stroke: #333333; 
-	stroke-width: 0.5;
+	fill: 'lightgrey';
+	stroke: 'black'; 
+	stroke-width: 1;
       	}
 .selected {
 	fill: yellow;
