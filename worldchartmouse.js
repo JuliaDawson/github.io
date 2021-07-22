@@ -13,8 +13,8 @@ var svg = d3.select('body')
         .attr('width',width)
 	.attr('height',height)
   svg.append('rect')
-    .attr('width', w)
-    .attr('height', h)
+    .attr('width', width)
+    .attr('height', height)
     .attr('fill', 'white');
   // Append empty placeholder g element to the SVG
   // g will contain geometry elements
