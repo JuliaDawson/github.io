@@ -41,6 +41,18 @@ d3.json('https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json')
             .on("mouseout", handleMouseOut);
 })
 
+    
+    //create the zoom effect
+    var zoom = d3.behavior.zoom()
+      .on("zoom", function() {
+        g.attr("transform", "translate(" +
+          d3.event.translate.join(",") + ")scale(" + d3.event.scale + ")");
+        g.selectAll("path")
+          .attr("d", path.projection(projection));
+      });
+    svg.call(zoom);
+    
+
  // Create Event Handlers for mouse
       function handleMouseOver(d, i) {  // Add interactivity
             // Use D3 to select element, change color and size
