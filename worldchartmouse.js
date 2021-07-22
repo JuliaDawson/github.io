@@ -18,9 +18,6 @@ svg.append("text")
 //cdn.jsdeliv.net/npm/world-atlas@2/countries-110m.json		
 //github.com/d3/d3-geo
 
-<h1>Share Prosperity across the world</h1>
-<p>Move over the map to see prosperity metrics for each country</p>
-
 const projection = d3.geoMercator().scale(140).translate([width/2,height/2]).scale(100);
 const path = d3.geoPath(projection);
 
