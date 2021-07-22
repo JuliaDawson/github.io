@@ -44,13 +44,13 @@ d3.json('https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json')
     
     //create the zoom effect
     var zoom = d3.zoom()
-      .on("zoom", function() {
-        g.attr("transform", "translate(" +
-          d3.event.translate.join(",") + ")scale(" + d3.event.scale + ")");
-        g.selectAll("path")
-          .attr("d", path.projection(projection));
-      });
-    svg.call(zoom);
+      .scaleExtent([1, 8])
+      .on('zoom', function() {
+          g.selectAll('path')
+           .attr('transform', d3.event.transform);
+    });
+
+svg.call(zoom);
     
 
  // Create Event Handlers for mouse
