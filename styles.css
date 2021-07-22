@@ -1,25 +1,40 @@
+body {
+	background-color: lightgrey;
+	text-align: center;
+}
+h1, h3, h5, p{
+	text-align:center;
+}
 
-	<style>
-		body {
-			background-color: lightgrey;
-			text-align: center;
-		}
-		h1, h3, p{
-			text-align:center;
-		}
-		svg {
-			margin: 0;
-			background: pink;
-			text-align: center;
-		}
-                <!-- I don't think below is working -->
-		.country {
-			fill: #cccccc;
-			stroke: #333333; 
-			stroke-width: 0.5;
-        	}
-                .selected {
-			fill: yellow;
-                }
-	</style>
+path {
+  stroke: red;          
+  stroke-width: 0.5px;  
+  fill: orange;        
+}
 
+#tooltip {
+  text-align: left;
+  padding: 16px;
+  background-color: lightsalmon;
+  border: 1px solid black;
+  width: auto;
+  opacity: 0;
+  color: black;
+  position: absolute;
+}
+
+svg {
+	margin: 0;
+	background: pink;
+	text-align: center;
+}
+
+<!-- I don't think below is working -->
+.country {
+	fill: #cccccc;
+	stroke: #333333; 
+	stroke-width: 0.5;
+      	}
+.selected {
+	fill: yellow;
+        }
