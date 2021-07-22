@@ -3,7 +3,7 @@ var height = 600;
 
 <div id="visualization" align="center"></div> 
   <!--SVG is appended to this div-->  
-</div>
+
 //https://www.youtube.com/watch?v=urfyp-r255A
 //cdn.jsdeliv.net/npm/world-atlas@2/countries-110m.json		
 //github.com/d3/d3-geo
