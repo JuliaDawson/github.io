@@ -24,7 +24,7 @@ var svg = d3.select('body')
   
   //add a call to d3.json to load the TopoJSON file
   //so it loads into our visualization
-  d3.json('https://d3js.org/world-50m.v1.json', function(error, data) {
+  d3.json('https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json', function(error, data) {
     if (error) console.error(error);
     g.append('path')
       .datum(topojson.feature(data, data.objects.countries))
