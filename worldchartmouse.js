@@ -1,7 +1,6 @@
 var width = 900;
 var height = 600;
 
-<div id="map"></div> 
 
 //https://www.youtube.com/watch?v=urfyp-r255A
 //cdn.jsdeliv.net/npm/world-atlas@2/countries-110m.json		
@@ -40,15 +39,15 @@ d3.json('https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json')
 	   .attr('d', path)
 	   /* Could replace with mouseover, mouseout, see www.youtube.com watch?v=aNbgrqRuoiE */
     .on("mouseover", function(d) {		
-      div.style("opacity", .9);		
-      div.html("MegaWatts: " 
+      g.style("opacity", .9);		
+      g.html("MegaWatts: " 
       + "</br>" + "Turbines: " 
       + "</br>" + "MW/T: " )	
       .style("left", (d3.event.pageX) + "px")		
       .style("top", (d3.event.pageY - 28) + "px");	
       })					
     .on("mouseout", function(d) {		
-      div.style("opacity", 0);	
+      g.style("opacity", 0);	
     })
 
 })
