@@ -6,7 +6,7 @@ const svg = d3.select('body').append('svg')
 		.attr('height',height)
                 .attr('margin', 50)
 
-g = svg.append("g").attr("transform", "translate(" +margin+ "," +margin+ ")");
+g = svg.append("g").attr("transform", "translate(50,50)");
 
 svg.append("text")
    .attr("x", (width/2))
