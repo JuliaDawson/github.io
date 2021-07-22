@@ -4,7 +4,7 @@ const height = 600;
 //https://www.youtube.com/watch?v=urfyp-r255A
 //cdn.jsdeliv.net/npm/world-atlas@2/countries-110m.json		
 //github.com/d3/d3-geo
-https://www.youtube.com/watch?v=dJbpo8R47D0
+//https://www.youtube.com/watch?v=dJbpo8R47D0
 const projection = d3.geoMercator().translate([width/2,height/2]).scale(100);
 const path = d3.geoPath().projection(projection);
 
