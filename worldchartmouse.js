@@ -1,20 +1,18 @@
 const width = 900;
 const height = 600;
 
-const svg = d3.select('body').append('svg')
-                .attr('width',width)
-		.attr('height',height)
-                .attr('margin', 50)
-
-g = svg.append("g").attr("transform", "translate(50,50)");
-
 svg.append("text")
    .attr("x", (width/2))
    .attr("y", 25)
    .style("font-size", "16px")
    .style("text-decoration", "underline")
    .text("Income Disparity around the World"); 
-				
+
+const svg = d3.select('body').append('svg')
+                .attr('width',width)
+		.attr('height',height)
+                .attr('margin', 50)
+
 //https://www.youtube.com/watch?v=urfyp-r255A
 //cdn.jsdeliv.net/npm/world-atlas@2/countries-110m.json		
 //github.com/d3/d3-geo
@@ -22,7 +20,7 @@ svg.append("text")
 const projection = d3.geoMercator().scale(140).translate([width/2,height/2]).scale(100);
 const path = d3.geoPath(projection);
 
-const g = svg.append('g');
+const g = svg.append('g').attr("transform", "translate(50,50)");
 		
 d3.json('https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json')
   .then(data => {
