@@ -37,8 +37,18 @@ d3.json('https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json')
 	   .attr('stroke-width', '1')
 	   .attr('d', path)
 	   /* Could replace with mouseover, mouseout, see www.youtube.com watch?v=aNbgrqRuoiE */
-            .on("mouseover", handleMouseOver)
-            .on("mouseout", handleMouseOut);
+    .on("mouseover", function(d) {		
+      div.style("opacity", .9);		
+      div.html("MegaWatts: " 
+      + "</br>" + "Turbines: " 
+      + "</br>" + "MW/T: " )	
+      .style("left", (d3.event.pageX) + "px")		
+      .style("top", (d3.event.pageY - 28) + "px");	
+      })					
+    .on("mouseout", function(d) {		
+      div.style("opacity", 0);	
+    })
+
 })
 
     
@@ -53,19 +63,3 @@ d3.json('https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json')
 svg.call(zoom);
     
 
- // Create Event Handlers for mouse
-      function handleMouseOver(d, i) {  // Add interactivity
-            // Use D3 to select element, change color and size
-	      console.log("handleMouseIn  ",d, i);
-	      d3.select(this).attr({    
-                fill: "orange"
-              });
-          }
-
-      function handleMouseOut(d, i) {
-	    console.log("handleMouseOut ",d, i);	
-            // Use D3 to select element, change color back to normal
-            d3.select(this).attr({
-              fill: "#cccccc"
-            });
-          }
