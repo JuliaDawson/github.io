@@ -47,7 +47,7 @@ d3.json('https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json')
     .on("mouseover", function(d) {
       console.log("mouseover  ",d.properties.name, d.population);
       d3.select(this).style('fill', 'orange');
-      div.html(d => `<strong>Country: </strong><span class='details'>${d.properties.name}<br></span><strong>Population: </strong><span class='details'>${format(d.population)}</span>`)  
+      div.html("Country: " + d.properties.name)  
       .style("left", (d3.event.pageX) + "px")		
       .style("top", (d3.event.pageY - 28) + "px");	
 	   
