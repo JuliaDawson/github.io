@@ -10,15 +10,18 @@ var height = 600;
 var projection = d3.geoMercator().translate([width/2,height/2]).scale(140);
 var path = d3.geoPath().projection(projection);
 
-var svg = d3.select('body').append("div")
-	.append('svg')
-        .attr("class", "tooltip")
-        .attr('width',width)
-	.attr('height',height)
-  svg.append('rect')
-    .attr('width', width)
-    .attr('height', height)
-    .attr('fill', 'white');
+       
+  let svg = d3.select("#visualization").append("svg")
+    .attr("width", width + margin + margin)
+    .attr("height", height + margin + margin)
+    .append("g")
+    .attr("transform",
+          "translate(" + margin + "," + margin + ")");
+                   
+  let div = d3.select("body").append("div")	
+    .attr("class", "tooltip")				
+    .style("opacity", 0); 
+
   // Append empty placeholder g element to the SVG
   // g will contain geometry elements
   var g = svg.append("g");
