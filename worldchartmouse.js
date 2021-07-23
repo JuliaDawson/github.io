@@ -38,7 +38,8 @@ d3.json('https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json')
 	   .attr('stroke-width', '1')
 	   .attr('d', path)
 	   /* Could replace with mouseover, mouseout, see www.youtube.com watch?v=aNbgrqRuoiE */
-    .on("mouseover", function(d) {		
+    .on("mouseover", function(d) {
+      console.log("mouseover  ",d, i);	   
       d3.select(this).style('fill', 'orange');		
       })					
     .on("mouseout", function(d) {		
