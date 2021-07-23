@@ -1,7 +1,11 @@
 var width = 900;
 var height = 600;
 
-  
+// Set tooltips
+const tip = d3.tip()
+  .attr('class', 'd3-tip')
+  .offset([-10, 0])
+  .html(d => `<strong>Country: </strong><span class='details'>${d.properties.name}<br></span><strong>Population: </strong><span class='details'>${format(d.population)}</span>`);  
 
 //https://www.youtube.com/watch?v=urfyp-r255A
 //cdn.jsdeliv.net/npm/world-atlas@2/countries-110m.json		
@@ -42,12 +46,11 @@ d3.json('https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json')
 	   /* Could replace with mouseover, mouseout, see www.youtube.com watch?v=aNbgrqRuoiE */
     .on("mouseover", function(d) {
       console.log("mouseover  ",d.properties.name);
-      d3.select(this).html("Country: " + d.properties.name)
-      .style("left", (d3.event.pageX) + "px")		
-      .style("top", (d3.event.pageY - 28) + "px");	   
+      tip.show(d);   
       d3.select(this).style('fill', 'orange');		
       })					
-    .on("mouseout", function(d) {		
+    .on("mouseout", function(d) {
+      tip.hide(d);	   
       d3.select(this).style('fill', 'lightgrey');	
     })
 
