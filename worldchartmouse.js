@@ -1,6 +1,19 @@
 var width = 900;
 var height = 600;
 
+  <h1>Map Data Across the Globe</h1>
+    
+  <div id="visualization" align="center"></div> 
+    <!--SVG is appended to this div-->  
+  </div>
+  
+  <h3>Income Disparity -or- Shared Prosperity</h3>
+  <h5>Zoom in/out | Hover over the data point for additional data</h5>
+  
+  <div id="tooltip">
+    Name: <span id="name" class="info"></span><br>
+  </div>
+  
 
 //https://www.youtube.com/watch?v=urfyp-r255A
 //cdn.jsdeliv.net/npm/world-atlas@2/countries-110m.json		
