@@ -1,5 +1,6 @@
 var width = 900;
 var height = 600;
+var margin = 50;
 
 //  .html(d => `<strong>Country: </strong><span class='details'>${d.properties.name}<br></span><strong>Population: </strong><span class='details'>${format(d.population)}</span>`);  
 
