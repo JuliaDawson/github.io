@@ -42,7 +42,7 @@ d3.json('https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json')
 	   /* Could replace with mouseover, mouseout, see www.youtube.com watch?v=aNbgrqRuoiE */
     .on("mouseover", function(d) {
       console.log("mouseover  ",d.properties.name);
-      div.html("Country: " + d.properties.name)
+      d3.select(this).html("Country: " + d.properties.name)
       .style("left", (d3.event.pageX) + "px")		
       .style("top", (d3.event.pageY - 28) + "px");	   
       d3.select(this).style('fill', 'orange');		
