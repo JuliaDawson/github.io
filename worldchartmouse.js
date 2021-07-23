@@ -11,8 +11,7 @@ var path = d3.geoPath().projection(projection);
 
 var svg = d3.select('body').append("div")
 	.append('svg')
-        .attr("class", "tooltip")				
-        .style("opacity", 0) 
+        .attr("class", "tooltip")
         .attr('width',width)
 	.attr('height',height)
   svg.append('rect')
