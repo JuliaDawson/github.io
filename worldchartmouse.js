@@ -1,6 +1,3 @@
-var width = 900;
-var height = 600;
-
   <h1>Map Data Across the Globe</h1>
     
   <div id="visualization" align="center"></div> 
@@ -13,6 +10,9 @@ var height = 600;
   <div id="tooltip">
     Name: <span id="name" class="info"></span><br>
   </div>
+var width = 900;
+var height = 600;
+
   
 
 //https://www.youtube.com/watch?v=urfyp-r255A
@@ -66,13 +66,13 @@ d3.json('https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json')
 })
 
     
-    //create the zoom effect
-    var zoom = d3.zoom()
-      .scaleExtent([1, 8])
-      .on('zoom', function() {
-          g.selectAll('path')
-           .attr('transform', d3.event.transform);
-    });
+//create the zoom effect
+var zoom = d3.zoom()
+  .scaleExtent([1, 8])
+  .on('zoom', function() {
+      g.selectAll('path')
+      .attr('transform', d3.event.transform);
+  });
 
 svg.call(zoom);
     
