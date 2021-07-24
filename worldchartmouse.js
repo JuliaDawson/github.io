@@ -14,7 +14,7 @@ var svg = d3.select('body').append("div")
         .attr('width',width)
 	.attr('height',height)
         .attr("class", "tooltip")				
-        .style("opacity", 0) 
+        .style("opacity", 0); 
   // Append empty placeholder g element to the SVG
   // g will contain geometry elements
   var g = svg.append("g");
