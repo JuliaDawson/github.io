@@ -3,9 +3,11 @@ var height = 600;
 
 console.log("in new wcm promises js");
 const fetchTopo = fetch('https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json');
+Promise([fetchTopo]).then(values.map(r => r.json())); 
+   console.log(values);
+});
 const fetchcsv  = fetch('MatchTopo_Distribution_of_income_Shared_Prosperity.csv');
-
-Promise.all([fetchTopo, fetchcsv]).then(values => { 
+Promise([fetchcsv]).then(values.map(r => r.csv())); 
    console.log(values);
 });	
 
