@@ -6,8 +6,11 @@ const fetchCsv  = fetch('MatchTopo_Distribution_of_income_Shared_Prosperity.csv'
 Promise.all([fetchTopo, fetchCsv]).then(values => {
    return Promise.all(values[0].map(r => r.json()),values[1].map(r => r.text())); 
 }).then (([topodata, csvdata]) => {
-	console.log(topdata);
+	console.log(topodata);
 	console.log(csvdata);
+}).catch(e => {
+	console.log('caught!');
+	console.log(e);
 });	
 //Promise.all([fetchcsv]).then(valuec => {
 //   return Promise.all(valuec.map(r => r.text())); 
