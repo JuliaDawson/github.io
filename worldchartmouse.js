@@ -2,8 +2,11 @@ var width = 900;
 var height = 600;
 
 //Read CSV and make a hash table
-dispinfo = d3.csv("MatchTopo_Distribution_of_income_Shared_Prosperity.csv");
-console.log(dispinfo);
+var dispinfo = d3.csv("MatchTopo_Distribution_of_income_Shared_Prosperity.csv");
+for (i=0;i<dispinfo.length;i++){
+    console.log(i,": ", dispinfo.data[i]);    
+}
+
 
 //d3.csv("MatchTopo_Distribution_of_income_Shared_Prosperity.csv", function(data) {
 //				console.log(data);				
