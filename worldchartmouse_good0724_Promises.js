@@ -6,8 +6,10 @@ const fetchTopo = fetch('https://cdn.jsdelivr.net/npm/world-atlas@2/countries-11
 const fetchcsv  = fetch('MatchTopo_Distribution_of_income_Shared_Prosperity.csv');
 
 Promise.all([fetchTopo, fetchcsv]).then(values => { 
-   console.log(values);
-});
+   return Promise.all(values[0].map(r => r.json()), values[1].map(r =>r.csv()));
+}).then(value => {
+	console.log(values);
+});	
 
 //Read CSV and make a hash table
 d3.csv("MatchTopo_Distribution_of_income_Shared_Prosperity.csv", function(data) {
