@@ -2,17 +2,21 @@ var width = 900;
 var height = 600;
 
 //Read CSV and make a hash table
-d3.csv("MatchTopo_Distribution_of_income_Shared_Prosperity.csv", function(error, data) {
+d3.csv("MatchTopo_Distribution_of_income_Shared_Prosperity.csv", function(error, dispdata) {
    if (error) {
       return console.warn(error);
    }
 	
-   for (var i = 0; i < data.length; i++) {
-      console.log(data[i].DISPCountry);
-      console.log(data[i].DISPRegion);	   
+   for (var i = 0; i < dispdata.length; i++) {
+      console.log(dispdata[i].DISPCountry);
+      console.log(dispdata[i].DISPRegion);	   
+      console.log(dispdata[i].DIGiniIndex);	   
    }	   
 });
-
+function conversor(d){
+    d.DIGiniIndex = +d.DIGiniIndex;
+    return d;
+}
 
 
 //d3.csv("MatchTopo_Distribution_of_income_Shared_Prosperity.csv", function(data) {
