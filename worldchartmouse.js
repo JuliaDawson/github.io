@@ -7,6 +7,10 @@ var csvarray = d3.csv("MatchTopo_Distribution_of_income_Shared_Prosperity.csv", 
     console.log(data);
 });
 
+const result = csvarray.filter(DISPCountry => DISPCountry === "Angola");
+console.log(result);
+	
+
 
 //d3.csv("MatchTopo_Distribution_of_income_Shared_Prosperity.csv", function(data) {
 //				console.log(data);				
