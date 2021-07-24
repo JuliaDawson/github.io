@@ -6,7 +6,7 @@ d3.csv("MatchTopo_Distribution_of_income_Shared_Prosperity.csv", function(csvdat
     data.DIGiniIndex = +data.DIGiniIndex;
     var filteredData = csvarray.filter(function(d) 
     { 
-        if( d["DISPCountry"] == "Angola") || (d["DISPCountry"]=="Russia")
+        if( d["DISPCountry"] == "Angola")
         { 
             return d;
         } 
