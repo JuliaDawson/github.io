@@ -48,7 +48,8 @@ var svg = d3.select('body').append("div")
         .attr('width',width)
 	.attr('height',height);
 var tooltip = d3.select("div.tooltip");
-		
+
+console.log("topodata b4 use: " + topodata);
 d3.json('https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json')
   .then(data => {
 
