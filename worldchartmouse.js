@@ -12,9 +12,7 @@ d3.csv("MatchTopo_Distribution_of_income_Shared_Prosperity.csv", function(error,
       console.log(data[i].DISPRegion);	   
    }	   
 });
-for (i=0;i<dispinfo.length;i++){
-    console.log(i,": ", dispinfo.data[i]);    
-}
+
 
 
 //d3.csv("MatchTopo_Distribution_of_income_Shared_Prosperity.csv", function(data) {
