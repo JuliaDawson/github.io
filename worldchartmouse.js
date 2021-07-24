@@ -2,9 +2,12 @@ var width = 900;
 var height = 600;
 
 //Read CSV and make a hash table
-d3.csv("MatchTopo_Distribution_of_income_Shared_Prosperity.csv", function(data) {
-				console.log(data);				
-			});
+dispinfo = d3.csv("MatchTopo_Distribution_of_income_Shared_Prosperity.csv");
+console.log(dispinfo);
+
+//d3.csv("MatchTopo_Distribution_of_income_Shared_Prosperity.csv", function(data) {
+//				console.log(data);				
+//			});
 
 //https://www.youtube.com/watch?v=urfyp-r255A
 //cdn.jsdeliv.net/npm/world-atlas@2/countries-110m.json		
