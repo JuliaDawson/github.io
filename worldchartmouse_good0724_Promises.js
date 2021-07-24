@@ -2,8 +2,8 @@ var width = 900;
 var height = 600;
 
 const fetchTopo = fetch('https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json');
-Promise([fetchTopo]).then(values => {
-   return Promise(values.map(r => r.json())); 
+Promise.all([fetchTopo]).then(values => {
+   return Promise.all(values.map(r => r.json())); 
 }).then (([topodata]) => {
 	console.log(topodata);
 }).catch(e => {
@@ -12,8 +12,8 @@ Promise([fetchTopo]).then(values => {
 });
 
 const fetchCsv  = fetch('MatchTopo_Distribution_of_income_Shared_Prosperity.csv');
-Promise([fetchCsv]).then(values => {
-   return Promise(values.map(r => r.text())); 
+Promise.all([fetchCsv]).then(values => {
+   return Promise.all(values.map(r => r.text())); 
 }).then (([csvfetch]) => {
 	console.log(csvfetch);
 }).catch(e => {
