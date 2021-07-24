@@ -41,20 +41,20 @@ d3.json('https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json')
 	   /* Could replace with mouseover, mouseout, see www.youtube.com watch?v=aNbgrqRuoiE */
     .on("mouseover", function(d,i) {
       console.log("mouseover  ",d.properties.name);	   
-      d3.select(this).attr("fill","orange").attr("stroke-width",2);
       tooltip.classed("hidden", false)
 	      .html("Name: " + d.properties.name);
+      d3.select(this).attr("fill","orange").attr("stroke-width",2);
       })					
     .on("mousemove",function(d,i){
-       d3.select(this).attr("fill","orange").attr("stroke-width",2);
        tooltip.classed("hidden", false)
                .style("top", (d3.event.pageY) + "px")
                .style("left", (d3.event.pageX + 10) + "px")
                .html("Name: " + d.properties.name);
-      })
+       d3.select(this).attr("fill","orange").attr("stroke-width",2);
+     })
      .on("mouseout",function(d,i){
-         d3.select(this).attr("fill","lightgrey").attr("stroke-width",1);
          tooltip.classed("hidden", true);
+         d3.select(this).attr("fill","lightgrey").attr("stroke-width",1);
       });
 
 })
