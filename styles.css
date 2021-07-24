@@ -13,7 +13,6 @@ h1, h3, h5, p{
 // 7-23 took out fill:lightgrey
 path {
   stroke: black;  
-  fill: pink;	
   stroke-width: 1;  
 }
 
