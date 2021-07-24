@@ -17,13 +17,7 @@ var tooltip = d3.select("div.tooltip");
 		
 d3.json('https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json')
   .then(data => {
-   //Temporary - write the countries to console
-   console.log("Start countries:");	
-   data.forEach(function(d) {
-       console.log(d.properties.name);	     
-   });
-   console.log("End countries:");	
-	
+
    var countries = topojson.feature(data, data.objects.countries).features; 
    
    svg.selectAll('path')
@@ -34,6 +28,7 @@ d3.json('https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json')
 	   .attr('stroke', 'black') 
 	   .attr('stroke-width', '1')
 	   .attr('d', path)
+	   .attr('fake', d=> console.log(d.properties.name)
 	   /* Could replace with mouseover, mouseout, see www.youtube.com watch?v=aNbgrqRuoiE */
     .on("mouseover", function(d,i) {
       console.log("mouseover  ",d.properties.name);	   
