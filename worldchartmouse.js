@@ -2,9 +2,10 @@ var width = 900;
 var height = 600;
 
 //Read CSV and make a hash table
-d3.csv("MatchTopo_Distribution_of_income_Shared_Prosperity.csv", function(csvdata) {
+d3.csv("MatchTopo_Distribution_of_income_Shared_Prosperity.csv", function(data) {
     data.DIGiniIndex = +data.DIGiniIndex;
-    var filteredData = csvarray.filter(function(d) 
+	
+    var filteredData = data.filter(function(d) 
     { 
         if( d["DISPCountry"] == "Angola")
         { 
