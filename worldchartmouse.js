@@ -3,7 +3,7 @@ var height = 600;
 
 //Read CSV and make a hash table
 d3.csv("MatchTopo_Distribution_of_income_Shared_Prosperity.csv", function(data) {
-    d.DIGiniIndex = +d.DIGiniIndex;
+    data.DIGiniIndex = +data.DIGiniIndex;
     console.log(data);
 });
 
