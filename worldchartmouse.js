@@ -4,8 +4,8 @@ var height = 600;
 //Read CSV and make a hash table
 d3.csv("MatchTopo_Distribution_of_income_Shared_Prosperity.csv", function(data) {
     return {	
-            countryName = data.DISPCountry.
-	    region =     data.DISPRegion.
+            countryName = data.DISPCountry,
+	    region =     data.DISPRegion,
 	    giniIndex = +data.DIGiniIndex
     }	    
     filtered = data.filter(function(d) { return d.countryName === "Russia" }); 
