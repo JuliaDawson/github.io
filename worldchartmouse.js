@@ -14,12 +14,6 @@ var svg = d3.select('body').append("div")
         .attr('width',width)
 	.attr('height',height);
 var tooltip = d3.select("div.tooltip");
-  // Append empty placeholder g element to the SVG
-  // g will contain geometry elements
-  var g = svg.append("g");
-
-
-// const g = svg.append('g').attr("transform", "translate(50,50)");
 		
 d3.json('https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json')
   .then(data => {
