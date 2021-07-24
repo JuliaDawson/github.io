@@ -24,7 +24,8 @@ svg {
 
 <!-- I don't think below is working  took out fill:lightgrey 7/23-->
 .country {
-	stroke: black; 
+	stroke: black;
+	fill: pink;
 	stroke-width: 1;
       	}
 .selected {
