@@ -1,6 +1,7 @@
 var width = 900;
 var height = 600;
 
+console.log("in new wcm promises js');
 const fetchTopo = fetch('https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json');
 const fetchcsv  = fetch('MatchTopo_Distribution_of_income_Shared_Prosperity.csv');
 
