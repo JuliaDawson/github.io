@@ -3,20 +3,22 @@ var height = 600;
 
 const fetchTopo = fetch('https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json');
 const fetchCsv  = fetch('MatchTopo_Distribution_of_income_Shared_Prosperity.csv');
-Promise.all([fetchTopo, fetchCsv]).then(values => {
-   return Promise.all(values[0].map(r => r.json()),values[1].map(r => r.text())); 
-}).then (([topodata, csvdata]) => {
+Promise.all([fetchTopo]).then(values => {
+   return Promise.all(values.map(r => r.json())); 
+}).then (([topodata]) => {
 	console.log(topodata);
-	console.log(csvdata);
 }).catch(e => {
-	console.log('caught!');
+	console.log('caught topo!');
 	console.log(e);
 });	
-//Promise.all([fetchcsv]).then(valuec => {
-//   return Promise.all(valuec.map(r => r.text())); 
-//}).then (valuec => {
-//	console.log(valuec);
-//});
+Promise.all([fetchcsv]).then(values => {
+   return Promise.all(values.map(r => r.text())); 
+}).then (([csvfetch]) => {
+	console.log(csvfetch);
+}).catch(e => {
+	console.log('caught csv!');
+	console.log(e);
+});
 //Read CSV and make a hash table
 d3.csv("MatchTopo_Distribution_of_income_Shared_Prosperity.csv", function(data) {
     return {	
