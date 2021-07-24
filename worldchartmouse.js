@@ -1,7 +1,6 @@
 var width = 900;
 var height = 600;
 
-
 //https://www.youtube.com/watch?v=urfyp-r255A
 //cdn.jsdeliv.net/npm/world-atlas@2/countries-110m.json		
 //github.com/d3/d3-geo
