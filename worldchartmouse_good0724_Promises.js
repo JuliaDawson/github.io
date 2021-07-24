@@ -2,17 +2,18 @@ var width = 900;
 var height = 600;
 
 const fetchTopo = fetch('https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json');
-Promise.all([fetchTopo]).then(valuet => {
-   return Promise.all(valuet.map(r => r.json())); 
-}).then (valuet => {
-	console.log(valuet);
+const fetchCsv  = fetch('MatchTopo_Distribution_of_income_Shared_Prosperity.csv');
+Promise.all([fetchTopo, fetchCsv]).then(values => {
+   return Promise.all(values[0].map(r => r.json()),values[1].map(r => r.text())); 
+}).then (([topodata, csvdata]) => {
+	console.log(topdata);
+	console.log(csvdata);
 });	
-const fetchcsv  = fetch('MatchTopo_Distribution_of_income_Shared_Prosperity.csv');
-Promise.all([fetchcsv]).then(valuec => {
-   return Promise.all(valuec.map(r => r.text())); 
-}).then (valuec => {
-	console.log(valuec);
-});
+//Promise.all([fetchcsv]).then(valuec => {
+//   return Promise.all(valuec.map(r => r.text())); 
+//}).then (valuec => {
+//	console.log(valuec);
+//});
 //Read CSV and make a hash table
 d3.csv("MatchTopo_Distribution_of_income_Shared_Prosperity.csv", function(data) {
     return {	
