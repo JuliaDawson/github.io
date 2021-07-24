@@ -1,19 +1,3 @@
-.hidden {
-      display: none;
-}
-div.tooltip {	
-  position: absolute;			
-  text-align: center;			
-  width: 140px;					
-  height: 50px;					
-  padding: 2px;				
-  font: 12px sans-serif;		
-  background: lightgreen;	
-  border: 0px;		
-  border-radius: 8px;			
-  pointer-events: none;			
-}
-
 html {
   font: normal 100%/1.4 Georgia,serif;
   background: #eff4f0;
@@ -48,3 +32,19 @@ svg {
 .selected {
 	fill: yellow;
         }
+
+.hidden {
+      display: none;
+}
+div.tooltip {	
+  position: absolute;			
+  text-align: center;			
+  width: 140px;					
+  height: 50px;					
+  padding: 2px;				
+  font: 12px sans-serif;		
+  background: lightgreen;	
+  border: 0px;		
+  border-radius: 8px;			
+  pointer-events: none;			
+}
