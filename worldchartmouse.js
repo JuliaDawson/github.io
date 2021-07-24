@@ -46,7 +46,8 @@ d3.json('https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json')
 	      .html("Name: " + d.properties.name);
       })					
     .on("mousemove",function(d){
-        tooltip.classed("hidden", false)
+       d3.select(this).attr("fill","orange").attr("stroke-width",2);
+       tooltip.classed("hidden", false)
                .style("top", (d3.event.pageY) + "px")
                .style("left", (d3.event.pageX + 10) + "px")
                .html("Name: " + d.properties.name);
