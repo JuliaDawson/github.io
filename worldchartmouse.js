@@ -2,7 +2,16 @@ var width = 900;
 var height = 600;
 
 //Read CSV and make a hash table
-var dispinfo = d3.csv("MatchTopo_Distribution_of_income_Shared_Prosperity.csv");
+d3.csv("MatchTopo_Distribution_of_income_Shared_Prosperity.csv", function(error, data) {
+   if (error) {
+      return console.warn(error);
+   }
+	
+   for (var i = 0; i < data.length; i++) {
+      console.log(data[i].DISPCountry);
+      console.log(data[i].DISPRegion);	   
+   }	   
+}
 for (i=0;i<dispinfo.length;i++){
     console.log(i,": ", dispinfo.data[i]);    
 }
