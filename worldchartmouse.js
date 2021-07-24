@@ -20,7 +20,7 @@ d3.json('https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json')
    //Temporary - write the countries to console
    console.log("Start countries:");	
    data.forEach(function(d) {
-   console.log(d.properties.name);	     
+       console.log(d.properties.name);	     
    });
    console.log("End countries:");	
 	
