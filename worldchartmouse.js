@@ -8,8 +8,7 @@ d3.csv("MatchTopo_Distribution_of_income_Shared_Prosperity.csv", function(data) 
 	    region:     data.DISPRegion,
 	    giniIndex: +data.DIGiniIndex
     }	    
-    filtered = data.filter(function(d) { return d.countryName === "Russia" }); 
-    console.log(filtered);
+    console.log(data);	
 });					        
 
 
