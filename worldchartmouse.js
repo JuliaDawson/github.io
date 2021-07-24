@@ -13,7 +13,10 @@ var svg = d3.select('body').append("div")
 	.append('svg')
         .attr('width',width)
 	.attr('height',height)
-        .attr('fill', 'white');
+  svg.append('rect')
+    .attr('width', width)
+    .attr('height', height)
+    .attr('fill', 'white');
   // Append empty placeholder g element to the SVG
   // g will contain geometry elements
   var g = svg.append("g");
@@ -24,14 +27,6 @@ var svg = d3.select('body').append("div")
 d3.json('https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json')
   .then(data => {
 
-  // Add the path.
-  svg.append("path")
-      .data([data])
-      .attr("class", "line")
-      .attr("d", data)
-      .style("fill", "none")
-      .style("stroke", "black");
-	
    var countries = topojson.feature(data, data.objects.countries).features; 
    
    g.selectAll('.country')
