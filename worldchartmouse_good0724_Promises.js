@@ -1,7 +1,6 @@
 var width = 900;
 var height = 600;
 
-console.log("in new wcm promises js");
 const fetchTopo = fetch('https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json');
 Promise.all([fetchTopo]).then(valuet => {
    return Promise.all(valuet.map(r => r.json())); 
@@ -21,7 +20,7 @@ d3.csv("MatchTopo_Distribution_of_income_Shared_Prosperity.csv", function(data) 
 	    region:     data.DISPRegion,
 	    giniIndex: +data.DIGiniIndex
     }	    
-    console.log(data);	
+    //console.log(data);	
 });					        
 
 
