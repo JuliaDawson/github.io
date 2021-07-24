@@ -28,7 +28,7 @@ d3.json('https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json')
 	   .attr('stroke', 'black') 
 	   .attr('stroke-width', '1')
 	   .attr('d', path)
-	   .attr('fake', d=> console.log(d.properties.name)
+	   .attr('fake', d=> console.log(d.properties.name))
 	   /* Could replace with mouseover, mouseout, see www.youtube.com watch?v=aNbgrqRuoiE */
     .on("mouseover", function(d,i) {
       console.log("mouseover  ",d.properties.name);	   
