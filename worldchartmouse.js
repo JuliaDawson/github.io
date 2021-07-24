@@ -6,7 +6,7 @@ d3.csv("MatchTopo_Distribution_of_income_Shared_Prosperity.csv", function(data) 
     return {	
             countryName = data.DISPCountry.
 	    region =     data.DISPRegion.
-	    giniIndex = +data.DIGiniIndex.
+	    giniIndex = +data.DIGiniIndex
     }	    
     filtered = data.filter(function(d) { return d.countryName === "Russia" }); 
     console.log(filtered);
