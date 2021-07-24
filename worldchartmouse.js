@@ -3,18 +3,15 @@ var height = 600;
 
 //Read CSV and make a hash table
 d3.csv("MatchTopo_Distribution_of_income_Shared_Prosperity.csv", function(data) {
-    data.DIGiniIndex = +data.DIGiniIndex;
-	
-    var filteredData = data.filter(function(d) 
-    { 
-        if( d["DISPCountry"] == "Angola")
-        { 
-            return d;
-        } 
-    })					        
-	
-    console.log(filtereddata);
-});
+    return {	
+            countryName = data.DISPCountry;
+	    region =     data.DISPRegion;
+	    giniIndex = +data.DIGiniIndex;
+    }	    
+    filtered = data.filter(function(d) { return d.countryName === "Russia" }); 
+    console.log(filtered);
+});					        
+
 
 
 //d3.csv("MatchTopo_Distribution_of_income_Shared_Prosperity.csv", function(data) {
