@@ -10,11 +10,10 @@ body {
 h1, h3, h5, p{
 	text-align:center;
 }
-
+// 7-23 took out fill:lightgrey
 path {
   stroke: black;          
   stroke-width: 1;  
-  fill: lightgrey;        
 }
 
 svg {
