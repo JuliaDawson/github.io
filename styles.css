@@ -23,9 +23,8 @@ svg {
 	text-align: center;
 }
 
-<!-- I don't think below is working -->
+<!-- I don't think below is working  took out fill:lightgrey 7/23-->
 .country {
-	fill: lightgrey;
 	stroke: black; 
 	stroke-width: 1;
       	}
