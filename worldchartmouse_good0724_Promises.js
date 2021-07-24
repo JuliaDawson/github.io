@@ -5,14 +5,15 @@ console.log("in new wcm promises js");
 const fetchTopo = fetch('https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json');
 Promise.all([fetchTopo]).then(valuet => {
    return Promise.all(valuet.map(r => r.json())); 
-   console.log(valuet);
-});
+}).then (valuet => {
+	console.log(valuet);
+});	
 const fetchcsv  = fetch('MatchTopo_Distribution_of_income_Shared_Prosperity.csv');
 Promise.all([fetchcsv]).then(valuec => {
    return Promise.all(valuec.map(r => r.text())); 
-   console.log(valuec);
-});	
-
+}).then (valuec => {
+	console.log(valuec);
+});
 //Read CSV and make a hash table
 d3.csv("MatchTopo_Distribution_of_income_Shared_Prosperity.csv", function(data) {
     return {	
