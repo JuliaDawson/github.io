@@ -6,7 +6,7 @@ d3.csv("MatchTopo_Distribution_of_income_Shared_Prosperity.csv", function(data) 
   data.forEach(function(d) {
     d.DIGiniIndex = +d.DIGiniIndex;
   });
-  console.log(data[0]);
+  console.log(d[0]);
 });
 
 
