@@ -42,13 +42,14 @@ d3.json('https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json')
     .on("mouseover", function(d) {
       console.log("mouseover  ",d.properties.name);	   
       d3.select(this).attr("fill","grey").attr("stroke-width",2);
-      return tooltip.style("hidden", false).html(d.properties.name);	   
+      return tooltip.style("hidden", false)
+	      .html("Name: " + d.properties.name);
       })					
     .on("mousemove",function(d){
         tooltip.classed("hidden", false)
                .style("top", (d3.event.pageY) + "px")
                .style("left", (d3.event.pageX + 10) + "px")
-               .html(d.name);
+               .html("Name: " + d.properties.name);
       })
      .on("mouseout",function(d,i){
          d3.select(this).attr("fill","lightgrey").attr("stroke-width",1);
