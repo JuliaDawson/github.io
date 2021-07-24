@@ -12,7 +12,8 @@ var path = d3.geoPath().projection(projection);
 var svg = d3.select('body').append("div")
 	.append('svg')
         .attr('width',width)
-	.attr('height',height)
+	.attr('height',height);
+var tooltip = d3.select("div.tooltip");
   svg.append('rect')
     .attr('width', width)
     .attr('height', height)
