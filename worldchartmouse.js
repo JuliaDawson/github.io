@@ -41,7 +41,7 @@ d3.json('https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json')
 	   /* Could replace with mouseover, mouseout, see www.youtube.com watch?v=aNbgrqRuoiE */
     .on("mouseover", function(d) {
       console.log("mouseover  ",d.properties.name);	   
-      d3.select(this).attr("fill","grey").attr("stroke-width",2);
+      d3.select(this).attr("fill","orange").attr("stroke-width",2);
       tooltip.classed("hidden", false)
 	      .html("Name: " + d.properties.name);
       })					
