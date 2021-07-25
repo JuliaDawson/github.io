@@ -60,7 +60,6 @@ Promise.all([worldmap, econcsv]).then(values => {
     svg.selectAll("text")
         .data(values[1])
         .enter().append('text')
-	.attr('d', text)
         .text(function(d) {
 	          return tooltip.style("hidden", false).html("Country: " + d.DISPCountry + d.DISPRegion + d.giniIndex);
                })
@@ -69,4 +68,5 @@ Promise.all([worldmap, econcsv]).then(values => {
         .attr("x", function(d) {return 5;})
         .attr("y", function(d) {return 15;})
         .attr("class","labels");
+	console.log("In text:" + d.DISPCountry + d.DISPRegion + d.giniIndex);
 });
