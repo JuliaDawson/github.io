@@ -47,35 +47,21 @@ Promise.all([worldmap, econcsv]).then(values => {
       console.log("mouseover  ",d.properties.region);	   
       console.log("mouseover  ",d.properties.giniindex);	   
       d3.select(this).attr("fill","orange").attr("stroke-width",2);
-      return tooltip.style("hidden", false).html("Country: " + d.properties.name + d.properties.region  + d.properties.giniindex)
-      //return tooltip.style("hidden", false).html("Country: " + d.properties.name 
-      //						 + "<br>" + "Region" " + d.properties.region 
-      //						 + "<br>" + "GiniIndex: " + d.properties.giniindex);
+      //return tooltip.style("hidden", false).html("Country: " + d.properties.name + d.properties.region  + d.properties.giniindex)
+      return tooltip.style("hidden", false)
+	.html("Country: " + d.properties.name  + "<br>" + "Region: " + d.properties.region 
+      			 + "<br>" + "GiniIndex: " + d.properties.giniindex);
       })
     .on("mousemove",function(d){
        tooltip.classed("hidden", false)
                .style("top", (d3.event.pageY) + "px")
                .style("left", (d3.event.pageX + 10) + "px")
-               .html("Country: " + d.properties.name + d.properties.region + d.properties.giniindex)
+               //.html("Country: " + d.properties.name + d.properties.region + d.properties.giniindex)
+	.html("Country: " + d.properties.name  + "<br>" + "Region: " + d.properties.region 
+      			 + "<br>" + "GiniIndex: " + d.properties.giniindex);
      })	
      .on("mouseout",function(d,i){
          d3.select(this).attr("fill","lightgrey").attr("stroke-width",1);
          tooltip.classed("hidden", true);
       });
-    // add labels
-    svg.selectAll("text")
-        .data(values[1])
-        .enter().append('text')
-        .text(function(d) {
-       tooltip.classed("hidden", false)
-               //.style("top", (d3.event.pageY) + "px")
-               //.style("left", (d3.event.pageX + 10) + "px")
-               .html("Country: " + d.properties.name + d.properties.region + d.properties.giniindex)
-               })
-        //.attr("x", function(d) {return projection([d.Longitude, d.Lattitude])[0] + 5;})
-        //.attr("y", function(d) {return projection([d.Longitude, d.Lattitude])[1] + 15;})
-        .attr("x", function(d) {return 5;})
-        .attr("y", function(d) {return 15;})
-        .attr("class","labels");
-	//console.log("In text:" + d.countryName + d.region + d.giniIndex);
 });
