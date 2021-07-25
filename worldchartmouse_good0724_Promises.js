@@ -55,7 +55,7 @@ Promise.all([worldmap, econdata]).then(function(values) {
      .on("mouseout",function(d,i){
          d3.select(this).attr("fill","lightgrey").attr("stroke-width",1);
          tooltip.classed("hidden", true),
-      });
+      })
 	
 	// draw points
     svg.selectAll("circle")
