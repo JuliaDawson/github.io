@@ -1,25 +1,7 @@
-var width = 900;
-var height = 600;
+var width = 1400;
+var height = 700;
 
-//const fetchTopo = fetch('https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json');
-//Promise.all([fetchTopo]).then(values => {
-//   return Promise.all(values.map(r => r.json())); 
-//}).then (([topodata]) => {
-//	console.log(topodata);
-//}).catch(e => {
-//	console.log('caught topo!');
-//	console.log(e);
-//});
 
-const fetchCsv  = fetch('MatchTopo_Distribution_of_income_Shared_Prosperity.csv');
-Promise.all([fetchCsv]).then(values => {
-   return Promise.all(values.map(r => r.text())); 
-}).then (([csvfetch]) => {
-	console.log(csvfetch);
-}).catch(e => {
-	console.log('caught csv!');
-	console.log(e);
-});
 //Read CSV and make a hash table
 //d3.csv("MatchTopo_Distribution_of_income_Shared_Prosperity.csv", function(data) {
 //    return {	
@@ -30,11 +12,8 @@ Promise.all([fetchCsv]).then(values => {
 //    //console.log(data);	
 //});					        
 
-
-
-//d3.csv("MatchTopo_Distribution_of_income_Shared_Prosperity.csv", function(data) {
-//				console.log(data);				
-//			});
+var econdata = d3.csv("MatchTopo_Distribution_of_income_Shared_Prosperity.csv");
+var worldmap = d3.json('https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json')
 
 //https://www.youtube.com/watch?v=urfyp-r255A
 //cdn.jsdeliv.net/npm/world-atlas@2/countries-110m.json		
@@ -49,21 +28,40 @@ var svg = d3.select('body').append("div")
 	.attr('height',height);
 var tooltip = d3.select("div.tooltip");
 
-console.log("fetchCsv b4 use: " + fetchCsv);
-d3.json('https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json')
-  .then(data => {
+Promise.all([worldmap, econdata]).then(function(values) {
 
-   var countries = topojson.feature(data, data.objects.countries).features; 
+   // var countries = topojson.feature(data, data.objects.countries).features; 
    
    svg.selectAll('path')
-	   .data(countries)
+	   .data(values[0].features)
 	   .enter().append('path')
 	   .attr('class','country')
 	   .attr('fill', 'lightgrey')
 	   .attr('stroke', 'black') 
 	   .attr('stroke-width', '1')
-	   .attr('d', path)
+	   .attr('d', path),
 	   //.attr('fake', d=> console.log(d.properties.name))
+	// draw points
+    svg.selectAll("circle")
+        .data(values[1])
+        .enter()
+        .append("circle")
+        .attr("class","circles")
+        .attr("cx", function(d) {return projection([d.Longitude, d.Lattitude])[0];})
+        .attr("cy", function(d) {return projection([d.Longitude, d.Lattitude])[1];})
+        .attr("r", "1px"),
+    // add labels
+     svg.selectAll("text")
+        .data(values[1])
+        .enter()
+        .append("text")
+        .text(function(d) {
+            return d.DIGiniIndex;
+            })
+        .attr("x", function(d) {return projection([d.Longitude, d.Lattitude])[0] + 5;})
+        .attr("y", function(d) {return projection([d.Longitude, d.Lattitude])[1] + 15;})
+        .attr("class","labels");
+});	   
 	   /* Could replace with mouseover, mouseout, see www.youtube.com watch?v=aNbgrqRuoiE */
     .on("mouseover", function(d,i) {
       console.log("mouseover  ",d.properties.name);	   
