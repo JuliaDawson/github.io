@@ -1,21 +1,16 @@
-var width = 900;
-var height = 600;
+var width = 1400;
+var height = 700;
+
+var projection = d3.geoMercator().translate([width/2,height/2]).scale(140);
+var path = d3.geoPath().projection(projection);
 
 //Read Topo file and CSV containing economic information
 var worldmap = d3.json("https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json");
-var econcsv = d3.csv("MatchTopo_Distribution_of_income_Shared_Prosperity.csv", function(data) {
-    return {	
-            countryName: data.DISPCountry,
-	    region:     data.DISPRegion,
-	    giniIndex: +data.DIGiniIndex
-    }
-    console.log(data);	
-});	
+var econcsv = d3.csv("MatchTopo_Distribution_of_income_Shared_Prosperity.csv");
 
 Promise.all([worldmap, econcsv]).then(function(values) {					        
 
-	var projection = d3.geoMercator().translate([width/2,height/2]).scale(140);
-	var path = d3.geoPath().projection(projection);
+
 
 	var svg = d3.select('body').append("div")
 		.append('svg')
