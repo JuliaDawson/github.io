@@ -39,8 +39,24 @@ Promise.all([worldmap, econdata]).then(function(values) {
 	   .attr('fill', 'lightgrey')
 	   .attr('stroke', 'black') 
 	   .attr('stroke-width', '1')
-	   .attr('d', path),
+	   .attr('d', path)
 	   //.attr('fake', d=> console.log(d.properties.name))
+    .on("mouseover", function(d,i) {
+      console.log("mouseover  ",d.properties.name);	   
+      d3.select(this).attr("fill","orange").attr("stroke-width",2);
+      return tooltip.style("hidden", false).html("Name: " + d.properties.name);
+      })					
+    .on("mousemove",function(d){
+       tooltip.classed("hidden", false)
+               .style("top", (d3.event.pageY) + "px")
+               .style("left", (d3.event.pageX + 10) + "px")
+               .html("Name: " + d.properties.name);
+     })
+     .on("mouseout",function(d,i){
+         d3.select(this).attr("fill","lightgrey").attr("stroke-width",1);
+         tooltip.classed("hidden", true),
+      });
+	
 	// draw points
     svg.selectAll("circle")
         .data(values[1])
@@ -63,20 +79,5 @@ Promise.all([worldmap, econdata]).then(function(values) {
         .attr("class","labels");
 });	   
 	   /* Could replace with mouseover, mouseout, see www.youtube.com watch?v=aNbgrqRuoiE */
-    .on("mouseover", function(d,i) {
-      console.log("mouseover  ",d.properties.name);	   
-      d3.select(this).attr("fill","orange").attr("stroke-width",2);
-      return tooltip.style("hidden", false).html("Name: " + d.properties.name);
-      })					
-    .on("mousemove",function(d){
-       tooltip.classed("hidden", false)
-               .style("top", (d3.event.pageY) + "px")
-               .style("left", (d3.event.pageX + 10) + "px")
-               .html("Name: " + d.properties.name);
-     })
-     .on("mouseout",function(d,i){
-         d3.select(this).attr("fill","lightgrey").attr("stroke-width",1);
-         tooltip.classed("hidden", true);
-      });
 
  })
