@@ -48,8 +48,8 @@ Promise.all([worldmap, econcsv]).then(values => {
       })
     .on("mousemove",function(d){
        tooltip.classed("hidden", false)
-               .style("top", (d3.event.pageY) + "px")
-               .style("left", (d3.event.pageX + 10) + "px")
+               //.style("top", (d3.event.pageY) + "px")
+               //.style("left", (d3.event.pageX + 10) + "px")
                .html("Name: " + d.properties.name);
      })	
      .on("mouseout",function(d,i){
@@ -71,5 +71,5 @@ Promise.all([worldmap, econcsv]).then(values => {
         .attr("x", function(d) {return 5;})
         .attr("y", function(d) {return 15;})
         .attr("class","labels");
-	//console.log("In text:" + d.DISPCountry + d.DISPRegion + d.giniIndex);
+	console.log("In text:" + d.countryName + d.region + d.giniIndex);
 });
