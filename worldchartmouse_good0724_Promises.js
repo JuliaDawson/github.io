@@ -71,5 +71,5 @@ Promise.all([worldmap, econcsv]).then(values => {
         .attr("x", function(d) {return 5;})
         .attr("y", function(d) {return 15;})
         .attr("class","labels");
-	console.log("In text:" + d.countryName + d.region + d.giniIndex);
+	//console.log("In text:" + d.countryName + d.region + d.giniIndex);
 });
