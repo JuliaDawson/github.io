@@ -1,5 +1,5 @@
-var width = 1400;
-var height = 700;
+var width = 900;
+var height = 600;
 
 var projection = d3.geoMercator().translate([width/2,height/2]).scale(140);
 var path = d3.geoPath().projection(projection);
@@ -12,8 +12,8 @@ var econcsv = d3.csv("MatchTopo_Distribution_of_income_Shared_Prosperity.csv", f
 	    region:     data.DISPRegion,
 	    giniIndex: +data.DIGiniIndex
     }	    
-    console.log(data);	
 });					        
+console.log("econcsv[0]: " + econcsv[0]);
 
 Promise.all([worldmap, econcsv]).then(values => {
 	
