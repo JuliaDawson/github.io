@@ -11,7 +11,7 @@ var econcsv = d3.csv("MatchTopo_Distribution_of_income_Shared_Prosperity.csv");
 Promise.all([worldmap, econcsv]).then(values => {
 	
 	console.log("values[0]: " + values[0]);
-	console.log("values[1]: " + values[1]);
+	console.log("values[1][0]: " + values[1][0]);
 
 	var svg = d3.select('body').append("div")
 		.append('svg')
