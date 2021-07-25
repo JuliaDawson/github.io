@@ -56,5 +56,17 @@ Promise.all([worldmap, econcsv]).then(values => {
          d3.select(this).attr("fill","lightgrey").attr("stroke-width",1);
          tooltip.classed("hidden", true);
       });
-
-})
+    // add labels
+    svg.selectAll("text")
+        .data(values[1])
+        .enter()
+        .append("text")
+        .text(function(d) {
+	          return tooltip.style("hidden", false).html("Country: " + d.DISPCountry + d.DISPRegion + d.giniIndex);
+               })
+        //.attr("x", function(d) {return projection([d.Longitude, d.Lattitude])[0] + 5;})
+        //.attr("y", function(d) {return projection([d.Longitude, d.Lattitude])[1] + 15;})
+        .attr("x", function(d) {return 5;})
+        .attr("y", function(d) {return 15;})
+        .attr("class","labels");
+});
