@@ -44,10 +44,13 @@ Promise.all([worldmap, econcsv]).then(values => {
 	   //.attr('fake', d=> console.log(d.properties.name))
     .on("mouseover", function(d,i) {
       console.log("mouseover  ",d.properties.name);	   
+      console.log("mouseover  ",d.properties.region);	   
+      console.log("mouseover  ",d.properties.giniindex);	   
       d3.select(this).attr("fill","orange").attr("stroke-width",2);
-      return tooltip.style("hidden", false).html("Country: " + d.properties.name 
-						 + "<br>" + "Region" " + d.properties.region 
-						 + "<br>" + "GiniIndex: " + d.properties.giniindex);
+      return tooltip.style("hidden", false).html("Country: " + d.properties.name + d.properties.region  + d.properties.giniindex);
+      //return tooltip.style("hidden", false).html("Country: " + d.properties.name 
+      //						 + "<br>" + "Region" " + d.properties.region 
+      //						 + "<br>" + "GiniIndex: " + d.properties.giniindex);
       })
     .on("mousemove",function(d){
        tooltip.classed("hidden", false)
