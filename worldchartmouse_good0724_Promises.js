@@ -8,9 +8,7 @@ var path = d3.geoPath().projection(projection);
 var worldmap = d3.json("https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json");
 var econcsv = d3.csv("MatchTopo_Distribution_of_income_Shared_Prosperity.csv");
 
-Promise.all([worldmap, econcsv]).then(function(values) {					        
-
-
+Promise.all([worldmap, econcsv]).then(values => {					        
 
 	var svg = d3.select('body').append("div")
 		.append('svg')
