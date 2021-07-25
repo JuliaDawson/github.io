@@ -61,12 +61,15 @@ Promise.all([worldmap, econcsv]).then(values => {
         .data(values[1])
         .enter().append('text')
         .text(function(d) {
-	          return tooltip.style("hidden", false).html("Country: " + d.DISPCountry + d.DISPRegion + d.giniIndex);
+       tooltip.classed("hidden", false)
+               .style("top", (d3.event.pageY) + "px")
+               .style("left", (d3.event.pageX + 10) + "px")
+               .html("Country: " + d.countryName + d.region + d.giniIndex);
                })
         //.attr("x", function(d) {return projection([d.Longitude, d.Lattitude])[0] + 5;})
         //.attr("y", function(d) {return projection([d.Longitude, d.Lattitude])[1] + 15;})
         .attr("x", function(d) {return 5;})
         .attr("y", function(d) {return 15;})
         .attr("class","labels");
-	console.log("In text:" + d.DISPCountry + d.DISPRegion + d.giniIndex);
+	//console.log("In text:" + d.DISPCountry + d.DISPRegion + d.giniIndex);
 });
