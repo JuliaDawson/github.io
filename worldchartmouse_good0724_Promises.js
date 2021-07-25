@@ -23,10 +23,10 @@ Promise.all([worldmap, econcsv]).then(values => {
 // d3.json('https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json')
 //  .then(data => {
 
-//   var countries = topojson.feature(data, data.objects.countries).features; 
+   var countries = topojson.feature(values[0], values[0].objects.countries).features; 
    
    svg.selectAll('path')
-	   .data(values[0].features)
+	   .data(countries)
 	   .enter().append('path')
 	   .attr('class','country')
 	   .attr('fill', 'lightgrey')
