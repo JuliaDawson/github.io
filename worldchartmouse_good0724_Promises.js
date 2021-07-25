@@ -13,7 +13,7 @@ var econcsv = d3.csv("MatchTopo_Distribution_of_income_Shared_Prosperity.csv", f
 	    giniIndex: +data.DIGiniIndex
     }	    
 });					        
-console.log("econcsv[0]: " + econcsv[0]);
+console.log("econcsv: " + econcsv);
 
 Promise.all([worldmap, econcsv]).then(values => {
 	
