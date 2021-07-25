@@ -5,7 +5,8 @@ var projection = d3.geoMercator().translate([width/2,height/2]).scale(140);
 var path = d3.geoPath().projection(projection);
 
 //Read Topo file and CSV containing economic information
-var worldmap = d3.json("https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json");
+//var worldmap = d3.json("https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json");
+var worldmap = d3.json("countries-110m-edited.json");
 var econcsv = d3.csv("MatchTopo_Distribution_of_income_Shared_Prosperity.csv", function(data) {
     return {	
             countryName: data.DISPCountry,
@@ -44,13 +45,13 @@ Promise.all([worldmap, econcsv]).then(values => {
     .on("mouseover", function(d,i) {
       console.log("mouseover  ",d.properties.name);	   
       d3.select(this).attr("fill","orange").attr("stroke-width",2);
-      return tooltip.style("hidden", false).html("Name: " + d.properties.name);
+      return tooltip.style("hidden", false).html("Name: " + d.properties.name + "<br>Region" " + d.properties.region + "<br>GiniIndex: " + d.properties.giniindex);
       })
     .on("mousemove",function(d){
        tooltip.classed("hidden", false)
                .style("top", (d3.event.pageY) + "px")
                .style("left", (d3.event.pageX + 10) + "px")
-               .html("Name: " + d.properties.name);
+               .html("Name: " + d.properties.name + "<br>Region" " + d.properties.region + "<br>GiniIndex: " + d.properties.giniindex);
      })	
      .on("mouseout",function(d,i){
          d3.select(this).attr("fill","lightgrey").attr("stroke-width",1);
