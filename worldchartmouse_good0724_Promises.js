@@ -50,12 +50,10 @@ var svg = d3.select('body').append("div")
 var tooltip = d3.select("div.tooltip");
 
 console.log("fetchTopo b4 use: " + fetchTopo);
-//d3.json('https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json')
-//  .then(data => {
-// fetchTopo => {
+d3.json('https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json')
+  .then(data => {
 
-//   var countries = topojson.feature(data, data.objects.countries).features; 
-   var countries = topojson.feature(fetchTopo, fetchTopo.objects.countries).features; 
+   var countries = topojson.feature(data, data.objects.countries).features; 
    
    svg.selectAll('path')
 	   .data(countries)
@@ -83,5 +81,4 @@ console.log("fetchTopo b4 use: " + fetchTopo);
          tooltip.classed("hidden", true);
       });
 
-// })
-// }
+ })
