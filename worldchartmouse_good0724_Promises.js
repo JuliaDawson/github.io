@@ -6,7 +6,14 @@ var path = d3.geoPath().projection(projection);
 
 //Read Topo file and CSV containing economic information
 var worldmap = d3.json("https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json");
-var econcsv = d3.csv("MatchTopo_Distribution_of_income_Shared_Prosperity.csv");
+var econcsv = d3.csv("MatchTopo_Distribution_of_income_Shared_Prosperity.csv", function(data) {
+    return {	
+            countryName: data.DISPCountry,
+	    region:     data.DISPRegion,
+	    giniIndex: +data.DIGiniIndex
+    }	    
+    console.log(data);	
+});					        
 
 Promise.all([worldmap, econcsv]).then(values => {
 	
