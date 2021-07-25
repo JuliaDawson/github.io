@@ -1,50 +1,43 @@
 var width = 900;
 var height = 600;
 
-//Read CSV and make a hash table
-d3.csv("MatchTopo_Distribution_of_income_Shared_Prosperity.csv", function(data) {
+//Read Topo file and CSV containing economic information
+var worldmap = d3.json("https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json");
+var econcsv = d3.csv("MatchTopo_Distribution_of_income_Shared_Prosperity.csv", function(data) {
     return {	
             countryName: data.DISPCountry,
 	    region:     data.DISPRegion,
 	    giniIndex: +data.DIGiniIndex
-    }	    
+    }
     console.log(data);	
-});					        
+});	
 
+Promise.all([worldmap, econcsv]).then(function(values) {					        
 
+	var projection = d3.geoMercator().translate([width/2,height/2]).scale(140);
+	var path = d3.geoPath().projection(projection);
 
-//d3.csv("MatchTopo_Distribution_of_income_Shared_Prosperity.csv", function(data) {
-//				console.log(data);				
-//			});
-
-//https://www.youtube.com/watch?v=urfyp-r255A
-//cdn.jsdeliv.net/npm/world-atlas@2/countries-110m.json		
-//github.com/d3/d3-geo
-//https://www.youtube.com/watch?v=dJbpo8R47D0
-var projection = d3.geoMercator().translate([width/2,height/2]).scale(140);
-var path = d3.geoPath().projection(projection);
-
-var svg = d3.select('body').append("div")
-	.append('svg')
-        .attr('width',width)
-	.attr('height',height);
-var tooltip = d3.select("div.tooltip");
+	var svg = d3.select('body').append("div")
+		.append('svg')
+        	.attr('width',width)
+		.attr('height',height);
+	
+	var tooltip = d3.select("div.tooltip");
 		
-d3.json('https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json')
-  .then(data => {
+// d3.json('https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json')
+//  .then(data => {
 
-   var countries = topojson.feature(data, data.objects.countries).features; 
+//   var countries = topojson.feature(data, data.objects.countries).features; 
    
    svg.selectAll('path')
-	   .data(countries)
+	   .data(values[0].features)
 	   .enter().append('path')
 	   .attr('class','country')
 	   .attr('fill', 'lightgrey')
 	   .attr('stroke', 'black') 
 	   .attr('stroke-width', '1')
 	   .attr('d', path)
-	   .attr('fake', d=> console.log(d.properties.name))
-	   /* Could replace with mouseover, mouseout, see www.youtube.com watch?v=aNbgrqRuoiE */
+	   //.attr('fake', d=> console.log(d.properties.name))
     .on("mouseover", function(d,i) {
       console.log("mouseover  ",d.properties.name);	   
       d3.select(this).attr("fill","orange").attr("stroke-width",2);
