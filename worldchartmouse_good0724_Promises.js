@@ -62,8 +62,8 @@ Promise.all([worldmap, econcsv]).then(values => {
         .enter().append('text')
         .text(function(d) {
        tooltip.classed("hidden", false)
-               .style("top", (d3.event.pageY) + "px")
-               .style("left", (d3.event.pageX + 10) + "px")
+               //.style("top", (d3.event.pageY) + "px")
+               //.style("left", (d3.event.pageX + 10) + "px")
                .html("Country: " + d.countryName + d.region + d.giniIndex);
                })
         //.attr("x", function(d) {return projection([d.Longitude, d.Lattitude])[0] + 5;})
