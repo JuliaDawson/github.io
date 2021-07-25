@@ -70,7 +70,7 @@ Promise.all([worldmap, econcsv]).then(values => {
        tooltip.classed("hidden", false)
                //.style("top", (d3.event.pageY) + "px")
                //.style("left", (d3.event.pageX + 10) + "px")
-               .html(("Country: " + d.properties.name + d.properties.region + d.properties.giniindex)
+               .html("Country: " + d.properties.name + d.properties.region + d.properties.giniindex)
                })
         //.attr("x", function(d) {return projection([d.Longitude, d.Lattitude])[0] + 5;})
         //.attr("y", function(d) {return projection([d.Longitude, d.Lattitude])[1] + 15;})
