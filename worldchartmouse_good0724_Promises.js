@@ -44,15 +44,15 @@ Promise.all([worldmap, econcsv]).then(values => {
 	   .attr('class','country')
 	   //.attr('fill', 'lightgrey')
 	   .attr("fill", function(d) { 
-             console.log("d", d)
-             console.log("giniIndex", d.properties.giniindex)
+             //console.log("d", d)
+             //console.log("giniIndex", d.properties.giniindex)
              var col =  d3.interpolateBlues((d.properties.giniindex - 20) / 44); 
-             console.log("col", col)
+             //console.log("col", col)
              if (col) {
                console.log("found col", col, "for d", d)
                return col
              } else {
-               return 'lightgrey'
+               return 'white'
              }
            })
 	   .attr('stroke', 'black') 
