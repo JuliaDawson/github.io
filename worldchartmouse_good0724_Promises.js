@@ -1,4 +1,3 @@
-
 var width = 900;
 var height = 600;
 
@@ -23,8 +22,8 @@ console.log("econcsv: " + econcsv);
 
 Promise.all([worldmap, econcsv]).then(values => {
 	
-	console.log("values[0]: " + values[0]);
-	console.log("values[1][0]: " + values[1][0]);
+	//console.log("values[0]: " + values[0]);
+	//console.log("values[1][0]: " + values[1][0]);
 
 	var svg = d3.select('body').append("div")
 		.append('svg')
@@ -49,7 +48,7 @@ Promise.all([worldmap, econcsv]).then(values => {
              var col =  d3.interpolateBlues((d.properties.giniindex - 20) / 44); 
              //console.log("col", col)
              if (col) {
-               console.log("found col", col, "for d", d)
+               //console.log("found col", col, "for d", d)
                return col
              } else {
                return 'white'
