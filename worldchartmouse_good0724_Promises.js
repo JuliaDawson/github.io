@@ -5,7 +5,7 @@ var projection = d3.geoMercator().translate([width/2,height/2]).scale(140);
 var path = d3.geoPath().projection(projection);
 
 var color = d3.scaleThreshold()
-    .domain(d3.range(20, 70))
+    .domain(d3.range(0, 70))
     .range(d3.schemeBlues[9]);
 
 //Read Topo file and CSV containing economic information
@@ -51,7 +51,7 @@ Promise.all([worldmap, econcsv]).then(values => {
                console.log("found col", col, "for d", d)
                return col
              } else {
-               return '#ffffff'
+               return 'lightgrey'
              }
            })
 	   .attr('stroke', 'black') 
@@ -77,7 +77,9 @@ Promise.all([worldmap, econcsv]).then(values => {
       			 + "<br>" + "GiniIndex: " + d.properties.giniindex);
      })	
      .on("mouseout",function(d,i){
-         d3.select(this).attr("fill","lightgrey").attr("stroke-width",1);
+         d3.select(this)
+	 .attr("fill","lightgrey")
+	 .attr("stroke-width",1);
          tooltip.classed("hidden", true);
       });
 });
