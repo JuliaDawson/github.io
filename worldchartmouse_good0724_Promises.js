@@ -1,13 +1,4 @@
-<h1>Shared Prosperity around the World</h1>
-<h3>Gini Index measures the extent to which the distribution of income (or, in some cases, consumption expenditure) 
-among individuals or households within an economy deviates from a perfectly equal distribution.
-A Gini index of zero represents perfect equality and 100, perfect inequality. However in our data zero means there was no Gini Index available.</h3>
-<h5>Zoom in/out | Hover over country for more information</h5>
-  
-<div id="visualization" align="center"></div> 
-   <!--SVG is appended to this div-->  
-</div>
-  
+
 var width = 900;
 var height = 600;
 
