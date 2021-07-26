@@ -42,18 +42,7 @@ Promise.all([worldmap, econcsv]).then(values => {
 	   .enter().append('path')
 	   .attr('class','country')
 	   //.attr('fill', 'lightgrey')
-	   .attr("fill", function(d) { 
-             console.log("d", d)
-             console.log("giniIndex", d.properties.giniindex)
-             var col =  color(d.properties.giniindex); 
-             console.log("col", col)
-             if (col) {
-               console.log("found col", col, "for d", d)
-               return col
-             } else {
-               return 'lightgrey'
-             }
-           })
+	   .attr("fill", d => color(data.get(d.properties.giniindex))
 	   .attr('stroke', 'black') 
 	   .attr('stroke-width', '1')
 	   .attr('d', path)
