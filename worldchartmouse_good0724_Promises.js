@@ -5,7 +5,8 @@ var projection = d3.geoMercator().translate([width/2,height/2]).scale(140);
 var path = d3.geoPath().projection(projection);
 
 var color = d3.scaleThreshold()
-    .domain(d3.range(20, 64))
+    .domain([20. 65])    
+//    .domain(d3.range(20, 64))
     .range(d3.schemeBlues[20]);
 
 //Read Topo file and CSV containing economic information
