@@ -1,3 +1,9 @@
+<h5>Zoom in/out | Hover over country for more information</h5>
+  
+<div id="visualization" align="center"></div> 
+   <!--SVG is appended to this div-->  
+</div>
+  
 var width = 900;
 var height = 600;
 
