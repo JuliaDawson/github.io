@@ -75,8 +75,8 @@ Promise.all([worldmap, econcsv]).then(values => {
                .style("top", (d3.event.pageY) + "px")
                .style("left", (d3.event.pageX + 10) + "px")
                //.html("Country: " + d.properties.name + d.properties.region + d.properties.giniindex)
-	.html("Country: " + d.properties.name  + "<br>" + "Region: " + d.properties.region 
-      			 + "<br>" + "GiniIndex: " + d.properties.giniindex);
+	.html("Country: "  + "<b>" + d.properties.name  + "</b>"   + "<br>" + "Region: "  + "<b>" + d.properties.region  + "</b>"  
+      			 + "<br>" + "GiniIndex: "  + "<b>" + d.properties.giniindex  + "</b>" );
      })	
      .on("mouseout",function(d,i){
          d3.select(this)
