@@ -62,7 +62,9 @@ Promise.all([worldmap, econcsv]).then(values => {
       console.log("mouseover  ",d.properties.name);	   
       console.log("mouseover  ",d.properties.region);	   
       console.log("mouseover  ",d.properties.giniindex);	   
-      d3.select(this).attr("fill","orange").attr("stroke-width",2);
+      d3.select(this)
+	      .attr("stroke","orange").attr("stroke-width",5);
+      //      .attr("fill","orange").attr("stroke-width",2);
       //return tooltip.style("hidden", false).html("Country: " + d.properties.name + d.properties.region  + d.properties.giniindex)
       return tooltip.style("hidden", false)
 	.html("Country: " + d.properties.name  + "<br>" + "Region: " + d.properties.region 
@@ -78,7 +80,7 @@ Promise.all([worldmap, econcsv]).then(values => {
      })	
      .on("mouseout",function(d,i){
          d3.select(this)
-	 .attr("fill","lightgrey")
+	 .attr("stroke","black")
 	 .attr("stroke-width",1);
          tooltip.classed("hidden", true);
       });
