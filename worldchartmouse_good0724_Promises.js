@@ -59,9 +59,9 @@ Promise.all([worldmap, econcsv]).then(values => {
 	   .attr('d', path)
 	   //.attr('fake', d=> console.log(d.properties.name))
     .on("mouseover", function(d,i) {
-      console.log("mouseover  ",d.properties.name);	   
-      console.log("mouseover  ",d.properties.region);	   
-      console.log("mouseover  ",d.properties.giniindex);	   
+      //console.log("mouseover  ",d.properties.name);	   
+      //console.log("mouseover  ",d.properties.region);	   
+      //console.log("mouseover  ",d.properties.giniindex);	   
       d3.select(this)
 	      .attr("stroke","black").attr("stroke-width",4);
       //      .attr("fill","orange").attr("stroke-width",2);
