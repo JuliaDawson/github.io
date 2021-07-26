@@ -43,15 +43,27 @@ Promise.all([worldmap, econcsv]).then(values => {
 	   .attr('class','country')
 	   //.attr('fill', 'lightgrey')
 	   .attr("fill", function(d) { 
+             console.log("d", d)
+             console.log("giniIndex", d.properties.giniindex)
              var col =  d3.interpolateBlues((d.properties.giniindex + 1) / 63); 
+             console.log("col", col)
+             if (col) {
+               console.log("found col", col, "for d", d)
+               return col
+             } else {
+               return 'lightgrey'
+             }
            })
 	   .attr('stroke', 'black') 
 	   .attr('stroke-width', '1')
 	   .attr('d', path)
 	   //.attr('fake', d=> console.log(d.properties.name))
     .on("mouseover", function(d,i) {
+      console.log("mouseover  ",d.properties.name);	   
+      console.log("mouseover  ",d.properties.region);	   
+      console.log("mouseover  ",d.properties.giniindex);	   
       d3.select(this)
-	      .attr("stroke","orange").attr("stroke-width",5);
+	      .attr("stroke","darkorange").attr("stroke-width",5);
       //      .attr("fill","orange").attr("stroke-width",2);
       //return tooltip.style("hidden", false).html("Country: " + d.properties.name + d.properties.region  + d.properties.giniindex)
       return tooltip.style("hidden", false)
