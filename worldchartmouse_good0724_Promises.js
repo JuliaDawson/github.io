@@ -4,9 +4,9 @@ var height = 600;
 var projection = d3.geoMercator().translate([width/2,height/2]).scale(140);
 var path = d3.geoPath().projection(projection);
 
-var color = d3.scaleThreshold()
-    .domain(d3.range(0, 70))
-    .range(d3.interpolateBlues(20));
+//var color = d3.scaleThreshold()
+//    .domain(d3.range(0, 70))
+//    .range(d3.interpolateBlues(20));
 
 //Read Topo file and CSV containing economic information
 //var worldmap = d3.json("https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json");
@@ -45,7 +45,7 @@ Promise.all([worldmap, econcsv]).then(values => {
 	   .attr("fill", function(d) { 
              console.log("d", d)
              console.log("giniIndex", d.properties.giniindex)
-             var col =  color(d.properties.giniindex); 
+             var col =  d3.interpolateBlues((d.properties.giniindex + 1) / 63); 
              console.log("col", col)
              if (col) {
                console.log("found col", col, "for d", d)
