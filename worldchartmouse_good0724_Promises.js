@@ -6,7 +6,7 @@ var path = d3.geoPath().projection(projection);
 
 var color = d3.scaleThreshold()
     .domain(d3.range(0, 70))
-    .range(d3.schemeBlues[9]);
+    .range(d3.interpolateBlues(20));
 
 //Read Topo file and CSV containing economic information
 //var worldmap = d3.json("https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json");
