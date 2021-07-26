@@ -4,10 +4,6 @@ var height = 600;
 var projection = d3.geoMercator().translate([width/2,height/2]).scale(140);
 var path = d3.geoPath().projection(projection);
 
-var color = d3.scaleThreshold()
-    .domain(d3.range(20, 64))
-    .range(d3.schemeBlues[20]);
-
 //Read Topo file and CSV containing economic information
 //var worldmap = d3.json("https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json");
 var worldmap = d3.json("countries-110m-edited.json");
@@ -41,8 +37,7 @@ Promise.all([worldmap, econcsv]).then(values => {
 	   .data(countries)
 	   .enter().append('path')
 	   .attr('class','country')
-	   //.attr('fill', 'lightgrey')
-	   .attr("fill", d => color(data.get(d.properties.giniindex))
+	   .attr('fill', 'lightgrey')
 	   .attr('stroke', 'black') 
 	   .attr('stroke-width', '1')
 	   .attr('d', path)
@@ -66,9 +61,7 @@ Promise.all([worldmap, econcsv]).then(values => {
       			 + "<br>" + "GiniIndex: " + d.properties.giniindex);
      })	
      .on("mouseout",function(d,i){
-         d3.select(this)
-	 .attr("fill","lightgrey")
-	 .attr("stroke-width",1);
+         d3.select(this).attr("fill","lightgrey").attr("stroke-width",1);
          tooltip.classed("hidden", true);
       });
 });
