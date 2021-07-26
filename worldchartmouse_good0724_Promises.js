@@ -22,8 +22,8 @@ console.log("econcsv: " + econcsv);
 
 Promise.all([worldmap, econcsv]).then(values => {
 	
-	//console.log("values[0]: " + values[0]);
-	//console.log("values[1][0]: " + values[1][0]);
+	console.log("values[0]: " + values[0]);
+	console.log("values[1][0]: " + values[1][0]);
 
 	var svg = d3.select('body').append("div")
 		.append('svg')
@@ -43,15 +43,15 @@ Promise.all([worldmap, econcsv]).then(values => {
 	   .attr('class','country')
 	   //.attr('fill', 'lightgrey')
 	   .attr("fill", function(d) { 
-             //console.log("d", d)
-             //console.log("giniIndex", d.properties.giniindex)
+             console.log("d", d)
+             console.log("giniIndex", d.properties.giniindex)
              var col =  d3.interpolateBlues((d.properties.giniindex + 1) / 63); 
-             //console.log("col", col)
+             console.log("col", col)
              if (col) {
                console.log("found col", col, "for d", d)
-               //return col
+               return col
              } else {
-               return 'pink'
+               return 'lightgrey'
              }
            })
 	   .attr('stroke', 'black') 
@@ -59,8 +59,11 @@ Promise.all([worldmap, econcsv]).then(values => {
 	   .attr('d', path)
 	   //.attr('fake', d=> console.log(d.properties.name))
     .on("mouseover", function(d,i) {
+      console.log("mouseover  ",d.properties.name);	   
+      console.log("mouseover  ",d.properties.region);	   
+      console.log("mouseover  ",d.properties.giniindex);	   
       d3.select(this)
-	      .attr("stroke","black").attr("stroke-width",4);
+	      .attr("stroke","darkorange").attr("stroke-width",5);
       //      .attr("fill","orange").attr("stroke-width",2);
       //return tooltip.style("hidden", false).html("Country: " + d.properties.name + d.properties.region  + d.properties.giniindex)
       return tooltip.style("hidden", false)
