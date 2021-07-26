@@ -63,7 +63,7 @@ Promise.all([worldmap, econcsv]).then(values => {
       console.log("mouseover  ",d.properties.region);	   
       console.log("mouseover  ",d.properties.giniindex);	   
       d3.select(this)
-	      .attr("stroke","darkorange").attr("stroke-width",5);
+	      .attr("stroke","black").attr("stroke-width",4);
       //      .attr("fill","orange").attr("stroke-width",2);
       //return tooltip.style("hidden", false).html("Country: " + d.properties.name + d.properties.region  + d.properties.giniindex)
       return tooltip.style("hidden", false)
