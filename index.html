@@ -366,7 +366,7 @@ function dsBarChart() {
 	// Create linear y scale 
 	// Purpose: No matter what the data is, the bar should fit into the svg area; bars should not
 	// get higher than the svg height. Hence incoming data needs to be scaled to fit into the svg area.  
-	var yScale = d3.scale.linear()
+	var yScale = d3.scaleLinear()
 			// use the max funtion to derive end point of the domain (max value of the dataset)
 			// do not use the min value of the dataset as min of the domain as otherwise you will not see the first bar
 		   .domain([0, d3.max(firstDatasetBarChart, function(d) { return d.measure; })])
