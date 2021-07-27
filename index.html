@@ -1,16 +1,12 @@
 <!DOCTYPE html>
 <script src='https://d3js.org/d3.v5.min.js'></script>
-<script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
 <script src='https://d3js.org/topojson.v1.min.js'></script>
-<script src="https://d3js.org/d3-queue.v3.min.js"></script>
-<style> rect {fill: lightblue; stroke: black; }</style>
+
 <style> circle {fill: lightblue; stroke: black;} </style>
 
 <html>
 <head>
-  <title>Map Data Across the Globe</title>
-  <link rel="stylesheet" href="styles.css">
- 	<style>
+  	<style>
 		svg {
 			margin: 0;
 			background: pink;
@@ -19,24 +15,19 @@
 			height: 600;
 			margin: 50;
 		}
-</style>
+		country:hover{ 
+			fill: green;
+		}	
+                <!-- I don't think below is working -->
+		.country.selected {
+			fill: yellow;
+                }
+	</style>
+  <!--link rel="stylesheet" href="styles.css"-->
 </head>
-<div class="tooltip"></div>  
 <body>
-  <h1>Shared Prosperity around the World</h1>
-<h3>Gini Index measures the deviation of prosperity (distribution of income or consumption expenditure) 
-from a perfectly equal distribution, within a population.<br>
-A Gini index of zero represents perfect equality and 100 represents perfect inequality. However, in our data zero means that no Gini Index was available.</h3>
-  
-<div id="visualization" align="center"></div> 
-   <!--SVG is appended to this div-->  
-</div>
-  
+  <h1>Hello World</h1>
+  <p>I'm hosted with GitHub Pages.</p>
   <script src="ScatterplotMouse.js"> </script>
-   
-<footer>Gini Index: missing = 0,   minimum = 24.2 (Slovenia),    maximum = 63 (South Africa),     median= 36.9 <br>
-Zoom in/out | Hover over country for more information</footer>
-  
- 
 </body>
 </html>
