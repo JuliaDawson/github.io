@@ -192,7 +192,7 @@ function dsPieChart(){
     				;
     				
         arcs.append("svg:path")
-               .attr("fill", function(d, i) { return color(i); } ) //set the color for each slice to be chosen from the color function defined above
+               .attr("fill", function(d, i) { return d3.interpolateBlues(i); } ) //set the color for each slice to be chosen from the color function defined above
                .attr("d", arc)     //this creates the actual SVG path using the associated data (pie) with the arc drawing function
 					.append("svg:title") //mouseover title showing the figures
 				   .text(function(d) { return d.data.category + ": " + formatAsPercentage(d.data.measure); });			
