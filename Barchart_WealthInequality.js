@@ -9,6 +9,8 @@ var yscale = d3.scaleLinear().domain([0, d3.max(data)]).range([200,0]);
 var x_axis = d3.axisBottom().scale(xscale);
 var y_axis = d3.axisLeft().scale(yscale);
 
+console.log("In barchart");
+
 d3.select("svg")
   .attr("width",width)
   .attr("height",height)
