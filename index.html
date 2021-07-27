@@ -637,17 +637,17 @@ function dsLineChart() {
 	   height = basics.height
 		;
 
-	var xScale = d3.scale.linear()
+	var xScale = d3.scaleLinear()
 	    .domain([0, firstDatasetLineChart.length-1])
 	    .range([0, width])
 	    ;
 
-	var yScale = d3.scale.linear()
+	var yScale = d3.scaleLinear()
 	    .domain([0, d3.max(firstDatasetLineChart, function(d) { return d.measure; })])
 	    .range([height, 0])
 	    ;
 	
-	var line = d3.svg.line()
+	var line = d3.line()
 	    //.x(function(d) { return xScale(d.category); })
 	    .x(function(d, i) { return xScale(i); })
 	    .y(function(d) { return yScale(d.measure); })
