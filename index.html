@@ -415,7 +415,7 @@ function dsBarChart() {
 	.enter()
 	.append("text")
 	.text(function(d) {
-			return d3.round(d.measure);
+			return d.measure;
 	})
 	.attr("text-anchor", "middle")
 	// Set x position to the left edge of each bar plus half the bar width
