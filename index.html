@@ -695,7 +695,7 @@ function dsLineChart() {
 	    .attr("r", 3.5)
 	    .attr("stroke", "lightgrey")
 	    .append("title")
-	    .text(function(d) { return d.category + ": " + formatAsInteger(d.measure); })
+	    .text(function(d) { return d.category + ": " + d.measure; })
 	    ;
 
 	svg.append("text")
