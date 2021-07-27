@@ -178,7 +178,7 @@ function dsPieChart(){
    var arcFinal = d3.arc().innerRadius(innerRadiusFinal).outerRadius(outerRadius);
 	var arcFinal3 = d3.arc().innerRadius(innerRadiusFinal3).outerRadius(outerRadius);
 
-   var pie = d3.layout.pie()           //this will create arc data for us given a list of values
+   var pie = d3.pie()           //this will create arc data for us given a list of values
         .value(function(d) { return d.measure; });    //we must tell it out to access the value of each element in our data array
 
    var arcs = vis.selectAll("g.slice")     //this selects all <g> elements with class slice (there aren't any yet)
