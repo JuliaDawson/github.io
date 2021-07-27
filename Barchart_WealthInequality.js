@@ -1,10 +1,3 @@
-<html>
-<script src='https://d3js.org/d3.v5.min.js'></script>
-<style> path {stroke: black;}</style>
-<body>
-<svg width=300 height=300>
-</svg>
-<script>
 var margin = 50;
 var width = 300;
 var height = 300;
@@ -31,8 +24,3 @@ d3.select("svg")
     .attr("transform", "translate("+margin+","+margin+")").call(y_axis)
   .append("g")
     .attr("transform", "translate(0,200)").call(x_axis);
-
-
-</script>
-</body>
-</html>
