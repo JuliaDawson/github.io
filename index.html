@@ -159,7 +159,7 @@ function dsPieChart(){
 		   // for animation
 		   innerRadiusFinal = outerRadius * .5,
 		   innerRadiusFinal3 = outerRadius* .45,
-		   color = d3.scale.category20()    //builtin range of colors
+		   color = d3.scaleOrdinal(d3.schemeCategory20)    //builtin range of colors
 		   ;
 	    
 	var vis = d3.select("#pieChart")
