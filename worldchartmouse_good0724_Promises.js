@@ -84,5 +84,8 @@ Promise.all([worldmap, econcsv]).then(values => {
 	 .attr("stroke-width",1);
          tooltip.classed("hidden", true);
       })
+     .on("click",function(d,i){
+         d3.selectAll('svg > g > *').remove();
+      })	
 
 });
