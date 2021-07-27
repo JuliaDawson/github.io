@@ -21,7 +21,16 @@
 }
 
 
-
+/*============================================================================================================*/
+/* New for Map Chart                                                                                          */
+/*------------------------------------------------------------------------------------------------------------*/
+#mapChart {    
+	position:absolute;
+	top:10px;
+	left:410px;
+	height: 400px;
+}
+	    
 #lineChart {    
 	position:absolute;
 	top:10px;
@@ -42,6 +51,12 @@
    fill: white; //svg specific - instead of color
    font-weight: bold;	
   		} 
+
+/*============================================================================================================*/
+/* New for Map Chart                                                                                          */
+/*------------------------------------------------------------------------------------------------------------*/	    
+  <title>Map Data Across the Globe</title>
+	    
 
 /*for line chart*/
 .axis path, .axis line {
@@ -119,11 +134,16 @@ td {
 				 
     </style>
   </head>
+/*============================================================================================================*/
+/* New for Map Chart                                                                                          */
+/*------------------------------------------------------------------------------------------------------------*/
+  <div class="tooltip"></div>  	
   <body>
   
     <div id="pieChart"></div>
-    <div id="barChart"></div>  
-    <div id="lineChart"></div>
+    <div id="mapChart"></div>  
+    //had a div barchart and linechart here
+	  
     <script type="text/javascript">
     
 /*
