@@ -142,10 +142,10 @@ td {
   <div class="tooltip"></div>  	
   <body>
   
-    <div id="pieChart"></div>
-    <div id="mapChart"></div>  
-    <div id="barChart"></div>  
-    <div id="lineChart"></div>  
+    <div id="pieChart" class="hideme"> 1</div>
+    <div id="mapChart" class="hideme"> 2</div>  
+    <div id="barChart" class="hideme"> 3</div>  
+    <div id="lineChart" class="hideme" 4></div>  
     //deleted barChart and lineChart
 	  
     <script type="text/javascript">
@@ -154,7 +154,21 @@ td {
 ################ FORMATS ##################
 -------------------------------------------
 */
+d3.selectAll(".tick")
+     .on("click",clickme)	    
+function clickme(d){
+    // Select element that should be shown
+    const element = d3.select("#"+d.id); // Or however you're deriving id
 
+    // Determine whether the element needs to be shown or hidden
+    const show = element.style('display') === 'none';
+
+    // Hide any tooltip that may be shown
+    d3.selectAll('.tooltip').style('display', 'none');
+
+    // Show element, if appropriate
+    if (show) element.style('display', 'block');
+}
 /*============================================================================================================*/
 /* start of New for Map Chart                                                                                          */
 /*------------------------------------------------------------------------------------------------------------*/
