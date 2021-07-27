@@ -87,5 +87,5 @@ Promise.all([worldmap, econcsv]).then(values => {
       .footer({
 	   "value": "Gini Index: 0 (missing), minimum=24.2 (Slovenia), maximum=63 (South Africa), median= 36.9."
            "value": "Zoom in/out | Hover over country for more information"
-      });
+      })
 });
