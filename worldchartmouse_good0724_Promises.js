@@ -84,7 +84,5 @@ Promise.all([worldmap, econcsv]).then(values => {
 	 .attr("stroke-width",1);
          tooltip.classed("hidden", true);
       })
-      .footer({
-           "value": "Zoom in/out | Hover over country for more information"
-      })
+
 });
