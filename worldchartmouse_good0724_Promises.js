@@ -83,5 +83,9 @@ Promise.all([worldmap, econcsv]).then(values => {
 	 .attr("stroke","black")
 	 .attr("stroke-width",1);
          tooltip.classed("hidden", true);
+      })
+      .footer({
+	   "value": "Gini Index: 0 (missing), minimum=24.2 (Slovenia), maximum=63 (South Africa), median= 36.9.<br>
+Zoom in/out | Hover over country for more information"
       });
 });
