@@ -150,6 +150,12 @@ td {
     <div id="barChart" class=".hideme"> 3</div>  
     <div id="lineChart" class=".hideme" 4></div>  
 
+    dsMapChart();
+    dsPieChart();
+    dsBarChart();
+    dsLineChart();
+	  
+	  
     d3.selectAll(".hideme").attr('visibility',hidden);
 	  
     <script type="text/javascript">
@@ -169,7 +175,7 @@ function clickme(d){
     const show = element.style('display') === 'none';
 
     // Hide any tooltip that may be shown
-    d3.selectAll('.tooltip').style('display', 'none');
+    d3.selectAll('.tooltip').style('display', 'show'); //was none
 
     // Show element, if appropriate
     if (show) element.style('display', 'block');
@@ -270,7 +276,7 @@ Promise.all([worldmap, econcsv]).then(values => {
 })
 }
 
-dsMapChart();
+
 /*------------------------------------------------------------------------------------------------------------*/	    
 /* End of New for Map Chart                                                                                          */
 /*============================================================================================================*/
@@ -401,7 +407,7 @@ function dsPieChart(){
 	}
 }
 
-dsPieChart();
+
 
 /*
 ############# BAR CHART ###################
@@ -608,7 +614,6 @@ function dsBarChart() {
 		;
 }
 
-dsBarChart();
 
  /* ** UPDATE CHART ** */
  
@@ -849,7 +854,6 @@ function dsLineChart() {
 
 }
 
-dsLineChart();
 
 
  /* ** UPDATE CHART ** */
