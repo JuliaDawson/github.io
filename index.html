@@ -31,7 +31,7 @@
 	position:absolute;
 	top:10px;
 	left:10px;
-	width:900px;
+	width:400px;
 	height: 400px;
 }
 	    
@@ -140,9 +140,11 @@ td {
     </style>
   </head>
   <body>
+    //jed these do nothing but were meant to group for hiding	  
     <div id="mapChart" class=".hideme"></div>  
     <div id="barChart" class=".hideme"></div>  
-    <div id="lineChart" class=".hideme"></div>  
+    <div id="lineChart" class=".hideme"></div>
+	  
     <div class="tooltip"></div>  		  
 
     <script type="text/javascript">
@@ -171,7 +173,7 @@ function clickme(d){
 /* start of New for Map Chart                                                                                          */
 /*------------------------------------------------------------------------------------------------------------*/
 function dsMapChart(){
-var width = 900;
+var width = 400;
 var height = 400;
 
 //d3.selectAll('svg > g > *').remove(); 
@@ -916,7 +918,7 @@ function updateLineChart(group, colorChosen) {
 }
     
     dsMapChart();
-    dsPieChart();
+    //dsPieChart();
     dsBarChart();
     dsLineChart();	  
 	  
