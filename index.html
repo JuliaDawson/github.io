@@ -306,8 +306,8 @@ function dsPieChart(){
 	    
 	var vis = d3.select("#pieChart")
 	     .append("svg:svg")              //create the SVG element inside the <body>
-	     .append('div')
-             .attr('class','pieChart')
+	     //.append('div')
+             //.attr('class','pieChart')
 	     .data([dataset])                   //associate our data with the document
 	         .attr("width", width)           //set the width and height of our visualization (these will be attributes of the <svg> tag
 	         .attr("height", height)
