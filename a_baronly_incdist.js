@@ -25,8 +25,8 @@ var econcsv = d3.csv("MatchTopo_Distribution_of_income_Shared_Prosperity.csv", f
 					        
 console.log("econcsv: " + econcsv);
 
-Promise.all([worldmap, econcsv]).then(values => {
-	
+    Promise.all([worldmap, econcsv]).then(values => {
+	console.log("Returned from promise...");
 	console.log("values[0]: " + values[0]);
 	console.log("values[1][0]: " + values[1][0]);
 /*============================================================================================================*/
@@ -105,5 +105,5 @@ console.log("in MapChart: datain " + datain);
 /*============================================================================================================*/
 
         MapChart(values[0]);
-})
+	})
 });
