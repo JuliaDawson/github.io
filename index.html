@@ -173,7 +173,7 @@ function clickme(d){
 function dsMapChart(){
 var height = 400;
 var width = 400;
-var margin = 10;	
+var margin = 20;	
 
 //d3.selectAll('svg > g > *').remove(); 
 
@@ -213,6 +213,12 @@ var plot = d3.select("#mapChart")
 	.append("svg:svg")
 	.attr("width", width)           //set the width and height of our visualization (these will be attributes of the <svg> tag
 	.attr("height", height)
+        .append("text")
+	.attr("x", (width + margin + margin)/2)
+	.attr("y", 10)
+	.attr("class","title")				
+	.attr("text-anchor", "middle")
+	.text("World Map with Gini Index")
 	.append("svg:g")                //make a group to hold our map chart
 	.attr("transform", "translate(" + margin + "," + margin + ")");
 
