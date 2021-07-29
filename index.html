@@ -213,8 +213,6 @@ Promise.all([worldmap, econcsv]).then(values => {
 	.append('svg')
        	.attr('width',width)
 	.attr('height',height)
-	.attr("transform", "translate(" + margin + "," + margin + ")")
-	.attr("id", "lineChartPlot")        	   .text("World Map with Gini Index")
 ;
 	
    var tooltip = d3.select("div.tooltip");
