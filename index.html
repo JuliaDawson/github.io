@@ -207,9 +207,10 @@ Promise.all([worldmap, econcsv]).then(values => {
 			    
 	var plot = svg
 	    .append("g")
-	    .attr("transform", "translate(" + margin + "," + margin + ")")
+	    .attr("transform", "translate(200,200)")
 	    .attr("id", "mapChartPlot")
 	    ;
+	   // .attr("transform", "translate(" + margin + "," + margin + ")")
 
 	plot.append("text")
 		.text("World Map with Gini Index")
