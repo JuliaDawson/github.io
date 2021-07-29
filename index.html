@@ -214,6 +214,12 @@ Promise.all([worldmap, econcsv]).then(values => {
        	.attr('width',width)
 	.attr('height',height);
 	
+  var plot = svg
+    .append("g")
+    .attr("transform", "translate(" + margin + "," + margin + ")")
+    .attr("id", "mapChartPlot")
+    ;	
+	
    var tooltip = d3.select("div.tooltip");
 		
 // d3.json('https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json')
@@ -221,10 +227,8 @@ Promise.all([worldmap, econcsv]).then(values => {
 
    var countries = topojson.feature(values[0], values[0].objects.countries).features; 
    
-   svg.selectAll('path')
+   plot.selectAll('path')
 	   .data(countries)
-	   .attr("x", 10)
-	   .attr("y", 20)
 	   .enter().append('path')
 	   .attr('class','country')
 	   //.attr('fill', 'lightgrey')
