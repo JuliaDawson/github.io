@@ -101,4 +101,5 @@ Promise.all([worldmap, econcsv]).then(values => {
 	console.log("values[0]: " + values[0]);
 	console.log("values[1][0]: " + values[1][0]);
         MapChart();
-});	
+})
+});
