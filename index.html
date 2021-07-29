@@ -14,6 +14,14 @@
         hidden:true
     }    
 `
+#mapChart {    
+	position:absolute;
+	top:10px;
+	left:10px;
+	height: 400px;
+	width: 400px;
+}
+	    
 #lineChart {    
 	position:absolute;
 	top:10px;
@@ -165,6 +173,7 @@ function clickme(d){
 function dsMapChart(){
 var width = 400;
 var height = 400;
+var margin = 10;	
 
 //d3.selectAll('svg > g > *').remove(); 
 
@@ -191,6 +200,9 @@ Promise.all([worldmap, econcsv]).then(values => {
 	
 	//console.log("values[0]: " + values[0]);
 	//console.log("values[1][0]: " + values[1][0]);
+	
+	var svg = d3.select("#mapChart").append("svg")
+	    // create group and move it so that margins are respected (space for axis and title)
 
 	var svg = d3.select('body')
 		.append('svg')
@@ -762,7 +774,7 @@ function dsLineChart() {
 	
 	var margin = basics.margin,
 		width = basics.width,
-	   height = basics.height
+	        height = basics.height
 		;
 
 	var xScale = d3.scaleLinear()
