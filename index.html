@@ -216,8 +216,8 @@ Promise.all([worldmap, econcsv]).then(values => {
 	
   var plot = svg
     .append("g")
-    .attr("x", (width + margin + margin)/2)
-    .attr("y", (height + margin + margin)/2)
+    .attr("x", 0)
+    .attr("y", 0)
     .attr("id", "mapChartPlot")
     ;	
 
