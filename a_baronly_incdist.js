@@ -1,10 +1,11 @@
 /*============================================================================================================*/
 /* start of Map Chart function                                                                                         */
 /*------------------------------------------------------------------------------------------------------------*/
-function MapChart() {
+function MapChart(dataIn) {
 var width = 900;
 var height = 400;
 
+console.log("in MapChart: datain " + datain);	
 
 	var svg = d3.select('body').append("div")
 		.append('svg')
@@ -16,7 +17,7 @@ var height = 400;
 // d3.json('https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json')
 //  .then(data => {
 
-   var countries = topojson.feature(values[0], values[0].objects.countries).features; 
+   var countries = topojson.feature(dataIn, dataIn.objects.countries).features; 
    
    svg.selectAll('path')
 	   .data(countries)
@@ -102,6 +103,6 @@ Promise.all([worldmap, econcsv]).then(values => {
 	
 	console.log("values[0]: " + values[0]);
 	console.log("values[1][0]: " + values[1][0]);
-        MapChart();
+        MapChart(values[0]);
 })
 });
