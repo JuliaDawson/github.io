@@ -1,3 +1,4 @@
+function MapChart() {
 var width = 900;
 var height = 400;
 
@@ -87,4 +88,6 @@ Promise.all([worldmap, econcsv]).then(values => {
          tooltip.classed("hidden", true);
       })
 
-});
+})
+}
+MapChart();
