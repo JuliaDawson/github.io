@@ -56,7 +56,7 @@
 
 div.tooltip {	
       color: black; 
-      font: normal 60%/1.4 Roboto;	
+      font: normal 70%/1.4 Roboto;	
       background: yellow; 
       border-radius: 3px; 
       box-shadow: 0px 0px 2px 0px #a6a6a6; 
@@ -253,7 +253,7 @@ Promise.all([worldmap, econcsv]).then(values => {
       //      .attr("fill","orange").attr("stroke-width",2);
       //return tooltip.style("hidden", false).html("Country: " + d.properties.name + d.properties.region  + d.properties.giniindex)
       return tooltip.style("hidden", false)
-	.html("Country: " + d.properties.name  + "<br>" + "Region: " + d.properties.region 
+	.html(d.properties.name  + ", " + d.properties.region 
       			 + "<br>" + "GiniIndex: " + d.properties.giniindex);
       })
     .on("mousemove",function(d){
@@ -261,7 +261,7 @@ Promise.all([worldmap, econcsv]).then(values => {
                .style("top", (d3.event.pageY) + "px")
                .style("left", (d3.event.pageX + 10) + "px")
                //.html("Country: " + d.properties.name + d.properties.region + d.properties.giniindex)
-	.html("Country: "  + "<b>" + d.properties.name  + "</b>"   + "<br>" + "Region: "  + "<b>" + d.properties.region  + "</b>"  
+	.html( "<b>" + d.properties.name  + "</b>"   + "Region: "  + d.properties.region    
       			 + "<br>" + "GiniIndex: "  + "<b>" + d.properties.giniindex  + "</b>" );
      })	
      .on("mouseout",function(d,i){
