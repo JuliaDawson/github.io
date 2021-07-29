@@ -18,7 +18,6 @@
 	position:absolute;
 	top:10px;
 	left:10px;
-
 }
 	    
 #lineChart {    
@@ -172,7 +171,7 @@ function clickme(d){
 function dsMapChart(){
 var width = 400;
 var height = 400;
-var margin = 10;	
+var margin = 20;	
 
 //d3.selectAll('svg > g > *').remove(); 
 
@@ -207,7 +206,8 @@ Promise.all([worldmap, econcsv]).then(values => {
 		.append('svg')
 		.attr("id","mapChartPlot")
         	.attr('width',width + margin)
-		.attr('height',height + margin);
+		.attr('height',height + margin)
+		.attr("transform", "translate(" + margin + "," + margin + ")");
 	
 	var tooltip = d3.select("div.tooltip");
 		
