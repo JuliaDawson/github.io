@@ -18,7 +18,7 @@
 	position:absolute;
 	top:10px;
 	left:10px;
-	height: 200px;
+	height: 400px;
 	width: 400px;
 }
 	    
@@ -171,7 +171,7 @@ function clickme(d){
 /* start of New for Map Chart                                                                                          */
 /*------------------------------------------------------------------------------------------------------------*/
 function dsMapChart(){
-var height = 200;
+var height = 400;
 var width = 400;
 var margin = 10;	
 
@@ -201,25 +201,30 @@ Promise.all([worldmap, econcsv]).then(values => {
 	//console.log("values[0]: " + values[0]);
 	//console.log("values[1][0]: " + values[1][0]);
 	
-	var svg = d3.select("#mapChart").append("svg").append("text")
-	.attr("x", (width + margin + margin)/2)
-	.attr("y", 10)
-	.attr("class","title")				
-	.attr("text-anchor", "middle")
-	.text("World Map with Gini Index")
-	;
+	//var plot = d3.select("#mapChart").append("svg").append("text")
+	//.attr("x", (width + margin + margin)/2)
+	//.attr("y", 10)
+	//.attr("class","title")				
+	//.attr("text-anchor", "middle")
+	//.text("World Map with Gini Index")
+	//;
 	
-  var svg = d3.select('body')
-	.append('svg')
-       	.attr('width',width)
-	.attr('height',height);
+var plot = d3.select("#mapChart")
+	.append("svg:svg")
+	.attr("width", width)           //set the width and height of our visualization (these will be attributes of the <svg> tag
+	.attr("height", height)
+	.append("svg:g")                //make a group to hold our map chart
+	.attr("transform", "translate(" + margin + "," + margin + ")");
+
+  //adding x and y to either below do not help  .attr("x", 0)  .attr("y", 0)	
+  //var svg = d3.select('body')
+  //	.append('svg')
+  //   	.attr('width',width)
+  //	.attr('height',height);
 	
-  var plot = svg
-    .append("g")
-    .attr("x", 0)
-    .attr("y", 0)
-    .attr("id", "mapChartPlot")
-    ;	
+  //var plot = svg
+  //  .append("g")
+  //  .attr("id", "mapChartPlot");	
 
 	
    var tooltip = d3.select("div.tooltip");
@@ -230,11 +235,11 @@ Promise.all([worldmap, econcsv]).then(values => {
    var countries = topojson.feature(values[0], values[0].objects.countries).features; 
    
    plot.selectAll('path')
-	   .data(countries)
-	   .enter().append('path')
-	   .attr('class','country')
-	   //.attr('fill', 'lightgrey')
-	   .attr("fill", function(d) { 
+	.data(countries)
+	.enter().append('path')
+	.attr('class','country')
+	 //.attr('fill', 'lightgrey')
+	.attr("fill", function(d) { 
              //console.log("d", d)
              //console.log("giniIndex", d.properties.giniindex)
              var col =  d3.interpolateBlues((d.properties.giniindex - 20) / 44); 
