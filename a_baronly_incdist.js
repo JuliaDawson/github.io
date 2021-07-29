@@ -3,7 +3,18 @@ var height = 400;
 
 d3.selectAll('svg > g > *').remove(); 
 
-var projection = d3.geoMercator().translate([width/2,height/2]).scale(140);
+
+/*============================================================================================================*/
+/* start of New for Map Chart                                                                                          */
+/*------------------------------------------------------------------------------------------------------------*/
+function displayMapChart(){
+var height = 900;
+var width = 400;
+var margin = 10;	
+
+//d3.selectAll('svg > g > *').remove(); 
+
+var projection = d3.geoMercator().translate([width/2,height/2]).scale(70);
 var path = d3.geoPath().projection(projection);
 
 //var color = d3.scaleThreshold()
@@ -26,25 +37,32 @@ Promise.all([worldmap, econcsv]).then(values => {
 	
 	//console.log("values[0]: " + values[0]);
 	//console.log("values[1][0]: " + values[1][0]);
-
-	var svg = d3.select('body').append("div")
-		.append('svg')
-        	.attr('width',width)
-		.attr('height',height);
 	
-	var tooltip = d3.select("div.tooltip");
-		
-// d3.json('https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json')
-//  .then(data => {
+	//var plot = d3.select("#mapChart").append("svg").append("text")
+	//.attr("x", (width + margin + margin)/2)
+	//.attr("y", 10)
+	//.attr("class","title")				
+	//.attr("text-anchor", "middle")
+	//.text("World Map with Gini Index")
+	//;
+	
+var plot = d3.select("#mapChart")
+	.append("svg:svg")
+	.attr("width", width)           //set the width and height of our visualization (these will be attributes of the <svg> tag
+	.attr("height", height)
+	.append("svg:g")                //make a group to hold our map chart
+	.attr("transform", "translate(10,100)");
+
+   var tooltip = d3.select("div.tooltip");
 
    var countries = topojson.feature(values[0], values[0].objects.countries).features; 
    
-   svg.selectAll('path')
-	   .data(countries)
-	   .enter().append('path')
-	   .attr('class','country')
-	   //.attr('fill', 'lightgrey')
-	   .attr("fill", function(d) { 
+   plot.selectAll('path')
+	.data(countries)
+	.enter().append('path')
+	.attr('class','country')
+	 //.attr('fill', 'lightgrey')
+	.attr("fill", function(d) { 
              //console.log("d", d)
              //console.log("giniIndex", d.properties.giniindex)
              var col =  d3.interpolateBlues((d.properties.giniindex - 20) / 44); 
@@ -69,22 +87,33 @@ Promise.all([worldmap, econcsv]).then(values => {
       //      .attr("fill","orange").attr("stroke-width",2);
       //return tooltip.style("hidden", false).html("Country: " + d.properties.name + d.properties.region  + d.properties.giniindex)
       return tooltip.style("hidden", false)
-	.html("Country: " + d.properties.name  + "<br>" + "Region: " + d.properties.region 
-      			 + "<br>" + "GiniIndex: " + d.properties.giniindex);
+	.html( "<b>" + d.properties.name + "</b>"  
+	      + "<br>"  + d.properties.region  
+	      + "<br>" +  "GiniIndex: "  + "<b>" + d.properties.giniindex  + "</b>" );
       })
     .on("mousemove",function(d){
        tooltip.classed("hidden", false)
                .style("top", (d3.event.pageY) + "px")
                .style("left", (d3.event.pageX + 10) + "px")
                //.html("Country: " + d.properties.name + d.properties.region + d.properties.giniindex)
-	.html("Country: "  + "<b>" + d.properties.name  + "</b>"   + "<br>" + "Region: "  + "<b>" + d.properties.region  + "</b>"  
-      			 + "<br>" + "GiniIndex: "  + "<b>" + d.properties.giniindex  + "</b>" );
+	.html( "<b>" + d.properties.name + "</b>"  
+	      + "<br>"  + d.properties.region  
+	      + "<br>" +  "GiniIndex: "  + "<b>" + d.properties.giniindex  + "</b>" );
      })	
      .on("mouseout",function(d,i){
          d3.select(this)
 	 .attr("stroke","black")
 	 .attr("stroke-width",1);
          tooltip.classed("hidden", true);
+	 console.log("Mouseout: " + this);  
       })
 
-});
+})
+}
+
+
+/*------------------------------------------------------------------------------------------------------------*/	    
+/* End of New for Map Chart                                                                                          */
+/*============================================================================================================*/
+
+displayMapChart();
