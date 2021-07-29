@@ -2,7 +2,7 @@
 <html>
   <head>    
     <meta http-equiv="Content-type" content="text/html; charset=utf-8">
- 
+    <title>Testing Pie Chart</title>
    <!--<script type="text/javascript" src="d3/d3.v2.js"></script>-->
     <script src='https://d3js.org/d3.v5.min.js'></script>
     <script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
@@ -18,8 +18,8 @@
 	position:absolute;
 	top:10px;
 	left:10px;
-	width: 400px;
 	height: 400px;
+	width: 400px;
 }
 	    
 #lineChart {    
@@ -140,6 +140,11 @@ td {
   </head>
   <div class="tooltip"></div>  	
   <body>
+  
+    <div id="mapChart" class=".hideme"></div>  
+    <div id="barChart" class=".hideme"></div>  
+    <div id="lineChart" class=".hideme"></div>  
+
     <script type="text/javascript">
     
 /*
@@ -195,29 +200,20 @@ Promise.all([worldmap, econcsv]).then(values => {
 	
 	//console.log("values[0]: " + values[0]);
 	//console.log("values[1][0]: " + values[1][0]);
-	//Title
-	var svg = d3.select("#mapChart").append("svg")
-	    .attr("width", width + margin + margin)
-	    .attr("height", height + margin + margin)
-			    
-	var plot = svg
-	    .append("g")
-	    .attr("transform", "translate(" + margin + "," + margin + ")")
-	    .attr("id", "mapChartPlot")
-	    ;
-
-
-	plot.append("text")
-		.text("World Map with Gini Index")
-		.attr("x",width/2)
-		.attr("y",10);	
-
-  //var svg = d3.select('body')
-  //	.append('svg')
-  //    .attr('width',width)
-  //	.attr('height',height)
-  //;
-  	
+	
+	var svg = d3.select("#mapChart").append("svg").append("text")
+	.attr("x", (width + margin + margin)/2)
+	.attr("y", 10)
+	.attr("class","title")				
+	.attr("text-anchor", "middle")
+	.text("World Map with Gini Index")
+	;
+	
+  var svg = d3.select('body')
+	.append('svg')
+       	.attr('width',width)
+	.attr('height',height);
+	
    var tooltip = d3.select("div.tooltip");
 		
 // d3.json('https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json')
@@ -225,8 +221,7 @@ Promise.all([worldmap, econcsv]).then(values => {
 
    var countries = topojson.feature(values[0], values[0].objects.countries).features; 
    
-   //svg.selectAll('path')
-   plot.selectAll('path')
+   svg.selectAll('path')
 	   .data(countries)
 	   .enter().append('path')
 	   .attr('class','country')
