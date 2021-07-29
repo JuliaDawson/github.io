@@ -213,14 +213,9 @@ var plot = d3.select("#mapChart")
 	.append("svg:svg")
 	.attr("width", width)           //set the width and height of our visualization (these will be attributes of the <svg> tag
 	.attr("height", height)
-        .append("text")
-	.attr("x", (width + margin + margin)/2)
-	.attr("y", 10)
-	.attr("class","title")				
-	.attr("text-anchor", "middle")
-	.text("World Map with Gini Index")
 	.append("svg:g")                //make a group to hold our map chart
 	.attr("transform", "translate(" + margin + "," + margin + ")");
+
 
   //adding x and y to either below do not help  .attr("x", 0)  .attr("y", 0)	
   //var svg = d3.select('body')
