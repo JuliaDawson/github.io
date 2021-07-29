@@ -1,10 +1,8 @@
-/*============================================================================================================*/
-/* Main program: Read files and wait for promise, then call plot functions                                    */
-/*------------------------------------------------------------------------------------------------------------*/
+function MapChart() {
 var width = 900;
 var height = 400;
-console.log("Main program:" + width + height);
-//d3.selectAll('svg > g > *').remove(); 
+
+d3.selectAll('svg > g > *').remove(); 
 
 var projection = d3.geoMercator().translate([width/2,height/2]).scale(140);
 var path = d3.geoPath().projection(projection);
@@ -12,8 +10,6 @@ var path = d3.geoPath().projection(projection);
 //var color = d3.scaleThreshold()
 //    .domain(d3.range(0, 70))
 //    .range(d3.interpolateBlues(20));
-
-console.log("Before read files");
 
 //Read Topo file and CSV containing economic information
 //var worldmap = d3.json("https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json");
@@ -23,22 +19,14 @@ var econcsv = d3.csv("MatchTopo_Distribution_of_income_Shared_Prosperity.csv", f
             countryName: data.DISPCountry,
 	    region:     data.DISPRegion,
 	    giniIndex: +data.DIGiniIndex
-    };	    
-					        
+    }	    
+});					        
 console.log("econcsv: " + econcsv);
 
-    Promise.all([worldmap, econcsv]).then(values => {
-	console.log("Returned from promise...");
-	console.log("values[0]: " + values[0]);
-	console.log("values[1][0]: " + values[1][0]);
-/*============================================================================================================*/
-/* start of Map Chart function                                                                                         */
-/*------------------------------------------------------------------------------------------------------------*/
-function MapChart(dataIn) {
-var width = 900;
-var height = 400;
-
-console.log("in MapChart: datain " + datain);	
+Promise.all([worldmap, econcsv]).then(values => {
+	
+	//console.log("values[0]: " + values[0]);
+	//console.log("values[1][0]: " + values[1][0]);
 
 	var svg = d3.select('body').append("div")
 		.append('svg')
@@ -50,7 +38,7 @@ console.log("in MapChart: datain " + datain);
 // d3.json('https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json')
 //  .then(data => {
 
-   var countries = topojson.feature(dataIn, dataIn.objects.countries).features; 
+   var countries = topojson.feature(values[0], values[0].objects.countries).features; 
    
    svg.selectAll('path')
 	   .data(countries)
@@ -100,12 +88,6 @@ console.log("in MapChart: datain " + datain);
          tooltip.classed("hidden", true);
       })
 
+})
 }
-
-/*------------------------------------------------------------------------------------------------------------*/	    
-/* End of Map Chart function                                                                                  */
-/*============================================================================================================*/
-
-        MapChart(values[0]);
-	})
-});
+MapChart();
