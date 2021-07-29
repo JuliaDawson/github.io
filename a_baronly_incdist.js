@@ -1,7 +1,7 @@
 var width = 900;
 var height = 400;
 
-d3.selectAll('svg > g > *').remove(); 
+//d3.selectAll('svg > g > *').remove(); 
 
 
 /*============================================================================================================*/
@@ -35,16 +35,8 @@ console.log("econcsv: " + econcsv);
 
 Promise.all([worldmap, econcsv]).then(values => {
 	
-	//console.log("values[0]: " + values[0]);
-	//console.log("values[1][0]: " + values[1][0]);
-	
-	//var plot = d3.select("#mapChart").append("svg").append("text")
-	//.attr("x", (width + margin + margin)/2)
-	//.attr("y", 10)
-	//.attr("class","title")				
-	//.attr("text-anchor", "middle")
-	//.text("World Map with Gini Index")
-	//;
+	console.log("values[0]: " + values[0]);
+	console.log("values[1][0]: " + values[1][0]);
 	
 var plot = d3.select("#mapChart")
 	.append("svg:svg")
