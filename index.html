@@ -2,7 +2,7 @@
 <html>
   <head>    
     <meta http-equiv="Content-type" content="text/html; charset=utf-8">
-    <title>Testing Pie Chart</title>
+ 
    <!--<script type="text/javascript" src="d3/d3.v2.js"></script>-->
     <script src='https://d3js.org/d3.v5.min.js'></script>
     <script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
@@ -140,11 +140,6 @@ td {
   </head>
   <div class="tooltip"></div>  	
   <body>
-  
-    <div id="mapChart" class=".hideme"></div>  
-    <div id="barChart" class=".hideme"></div>  
-    <div id="lineChart" class=".hideme"></div>  
-
     <script type="text/javascript">
     
 /*
@@ -173,7 +168,7 @@ function clickme(d){
 function dsMapChart(){
 var width = 400;
 var height = 400;
-var margin = 20;	
+var margin = 10;	
 
 //d3.selectAll('svg > g > *').remove(); 
 
@@ -202,15 +197,15 @@ Promise.all([worldmap, econcsv]).then(values => {
 	//console.log("values[1][0]: " + values[1][0]);
 	//Title
 	var svg = d3.select("#mapChart").append("svg")
-	    .attr("width", width + margin.left + margin.right)
-	    .attr("height", height + margin.top + margin.bottom)
+	    .attr("width", width + margin + margin)
+	    .attr("height", height + margin + margin)
 			    
 	var plot = svg
 	    .append("g")
-	    .attr("transform", "translate(200,200)")
+	    .attr("transform", "translate(" + margin + "," + margin + ")")
 	    .attr("id", "mapChartPlot")
 	    ;
-	   // .attr("transform", "translate(" + margin + "," + margin + ")")
+
 
 	plot.append("text")
 		.text("World Map with Gini Index")
