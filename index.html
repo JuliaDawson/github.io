@@ -216,9 +216,11 @@ Promise.all([worldmap, econcsv]).then(values => {
 	
   var plot = svg
     .append("g")
-    .attr("transform", "translate(" + margin + "," + margin + ")")
+    .attr("x", (width + margin + margin)/2)
+    .attr("y", (height + margin + margin)/2)
     .attr("id", "mapChartPlot")
     ;	
+
 	
    var tooltip = d3.select("div.tooltip");
 		
