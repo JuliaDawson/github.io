@@ -77,7 +77,7 @@ console.log("in MapChart: datain " + datain);
 /*------------------------------------------------------------------------------------------------------------*/
 var width = 900;
 var height = 400;
-
+console.log("Main program:" + width + height);
 d3.selectAll('svg > g > *').remove(); 
 
 var projection = d3.geoMercator().translate([width/2,height/2]).scale(140);
