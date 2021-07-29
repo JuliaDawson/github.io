@@ -207,9 +207,12 @@ Promise.all([worldmap, econcsv]).then(values => {
 	.attr("class","title")				
 	.attr("text-anchor", "middle")
 	.text("World Map with Gini Index")
-	.attr('width',width)
-	.attr('height',height);
 	;
+	
+  var svg = d3.select('body')
+	.append('svg')
+       	.attr('width',width)
+	.attr('height',height);
 	
    var tooltip = d3.select("div.tooltip");
 		
