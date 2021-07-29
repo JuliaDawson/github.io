@@ -200,14 +200,14 @@ Promise.all([worldmap, econcsv]).then(values => {
 	
 	//console.log("values[0]: " + values[0]);
 	//console.log("values[1][0]: " + values[1][0]);
-	
+	//Title
 	var svg = d3.select("#mapChart").append("svg").append("text")
-	.attr("x", (width + margin + margin)/2)
-	.attr("y", 10)
-	.attr("class","title")				
-	.attr("text-anchor", "middle")
-	.text("World Map with Gini Index")
-	;
+	   .attr("x", (width + margin + margin)/2)
+	   .attr("y", 10)
+	   .attr("class","title")				
+	   .attr("text-anchor", "middle")
+	   .text("World Map with Gini Index")
+	   ;
 	
   var svg = d3.select('body')
 	.append('svg')
