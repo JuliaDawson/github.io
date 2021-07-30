@@ -136,44 +136,22 @@ td {
 	/*font-style: italic;*/
 }
 				 
-    </style>
-  </head>
-  <div class="tooltip"></div>  	
-  <body>
+</style>
+</head>
+<div class="tooltip"></div>  	
+<body>
  	  
     <div id="mapChart" class=".hideme"></div>  
     <div id="barChart" class=".hideme"></div>  
     <div id="lineChart" class=".hideme"></div>  
  
  
-    <script type="text/javascript">
-	    
- //console.log("Before read csv in beginning"); 	  
- //const dataBarNew = d3.csv("MatchTopo_Distribution_of_Income.csv", function(data) {
-//	  console.log(data);
-//		for (var i = 0; i < data.length; i++) {
-//		    console.log(data[i].DISPCountry);
-//		    console.log(data[i].DISPRegion);
-//		    console.log(data[i].DIGiniIndex);
-//		    console.log(data[i].DIPctIncShareHighest10);
-//		    console.log(data[i].DIPctIncShareLowest10);
-//		}
-//	    return {	
-//		    countryName: data.DISPCountry,
-//		    region:     data.DISPRegion,
-//		    giniIndex: +data.DIGiniIndex,
-//		    incPctHi10: +data.DIPctIncShareHighest10,
-//		    incPctLo10: +data.DIPctIncShareLowest10
-//	    }	    
-//
-//   });	  
-//   console.log("After read csv in beginning" + dataBarNew); 
-						
-    
-/*
-################ FORMATS ##################
--------------------------------------------
-*/
+<script type="text/javascript">
+
+//Set the initial region value
+myNamespace = { regionGl = "Africa" }
+	
+
 d3.selectAll(".tick")
      .on("click",clickme)	    
 function clickme(d){
@@ -450,9 +428,6 @@ var plot = d3.select("#mapChart")
 { countryName: "El Salvador", region: "South/Latin America",  giniIndex: 38.6, incPctLo10: 29.4, incPctHi10: 2.4 },
  ];	 
 
-// set initial group value
-var region = "South/Latin America";
-
 function dataBarChosen(region) {
 	var ds = [];
 	if (region == "All") {
@@ -474,7 +449,7 @@ function dataBarChosen(region) {
 
 
 
-function dsBarChart() {
+function dsBarChart(region) {
 
 	console.log('In dsBarChart');
 	
@@ -847,7 +822,7 @@ function updateLineChart(group, colorChosen) {
 }
     
     dsMapChart();
-    dsBarChart();
+    dsBarChart(myNamespace.regionGl);
     //dsLineChart();	  
 	  
     //d3.selectAll(".hideme").attr('visibility',visible);
