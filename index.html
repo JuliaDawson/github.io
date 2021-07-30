@@ -536,7 +536,9 @@ function dsBarChart() {
 	//	console.log("Promise returned values.countryName: " + values.countryName);
 	//})
 	
-	var firstDataBarChart = dataBarChosen(region);         	
+	var firstDataBarChart = dataBarChosen(region);    
+	console.log("firstDataBarChart dataBarChosen for region: " + region);
+	console.log("firstDataBarChart: ", firstDataBarChart);
 	
 	var margin = {top: 30, right: 5, bottom: 20, left: 50},
 	    width = 500 - margin.left - margin.right,
@@ -643,6 +645,8 @@ function dsBarChart() {
 function updateBarChart(region, colorChosen) {
 	
 	var currDataBarChart = dataBarChosen(region);
+	console.log("currtDataBarChart dataBarChosen for region: " + region);
+	console.log("currDataBarChart: ", currDataBarChart);
 		
 	var margin = {top: 30, right: 5, bottom: 20, left: 50},
 	    width = 500 - margin.left - margin.right,
