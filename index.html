@@ -527,7 +527,7 @@ function dsBarChart() {
 	// ForY axis - Gini Index
 	const yAxis = d3.scaleLinear()
 	    .domain(firstDataBarChart.map(d => d.giniIndex))
-	    .range([ 0, height ]);
+	    .range([ height, 0 ]);
 	/*-----------------------------------------------------end new add axis stuff */
 	
 	var svg = d3.select("#barChart")
