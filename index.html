@@ -180,34 +180,11 @@ var margin = 10;
 var projection = d3.geoMercator().translate([width/2,height/2]).scale(70);
 var path = d3.geoPath().projection(projection);
 
-//var color = d3.scaleThreshold()
-//    .domain(d3.range(0, 70))
-//    .range(d3.interpolateBlues(20));
-
 //Read Topo file and CSV containing economic information
 //var worldmap = d3.json("https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json");
 var worldmap = d3.json("countries-110m-edited_wout_Antarctica.json");
-var econcsv = d3.csv("MatchTopo_Distribution_of_income_Shared_Prosperity.csv", function(data) {
-    return {	
-            countryName: data.DISPCountry,
-	    region:     data.DISPRegion,
-	    giniIndex: +data.DIGiniIndex
-    }	    
-});					        
-console.log("econcsv: " + econcsv);
 
-Promise.all([worldmap, econcsv]).then(values => {
-	
-	//console.log("values[0]: " + values[0]);
-	//console.log("values[1][0]: " + values[1][0]);
-	
-	//var plot = d3.select("#mapChart").append("svg").append("text")
-	//.attr("x", (width + margin + margin)/2)
-	//.attr("y", 10)
-	//.attr("class","title")				
-	//.attr("text-anchor", "middle")
-	//.text("World Map with Gini Index")
-	//;
+Promise.all([worldmap]).then(values => {
 	
 var plot = d3.select("#mapChart")
 	.append("svg:svg")
@@ -216,23 +193,9 @@ var plot = d3.select("#mapChart")
 	.append("svg:g")                //make a group to hold our map chart
 	.attr("transform", "translate(10,100)");
 
-  //adding x and y to either below do not help  .attr("x", 0)  .attr("y", 0)	
-  //var svg = d3.select('body')
-  //	.append('svg')
-  //   	.attr('width',width)
-  //	.attr('height',height);
-	
-  //var plot = svg
-  //  .append("g")
-  //  .attr("id", "mapChartPlot");	
-
-	
-   var tooltip = d3.select("div.tooltip");
+ var tooltip = d3.select("div.tooltip");
 		
-// d3.json('https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json')
-//  .then(data => {
-
-   var countries = topojson.feature(values[0], values[0].objects.countries).features; 
+ var countries = topojson.feature(values[0], values[0].objects.countries).features; 
    
    plot.selectAll('path')
 	.data(countries)
@@ -379,6 +342,26 @@ function dsBarChartBasics() {
 }
 
 function dsBarChart() {
+
+	//Read CSV containing wealth inequality information
+	var econcsv = d3.csv("MatchTopo_Distribution_of_Income.csv", function(data) {
+	    return {	
+		    countryName: data.DISPCountry,
+		    region:     data.DISPRegion,
+		    giniIndex: +data.DIGiniIndex,
+		    incPctHi10: +data.DIPctIncShareHighest10,
+		    incPctLo10: +data.DIPctIncShareLowest10
+	    }	    
+	});					        
+	console.log("econcsv: " + econcsv);
+
+	Promise.all([econcsv]).then(values => {
+
+		console.log("values[0]: " + values[0]);
+
+
+	})
+	console.log("values[0]: " + values[0]);
 
 	var firstDatasetBarChart = datasetBarChosen(group);         	
 	
