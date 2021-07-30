@@ -514,11 +514,12 @@ function dsBarChart() {
 			;
 						
 	var yScale = d3.scaleLinear()
-		   .domain([23, d3.max(firstDataBarChart, function(d) { return d.giniIndex; })])
+		   .domain([d3.min(firstDataBarChart, function(d) { return d.giniIndex; }), d3.max(firstDataBarChart, function(d) { return d.giniIndex; })])
 		   .range([height, 0])
 		   ;
+	//	   .domain([23, d3.max(firstDataBarChart, function(d) { return d.giniIndex; })])
 	
-	/*---------------------------------------------------------new add axis stuff */
+	/*-----------------------------------------------------beg new add axis stuff */
 	// For X axis Country
 	const xAxis = d3.scaleBand()
 	    .domain(firstDataBarChart.map(d => d.countryName))
@@ -528,9 +529,7 @@ function dsBarChart() {
 	const yAxis = d3.scaleLinear()
 	    .domain(firstDataBarChart.map(d => d.giniIndex))
 	    .range([ 0, height ]);
-
-
-	/*---------------------------------------------------------new add axis stuff */
+	/*-----------------------------------------------------end new add axis stuff */
 	
 	var svg = d3.select("#barChart")
 		    .append("svg")
@@ -543,7 +542,7 @@ function dsBarChart() {
 		    .append("g")
 		    .attr("transform", "translate(" + margin.left +  "," + margin.top + ")")
 		    ;
-	/*---------------------------------------------------------new add axis stuff */
+	/*-----------------------------------------------------beg new add axis stuff */
 	// Add X axis Country
 	  svg.append("g")
 	    .attr("transform", `translate(${margin.left}, ${height + margin.top})`)
@@ -556,7 +555,7 @@ function dsBarChart() {
 	  svg.append("g")
 	    .attr("transform", `translate(${margin.left}, ${margin.top})`)
 	    .call(d3.axisLeft(yAxis))
-	/*---------------------------------------------------------new add axis stuff */
+	/*-----------------------------------------------------end new add axis stuff */
 	            
 	plot.selectAll("rect")
 		   .data(firstDataBarChart)
@@ -624,8 +623,7 @@ function dsBarChart() {
 		  //.attr("style", "font-size: 12; font-family: Helvetica, sans-serif")
 	//	  ;			
 	 
-	// Title
-	
+	// Title	
 	svg.append("text")
 		.attr("x", (width + margin.left + margin.right)/2)
 		.attr("y", 15)
