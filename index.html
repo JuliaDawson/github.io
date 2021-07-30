@@ -529,6 +529,26 @@ function dsBarChart() {
 		    .append("g")
 		    .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
 		    ;
+	/*---------------------------------------------------------new add axis stuff */
+	  // Add X axis
+	  var x = d3.scaleBand()
+	    .domain(data.map(function(d) { return d.countryName; }))
+	    .range([ 0, width]);
+	  svg.append("g")
+	    .attr("transform", "translate(0," + height + ")")
+	    .call(d3.axisBottom(x))
+	    .selectAll("text")
+	      .attr("transform", "translate(-10,0)rotate(-45)")
+	      .style("text-anchor", "end");
+
+	  // Y axis
+	  var y = d3.scaleLinear()
+	    .domain(data.map(function(d) { return d.giniIndex; }))
+	    .range([ 0, height ])
+	    .padding(.1);
+	  svg.append("g")
+	    .call(d3.axisLeft(y))
+	/*---------------------------------------------------------new add axis stuff */
 	            
 	plot.selectAll("rect")
 		   .data(firstDataBarChart)
