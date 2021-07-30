@@ -515,20 +515,22 @@ function dsBarChart() {
 						
 	var yScale = d3.scaleLinear()
 		   .domain([d3.min(firstDataBarChart, function(d) { return d.giniIndex; }), d3.max(firstDataBarChart, function(d) { return d.giniIndex; })])
-		   .range([height, 0])
-		   ;
+		   .range([height, 0]); //This causes largest value to appear largest because height must be inverted
 	
-	/*-----------------------------------------------------beg new add axis stuff */
-	// For X axis - Country
+	/*------------------------------------------*/
+	/* Define X axis domain and range - Country */
+	/*------------------------------------------*/
 	const xAxis = d3.scaleBand()
 	    .domain(firstDataBarChart.map(d => d.countryName))
 	    .range([ 0, width]);
 
-	// ForY axis - Gini Index
+	/*--------------------------------------------*/
+	/* Define Y axis domain and range - GiniIndex */
+	/*--------------------------------------------*/
 	const yAxis = d3.scaleLinear()
 	    .domain(firstDataBarChart.map(d => d.giniIndex))
-	    .range([ height, 0 ]);
-	/*-----------------------------------------------------end new add axis stuff */
+	    .range([ 0, height ]); //This causes yLabels to start least at bottom
+	
 	
 	var svg = d3.select("#barChart")
 		    .append("svg")
@@ -541,6 +543,7 @@ function dsBarChart() {
 		    .append("g")
 		    .attr("transform", "translate(" + margin.left +  "," + margin.top + ")")
 		    ;
+	
 	/*----------------------- */
 	/* Add X axis - Country   */
 	/*----------------------- */
