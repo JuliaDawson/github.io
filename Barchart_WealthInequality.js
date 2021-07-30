@@ -26,6 +26,13 @@ Promise.all([econcsv]).then(values => {
 })
 }
 
+/*
+############# BAR CHART ###################
+-------------------------------------------
+*/
+
+
+
 var datasetBarChart = [
 { group: "All", category: "Oranges", measure: 63850.4963 }, 
 { group: "All", category: "Apples", measure: 78258.0845 }, 
@@ -89,7 +96,7 @@ function dsBarChartBasics() {
 		var margin = {top: 30, right: 5, bottom: 20, left: 50},
 		width = 500 - margin.left - margin.right,
 	   height = 250 - margin.top - margin.bottom,
-		colorBar = d3.scale.category20(),
+		colorBar = d3.interpolateBlues(),
 		barPadding = 1
 		;
 		
@@ -116,7 +123,7 @@ function dsBarChart() {
 		barPadding = basics.barPadding
 		;
 					
-	var 	xScale = d3.scale.linear()
+	var 	xScale = d3.scaleLinear()
 						.domain([0, firstDatasetBarChart.length])
 						.range([0, width])
 						;
@@ -124,7 +131,7 @@ function dsBarChart() {
 	// Create linear y scale 
 	// Purpose: No matter what the data is, the bar should fit into the svg area; bars should not
 	// get higher than the svg height. Hence incoming data needs to be scaled to fit into the svg area.  
-	var yScale = d3.scale.linear()
+	var yScale = d3.scaleLinear()
 			// use the max funtion to derive end point of the domain (max value of the dataset)
 			// do not use the min value of the dataset as min of the domain as otherwise you will not see the first bar
 		   .domain([0, d3.max(firstDatasetBarChart, function(d) { return d.measure; })])
@@ -173,7 +180,7 @@ function dsBarChart() {
 	.enter()
 	.append("text")
 	.text(function(d) {
-			return formatAsInteger(d3.round(d.measure));
+			return d.measure;
 	})
 	.attr("text-anchor", "middle")
 	// Set x position to the left edge of each bar plus half the bar width
@@ -224,7 +231,6 @@ function dsBarChart() {
 		;
 }
 
-dsBarChart();
 
  /* ** UPDATE CHART ** */
  
