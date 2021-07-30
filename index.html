@@ -518,6 +518,20 @@ function dsBarChart() {
 		   .range([height, 0])
 		   ;
 	
+	/*---------------------------------------------------------new add axis stuff */
+	// For X axis Country
+	const xAx = d3.scaleBand()
+	    .domain(firstDataBarChart.map(d => d.countryName))
+	    .range([ 0, width]);
+
+	// ForY axis - Gini Index
+	const yAx = d3.scaleLinear()
+	    .domain(firstDataBarChart.map(d => d.giniIndex))
+	    .range([ 0, height ]);
+
+
+	/*---------------------------------------------------------new add axis stuff */
+	
 	var svg = d3.select("#barChart")
 		    .append("svg")
 		    .attr("width", width + margin.left + margin.right)
@@ -530,24 +544,17 @@ function dsBarChart() {
 		    .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
 		    ;
 	/*---------------------------------------------------------new add axis stuff */
-	  // Add X axis
-	  var x = d3.scaleBand()
-	    .domain(function(d) { return d.countryName; })
-	    .range([ 0, width]);
+	// Add X axis Country
 	  svg.append("g")
-	    .attr("transform", "translate(0," + height + ")")
-	    .call(d3.axisBottom(x))
+	    .attr("transform", `translate(0, ${height})`)
+	    .call(d3.axisBottom(xAx))
 	    .selectAll("text")
 	      .attr("transform", "translate(-10,0)rotate(-45)")
 	      .style("text-anchor", "end");
 
-	  // Y axis
-	  var y = d3.scaleLinear()
-	    .domain(function(d) { return d.giniIndex; })
-	    .range([ 0, height ])
-	    .padding(.1);
+	  // Add Y axis - Gini Index
 	  svg.append("g")
-	    .call(d3.axisLeft(y))
+	    .call(d3.axisLeft(yAx))
 	/*---------------------------------------------------------new add axis stuff */
 	            
 	plot.selectAll("rect")
