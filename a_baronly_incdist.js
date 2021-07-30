@@ -4,7 +4,7 @@ var height = 500;
 
 d3.selectAll('svg > g > *').remove(); 
 
-var projection = d3.geoMercator().translate([width/2,height/2]).scale(140);
+var projection = d3.geoMercator().translate([width/2,height/2]).scale(200);
 var path = d3.geoPath().projection(projection);
 
 //var color = d3.scaleThreshold()
