@@ -588,19 +588,19 @@ function dsBarChart() {
 	
 		
 	plot.selectAll("text")
-	.data(firstDataBarChart)
-	.enter()
-	.append("text")
-	.text(function(d) {
+	    .data(firstDataBarChart)
+	    .enter()
+	    .append("text")
+	    .text(function(d) {
 		return d.giniIndex;
 	})
 	.attr("text-anchor", "middle")
-	// Set x position to the left edge of each bar plus half the bar width
 	.attr("x", function(d, i) {
-	return (i * (width / firstDataBarChart.length)) + ((width / firstDataBarChart.length - barPadding) / 2);
+	    return (i * (width / firstDataBarChart.length)) + ((width / firstDataBarChart.length - barPadding) / 2);
 	})
 	.attr("y", function(d) {
-	return yScale(d.giniIndex) + 14;
+	return yScale(d.giniIndex);
+	//return yScale(d.giniIndex) + 14;
 	})
 	.attr("class", "yAxis")
 	;
