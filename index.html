@@ -101,7 +101,7 @@ div.tooltip {
 
 .yAxis {
     font-family: Roboto;
-    font-size: 11px;
+    font-size: 9px;
     fill: white;
 }
 
@@ -599,8 +599,7 @@ function dsBarChart() {
 	    return (i * (width / firstDataBarChart.length)) + ((width / firstDataBarChart.length - barPadding) / 2);
 	})
 	.attr("y", function(d) {
-	return yScale(d.giniIndex);
-	//return yScale(d.giniIndex) + 14;
+	return yScale(d.giniIndex) + 14;
 	})
 	.attr("class", "yAxis")
 	;
