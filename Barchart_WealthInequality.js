@@ -1,6 +1,7 @@
-function MapChart() {
+function BarChartWI() {
 var width = 800;
 var height = 600;
+console.log("In Barchart_WealthInequality");	
 
 d3.selectAll('svg > g > *').remove(); 
 
@@ -90,8 +91,8 @@ Promise.all([worldmap, econcsv]).then(values => {
 
 })
 }
-MapChart();
 ========================================================================================================
+function BarTemp() {
 var data = [4,8,15,16,23,42];
 
 var margin = 50;
@@ -122,3 +123,6 @@ d3.select("svg")
     .attr("transform", "translate("+margin+","+margin+")").call(y_axis)
   .append("g")
     .attr("transform", "translate(0,200)").call(x_axis);
+}	
+
+BarChartWI();
