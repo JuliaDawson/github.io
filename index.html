@@ -501,7 +501,7 @@ function dsBarChart() {
 	
 	
 	var margin = {top: 30, right: 5, bottom: 20, left: 50},
-	    width = 800 - margin.left - margin.right,
+	    width = 500 - margin.left - margin.right,
 	    height = 250 - margin.top - margin.bottom,
 	    colorBar = d3.interpolateBlues((63 - 20) / 44),
 	    barPadding = .1
@@ -622,19 +622,19 @@ function updateBarChart(region, colorChosen) {
 	console.log("currDataBarChart[length]: ", currDataBarChart[currDataBarChart.length-1]);
 		
 	var margin = {top: 30, right: 5, bottom: 20, left: 50},
-	    width = 800 - margin.left - margin.right,
+	    width = 500 - margin.left - margin.right,
 	    height = 250 - margin.top - margin.bottom,
 	    colorBar = d3.interpolateBlues((63 - 20) / 44),
 	    barPadding = .1
 	;
 		
-	var xScale = d3.scale.linear()
+	var xScale = d3.scaleLinear()
 		.domain([0, currDataBarChart.length])
 		.range([0, width])
 		;
 		
 			
-	var yScale = d3.scale.linear()
+	var yScale = d3.scaleLinear()
 	      .domain([0, d3.max(currDataBarChart, function(d) { return d.giniIndex; })])
 	      .range([height,0])
 	      ;
