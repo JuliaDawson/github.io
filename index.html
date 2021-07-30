@@ -498,7 +498,7 @@ var region = "Africa";
 
 function dataBarChosen(region) {
 	var ds = [];
-	if (region = "All") {
+	if (region == "All") {
 	 	for (x in dataBarChart) {
 		 	ds.push(dataBarChart[x]);
 		}
@@ -650,6 +650,8 @@ function updateBarChart(region, colorChosen) {
 	var currDataBarChart = dataBarChosen(region);
 	console.log("currtDataBarChart dataBarChosen for region: " + region);
 	console.log("currDataBarChart[0]: ", currDataBarChart[0]);
+	console.log("currDataBarChart.length: " + currDataBarChart.length);
+	console.log("currDataBarChart[length]: ", currDataBarChart[currDataBarChart.length-1]);
 		
 	var margin = {top: 30, right: 5, bottom: 20, left: 50},
 	    width = 500 - margin.left - margin.right,
