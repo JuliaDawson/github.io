@@ -345,15 +345,22 @@ function dsBarChartBasics() {
 function dsBarChart() {
 
 	//Read CSV containing wealth inequality information
-	var econcsv = d3.csv("MatchTopo_Distribution_of_Income.csv", function(data) {
-	    return {	
+	econsv = d3.csv("./MatchTopo_Distribution_of_Income.csv", function(data) {
+		for (var i = 0; i < data.length; i++) {
+		    console.log(data[i].DISPCountry);
+		    console.log(data[i].DIGiniIndex);
+		    console.log(data[i].DIPctIncShareHighest10);
+		    console.log(data[i].DIPctIncShareLowest10);
+		}
+	   return {	
 		    countryName: data.DISPCountry,
 		    region:     data.DISPRegion,
 		    giniIndex: +data.DIGiniIndex,
 		    incPctHi10: +data.DIPctIncShareHighest10,
 		    incPctLo10: +data.DIPctIncShareLowest10
 	    }	    
-	});					        
+
+        });
 	console.log("econcsv: " + econcsv);
 
 	Promise.all([econcsv]).then(values => {
