@@ -141,7 +141,10 @@ td {
   <div class="tooltip"></div>  	
   <body>
   
-  console.log("Before read csv"); 	  
+ 
+    <script type="text/javascript">
+	    
+ console.log("Before read csv"); 	  
   d3.csv("./MatchTopo_Distribution_of_Income.csv", function(data) {
 		for (var i = 0; i < data.length; i++) {
 		    console.log(data[i].DISPCountry);
@@ -155,8 +158,6 @@ td {
     <div id="mapChart" class=".hideme"></div>  
     <div id="barChart" class=".hideme"></div>  
     <div id="lineChart" class=".hideme"></div>  
-
-    <script type="text/javascript">
     
 /*
 ################ FORMATS ##################
