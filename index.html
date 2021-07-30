@@ -569,7 +569,7 @@ function dsBarChart() {
 			    return yScale(d.giniIndex);
 			})  
 			.attr("height", function(d) {
-			    return height-yScale(d.giniIndex);
+			    return (height-yScale(d.giniIndex)+14);
 			})
 			.attr("fill", function(d) { 
 		             //console.log("d", d)
