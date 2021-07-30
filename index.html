@@ -610,20 +610,20 @@ function dsBarChart() {
 		    .attr("transform", "translate(" + margin.left + "," + (margin.top + height)  + ")")
 		    ;
 	
-	xLabels.selectAll("text.xAxis")
-		  .data(firstDataBarChart)
-		  .enter()
-		  .append("text")
-		  .text(function(d) { return d.countryName;})
-		  .attr("text-anchor", "middle")
+	//xLabels.selectAll("text.xAxis")
+	//	  .data(firstDataBarChart)
+	//	  .enter()
+	//	  .append("text")
+	//	  .text(function(d) { return d.countryName;})
+	//	  .attr("text-anchor", "middle")
 			// Set x position to the left edge of each bar plus half the bar width
-						   .attr("x", function(d, i) {
-						   return (i * (width / firstDataBarChart.length)) + ((width / firstDataBarChart.length - barPadding) / 2);
-						   })
-		  .attr("y", 15)
-		  .attr("class", "xAxis")
+	//					   .attr("x", function(d, i) {
+	//					   return (i * (width / firstDataBarChart.length)) + ((width / firstDataBarChart.length - barPadding) / 2);
+	//					   })
+	//	  .attr("y", 15)
+	//	  .attr("class", "xAxis")
 		  //.attr("style", "font-size: 12; font-family: Helvetica, sans-serif")
-		  ;			
+	//	  ;			
 	 
 	// Title
 	
@@ -642,7 +642,7 @@ function dsBarChart() {
 /* updates bar chart on request */
 
 function updateBarChart(region, colorChosen) {
-	
+	console.log('In updateBarChart');
 	var currDataBarChart = dataBarChosen(region);
 	console.log("currtDataBarChart dataBarChosen for region: " + region);
 	console.log("currDataBarChart[0]: ", currDataBarChart[0]);
