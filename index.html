@@ -153,12 +153,13 @@ td {
 	  console.log(data);
 		for (var i = 0; i < data.length; i++) {
 		    console.log(data[i].DISPCountry);
+		    console.log(data[i].DISPRegion);
 		    console.log(data[i].DIGiniIndex);
 		    console.log(data[i].DIPctIncShareHighest10);
 		    console.log(data[i].DIPctIncShareLowest10);
 		}
-    console.log("After read csv in beginning"); 
-  });	  
+   });	  
+   console.log("After read csv in beginning"); 
 						
     
 /*
@@ -358,15 +359,9 @@ function dsBarChartBasics() {
 
 function dsBarChart() {
 
+	console.log('In dsBarChart');
 	//Read CSV containing wealth inequality information
 	econcsv = d3.csv("MatchTopo_Distribution_of_Income.csv", function(data) {
-		for (var i = 0; i < data.length; i++) {
-		    console.log(data[i].DISPCountry);
-		    console.log(data[i].DISPRegion);
-		    console.log(data[i].DIGiniIndex);
-		    console.log(data[i].DIPctIncShareHighest10);
-		    console.log(data[i].DIPctIncShareLowest10);
-		}
 	   return {	
 		    countryName: data.DISPCountry,
 		    region:     data.DISPRegion,
@@ -374,14 +369,13 @@ function dsBarChart() {
 		    incPctHi10: +data.DIPctIncShareHighest10,
 		    incPctLo10: +data.DIPctIncShareLowest10
 	    }	    
-
         });
 	console.log("econcsv: " + econcsv);
 
 	Promise.all([econcsv]).then(values => {
 
-		console.log("Promise returned values[0]: " + values[0]);
-		console.log("Promise returned values[0].countryName: " + values[0].countryName);
+		console.log("Promise returned values: " + values);
+		console.log("Promise returned values.countryName: " + values.countryName);
 
 
 	})
