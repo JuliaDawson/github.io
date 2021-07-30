@@ -513,14 +513,11 @@ function dsBarChart() {
 			.range([0, width])
 			;
 						
-	//var yScale = d3.scaleLinear()
-	//	   .domain([0, d3.max(firstDataBarChart, function(d) { return d.giniIndex; })])
-	//	   .range([height, 0])
-	//	   ;
 	var yScale = d3.scaleLinear()
-		   .domain([23, 63])
+		   .domain([d3.max(firstDataBarChart, function(d) { return d.giniIndex; }), d3.max(firstDataBarChart, function(d) { return d.giniIndex; })])
 		   .range([height, 0])
 		   ;
+
 	
 	/*---------------------------------------------------------new add axis stuff */
 	// For X axis Country
