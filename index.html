@@ -513,8 +513,12 @@ function dsBarChart() {
 			.range([0, width])
 			;
 						
+	//var yScale = d3.scaleLinear()
+	//	   .domain([0, d3.max(firstDataBarChart, function(d) { return d.giniIndex; })])
+	//	   .range([height, 0])
+	//	   ;
 	var yScale = d3.scaleLinear()
-		   .domain([0, d3.max(firstDataBarChart, function(d) { return d.giniIndex; })])
+		   .domain([23, 63])
 		   .range([height, 0])
 		   ;
 	
@@ -549,7 +553,7 @@ function dsBarChart() {
 	    .attr("transform", `translate(${margin.left}, ${height + margin.top})`)
 	    .call(d3.axisBottom(xAxis))
 	    .selectAll("text")
-	      .attr("transform", "translate(-10,0)rotate(-30)")
+	      .attr("transform", "translate(-10,0)rotate(-35)")
 	      .style("text-anchor", "end");
 
 	  // Add Y axis - Gini Index
