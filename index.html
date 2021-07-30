@@ -99,7 +99,7 @@ div.tooltip {
     fill: black;
 }  
 
-.yAxis {
+.yOnBar {
     font-family: Roboto;
     font-size: 9px;
     fill: white;
@@ -556,7 +556,9 @@ function dsBarChart() {
 	    .attr("transform", `translate(${margin.left}, ${margin.top + 14})`)
 	    .call(d3.axisLeft(yAxis))
 	/*-----------------------------------------------------end new add axis stuff */
-	            
+	/*-------------------*/
+	/* ...adding bars... */
+	/*-------------------*/
 	plot.selectAll("rect")
 		   .data(firstDataBarChart)
 		   .enter()
@@ -585,7 +587,9 @@ function dsBarChart() {
 	                })
 			;
 	
-		
+	/*----------------------------------*/
+	/* ...adding labels on the bars ... */
+	/*----------------------------------*/		
 	plot.selectAll("text")
 	    .data(firstDataBarChart)
 	    .enter()
@@ -598,15 +602,15 @@ function dsBarChart() {
 	    return (i * (width / firstDataBarChart.length)) + ((width / firstDataBarChart.length - barPadding) / 2);
 	})
 	.attr("y", function(d) {
-	return yScale(d.giniIndex) + 14;
+	    return yScale(d.giniIndex) + 14;
 	})
-	.attr("class", "yAxis")
+	.attr("class", "yOnBar")
 	;
 	
-	var xLabels = svg
-		    .append("g")
-		    .attr("transform", "translate(" + margin.left + "," + (margin.top + height)  + ")")
-		    ;
+	//var xLabels = svg
+	//	    .append("g")
+	//	    .attr("transform", "translate(" + margin.left + "," + (margin.top + height)  + ")")
+	//	    ;
 	
 	//xLabels.selectAll("text.xAxis")
 	//	  .data(firstDataBarChart)
@@ -698,7 +702,7 @@ function updateBarChart(region, colorChosen) {
 		})
 		;
 		
-	plot.selectAll("text.yAxis") // target the text element(s) which has a yAxis class defined
+	plot.selectAll("text.yOnBar") // target the text element(s) which has a yOnBar class defined
 		.data(currDataBarChart)
 		.transition()
 		.duration(1000)
@@ -712,7 +716,7 @@ function updateBarChart(region, colorChosen) {
 		.text(function(d) {
 		return d.giniIndex;
 		})
-		.attr("class", "yAxis")					 
+		.attr("class", "yOnBar")					 
 		;
 		
 		svg.selectAll("text.title") // target the text element(s) which has a title class defined
