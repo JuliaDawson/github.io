@@ -280,14 +280,175 @@ var plot = d3.select("#mapChart")
 /*============================================================================================================*/
 
 	    
-/*
-############# BAR CHART ###################
--------------------------------------------
-*/
-
-
-var newdataBarChart = [];
-
+/*============================================================================================================*/
+/* End of New for Bar Chart                                                                                          */
+/*------------------------------------------------------------------------------------------------------------*/	    
+ var dataBarChart = [
+{ countryName: "South Africa", region: "Africa",  giniIndex: 63, incPctLo10: 50.5, incPctHi10: 0.9 },
+{ countryName: "Namibia", region: "Africa",  giniIndex: 59.1, incPctLo10: 47.3, incPctHi10: 1 },
+{ countryName: "Zambia", region: "Africa",  giniIndex: 57.1, incPctLo10: 44.4, incPctHi10: 1 },
+{ countryName: "Sao Tome and Principe", region: "Africa",  giniIndex: 56.3, incPctLo10: 49.1, incPctHi10: 1.3 },
+{ countryName: "Central African Rep.", region: "Africa",  giniIndex: 56.2, incPctLo10: 46.2, incPctHi10: 1.2 },
+{ countryName: "eSwatini", region: "Africa",  giniIndex: 54.6, incPctLo10: 42.7, incPctHi10: 1.4 },
+{ countryName: "Mozambique", region: "Africa",  giniIndex: 54, incPctLo10: 45.5, incPctHi10: 1.6 },
+{ countryName: "Botswana", region: "Africa",  giniIndex: 53.3, incPctLo10: 41.5, incPctHi10: 1.5 },
+{ countryName: "Angola", region: "Africa",  giniIndex: 51.3, incPctLo10: 39.6, incPctHi10: 1.3 },
+{ countryName: "Guinea-Bissau", region: "Africa",  giniIndex: 50.7, incPctLo10: 42, incPctHi10: 1.6 },
+{ countryName: "Congo", region: "Africa",  giniIndex: 48.9, incPctLo10: 37.9, incPctHi10: 1.6 },
+{ countryName: "Benin", region: "Africa",  giniIndex: 47.8, incPctLo10: 37.6, incPctHi10: 1 },
+{ countryName: "Seychelles", region: "Africa",  giniIndex: 46.8, incPctLo10: 39.9, incPctHi10: 1.9 },
+{ countryName: "Cameroon", region: "Africa",  giniIndex: 46.6, incPctLo10: 35, incPctHi10: 1.7 },
+{ countryName: "S. Sudan", region: "Africa",  giniIndex: 46.3, incPctLo10: 33.2, incPctHi10: 1.3 },
+{ countryName: "Lesotho", region: "Africa",  giniIndex: 44.9, incPctLo10: 32.9, incPctHi10: 1.7 },
+{ countryName: "Malawi", region: "Africa",  giniIndex: 44.7, incPctLo10: 38.1, incPctHi10: 2.6 },
+{ countryName: "Zimbabwe", region: "Africa",  giniIndex: 44.3, incPctLo10: 34.8, incPctHi10: 2.5 },
+{ countryName: "Rwanda", region: "Africa",  giniIndex: 43.7, incPctLo10: 35.6, incPctHi10: 2.4 },
+{ countryName: "Ghana", region: "Africa",  giniIndex: 43.5, incPctLo10: 32.2, incPctHi10: 1.6 },
+{ countryName: "Chad", region: "Africa",  giniIndex: 43.3, incPctLo10: 32.4, incPctHi10: 1.8 },
+{ countryName: "Togo", region: "Africa",  giniIndex: 43.1, incPctLo10: 31.6, incPctHi10: 1.9 },
+{ countryName: "Uganda", region: "Africa",  giniIndex: 42.8, incPctLo10: 34.2, incPctHi10: 2.5 },
+{ countryName: "Madagascar", region: "Africa",  giniIndex: 42.6, incPctLo10: 33.5, incPctHi10: 2.2 },
+{ countryName: "Cabo Verde", region: "Africa",  giniIndex: 42.4, incPctLo10: 32.3, incPctHi10: 2.2 },
+{ countryName: "Dem. Rep. Congo", region: "Africa",  giniIndex: 42.1, incPctLo10: 32, incPctHi10: 2.1 },
+{ countryName: "Côte d'Ivoire", region: "Africa",  giniIndex: 41.5, incPctLo10: 31.9, incPctHi10: 2.1 },
+{ countryName: "Kenya", region: "Africa",  giniIndex: 40.8, incPctLo10: 31.6, incPctHi10: 2.4 },
+{ countryName: "Tanzania", region: "Africa",  giniIndex: 40.5, incPctLo10: 33.1, incPctHi10: 2.9 },
+{ countryName: "Senegal", region: "Africa",  giniIndex: 40.3, incPctLo10: 31, incPctHi10: 2.3 },
+{ countryName: "Burundi", region: "Africa",  giniIndex: 38.6, incPctLo10: 31, incPctHi10: 2.8 },
+{ countryName: "Gabon", region: "Africa",  giniIndex: 38, incPctLo10: 27.7, incPctHi10: 2.2 },
+{ countryName: "Mauritius", region: "Africa",  giniIndex: 36.8, incPctLo10: 29.9, incPctHi10: 2.9 },
+{ countryName: "Gambia", region: "Africa",  giniIndex: 35.9, incPctLo10: 28.7, incPctHi10: 3 },
+{ countryName: "Sierra Leone", region: "Africa",  giniIndex: 35.7, incPctLo10: 29.4, incPctHi10: 3.4 },
+{ countryName: "Burkina Faso", region: "Africa",  giniIndex: 35.3, incPctLo10: 29.6, incPctHi10: 3.6 },
+{ countryName: "Liberia", region: "Africa",  giniIndex: 35.3, incPctLo10: 27.1, incPctHi10: 2.9 },
+{ countryName: "Nigeria", region: "Africa",  giniIndex: 35.1, incPctLo10: 26.7, incPctHi10: 2.9 },
+{ countryName: "Ethiopia", region: "Africa",  giniIndex: 35, incPctLo10: 28.5, incPctHi10: 2.9 },
+{ countryName: "Niger", region: "Africa",  giniIndex: 34.3, incPctLo10: 27, incPctHi10: 3.2 },
+{ countryName: "Guinea", region: "Africa",  giniIndex: 33.7, incPctLo10: 26.4, incPctHi10: 3 },
+{ countryName: "Mali", region: "Africa",  giniIndex: 33, incPctLo10: 25.7, incPctHi10: 3.3 },
+{ countryName: "Comoros", region: "Arab States",  giniIndex: 45.3, incPctLo10: 33.7, incPctHi10: 1.6 },
+{ countryName: "Djibouti", region: "Arab States",  giniIndex: 41.6, incPctLo10: 32.3, incPctHi10: 1.9 },
+{ countryName: "Morocco", region: "Arab States",  giniIndex: 39.5, incPctLo10: 31.9, incPctHi10: 2.7 },
+{ countryName: "Sudan", region: "Arab States",  giniIndex: 34.2, incPctLo10: 27.8, incPctHi10: 3.2 },
+{ countryName: "Tunisia", region: "Arab States",  giniIndex: 32.8, incPctLo10: 25.6, incPctHi10: 3.2 },
+{ countryName: "Mauritania", region: "Arab States",  giniIndex: 32.6, incPctLo10: 24.9, incPctHi10: 3 },
+{ countryName: "Algeria", region: "Arab States",  giniIndex: 27.6, incPctLo10: 22.9, incPctHi10: 4 },
+{ countryName: "Philippines", region: "Asia & Pacific",  giniIndex: 44.4, incPctLo10: 34.8, incPctHi10: 2.3 },
+{ countryName: "Papua New Guinea", region: "Asia & Pacific",  giniIndex: 41.9, incPctLo10: 31, incPctHi10: 1.9 },
+{ countryName: "Malaysia", region: "Asia & Pacific",  giniIndex: 41, incPctLo10: 31.3, incPctHi10: 2.3 },
+{ countryName: "Turkmenistan", region: "Asia & Pacific",  giniIndex: 40.8, incPctLo10: 31.7, incPctHi10: 2.6 },
+{ countryName: "Micronesia", region: "Asia & Pacific",  giniIndex: 40.1, incPctLo10: 29.7, incPctHi10: 1.9 },
+{ countryName: "Sri Lanka", region: "Asia & Pacific",  giniIndex: 39.8, incPctLo10: 32.9, incPctHi10: 2.9 },
+{ countryName: "Tuvalu", region: "Asia & Pacific",  giniIndex: 39.1, incPctLo10: 30.7, incPctHi10: 2.7 },
+{ countryName: "Samoa", region: "Asia & Pacific",  giniIndex: 38.7, incPctLo10: 31.3, incPctHi10: 2.7 },
+{ countryName: "China", region: "Asia & Pacific",  giniIndex: 38.5, incPctLo10: 29.4, incPctHi10: 2.7 },
+{ countryName: "Indonesia", region: "Asia & Pacific",  giniIndex: 37.8, incPctLo10: 29.3, incPctHi10: 2.9 },
+{ countryName: "Tonga", region: "Asia & Pacific",  giniIndex: 37.6, incPctLo10: 29.7, incPctHi10: 2.8 },
+{ countryName: "Vanuatu", region: "Asia & Pacific",  giniIndex: 37.6, incPctLo10: 29.4, incPctHi10: 2.7 },
+{ countryName: "Bhutan", region: "Asia & Pacific",  giniIndex: 37.4, incPctLo10: 27.9, incPctHi10: 2.7 },
+{ countryName: "Solomon Is.", region: "Asia & Pacific",  giniIndex: 37.1, incPctLo10: 29.2, incPctHi10: 2.8 },
+{ countryName: "Kiribati", region: "Asia & Pacific",  giniIndex: 37, incPctLo10: 29.2, incPctHi10: 2.6 },
+{ countryName: "Fiji", region: "Asia & Pacific",  giniIndex: 36.7, incPctLo10: 29.7, incPctHi10: 3.1 },
+{ countryName: "Laos", region: "Asia & Pacific",  giniIndex: 36.4, incPctLo10: 29.8, incPctHi10: 3.2 },
+{ countryName: "Thailand", region: "Asia & Pacific",  giniIndex: 36.4, incPctLo10: 28.2, incPctHi10: 3 },
+{ countryName: "Syria", region: "Asia & Pacific",  giniIndex: 35.8, incPctLo10: 28.7, incPctHi10: 3.2 },
+{ countryName: "India", region: "Asia & Pacific",  giniIndex: 35.7, incPctLo10: 30.1, incPctHi10: 3.5 },
+{ countryName: "Vietnam", region: "Asia & Pacific",  giniIndex: 35.7, incPctLo10: 27.5, incPctHi10: 2.5 },
+{ countryName: "Uzbekistan", region: "Asia & Pacific",  giniIndex: 35.3, incPctLo10: 28.3, incPctHi10: 2.9 },
+{ countryName: "Australia", region: "Asia & Pacific",  giniIndex: 34.4, incPctLo10: 27, incPctHi10: 2.8 },
+{ countryName: "Tajikistan", region: "Asia & Pacific",  giniIndex: 34, incPctLo10: 26.4, incPctHi10: 3 },
+{ countryName: "Pakistan", region: "Asia & Pacific",  giniIndex: 33.5, incPctLo10: 28.9, incPctHi10: 3.9 },
+{ countryName: "Japan", region: "Asia & Pacific",  giniIndex: 32.9, incPctLo10: 26.4, incPctHi10: 2.9 },
+{ countryName: "Nepal", region: "Asia & Pacific",  giniIndex: 32.8, incPctLo10: 26.4, incPctHi10: 3.5 },
+{ countryName: "Mongolia", region: "Asia & Pacific",  giniIndex: 32.7, incPctLo10: 25.7, incPctHi10: 3.3 },
+{ countryName: "Bangladesh", region: "Asia & Pacific",  giniIndex: 32.4, incPctLo10: 26.8, incPctHi10: 3.7 },
+{ countryName: "North Korea", region: "Asia & Pacific",  giniIndex: 31.6, incPctLo10: 23.8, incPctHi10: 2.6 },
+{ countryName: "Maldives", region: "Asia & Pacific",  giniIndex: 31.3, incPctLo10: 25.2, incPctHi10: 3.4 },
+{ countryName: "Myanmar", region: "Asia & Pacific",  giniIndex: 30.7, incPctLo10: 25.5, incPctHi10: 3.8 },
+{ countryName: "Timor-Leste", region: "Asia & Pacific",  giniIndex: 28.7, incPctLo10: 24, incPctHi10: 4 },
+{ countryName: "Kyrgyzstan", region: "Asia & Pacific",  giniIndex: 27.7, incPctLo10: 23.6, incPctHi10: 4.3 },
+{ countryName: "Kazakhstan", region: "Asia & Pacific",  giniIndex: 27.5, incPctLo10: 23, incPctHi10: 4.3 },
+{ countryName: "Azerbaijan", region: "Asia & Pacific",  giniIndex: 26.6, incPctLo10: 24.2, incPctHi10: 4.8 },
+{ countryName: "Turkey", region: "Europe",  giniIndex: 41.9, incPctLo10: 32.6, incPctHi10: 2.2 },
+{ countryName: "Bulgaria", region: "Europe",  giniIndex: 40.4, incPctLo10: 31.9, incPctHi10: 1.9 },
+{ countryName: "Israel", region: "Europe",  giniIndex: 39, incPctLo10: 27.8, incPctHi10: 1.9 },
+{ countryName: "Montenegro", region: "Europe",  giniIndex: 39, incPctLo10: 27.7, incPctHi10: 1.8 },
+{ countryName: "Russia", region: "Europe",  giniIndex: 37.5, incPctLo10: 29.9, incPctHi10: 2.9 },
+{ countryName: "Lithuania", region: "Europe",  giniIndex: 37.3, incPctLo10: 28.4, incPctHi10: 2.1 },
+{ countryName: "Georgia", region: "Europe",  giniIndex: 36.4, incPctLo10: 27.5, incPctHi10: 2.4 },
+{ countryName: "Serbia", region: "Europe",  giniIndex: 36.2, incPctLo10: 25.6, incPctHi10: 1.4 },
+{ countryName: "Romania", region: "Europe",  giniIndex: 36, incPctLo10: 24.9, incPctHi10: 1.6 },
+{ countryName: "Italy", region: "Europe",  giniIndex: 35.9, incPctLo10: 26.7, incPctHi10: 1.9 },
+{ countryName: "Latvia", region: "Europe",  giniIndex: 35.6, incPctLo10: 26.9, incPctHi10: 2.3 },
+{ countryName: "Luxembourg", region: "Europe",  giniIndex: 34.9, incPctLo10: 25.8, incPctHi10: 2.4 },
+{ countryName: "United Kingdom", region: "Europe",  giniIndex: 34.8, incPctLo10: 26.8, incPctHi10: 2.8 },
+{ countryName: "Spain", region: "Europe",  giniIndex: 34.7, incPctLo10: 25.4, incPctHi10: 2.1 },
+{ countryName: "Armenia", region: "Europe",  giniIndex: 34.4, incPctLo10: 29.2, incPctHi10: 3.3 },
+{ countryName: "Greece", region: "Europe",  giniIndex: 34.4, incPctLo10: 25.9, incPctHi10: 2.4 },
+{ countryName: "Macedonia", region: "Europe",  giniIndex: 34.2, incPctLo10: 23.8, incPctHi10: 1.7 },
+{ countryName: "Portugal", region: "Europe",  giniIndex: 33.8, incPctLo10: 26.7, incPctHi10: 2.7 },
+{ countryName: "West Bank and Gaza", region: "Europe",  giniIndex: 33.7, incPctLo10: 25.2, incPctHi10: 2.9 },
+{ countryName: "Albania", region: "Europe",  giniIndex: 33.2, incPctLo10: 24.8, incPctHi10: 3.1 },
+{ countryName: "Bosnia and Herz.", region: "Europe",  giniIndex: 33, incPctLo10: 25.1, incPctHi10: 2.9 },
+{ countryName: "Ireland", region: "Europe",  giniIndex: 32.8, incPctLo10: 25.9, incPctHi10: 3.1 },
+{ countryName: "Switzerland", region: "Europe",  giniIndex: 32.7, incPctLo10: 25.5, incPctHi10: 3.1 },
+{ countryName: "Germany", region: "Europe",  giniIndex: 31.9, incPctLo10: 24.6, incPctHi10: 2.9 },
+{ countryName: "France", region: "Europe",  giniIndex: 31.6, incPctLo10: 25.8, incPctHi10: 3.2 },
+{ countryName: "Cyprus", region: "Europe",  giniIndex: 31.4, incPctLo10: 25.5, incPctHi10: 3.4 },
+{ countryName: "Hungary", region: "Europe",  giniIndex: 30.6, incPctLo10: 23.9, incPctHi10: 3 },
+{ countryName: "Croatia", region: "Europe",  giniIndex: 30.4, incPctLo10: 22.8, incPctHi10: 2.7 },
+{ countryName: "Estonia", region: "Europe",  giniIndex: 30.4, incPctLo10: 22.5, incPctHi10: 3 },
+{ countryName: "Austria", region: "Europe",  giniIndex: 29.7, incPctLo10: 23, incPctHi10: 3 },
+{ countryName: "Poland", region: "Europe",  giniIndex: 29.7, incPctLo10: 23.5, incPctHi10: 3.2 },
+{ countryName: "Malta", region: "Europe",  giniIndex: 29.2, incPctLo10: 23.3, incPctHi10: 3.4 },
+{ countryName: "Kosovo", region: "Europe",  giniIndex: 29, incPctLo10: 24.6, incPctHi10: 3.8 },
+{ countryName: "Sweden", region: "Europe",  giniIndex: 28.8, incPctLo10: 22.3, incPctHi10: 3 },
+{ countryName: "Denmark", region: "Europe",  giniIndex: 28.7, incPctLo10: 24, incPctHi10: 3.7 },
+{ countryName: "Netherlands", region: "Europe",  giniIndex: 28.5, incPctLo10: 23.3, incPctHi10: 3.5 },
+{ countryName: "Belgium", region: "Europe",  giniIndex: 27.4, incPctLo10: 21.9, incPctHi10: 3.3 },
+{ countryName: "Finland", region: "Europe",  giniIndex: 27.4, incPctLo10: 22.6, incPctHi10: 3.8 },
+{ countryName: "Norway", region: "Europe",  giniIndex: 27, incPctLo10: 21.6, incPctHi10: 3.3 },
+{ countryName: "Iceland", region: "Europe",  giniIndex: 26.8, incPctLo10: 22.5, incPctHi10: 3.9 },
+{ countryName: "Ukraine", region: "Europe",  giniIndex: 26.1, incPctLo10: 22, incPctHi10: 4.2 },
+{ countryName: "Moldova", region: "Europe",  giniIndex: 25.7, incPctLo10: 22, incPctHi10: 4.4 },
+{ countryName: "Belarus", region: "Europe",  giniIndex: 25.2, incPctLo10: 21.4, incPctHi10: 4.3 },
+{ countryName: "Slovakia", region: "Europe",  giniIndex: 25.2, incPctLo10: 19.9, incPctHi10: 2.9 },
+{ countryName: "Czechia", region: "Europe",  giniIndex: 24.9, incPctLo10: 21.5, incPctHi10: 4.2 },
+{ countryName: "Slovenia", region: "Europe",  giniIndex: 24.2, incPctLo10: 20.4, incPctHi10: 4.1 },
+{ countryName: "Iran", region: "Middle east",  giniIndex: 40.8, incPctLo10: 31.3, incPctHi10: 2.3 },
+{ countryName: "Yemen", region: "Middle east",  giniIndex: 36.7, incPctLo10: 29.4, incPctHi10: 3 },
+{ countryName: "Jordan", region: "Middle east",  giniIndex: 33.7, incPctLo10: 27.5, incPctHi10: 3.5 },
+{ countryName: "United Arab Emirates", region: "Middle east",  giniIndex: 32.5, incPctLo10: 21.4, incPctHi10: 2.3 },
+{ countryName: "Lebanon", region: "Middle east",  giniIndex: 31.8, incPctLo10: 24.8, incPctHi10: 3.1 },
+{ countryName: "Egypt", region: "Middle east",  giniIndex: 31.5, incPctLo10: 26.9, incPctHi10: 3.8 },
+{ countryName: "Iraq", region: "Middle east",  giniIndex: 29.5, incPctLo10: 23.7, incPctHi10: 3.7 },
+{ countryName: "United States of America", region: "North America",  giniIndex: 41.1, incPctLo10: 30.4, incPctHi10: 1.8 },
+{ countryName: "Canada", region: "North America",  giniIndex: 33.3, incPctLo10: 25.3, incPctHi10: 2.7 },
+{ countryName: "Suriname", region: "South/Latin America",  giniIndex: 57.6, incPctLo10: 42.7, incPctHi10:  },
+{ countryName: "Brazil", region: "South/Latin America",  giniIndex: 53.9, incPctLo10: 42.5, incPctHi10: 1 },
+{ countryName: "Belize", region: "South/Latin America",  giniIndex: 53.3, incPctLo10: 42.4, incPctHi10: 0.9 },
+{ countryName: "Honduras", region: "South/Latin America",  giniIndex: 52.1, incPctLo10: 39.1, incPctHi10: 0.9 },
+{ countryName: "Saint Lucia", region: "South/Latin America",  giniIndex: 51.2, incPctLo10: 38.6, incPctHi10: 0.9 },
+{ countryName: "Colombia", region: "South/Latin America",  giniIndex: 50.4, incPctLo10: 39.7, incPctHi10: 1.4 },
+{ countryName: "Panama", region: "South/Latin America",  giniIndex: 49.2, incPctLo10: 37.1, incPctHi10: 1.2 },
+{ countryName: "Guatemala", region: "South/Latin America",  giniIndex: 48.3, incPctLo10: 38, incPctHi10: 1.7 },
+{ countryName: "Costa Rica", region: "South/Latin America",  giniIndex: 48, incPctLo10: 36.3, incPctHi10: 1.5 },
+{ countryName: "Venezuela", region: "South/Latin America",  giniIndex: 46.9, incPctLo10: 34.1, incPctHi10: 0.5 },
+{ countryName: "Nicaragua", region: "South/Latin America",  giniIndex: 46.2, incPctLo10: 37.2, incPctHi10: 2 },
+{ countryName: "Paraguay", region: "South/Latin America",  giniIndex: 46.2, incPctLo10: 35.9, incPctHi10: 1.7 },
+{ countryName: "Jamaica", region: "South/Latin America",  giniIndex: 45.5, incPctLo10: 35.8, incPctHi10: 2.1 },
+{ countryName: "Ecuador", region: "South/Latin America",  giniIndex: 45.4, incPctLo10: 34.4, incPctHi10: 1.6 },
+{ countryName: "Mexico", region: "South/Latin America",  giniIndex: 45.4, incPctLo10: 36.4, incPctHi10: 2 },
+{ countryName: "Guyana", region: "South/Latin America",  giniIndex: 44.6, incPctLo10: 34.1, incPctHi10: 1.5 },
+{ countryName: "Chile", region: "South/Latin America",  giniIndex: 44.4, incPctLo10: 36.3, incPctHi10: 2.3 },
+{ countryName: "Dominican Rep.", region: "South/Latin America",  giniIndex: 43.7, incPctLo10: 35.2, incPctHi10: 2.3 },
+{ countryName: "Peru", region: "South/Latin America",  giniIndex: 42.8, incPctLo10: 32.1, incPctHi10: 1.8 },
+{ countryName: "Bolivia", region: "South/Latin America",  giniIndex: 42.2, incPctLo10: 30.4, incPctHi10: 1.5 },
+{ countryName: "Argentina", region: "South/Latin America",  giniIndex: 41.4, incPctLo10: 29.9, incPctHi10: 1.8 },
+{ countryName: "Haiti", region: "South/Latin America",  giniIndex: 41.1, incPctLo10: 31.2, incPctHi10: 2.1 },
+{ countryName: "Uruguay", region: "South/Latin America",  giniIndex: 39.7, incPctLo10: 29.7, incPctHi10: 2.3 },
+{ countryName: "El Salvador", region: "South/Latin America",  giniIndex: 38.6, incPctLo10: 29.4, incPctHi10: 2.4 }
+ ];	 
  var datasetBarChart = [
 { group: "All", category: "Oranges", measure: 63850.4963 }, 
 { group: "All", category: "Apples", measure: 78258.0845 }, 
@@ -333,20 +494,20 @@ var newdataBarChart = [];
 ;
 
 // set initial group value
-var group = "All";
+var region = "Africa";
 
-function datasetBarChosen(group) {
+function dataBarChosen(region) {
 	var ds = [];
-	if (group = "All") {
-	 	for (x in datasetBarChart) {
-		 	ds.push(datasetBarChart[x]);
+	if (region = "All") {
+	 	for (x in dataBarChart) {
+		 	ds.push(dataBarChart[x]);
 		}
 
 	}
 	else {
-	 	for (x in datasetBarChart) {
-			 if(datasetBarChart[x].group==group){
-			 	ds.push(datasetBarChart[x]);
+	 	for (x in dataBarChart) {
+			 if(dataBarChart[x].region==region){
+			 	ds.push(dataBarChart[x]);
 		 	} 
 		}
 
@@ -355,81 +516,48 @@ function datasetBarChosen(group) {
 }
 
 
-function dsBarChartBasics() {
-
-		var margin = {top: 30, right: 5, bottom: 20, left: 50},
-		width = 500 - margin.left - margin.right,
-	   height = 250 - margin.top - margin.bottom,
-		colorBar = d3.interpolateBlues(),
-		barPadding = 1
-		;
-		
-		return {
-			margin : margin, 
-			width : width, 
-			height : height, 
-			colorBar : colorBar, 
-			barPadding : barPadding
-		}			
-		;
-}
 
 function dsBarChart() {
 
 	console.log('In dsBarChart');
 	//Read CSV containing wealth inequality information
-	var econcsv = d3.csv("MatchTopo_Distribution_of_Income.csv", function(data) {
-	   return {	
-		    countryName: data.DISPCountry,
-		    region:     data.DISPRegion,
-		    giniIndex: +data.DIGiniIndex,
-		    incPctHi10: +data.DIPctIncShareHighest10,
-		    incPctLo10: +data.DIPctIncShareLowest10
-	    }	    
-        });
-	console.log("econcsv: " + econcsv);
-
-	Promise.all([econcsv]).then(values => {
-
-		console.log("Promise returned values: " + values);
-		console.log("Promise returned values.countryName: " + values.countryName);
-
-
-	})
+	//var econcsv = d3.csv("MatchTopo_Distribution_of_Income.csv", function(data) {
+	//   return {	
+	//	    countryName: data.DISPCountry,
+	//	    region:     data.DISPRegion,
+	//	    giniIndex: +data.DIGiniIndex,
+	//	    incPctHi10: +data.DIPctIncShareHighest10,
+	//	    incPctLo10: +data.DIPctIncShareLowest10
+	//    }	    
+        //});
+	//console.log("econcsv: " + econcsv);
+	//Promise.all([econcsv]).then(values => {
+	//	console.log("Promise returned values: " + values);
+	//	console.log("Promise returned values.countryName: " + values.countryName);
+	//})
 	
-	var firstDatasetBarChart = datasetBarChosen(group);         	
+	var firstDataBarChart = dataBarChosen(region);         	
 	
-	var basics = dsBarChartBasics();
+	var margin = {top: 30, right: 5, bottom: 20, left: 50},
+	    width = 500 - margin.left - margin.right,
+	    height = 250 - margin.top - margin.bottom,
+	    colorBar = d3.interpolateBlues(),
+	    barPadding = 1
+	;
 	
-	var margin = basics.margin,
-		width = basics.width,
-	   height = basics.height,
-		colorBar = basics.colorBar,
-		barPadding = basics.barPadding
-		;
-					
+			
 	var 	xScale = d3.scaleLinear()
-						.domain([0, firstDatasetBarChart.length])
-						.range([0, width])
-						;
+			.domain([0, firstDataBarChart.length])
+			.range([0, width])
+			;
 						
-	// Create linear y scale 
-	// Purpose: No matter what the data is, the bar should fit into the svg area; bars should not
-	// get higher than the svg height. Hence incoming data needs to be scaled to fit into the svg area.  
 	var yScale = d3.scaleLinear()
-			// use the max funtion to derive end point of the domain (max value of the dataset)
-			// do not use the min value of the dataset as min of the domain as otherwise you will not see the first bar
-		   .domain([0, d3.max(firstDatasetBarChart, function(d) { return d.measure; })])
-		   // As coordinates are always defined from the top left corner, the y position of the bar
-		   // is the svg height minus the data value. So you basically draw the bar starting from the top. 
-		   // To have the y position calculated by the range function
+		   .domain([0, d3.max(firstDataBarChart, function(d) { return d.giniIndex; })])
 		   .range([height, 0])
 		   ;
 	
-	//Create SVG element
-	
 	var svg = d3.select("#barChart")
-			.append("svg")
+		    .append("svg")
 		    .attr("width", width + margin.left + margin.right)
 		    .attr("height", height + margin.top + margin.bottom)
 		    .attr("id","barChartPlot")
@@ -441,13 +569,13 @@ function dsBarChart() {
 		    ;
 	            
 	plot.selectAll("rect")
-		   .data(firstDatasetBarChart)
+		   .data(firstDataBarChart)
 		   .enter()
 		   .append("rect")
 			.attr("x", function(d, i) {
 			    return xScale(i);
 			})
-		   .attr("width", width / firstDatasetBarChart.length - barPadding)   
+		   .attr("width", width / firstDataBarChart.length - barPadding)   
 			.attr("y", function(d) {
 			    return yScale(d.measure);
 			})  
@@ -458,32 +586,23 @@ function dsBarChart() {
 			;
 	
 		
-	// Add y labels to plot	
-	
 	plot.selectAll("text")
-	.data(firstDatasetBarChart)
+	.data(firstDataBarChart)
 	.enter()
 	.append("text")
 	.text(function(d) {
-			return d.measure;
+		return d.giniIndex;
 	})
 	.attr("text-anchor", "middle")
 	// Set x position to the left edge of each bar plus half the bar width
 	.attr("x", function(d, i) {
-			return (i * (width / firstDatasetBarChart.length)) + ((width / firstDatasetBarChart.length - barPadding) / 2);
+	return (i * (width / firstDataBarChart.length)) + ((width / firstDataBarChart.length - barPadding) / 2);
 	})
 	.attr("y", function(d) {
-			return yScale(d.measure) + 14;
+	return yScale(d.measure) + 14;
 	})
 	.attr("class", "yAxis")
-	/* moved to CSS			   
-	.attr("font-family", "sans-serif")
-	.attr("font-size", "11px")
-	.attr("fill", "white")
-	*/
 	;
-	
-	// Add x labels to chart	
 	
 	var xLabels = svg
 		    .append("g")
@@ -491,14 +610,14 @@ function dsBarChart() {
 		    ;
 	
 	xLabels.selectAll("text.xAxis")
-		  .data(firstDatasetBarChart)
+		  .data(firstDataBarChart)
 		  .enter()
 		  .append("text")
 		  .text(function(d) { return d.category;})
 		  .attr("text-anchor", "middle")
 			// Set x position to the left edge of each bar plus half the bar width
 						   .attr("x", function(d, i) {
-						   		return (i * (width / firstDatasetBarChart.length)) + ((width / firstDatasetBarChart.length - barPadding) / 2);
+						   return (i * (width / firstDataBarChart.length)) + ((width / firstDataBarChart.length - barPadding) / 2);
 						   })
 		  .attr("y", 15)
 		  .attr("class", "xAxis")
@@ -512,7 +631,7 @@ function dsBarChart() {
 		.attr("y", 15)
 		.attr("class","title")				
 		.attr("text-anchor", "middle")
-		.text("Overall Sales Breakdown 2012")
+		.text("Distribution of Income")
 		;
 }
 
@@ -521,78 +640,74 @@ function dsBarChart() {
  
 /* updates bar chart on request */
 
-function updateBarChart(group, colorChosen) {
+function updateBarChart(region, colorChosen) {
 	
-		var currentDatasetBarChart = datasetBarChosen(group);
+	var currDataBarChart = dataBarChosen(region);
 		
-		var basics = dsBarChartBasics();
-	
-		var margin = basics.margin,
-			width = basics.width,
-		   height = basics.height,
-			colorBar = basics.colorBar,
-			barPadding = basics.barPadding
-			;
+	var margin = {top: 30, right: 5, bottom: 20, left: 50},
+	    width = 500 - margin.left - margin.right,
+	    height = 250 - margin.top - margin.bottom,
+	    colorBar = d3.interpolateBlues(),
+	    barPadding = 1
+	;
 		
-		var 	xScale = d3.scale.linear()
-			.domain([0, currentDatasetBarChart.length])
-			.range([0, width])
-			;
+	var xScale = d3.scale.linear()
+		.domain([0, currDataBarChart.length])
+		.range([0, width])
+		;
 		
 			
-		var yScale = d3.scale.linear()
-	      .domain([0, d3.max(currentDatasetBarChart, function(d) { return d.measure; })])
+	var yScale = d3.scale.linear()
+	      .domain([0, d3.max(currDataBarChart, function(d) { return d.giniIndex; })])
 	      .range([height,0])
 	      ;
 	      
-	   var svg = d3.select("#barChart svg");
+	var svg = d3.select("#barChart svg");
 	      
-	   var plot = d3.select("#barChartPlot")
-	   	.datum(currentDatasetBarChart)
-		   ;
+	var plot = d3.select("#barChartPlot")
+		.datum(currDataBarChart)
+		;
 	
-	  		/* Note that here we only have to select the elements - no more appending! */
-	  	plot.selectAll("rect")
-	      .data(currentDatasetBarChart)
-	      .transition()
-			.duration(750)
-			.attr("x", function(d, i) {
-			    return xScale(i);
-			})
-		   .attr("width", width / currentDatasetBarChart.length - barPadding)   
-			.attr("y", function(d) {
-			    return yScale(d.measure);
-			})  
-			.attr("height", function(d) {
-			    return height-yScale(d.measure);
-			})
-			.attr("fill", colorChosen)
-			;
-		
-		plot.selectAll("text.yAxis") // target the text element(s) which has a yAxis class defined
-			.data(currentDatasetBarChart)
-			.transition()
-			.duration(750)
-		   .attr("text-anchor", "middle")
-		   .attr("x", function(d, i) {
-		   		return (i * (width / currentDatasetBarChart.length)) + ((width / currentDatasetBarChart.length - barPadding) / 2);
-		   })
-		   .attr("y", function(d) {
-		   		return yScale(d.measure) + 14;
-		   })
-		   .text(function(d) {
-				return formatAsInteger(d3.round(d.measure));
-		   })
-		   .attr("class", "yAxis")					 
+  	plot.selectAll("rect")
+	      	.data(currentDatasetBarChart)
+	      	.transition()
+		.duration(1000)
+		.attr("x", function(d, i) {
+		return xScale(i);
+		})
+		.attr("width", width / currDataBarChart.length - barPadding)   
+		.attr("y", function(d) {
+		return yScale(d.measure);
+		})  
+		.attr("height", function(d) {
+		return height-yScale(d.measure);
+		})
+		.attr("fill", colorChosen)
 		;
 		
-
+	plot.selectAll("text.yAxis") // target the text element(s) which has a yAxis class defined
+		.data(currDataBarChart)
+		.transition()
+		.duration(1000)
+		.attr("text-anchor", "middle")
+		.attr("x", function(d, i) {
+		return (i * (width / currDataBarChart.length)) + ((width / currDataBarChart.length - barPadding) / 2);
+		})
+		.attr("y", function(d) {
+		return yScale(d.giniIndex) + 14;
+		})
+		.text(function(d) {
+		return d.giniIndex;
+		})
+		.attr("class", "yAxis")					 
+		;
+		
 		svg.selectAll("text.title") // target the text element(s) which has a title class defined
 			.attr("x", (width + margin.left + margin.right)/2)
 			.attr("y", 15)
 			.attr("class","title")				
 			.attr("text-anchor", "middle")
-			.text(group + "'s Sales Breakdown 2012")
+			.text(region + " Gini Index (reference years 2010-2019")
 		;
 }
 
