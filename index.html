@@ -359,9 +359,10 @@ function dsBarChartBasics() {
 function dsBarChart() {
 
 	//Read CSV containing wealth inequality information
-	econcsv = d3.csv("./MatchTopo_Distribution_of_Income.csv", function(data) {
+	econcsv = d3.csv("MatchTopo_Distribution_of_Income.csv", function(data) {
 		for (var i = 0; i < data.length; i++) {
 		    console.log(data[i].DISPCountry);
+		    console.log(data[i].DISPRegion);
 		    console.log(data[i].DIGiniIndex);
 		    console.log(data[i].DIPctIncShareHighest10);
 		    console.log(data[i].DIPctIncShareLowest10);
