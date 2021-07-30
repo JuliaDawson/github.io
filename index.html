@@ -31,7 +31,7 @@
 
 #barChart {
 	position:absolute;
-	top:160px;
+	top:10px;
 	left:510px;
 	width: 250px;
 	height: 250px;
@@ -501,19 +501,19 @@ function dsBarChart() {
 	
 	
 	var margin = {top: 30, right: 5, bottom: 20, left: 50},
-	    width = 800 - margin.left - margin.right,
-	    height = 250 - margin.top - margin.bottom,
+	    width = 250 - margin.left - margin.right,
+	    height = 800 - margin.top - margin.bottom,
 	    colorBar = d3.interpolateBlues((63 - 20) / 44),
 	    barPadding = 1
 	;
 	
 			
-	var 	xScale = d3.scaleLinear()
+	var yScale = d3.scaleLinear()
 			.domain([0, firstDataBarChart.length])
 			.range([0, width])
 			;
 						
-	var yScale = d3.scaleLinear()
+	var xScale = d3.scaleLinear()
 		   .domain([0, d3.max(firstDataBarChart, function(d) { return d.giniIndex; })])
 		   .range([height, 0])
 		   ;
@@ -534,15 +534,15 @@ function dsBarChart() {
 		   .data(firstDataBarChart)
 		   .enter()
 		   .append("rect")
-			.attr("x", function(d, i) {
-			    return xScale(i);
+			.attr("y", function(d, i) {
+			    return yScale(i);
 			})
 		   .attr("width", width / firstDataBarChart.length - barPadding)   
-			.attr("y", function(d) {
-			    return yScale(d.giniIndex);
+			.attr("x", function(d) {
+			    return xScale(d.giniIndex);
 			})  
 			.attr("height", function(d) {
-			    return height-yScale(d.giniIndex);
+			    return height-xScale(d.giniIndex);
 			})
 			.attr("fill", function(d) { 
 		             //console.log("d", d)
@@ -567,41 +567,41 @@ function dsBarChart() {
 		return d.giniIndex;
 	})
 	.attr("text-anchor", "middle")
-	// Set x position to the left edge of each bar plus half the bar width
-	.attr("x", function(d, i) {
+	// Set y position to the left edge of each bar plus half the bar width
+	.attr("y", function(d, i) {
 	return (i * (width / firstDataBarChart.length)) + ((width / firstDataBarChart.length - barPadding) / 2);
 	})
-	.attr("y", function(d) {
-	return yScale(d.giniIndex) + 14;
+	.attr("x", function(d) {
+	return xScale(d.giniIndex) + 14;
 	})
-	.attr("class", "yAxis")
+	.attr("class", "xAxis")
 	;
 	
-	var xLabels = svg
+	var yLabels = svg
 		    .append("g")
 		    .attr("transform", "translate(" + margin.left + "," + (margin.top + height)  + ")")
 		    ;
 	
-	xLabels.selectAll("text.xAxis")
+	xLabels.selectAll("text.yAxis")
 		  .data(firstDataBarChart)
 		  .enter()
 		  .append("text")
 		  .text(function(d) { return d.countryName;})
 		  .attr("text-anchor", "middle")
 			// Set x position to the left edge of each bar plus half the bar width
-						   .attr("x", function(d, i) {
+						   .attr("y", function(d, i) {
 						   return (i * (width / firstDataBarChart.length)) + ((width / firstDataBarChart.length - barPadding) / 2);
 						   })
-		  .attr("y", 15)
-		  .attr("class", "xAxis")
+		  .attr("x", 15)
+		  .attr("class", "yAxis")
 		  //.attr("style", "font-size: 12; font-family: Helvetica, sans-serif")
 		  ;			
 	 
 	// Title
 	
 	svg.append("text")
-		.attr("x", (width + margin.left + margin.right)/2)
-		.attr("y", 15)
+		.attr("y", (width + margin.left + margin.right)/2)
+		.attr("x", 15)
 		.attr("class","title")				
 		.attr("text-anchor", "middle")
 		.text("Distribution of Income")
@@ -622,8 +622,8 @@ function updateBarChart(region, colorChosen) {
 	console.log("currDataBarChart[length]: ", currDataBarChart[currDataBarChart.length-1]);
 		
 	var margin = {top: 30, right: 5, bottom: 20, left: 50},
-	    width = 800 - margin.left - margin.right,
-	    height = 250 - margin.top - margin.bottom,
+	    width = 250 - margin.left - margin.right,
+	    height = 800 - margin.top - margin.bottom,
 	    colorBar = d3.interpolateBlues((63 - 20) / 44),
 	    barPadding = 1
 	;
@@ -649,15 +649,15 @@ function updateBarChart(region, colorChosen) {
 	      	.data(currentDatasetBarChart)
 	      	.transition()
 		.duration(1000)
-		.attr("x", function(d, i) {
-		return xScale(i);
+		.attr("y", function(d, i) {
+		return yScale(i);
 		})
 		.attr("width", width / currDataBarChart.length - barPadding)   
-		.attr("y", function(d) {
-		return yScale(d.giniIndex);
+		.attr("x", function(d) {
+		return xScale(d.giniIndex);
 		})  
 		.attr("height", function(d) {
-		return height-yScale(d.giniIndex);
+		return height-xScale(d.giniIndex);
 		})
 		.attr("fill", function(d) { 
 		     //console.log("d", d)
@@ -673,32 +673,34 @@ function updateBarChart(region, colorChosen) {
 		})
 		;
 		
-	plot.selectAll("text.yAxis") // target the text element(s) which has a yAxis class defined
+	plot.selectAll("text.xAxis") // target the text element(s) which has a yAxis class defined
 		.data(currDataBarChart)
 		.transition()
 		.duration(1000)
 		.attr("text-anchor", "middle")
-		.attr("x", function(d, i) {
+		.attr("y", function(d, i) {
 		return (i * (width / currDataBarChart.length)) + ((width / currDataBarChart.length - barPadding) / 2);
 		})
-		.attr("y", function(d) {
-		return yScale(d.giniIndex) + 14;
+		.attr("x", function(d) {
+		return xScale(d.giniIndex) + 14;
 		})
 		.text(function(d) {
 		return d.giniIndex;
 		})
-		.attr("class", "yAxis")					 
+		.attr("class", "xAxis")					 
 		;
 		
 		svg.selectAll("text.title") // target the text element(s) which has a title class defined
-			.attr("x", (width + margin.left + margin.right)/2)
-			.attr("y", 15)
+			.attr("y", (width + margin.left + margin.right)/2)
+			.attr("x", 15)
 			.attr("class","title")				
 			.attr("text-anchor", "middle")
 			.text(region + " Gini Index (reference years 2010-2019")
 		;
 }
-
+/*============================================================================================================*/
+/* End of Bar Chart  Gini Index                                                                                          */
+/*------------------------------------------------------------------------------------------------------------*/
 
 /*
 ############# LINE CHART ##################
