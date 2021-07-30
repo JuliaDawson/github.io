@@ -542,8 +542,9 @@ function dsBarChart() {
 		    .append("g")
 		    .attr("transform", "translate(" + margin.left +  "," + margin.top + ")")
 		    ;
-	/*-----------------------------------------------------beg new add axis stuff */
-	// Add X axis Country
+	/*----------------------- */
+	/* Add X axis - Country   */
+	/*----------------------- */
 	  svg.append("g")
 	    .attr("transform", `translate(${margin.left}, ${height + margin.top + 14} )`)
 	    .call(d3.axisBottom(xAxis))
@@ -551,11 +552,13 @@ function dsBarChart() {
 	      .attr("transform", "translate(-10,0)rotate(-35)")
 	      .style("text-anchor", "end");
 
-	  // Add Y axis - Gini Index
+	/*-------------------------*/
+        /* Add Y axis - Gini Index */
+	/*-------------------------*/
 	  svg.append("g")
 	    .attr("transform", `translate(${margin.left}, ${margin.top + 14})`)
 	    .call(d3.axisLeft(yAxis))
-	/*-----------------------------------------------------end new add axis stuff */
+
 	/*-------------------*/
 	/* ...adding bars... */
 	/*-------------------*/
