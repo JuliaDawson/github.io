@@ -15,19 +15,21 @@ var path = d3.geoPath().projection(projection);
 //Read Topo file and CSV containing economic information
 //var worldmap = d3.json("https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json");
 var worldmap = d3.json("countries-110m-edited.json");
-var econcsv = d3.csv("MatchTopo_Distribution_of_income_Shared_Prosperity.csv", function(data) {
+var econcsv = d3.csv("MatchTopo_Distribution_of_Income.csv", function(data) {
     return {	
             countryName: data.DISPCountry,
 	    region:     data.DISPRegion,
-	    giniIndex: +data.DIGiniIndex
+	    giniIndex: +data.DIGiniIndex,
+	    incPctHi10: +data.DIPctIncShareHighest10,
+	    incPctLo10: +data.DIPctIncShareLowest10
     }	    
 });					        
 console.log("econcsv: " + econcsv);
 
 Promise.all([worldmap, econcsv]).then(values => {
 	
-	//console.log("values[0]: " + values[0]);
-	//console.log("values[1][0]: " + values[1][0]);
+	console.log("values[0]: " + values[0]);
+	console.log("values[1][0]: " + values[1][0]);
 
 	var svg = d3.select('body').append("div")
 		.append('svg')
