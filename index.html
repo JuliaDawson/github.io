@@ -514,25 +514,22 @@ function dsBarChart() {
 			;
 						
 	var yScale = d3.scaleLinear()
-		   .domain([d3.max(firstDataBarChart, function(d) { return d.giniIndex; }), d3.min(firstDataBarChart, function(d) { return d.giniIndex; })])
-		   .range([height, 0]); //This causes largest value to appear largest because height must be inverted
+		   .domain([d3.min(firstDataBarChart, function(d) { return d.giniIndex; }), d3.max(firstDataBarChart, function(d) { return d.giniIndex; })])
+		   .range([height, 0])
+		   ;
+	//	   .domain([23, d3.max(firstDataBarChart, function(d) { return d.giniIndex; })])
 	
-	/*------------------------------------------*/
-	/* Define X axis domain and range - Country */
-	/*------------------------------------------*/
+	/*-----------------------------------------------------beg new add axis stuff */
+	// For X axis - Country
 	const xAxis = d3.scaleBand()
 	    .domain(firstDataBarChart.map(d => d.countryName))
 	    .range([ 0, width]);
 
-	/*--------------------------------------------*/
-	/* Define Y axis domain and range - GiniIndex */
-	/*--------------------------------------------*/
+	// ForY axis - Gini Index
 	const yAxis = d3.scaleLinear()
 	    .domain(firstDataBarChart.map(d => d.giniIndex))
 	    .range([ 0, height ]);
-	//    .domain(firstDataBarChart.map(d => d.giniIndex))
-	//    .domain([d3.max(firstDataBarChart, function(d) { return d.giniIndex; }), d3.min(firstDataBarChart, function(d) { return d.giniIndex; })])
-	
+	/*-----------------------------------------------------end new add axis stuff */
 	
 	var svg = d3.select("#barChart")
 		    .append("svg")
@@ -545,7 +542,6 @@ function dsBarChart() {
 		    .append("g")
 		    .attr("transform", "translate(" + margin.left +  "," + margin.top + ")")
 		    ;
-	
 	/*----------------------- */
 	/* Add X axis - Country   */
 	/*----------------------- */
@@ -640,7 +636,7 @@ function dsBarChart() {
 		.attr("y", 15)
 		.attr("class","title")				
 		.attr("text-anchor", "middle")
-		.text("Distribution of Income -  Gini Index")
+		.text("Distribution of Income")
 		;
 }
 
