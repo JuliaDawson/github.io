@@ -528,8 +528,9 @@ function dsBarChart() {
 	/* Define Y axis domain and range - GiniIndex */
 	/*--------------------------------------------*/
 	const yAxis = d3.scaleLinear()
-	    .domain(firstDataBarChart.map(d => d.giniIndex))
+	    .domain([d3.min(firstDataBarChart, function(d) { return d.giniIndex; }), d3.max(firstDataBarChart, function(d) { return d.giniIndex; })])
 	    .range([ 0, height ]); //This causes yLabels to start least at bottom
+	//    .domain(firstDataBarChart.map(d => d.giniIndex))
 	
 	
 	var svg = d3.select("#barChart")
@@ -638,7 +639,7 @@ function dsBarChart() {
 		.attr("y", 15)
 		.attr("class","title")				
 		.attr("text-anchor", "middle")
-		.text("Distribution of Income")
+		.text("Distribution of Income<br>Gini Index")
 		;
 }
 
