@@ -48,3 +48,25 @@ div.tooltip {
       height: auto; 					
       padding: 2px;				
 }
+
+
+#barChart {
+	position:absolute;
+	top:160px;
+	left:410px;
+	height: 250px;
+}
+
+#barChart {
+	position:absolute;
+	top:160px;
+	left:410px;
+	height: 250px;
+}
+
+#barChart {
+	position:absolute;
+	top:100px;
+	left:10px;
+	height: 400px;
+}
