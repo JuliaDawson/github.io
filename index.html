@@ -514,7 +514,7 @@ function dsBarChart() {
 			;
 						
 	var yScale = d3.scaleLinear()
-		   .domain([d3.min(firstDataBarChart, function(d) { return d.giniIndex; }), d3.max(firstDataBarChart, function(d) { return d.giniIndex; })])
+		   .domain([0, d3.max(firstDataBarChart, function(d) { return d.giniIndex; })])
 		   .range([height, 0])
 		   ;
 	//	   .domain([23, d3.max(firstDataBarChart, function(d) { return d.giniIndex; })])
