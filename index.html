@@ -149,8 +149,7 @@ td {
 <script type="text/javascript">
 
 //Set the initial region value
-myNamespace = { regionGl };
-myNamespace.regionGl = "Africa";	
+let regionGl = "Africa";	
 	
 
 d3.selectAll(".tick")
@@ -823,7 +822,7 @@ function updateLineChart(group, colorChosen) {
 }
     
     dsMapChart();
-    dsBarChart(myNamespace.regionGl);
+    dsBarChart(regionGl);
     //dsLineChart();	  
 	  
     //d3.selectAll(".hideme").attr('visibility',visible);
