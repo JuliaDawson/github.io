@@ -515,9 +515,8 @@ function dsBarChart() {
 						
 	var yScale = d3.scaleLinear()
 		   .domain([d3.min(firstDataBarChart, function(d) { return d.giniIndex; }), d3.max(firstDataBarChart, function(d) { return d.giniIndex; })])
-		   .range([height, 0])
+		   .range([0, height])
 		   ;
-	//	   .domain([23, d3.max(firstDataBarChart, function(d) { return d.giniIndex; })])
 	
 	/*-----------------------------------------------------beg new add axis stuff */
 	// For X axis - Country
