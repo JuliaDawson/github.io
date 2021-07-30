@@ -263,8 +263,9 @@ var plot = d3.select("#mapChart")
 */
 
 
+var newdataBarChart = [];
 
-var datasetBarChart = [
+ var datasetBarChart = [
 { group: "All", category: "Oranges", measure: 63850.4963 }, 
 { group: "All", category: "Apples", measure: 78258.0845 }, 
 { group: "All", category: "Grapes", measure: 60610.2355 }, 
@@ -358,6 +359,7 @@ function dsBarChart() {
 	Promise.all([econcsv]).then(values => {
 
 		console.log("Promise returned values[0]: " + values[0]);
+		console.log("Promise returned values[0].countryName: " + values[0].countryName);
 
 
 	})
