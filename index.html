@@ -539,6 +539,9 @@ function dsBarChart() {
 	var firstDataBarChart = dataBarChosen(region);    
 	console.log("firstDataBarChart dataBarChosen for region: " + region);
 	console.log("firstDataBarChart[0]: ", firstDataBarChart[0]);
+	console.log("firstDataBarChart.length: " + firstDataBarChart.length);
+	console.log("firstDataBarChart[length]: ", firstDataBarChart[firstDataBarChart.length-1]);
+	
 	
 	var margin = {top: 30, right: 5, bottom: 20, left: 50},
 	    width = 500 - margin.left - margin.right,
