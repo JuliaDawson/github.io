@@ -1,6 +1,6 @@
 function MapChart() {
 var width = 1200;
-var height = 500;
+var height = 600;
 
 d3.selectAll('svg > g > *').remove(); 
 
