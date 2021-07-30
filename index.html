@@ -148,26 +148,26 @@ td {
  
     <script type="text/javascript">
 	    
- console.log("Before read csv in beginning"); 	  
- const dataBarNew = d3.csv("MatchTopo_Distribution_of_Income.csv", function(data) {
-	  console.log(data);
-		for (var i = 0; i < data.length; i++) {
-		    console.log(data[i].DISPCountry);
-		    console.log(data[i].DISPRegion);
-		    console.log(data[i].DIGiniIndex);
-		    console.log(data[i].DIPctIncShareHighest10);
-		    console.log(data[i].DIPctIncShareLowest10);
-		}
-	    return {	
-		    countryName: data.DISPCountry,
-		    region:     data.DISPRegion,
-		    giniIndex: +data.DIGiniIndex,
-		    incPctHi10: +data.DIPctIncShareHighest10,
-		    incPctLo10: +data.DIPctIncShareLowest10
-	    }	    
-
-   });	  
-   console.log("After read csv in beginning" + dataBarNew); 
+ //console.log("Before read csv in beginning"); 	  
+ //const dataBarNew = d3.csv("MatchTopo_Distribution_of_Income.csv", function(data) {
+//	  console.log(data);
+//		for (var i = 0; i < data.length; i++) {
+//		    console.log(data[i].DISPCountry);
+//		    console.log(data[i].DISPRegion);
+//		    console.log(data[i].DIGiniIndex);
+//		    console.log(data[i].DIPctIncShareHighest10);
+//		    console.log(data[i].DIPctIncShareLowest10);
+//		}
+//	    return {	
+//		    countryName: data.DISPCountry,
+//		    region:     data.DISPRegion,
+//		    giniIndex: +data.DIGiniIndex,
+//		    incPctHi10: +data.DIPctIncShareHighest10,
+//		    incPctLo10: +data.DIPctIncShareLowest10
+//	    }	    
+//
+//   });	  
+//   console.log("After read csv in beginning" + dataBarNew); 
 						
     
 /*
@@ -447,7 +447,7 @@ var plot = d3.select("#mapChart")
 { countryName: "Argentina", region: "South/Latin America",  giniIndex: 41.4, incPctLo10: 29.9, incPctHi10: 1.8 },
 { countryName: "Haiti", region: "South/Latin America",  giniIndex: 41.1, incPctLo10: 31.2, incPctHi10: 2.1 },
 { countryName: "Uruguay", region: "South/Latin America",  giniIndex: 39.7, incPctLo10: 29.7, incPctHi10: 2.3 },
-{ countryName: "El Salvador", region: "South/Latin America",  giniIndex: 38.6, incPctLo10: 29.4, incPctHi10: 2.4 }
+{ countryName: "El Salvador", region: "South/Latin America",  giniIndex: 38.6, incPctLo10: 29.4, incPctHi10: 2.4 },
  ];	 
  var datasetBarChart = [
 { group: "All", category: "Oranges", measure: 63850.4963 }, 
@@ -538,7 +538,7 @@ function dsBarChart() {
 	
 	var firstDataBarChart = dataBarChosen(region);    
 	console.log("firstDataBarChart dataBarChosen for region: " + region);
-	console.log("firstDataBarChart: ", firstDataBarChart);
+	console.log("firstDataBarChart[0]: ", firstDataBarChart[0]);
 	
 	var margin = {top: 30, right: 5, bottom: 20, left: 50},
 	    width = 500 - margin.left - margin.right,
@@ -579,10 +579,10 @@ function dsBarChart() {
 			})
 		   .attr("width", width / firstDataBarChart.length - barPadding)   
 			.attr("y", function(d) {
-			    return yScale(d.measure);
+			    return yScale(d.giniIndex);
 			})  
 			.attr("height", function(d) {
-			    return height-yScale(d.measure);
+			    return height-yScale(d.giniIndex);
 			})
 			.attr("fill", "lightgrey")
 			;
@@ -601,7 +601,7 @@ function dsBarChart() {
 	return (i * (width / firstDataBarChart.length)) + ((width / firstDataBarChart.length - barPadding) / 2);
 	})
 	.attr("y", function(d) {
-	return yScale(d.measure) + 14;
+	return yScale(d.giniIndex) + 14;
 	})
 	.attr("class", "yAxis")
 	;
@@ -615,7 +615,7 @@ function dsBarChart() {
 		  .data(firstDataBarChart)
 		  .enter()
 		  .append("text")
-		  .text(function(d) { return d.category;})
+		  .text(function(d) { return d.countryName;})
 		  .attr("text-anchor", "middle")
 			// Set x position to the left edge of each bar plus half the bar width
 						   .attr("x", function(d, i) {
@@ -646,7 +646,7 @@ function updateBarChart(region, colorChosen) {
 	
 	var currDataBarChart = dataBarChosen(region);
 	console.log("currtDataBarChart dataBarChosen for region: " + region);
-	console.log("currDataBarChart: ", currDataBarChart);
+	console.log("currDataBarChart[0]: ", currDataBarChart[0]);
 		
 	var margin = {top: 30, right: 5, bottom: 20, left: 50},
 	    width = 500 - margin.left - margin.right,
@@ -681,10 +681,10 @@ function updateBarChart(region, colorChosen) {
 		})
 		.attr("width", width / currDataBarChart.length - barPadding)   
 		.attr("y", function(d) {
-		return yScale(d.measure);
+		return yScale(d.giniIndex);
 		})  
 		.attr("height", function(d) {
-		return height-yScale(d.measure);
+		return height-yScale(d.giniIndex);
 		})
 		.attr("fill", colorChosen)
 		;
