@@ -357,11 +357,11 @@ function dsBarChart() {
 
 	Promise.all([econcsv]).then(values => {
 
-		console.log("values[0]: " + values[0]);
+		console.log("Promise returned values[0]: " + values[0]);
 
 
 	})
-	console.log("values[0]: " + values[0]);
+	console.log("values: " + values);
 
 	var firstDatasetBarChart = datasetBarChosen(group);         	
 	
