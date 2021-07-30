@@ -6,10 +6,6 @@ console.log("In Barchart_WealthInequality");
 
 d3.selectAll('svg > g > *').remove(); 
 
-var xScale = d3.scale.linear()
-             .domain([0, 165])
-             .range( 
-
 //Read CSV containing wealth inequality information
 var econcsv = d3.csv("MatchTopo_Distribution_of_Income.csv", function(data) {
     return {	
