@@ -149,7 +149,7 @@ td {
     <script type="text/javascript">
 	    
  console.log("Before read csv in beginning"); 	  
- var dataBarNew = d3.csv("MatchTopo_Distribution_of_Income.csv", function(data) {
+ const dataBarNew = d3.csv("MatchTopo_Distribution_of_Income.csv", function(data) {
 	  console.log(data);
 		for (var i = 0; i < data.length; i++) {
 		    console.log(data[i].DISPCountry);
@@ -167,7 +167,7 @@ td {
 	    }	    
 
    });	  
-   console.log("After read csv in beginning" + dataBarNew[0]); 
+   console.log("After read csv in beginning" + dataBarNew); 
 						
     
 /*
