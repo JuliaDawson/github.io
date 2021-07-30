@@ -1,0 +1,165 @@
+﻿DISPCountry,DISPRegion,DIRefYear,DIGiniIndex,DIPctIncShareHighest10,DIPctIncShareLowest10
+South Africa,Africa,2014,63,50.5,0.9
+Namibia,Africa,2015,59.1,47.3,1
+Zambia,Africa,2015,57.1,44.4,1
+Sao Tome and Principe,Africa,2017,56.3,49.1,1.3
+Central African Rep.,Africa,2008,56.2,46.2,1.2
+eSwatini,Africa,2016,54.6,42.7,1.4
+Mozambique,Africa,2014,54,45.5,1.6
+Botswana,Africa,2015,53.3,41.5,1.5
+Angola,Africa,2018,51.3,39.6,1.3
+Guinea-Bissau,Africa,2010,50.7,42,1.6
+Congo,Africa,2011,48.9,37.9,1.6
+Benin,Africa,2015,47.8,37.6,1
+Seychelles,Africa,2013,46.8,39.9,1.9
+Cameroon,Africa,2014,46.6,35,1.7
+S. Sudan,Africa,2009,46.3,33.2,1.3
+Lesotho,Africa,2017,44.9,32.9,1.7
+Malawi,Africa,2016,44.7,38.1,2.6
+Zimbabwe,Africa,2017,44.3,34.8,2.5
+Rwanda,Africa,2016,43.7,35.6,2.4
+Ghana,Africa,2016,43.5,32.2,1.6
+Chad,Africa,2011,43.3,32.4,1.8
+Togo,Africa,2015,43.1,31.6,1.9
+Uganda,Africa,2016,42.8,34.2,2.5
+Madagascar,Africa,2012,42.6,33.5,2.2
+Cabo Verde,Africa,2015,42.4,32.3,2.2
+Dem. Rep. Congo,Africa,2012,42.1,32,2.1
+Côte d'Ivoire,Africa,2015,41.5,31.9,2.1
+Kenya,Africa,2015,40.8,31.6,2.4
+Tanzania,Africa,2017,40.5,33.1,2.9
+Senegal,Africa,2011,40.3,31,2.3
+Burundi,Africa,2013,38.6,31,2.8
+Gabon,Africa,2017,38,27.7,2.2
+Mauritius,Africa,2017,36.8,29.9,2.9
+Gambia,Africa,2015,35.9,28.7,3
+Sierra Leone,Africa,2018,35.7,29.4,3.4
+Burkina Faso,Africa,2014,35.3,29.6,3.6
+Liberia,Africa,2016,35.3,27.1,2.9
+Nigeria,Africa,2018,35.1,26.7,2.9
+Ethiopia,Africa,2015,35,28.5,2.9
+Niger,Africa,2014,34.3,27,3.2
+Guinea,Africa,2012,33.7,26.4,3
+Mali,Africa,2009,33,25.7,3.3
+Comoros,Arab States,2014,45.3,33.7,1.6
+Djibouti,Arab States,2017,41.6,32.3,1.9
+Morocco,Arab States,2013,39.5,31.9,2.7
+Sudan,Arab States,2014,34.2,27.8,3.2
+Tunisia,Arab States,2015,32.8,25.6,3.2
+Mauritania,Arab States,2014,32.6,24.9,3
+Algeria,Arab States,2011,27.6,22.9,4
+Philippines,Asia & Pacific,2015,44.4,34.8,2.3
+Papua New Guinea,Asia & Pacific,2009,41.9,31,1.9
+Malaysia,Asia & Pacific,2015,41,31.3,2.3
+Turkmenistan,Asia & Pacific,1998,40.8,31.7,2.6
+Micronesia,Asia & Pacific,2013,40.1,29.7,1.9
+Sri Lanka,Asia & Pacific,2016,39.8,32.9,2.9
+Tuvalu,Asia & Pacific,2010,39.1,30.7,2.7
+Samoa,Asia & Pacific,2013,38.7,31.3,2.7
+China,Asia & Pacific,2016,38.5,29.4,2.7
+Indonesia,Asia & Pacific,2018,37.8,29.3,2.9
+Tonga,Asia & Pacific,2015,37.6,29.7,2.8
+Vanuatu,Asia & Pacific,2010,37.6,29.4,2.7
+Bhutan,Asia & Pacific,2017,37.4,27.9,2.7
+Solomon Is.,Asia & Pacific,2013,37.1,29.2,2.8
+Kiribati,Asia & Pacific,2006,37,29.2,2.6
+Fiji,Asia & Pacific,2013,36.7,29.7,3.1
+Laos,Asia & Pacific,2012,36.4,29.8,3.2
+Thailand,Asia & Pacific,2018,36.4,28.2,3
+Syria,Asia & Pacific,2004,35.8,28.7,3.2
+India,Asia & Pacific,2011,35.7,30.1,3.5
+Vietnam,Asia & Pacific,2018,35.7,27.5,2.5
+Uzbekistan,Asia & Pacific,2003,35.3,28.3,2.9
+Australia,Asia & Pacific,2014,34.4,27,2.8
+Tajikistan,Asia & Pacific,2015,34,26.4,3
+Pakistan,Asia & Pacific,2015,33.5,28.9,3.9
+Japan,Asia & Pacific,2013,32.9,26.4,2.9
+Nepal,Asia & Pacific,2010,32.8,26.4,3.5
+Mongolia,Asia & Pacific,2018,32.7,25.7,3.3
+Bangladesh,Asia & Pacific,2016,32.4,26.8,3.7
+North Korea,Asia & Pacific,2012,31.6,23.8,2.6
+Maldives,Asia & Pacific,2016,31.3,25.2,3.4
+Myanmar,Asia & Pacific,2017,30.7,25.5,3.8
+Timor-Leste,Asia & Pacific,2014,28.7,24,4
+Kyrgyzstan,Asia & Pacific,2018,27.7,23.6,4.3
+Kazakhstan,Asia & Pacific,2017,27.5,23,4.3
+Azerbaijan,Asia & Pacific,2005,26.6,24.2,4.8
+Turkey,Europe,2018,41.9,32.6,2.2
+Bulgaria,Europe,2017,40.4,31.9,1.9
+Israel,Europe,2016,39,27.8,1.9
+Montenegro,Europe,2015,39,27.7,1.8
+Russia,Europe,2018,37.5,29.9,2.9
+Lithuania,Europe,2017,37.3,28.4,2.1
+Georgia,Europe,2018,36.4,27.5,2.4
+Serbia,Europe,2017,36.2,25.6,1.4
+Romania,Europe,2017,36,24.9,1.6
+Italy,Europe,2017,35.9,26.7,1.9
+Latvia,Europe,2017,35.6,26.9,2.3
+Luxembourg,Europe,2017,34.9,25.8,2.4
+United Kingdom,Europe,2016,34.8,26.8,2.8
+Spain,Europe,2017,34.7,25.4,2.1
+Armenia,Europe,2018,34.4,29.2,3.3
+Greece,Europe,2017,34.4,25.9,2.4
+Macedonia,Europe,2017,34.2,23.8,1.7
+Portugal,Europe,2017,33.8,26.7,2.7
+West Bank and Gaza,Europe,2016,33.7,25.2,2.9
+Albania,Europe,2017,33.2,24.8,3.1
+Bosnia and Herz.,Europe,2011,33,25.1,2.9
+Ireland,Europe,2016,32.8,25.9,3.1
+Switzerland,Europe,2017,32.7,25.5,3.1
+Germany,Europe,2016,31.9,24.6,2.9
+France,Europe,2017,31.6,25.8,3.2
+Cyprus,Europe,2017,31.4,25.5,3.4
+Hungary,Europe,2017,30.6,23.9,3
+Croatia,Europe,2017,30.4,22.8,2.7
+Estonia,Europe,2017,30.4,22.5,3
+Austria,Europe,2017,29.7,23,3
+Poland,Europe,2017,29.7,23.5,3.2
+Malta,Europe,2017,29.2,23.3,3.4
+Kosovo,Europe,2017,29,24.6,3.8
+Sweden,Europe,2017,28.8,22.3,3
+Denmark,Europe,2017,28.7,24,3.7
+Netherlands,Europe,2017,28.5,23.3,3.5
+Belgium,Europe,2017,27.4,21.9,3.3
+Finland,Europe,2017,27.4,22.6,3.8
+Norway,Europe,2017,27,21.6,3.3
+Iceland,Europe,2015,26.8,22.5,3.9
+Ukraine,Europe,2018,26.1,22,4.2
+Moldova,Europe,2018,25.7,22,4.4
+Belarus,Europe,2018,25.2,21.4,4.3
+Slovakia,Europe,2016,25.2,19.9,2.9
+Czechia,Europe,2017,24.9,21.5,4.2
+Slovenia,Europe,2017,24.2,20.4,4.1
+Iran,Middle east,2017,40.8,31.3,2.3
+Yemen,Middle east,2014,36.7,29.4,3
+Jordan,Middle east,2010,33.7,27.5,3.5
+United Arab Emirates,Middle east,2014,32.5,21.4,2.3
+Lebanon,Middle east,2011,31.8,24.8,3.1
+Egypt,Middle east,2017,31.5,26.9,3.8
+Iraq,Middle east,2012,29.5,23.7,3.7
+United States of America,North America,2016,41.1,30.4,1.8
+Canada,North America,2017,33.3,25.3,2.7
+Suriname,South/Latin America,1999,57.6,42.7,
+Brazil,South/Latin America,2018,53.9,42.5,1
+Belize,South/Latin America,1999,53.3,42.4,0.9
+Honduras,South/Latin America,2018,52.1,39.1,0.9
+Saint Lucia,South/Latin America,2016,51.2,38.6,0.9
+Colombia,South/Latin America,2018,50.4,39.7,1.4
+Panama,South/Latin America,2018,49.2,37.1,1.2
+Guatemala,South/Latin America,2014,48.3,38,1.7
+Costa Rica,South/Latin America,2018,48,36.3,1.5
+Venezuela,South/Latin America,2006,46.9,34.1,0.5
+Nicaragua,South/Latin America,2014,46.2,37.2,2
+Paraguay,South/Latin America,2018,46.2,35.9,1.7
+Jamaica,South/Latin America,2004,45.5,35.8,2.1
+Ecuador,South/Latin America,2018,45.4,34.4,1.6
+Mexico,South/Latin America,2018,45.4,36.4,2
+Guyana,South/Latin America,1998,44.6,34.1,1.5
+Chile,South/Latin America,2017,44.4,36.3,2.3
+Dominican Rep.,South/Latin America,2018,43.7,35.2,2.3
+Peru,South/Latin America,2018,42.8,32.1,1.8
+Bolivia,South/Latin America,2018,42.2,30.4,1.5
+Argentina,South/Latin America,2018,41.4,29.9,1.8
+Haiti,South/Latin America,2012,41.1,31.2,2.1
+Uruguay,South/Latin America,2018,39.7,29.7,2.3
+El Salvador,South/Latin America,2018,38.6,29.4,2.4
