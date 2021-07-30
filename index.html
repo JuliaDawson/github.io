@@ -281,7 +281,7 @@ var plot = d3.select("#mapChart")
 
 	    
 /*============================================================================================================*/
-/* End of New for Bar Chart                                                                                          */
+/* Start of Bar Chart  Gini Index                                                                                          */
 /*------------------------------------------------------------------------------------------------------------*/	    
  var dataBarChart = [
 { countryName: "South Africa", region: "Africa",  giniIndex: 63, incPctLo10: 50.5, incPctHi10: 0.9 },
@@ -587,7 +587,18 @@ function dsBarChart() {
 			.attr("height", function(d) {
 			    return height-yScale(d.giniIndex);
 			})
-			.attr("fill", "lightgrey")
+			.attr("fill", function(d) { 
+		             //console.log("d", d)
+		             //console.log("giniIndex", d.giniIndex)
+		             var col =  d3.interpolateBlues((d.giniIndex - 20) / 44); 
+		             //console.log("col", col)
+		             if (col) {
+		                //console.log("found col", col, "for d", d)
+		                return col
+		             } else {
+		                return 'white'
+		             }
+	                })
 			;
 	
 		
@@ -691,7 +702,18 @@ function updateBarChart(region, colorChosen) {
 		.attr("height", function(d) {
 		return height-yScale(d.giniIndex);
 		})
-		.attr("fill", colorChosen)
+		.attr("fill", function(d) { 
+		     //console.log("d", d)
+		     //console.log("giniIndex", d.giniIndex)
+		     var col =  d3.interpolateBlues((d.giniIndex - 20) / 44); 
+		     //console.log("col", col)
+		     if (col) {
+			//console.log("found col", col, "for d", d)
+			return col
+		     } else {
+			return 'white'
+		     }
+		})
 		;
 		
 	plot.selectAll("text.yAxis") // target the text element(s) which has a yAxis class defined
