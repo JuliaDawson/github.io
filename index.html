@@ -529,7 +529,7 @@ function dsBarChart() {
 	/*--------------------------------------------*/
 	const yAxis = d3.scaleLinear()
 	    .domain([d3.max(firstDataBarChart, function(d) { return d.giniIndex; }), d3.min(firstDataBarChart, function(d) { return d.giniIndex; })])
-	    .range([ height, 0 ]); //This and above line causes yLabels to start least at bottom but the max bar values to start first
+	    .range([ 0, height ]); //This and above line causes yLabels to start least at bottom but the max bar values to start first
 	//    .domain(firstDataBarChart.map(d => d.giniIndex))
 	
 	
