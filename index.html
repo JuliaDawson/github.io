@@ -546,7 +546,7 @@ function dsBarChart() {
 	/*---------------------------------------------------------new add axis stuff */
 	// Add X axis Country
 	  svg.append("g")
-	    .attr("transform", `translate(0, ${height + margin.top})`)
+	    .attr("transform", `translate(${margin.left}, ${height + margin.top})`)
 	    .call(d3.axisBottom(xAxis))
 	    .selectAll("text")
 	      .attr("transform", "translate(-10,0)rotate(-45)")
