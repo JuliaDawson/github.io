@@ -148,15 +148,16 @@ td {
  
     <script type="text/javascript">
 	    
- console.log("Before read csv"); 	  
-  d3.csv("./MatchTopo_Distribution_of_Income.csv", function(data) {
+ console.log("Before read csv in beginning"); 	  
+  d3.csv("MatchTopo_Distribution_of_Income.csv", function(data) {
+	  console.log(data);
 		for (var i = 0; i < data.length; i++) {
 		    console.log(data[i].DISPCountry);
 		    console.log(data[i].DIGiniIndex);
 		    console.log(data[i].DIPctIncShareHighest10);
 		    console.log(data[i].DIPctIncShareLowest10);
 		}
-    console.log("After read csv"); 
+    console.log("After read csv in beginning"); 
   });	  
 						
     
