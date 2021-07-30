@@ -543,7 +543,7 @@ function dsBarChart() {
 	var margin = {top: 30, right: 5, bottom: 20, left: 50},
 	    width = 500 - margin.left - margin.right,
 	    height = 250 - margin.top - margin.bottom,
-	    colorBar = d3.interpolateBlues(),
+	    colorBar = d3.interpolateBlues((63 - 20) / 44),
 	    barPadding = 1
 	;
 	
@@ -651,7 +651,7 @@ function updateBarChart(region, colorChosen) {
 	var margin = {top: 30, right: 5, bottom: 20, left: 50},
 	    width = 500 - margin.left - margin.right,
 	    height = 250 - margin.top - margin.bottom,
-	    colorBar = d3.interpolateBlues(),
+	    colorBar = d3.interpolateBlues((63 - 20) / 44),
 	    barPadding = 1
 	;
 		
