@@ -738,7 +738,7 @@ function datasetLineChartChosen(group) {
 
 function dsLineChartBasics() {
 
-	var margin = {top: 20, right: 10, bottom: 0, left: 50},
+	var margin = {top: 300, right: 10, bottom: 0, left: 50},
 	    width = 500 - margin.left - margin.right,
 	    height = 150 - margin.top - margin.bottom
 	    ;
@@ -913,7 +913,8 @@ function updateLineChart(group, colorChosen) {
     //   console.log("Charts refreshed because region changed from: <", priorregionGl, "> to: <", regionGl, ">"); 	    
     //   priorregionGl = regionGl;
    //}
-    //dsLineChart();	  
+	
+    dsLineChart();	  
 	  
     //d3.selectAll(".hideme").attr('visibility',visible);
 	
