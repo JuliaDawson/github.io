@@ -490,9 +490,9 @@ function dataBarChosen(region) {
 	return ds;   
 }
 
-function showBarChartWI(op, region)
+function showBarChartWI(op)
 {
-	console.log("showBarChartWI: opacity", op, "region:", region, " regionGl:", regionGl, " priorregionGl:", priorregionGl);	
+	console.log("showBarChartWI: opacity", op, " regionGl:", regionGl, " priorregionGl:", priorregionGl);	
 	d3.select('#giniBarChart').attr("opacity", op);
 	d3.select('#giniBarChRect').attr("opacity", op);
 	d3.select('#giniBarChYaxis').attr("opacity", op);
@@ -503,7 +503,7 @@ function showBarChartWI(op, region)
 	if (op == '0')
 	{
 	console.log("showBarChartWI: opacity zero and emptied HTML");	
-	setTimeout(() => {  console.log("...clearing html rightn now..."); }, 2000);	
+	setTimeout(() => {  console.log("...clearing html rightn now..."); }, 500);	
 	d3.select('#giniBarChart').html('');
 	d3.select('#giniBarChRect').html('');
 	d3.select('#giniBarChYaxis').html('');
@@ -518,10 +518,12 @@ function dsBarChartWI(region) {
 
 	console.log('In dsBarChartWI, region:', region);
 	
-	if (region != "" && regionGl != priorregionGl) {
+	if (regionGl != priorregionGl) {
 	
-		showBarChartWI("0", region);   //Hide and clear
-		showBarChartWI("100", region); //Show
+		if (priorregionGl != "") {
+			showBarChartWI("0");   //Hide and clear
+		}
+		showBarChartWI("100"); //Show
 
 		var currDataBarChart = dataBarChosen(region);    
 		console.log("currDataBarChart dataBarChosen for region: " + region);
