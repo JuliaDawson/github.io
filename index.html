@@ -637,7 +637,7 @@ function dsBarChartWI(region) {
 		     })
 		.attr("text-anchor", "middle")
 		.attr("transform", function(d, i) {
-    			var yVal = yScale(d.giniIndex);
+    			var yVal = yScale(d.giniIndex) - 10;
     			var xVal = (i * (width / currDataBarChart.length)) + ((width / currDataBarChart.length - barPadding) / 2);
     			return "translate(" + xVal + "," + yVal + ") rotate(270)";
   			})
