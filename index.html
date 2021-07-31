@@ -276,7 +276,7 @@ d3.select("#mapChartPath")
 	     if (regionGl == "South/Latin America" || regionGl == "North America") {
 		regionName = "North and South/Latin America";     
 	     }
-	     else regionName = regionGL;	 
+	     else regionName = regionGl;	 
              dsBarChart(regionGl);
 	 }
  
@@ -487,25 +487,6 @@ function dataBarChosen(region) {
 	return ds;
 }
 
-function showWealthIneq(op)
-{
-	d3.select('#giniBarChart').attr("opacity", op);
-	d3.select('#giniBarChRect').attr("opacity", op);
-	d3.select('#giniBarChYaxis').attr("opacity", op);
-	d3.select('#giniBarChXaxis').attr("opacity", op);
-	d3.select('#giniBarChTitle').attr("opacity", op);
-	d3.select('#giniBarChLabels').attr("opacity", op);
-	
-	if (op == '0')
-	{
-	d3.select('#giniBarChart').html('');
-	d3.select('#giniBarChRect').html('');
-	d3.select('#giniBarChYaxis').html('');
-	d3.select('#giniBarChXaxis').html('');
-	d3.select('#giniBarChChTitle').html('');
-	}
-	
-}
 
 
 function dsBarChart(region) {
@@ -889,6 +870,26 @@ function updateLineChart(group, colorChosen) {
     //dsLineChart();	  
 	  
     //d3.selectAll(".hideme").attr('visibility',visible);
+
+function showWealthIneq(op)
+{
+	d3.select('#giniBarChart').attr("opacity", op);
+	d3.select('#giniBarChRect').attr("opacity", op);
+	d3.select('#giniBarChYaxis').attr("opacity", op);
+	d3.select('#giniBarChXaxis').attr("opacity", op);
+	d3.select('#giniBarChTitle').attr("opacity", op);
+	d3.select('#giniBarChLabels').attr("opacity", op);
+	
+	if (op == '0')
+	{
+	d3.select('#giniBarChart').html('');
+	d3.select('#giniBarChRect').html('');
+	d3.select('#giniBarChYaxis').html('');
+	d3.select('#giniBarChXaxis').html('');
+	d3.select('#giniBarChTitle').html('');
+	}
+	
+}
 	
 async function init() 
 {
@@ -897,7 +898,9 @@ async function init()
 	d3.select('#giniBarChart').attr("transform",  "translate(310,10)");	   
 	d3.select('#giniBarChXaxis').attr("transform",  "translate(360,294)");	
 	d3.select('#giniBarChYaxis').attr("transform",  "translate(360,44)");		
-	d3.select('#giniBarChRect').attr("transform", "translate(60,40)");	
+	d3.select('#giniBarChRect').attr("transform", "translate(60,40)");
+	d3.select('#giniBarChTitle').attr("transform", "translate(310,10)");	
+
 }	
 	
 	   	    
