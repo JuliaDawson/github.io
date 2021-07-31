@@ -178,6 +178,7 @@ td {
 let regionGl = '';
 let regionName = '';	
 let priorregionGl = '';	
+let currDataBarChart = [];		    	
 
 d3.selectAll(".tick")
      .on("click",clickme)	    
@@ -291,6 +292,9 @@ d3.select("#mapChartWIPath")
 	 if (regionGl != d.properties.region) {
 	     console.log("Region changed from:", regionGl, " To:", d.properties.region);	 
              regionGl = d.properties.region;
+		 
+	     currDataBarChart = dataBarChosen(regionGl); //Refine data to clicked Region
+		 
 	     if (regionGl == "South/Latin America" || regionGl == "North America") {
 		regionName = "North and South/Latin America";     
 	     }
@@ -544,7 +548,7 @@ function dsBarChartWI(region) {
 		}
 		showBarChartWI("100"); //Show
 
-		var currDataBarChart = dataBarChosen(region);    
+
 		console.log("currDataBarChart dataBarChosen for region: " + region);
 		console.log("currDataBarChart[0]: ", currDataBarChart[0]);
 		console.log("currDataBarChart.length: " + currDataBarChart.length);
