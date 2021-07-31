@@ -136,7 +136,7 @@ td {
 				 
 </style>
 </head>
-<body onload="init()">
+<body>
 <div class="tooltip"></div>  		
 <div class="titlediv">
 	<p id="ScreenTitle" class="titlep">Wealth Inequality in our world (click, zoom)</p>
@@ -889,18 +889,7 @@ function updateLineChart(group, colorChosen) {
 	  
     //d3.selectAll(".hideme").attr('visibility',visible);
 	
-async function init() 
-{
-	// set up location
-	d3.select('#mapChartWI').attr("transform",  "translate(10,10)");	
-	d3.select('#giniBarChart').attr("transform",  "translate(360,10)");	   
-	d3.select('#giniBarChXaxis').attr("transform",  "translate(360,294)");	
-	d3.select('#giniBarChYaxis').attr("transform",  "translate(360,44)");		
-	d3.select('#giniBarChRect').attr("transform", "translate(360,10)");	
-	d3.select('#giniBarChTitle').attr("transform", "translate(360,10)");	
-	
-}	
-	
+
     </script>
   </body>
 </html>
