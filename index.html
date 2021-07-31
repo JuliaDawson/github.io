@@ -86,7 +86,7 @@ div.tooltip {
 }
 
 .title {
-	 font-family: Roboto;
+    font-family: Roboto;
     font-size: 15px;	
 		
 }
@@ -151,7 +151,7 @@ td {
 			<g id="giniBarChRect"></g>
 			<g id="giniBarChYaxis"></g>
 			<g id="giniBarChXaxis"></g>
-			<g id="giniBarChTitle"></g>
+			<g id="giniBarChTitle" class="titlep"></g>
 			<g id="giniBarChLabels"></g>
 		</g>
 
@@ -904,9 +904,9 @@ async function init()
 	// set up location
 	d3.select('#mapChartWI').attr("transform",  "translate(10,10)");	
 	d3.select('#giniBarChart').attr("transform",  "translate(340,10)");	   
-	d3.select('#giniBarChXaxis').attr("transform",  "translate(30,294)");	
-	d3.select('#giniBarChYaxis').attr("transform",  "translate(500,44)");		
-	d3.select('#giniBarChRect').attr("transform", "translate(60,26)");	
+	d3.select('#giniBarChXaxis').attr("transform",  "translate(340,294)");	
+	d3.select('#giniBarChYaxis').attr("transform",  "translate(340,44)");		
+	d3.select('#giniBarChRect').attr("transform", "translate(400,26)");	
 	d3.select('#giniBarChTitle').attr("transform", "translate(10,10)");	
 	
 }	
