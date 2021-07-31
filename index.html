@@ -144,7 +144,7 @@ td {
 	<p id="ScreenTitle" class="titlep">Wealth Inequality</p>
 </div>	
 <div class="bodydiv">
-    <svg width=800 height=500>
+    <svg width=1000 height=500>
 		<g id="mapChartWI" opacity="100" >
 			<g id="mapChartWIPath"></g>
 			<g id="mapChartPath"></g>
@@ -898,7 +898,11 @@ async function init()
 	// set up locations
 	d3.select('#mapChartWI').attr("transform",  "translate(10,10)");
 	
-	d3.select('#giniBarChart').attr("transform", "translate(10,510)");
+	d3.select('#giniBarChart').attr("transform", "translate(10,410)");
+	d3.select('#giniBarChRect').attr("transform", "translate(0,0)");
+	d3.select('#giniBarChYaxis').attr("transform", "translate(50,44)");
+	d3.select('#giniBarChXaxis').attr("transform", "translate(50,294)");
+	d3.select('#giniBarChTitle').attr("transform", "translate(10,410)");
 }
 	
 
