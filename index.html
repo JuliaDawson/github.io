@@ -44,7 +44,7 @@
    font-weight: bold;	
   		} 
 
-#mapChartWITT {	
+div.tooltip {	
       color: black; 
       font: normal 70%/1.4 Roboto;	
       background: yellow; 
@@ -139,6 +139,7 @@ td {
 </style>
 </head>
 <body>
+<div class="tooltip"></div>  		
 <div class="titlediv">
 	<p id="ScreenTitle" class="titlep">Wealth Inequality</p>
 </div>	
@@ -212,7 +213,8 @@ d3.select("#mapChartWI")
 	.attr("height", height)
 	.append("svg:g")                //make a group to hold our map chart
 	.attr("transform", "translate(10,100)");
-
+ var tooltip = d3.select("div.tooltip");
+	
  d3.select("#mapChartTT");
 		
  var countries = topojson.feature(values[0], values[0].objects.countries).features; 
