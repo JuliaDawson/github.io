@@ -510,7 +510,8 @@ function dsBarChartWI(region) {
 
 	console.log('In dsBarChartWI, region:', region);
 	
-	if (region != priorregionGl && region != "") {
+//	if (region != priorregionGl && region != "") {
+	if (region != "") {
 	
 		if (priorregionGl != "") {
 			showBarChartWI("0");   //Hide and clear
@@ -645,7 +646,7 @@ function dsBarChartWI(region) {
 			;
 		showBarChartWI("100"); //should not need this, try to delete
 		console.log("dsBarChartWI: done displaying ", region, " instead of ", priorregionGl);
-		priorregionGl = region; //all done, save region to prior
+		//priorregionGl = region; all done, save region to prior
 	} //region ne null	
 }
 
@@ -685,7 +686,8 @@ function dsLineChartWI(region) {
 	console.log('In dsLineChartWI, region:', region);
 	
 	console.log('dsLineChartWI: ?region, priorregionGl?:', region, priorregionGl);
-	if (region != priorregionGl && region != "") {
+	//if (region != priorregionGl && region != "") {
+	if (region != "") {
 	
 		if (priorregionGl != "") {
 			console.log('dsLineChartWI: clear region, priorregionGl:', region, priorregionGl);
@@ -821,7 +823,7 @@ function dsLineChartWI(region) {
 			;
 		showLineChartWI("100"); //should not need this, try to delete
 		console.log("dsLineChartWI: done displaying ", region, " instead of ", priorregionGl);
-		priorregionGl = region; //all done, save region to prior
+		//priorregionGl = region; all done, save region to prior
 	} //region ne null	
 }
 
