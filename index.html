@@ -16,7 +16,7 @@
 `
 #mapChartWI {    
 	position:absolute;
-	top:10px;
+	top:0px;
 	left:10px;
 }
 	    
@@ -203,7 +203,15 @@ var path = d3.geoPath().projection(projection);
 var worldmap = d3.json("countries-110m-edited_wout_Antarctica.json");
 
 Promise.all([worldmap]).then(values => {
-	
+
+d3.select("#mapBarChTitle").append("text")
+	.attr("x", (width + margin.left + margin.right)/2)
+	.attr("y", 0)
+	.attr("class","titlep")				
+	.attr("text-anchor", "middle")
+	.text("Wealth Inequality in our world (click, zoom)")
+;
+
 d3.select("#mapChartWI")
 	.append("svg:svg")
 	.attr("width", width)           //set the width and height of our visualization (these will be attributes of the <svg> tag
