@@ -9,29 +9,40 @@
     <script src='https://d3js.org/topojson.v1.min.js'></script>
     <script src="https://d3js.org/d3-queue.v3.min.js"></script>
 
-<style type="text/css">	  
+    <style type="text/css">
+    .hideme {
+        hidden:true
+    }    
+`
 #mapChartWI {    
 	position:absolute;
 	top:10px;
 	left:10px;
 	height: 400px;
-	width: 400px;
+	width: 500px;
 }
 	    
 #lineChart {    
 	position:absolute;
 	top:10px;
-	left:410px;
+	left:510px;
 	height: 150px;
 }
 
 #giniBarChart {
 	position:absolute;
 	top:10px;
-	left:410px;
+	left:510px;
 	width: 250px;
 	height: 250px;
 }
+
+.slice {
+   font-size: 12pt;
+   font-family: Verdana;
+   fill: white; //svg specific - instead of color
+   font-weight: bold;	
+  		} 
 
 div.tooltip {	
       color: black; 
@@ -126,33 +137,33 @@ td {
 }
 				 
 </style>
-	  
 </head>
-<body onload="init()">
-	<div class="tooltip"></div>  		
-	<div class="titlediv">
-		<p id="ScreenTitle" class="titlep">Wealth Inequality</p>
-	</div>	
-	<div class="bodydiv">
-		<svg width=1000 height=500>
-			<g id="mapChartWI" opacity="100" >
-				<g id="mapChartWIPath"></g>
-				<g id="mapChartWITT"></g>
-			</g>
-			<g id="giniBarChart" opacity="100" >
-				<g id="giniBarChRect"></g>
-				<g id="giniBarChYaxis"></g>
-				<g id="giniBarChXaxis"></g>
-				<g id="giniBarChTitle"></g>
-				<g id="giniBarChLabels"></g>
-			</g>
-	    	</svg>
-	</div>
-	
-	<div class="footerdiv">
-		<p><i> Data obtained from © 2021 The World Bank Group, All Rights Reserved.</p>
-		<p><small>CS416, Summer 2021 Julia E Dawson</small></p>
-	</div>
+<body>
+<div class="tooltip"></div>  		
+<div class="titlediv">
+	<p id="ScreenTitle" class="titlep">Wealth Inequality</p>
+</div>	
+<div class="bodydiv">
+    <svg width=800 height=500>
+		<g id="mapChartWI" opacity="100" >
+			<g id="mapChartWIPath"></g>
+			<g id="mapChartPath"></g>
+			<g id="mapChartWITT"></g>
+		</g>
+		<g id="giniBarChart" opacity="100" >
+			<g id="giniBarChRect"></g>
+			<g id="giniBarChYaxis"></g>
+			<g id="giniBarChXaxis"></g>
+			<g id="giniBarChTitle"></g>
+			<g id="giniBarChLabels"></g>
+		</g>
+
+    </svg>
+</div>
+<div class="footerdiv">
+	<p><i> Data obtained from © 2021 The World Bank Group, All Rights Reserved.</p>
+	<p><small>CS416, Summer 2021 Julia E Dawson</small></p>
+</div>
  
 <script type="text/javascript">
 
@@ -162,8 +173,7 @@ let regionName = "Africa";
 let priorregionGl = '';	
 
 d3.selectAll(".tick")
-     .on("click",clickme)
-	
+     .on("click",clickme)	    
 function clickme(d){
     console.log("clickme " + d + d.id);	
     // Select element that should be shown
@@ -178,13 +188,12 @@ function clickme(d){
     // Show element, if appropriate
     if (show) element.style('display', 'block');
 }
-	
 /*============================================================================================================*/
 /* start of New for Map Chart                                                                                          */
 /*------------------------------------------------------------------------------------------------------------*/
 function dsMapChart(){
 var height = 400;
-var width = 400;
+var width = 500;
 var margin = 10;	
 
 //d3.selectAll('svg > g > *').remove(); 
@@ -203,7 +212,7 @@ d3.select("#mapChartWI")
 	.attr("width", width)           //set the width and height of our visualization (these will be attributes of the <svg> tag
 	.attr("height", height)
 	.append("svg:g")                //make a group to hold our map chart
-	.attr("transform", "translate(10,10)");
+	.attr("transform", "translate(10,100)");
  var tooltip = d3.select("div.tooltip");
 	
  d3.select("#mapChartTT");
@@ -276,6 +285,8 @@ d3.select("#mapChartPath")
 
 })
 }
+
+
 /*------------------------------------------------------------------------------------------------------------*/	    
 /* End of New for Map Chart                                                                                          */
 /*============================================================================================================*/
@@ -454,22 +465,30 @@ d3.select("#mapChartPath")
 function dataBarChosen(region) {
 	var ds = [];
 	if (region == "All") {
-	 	for (i in dataBarChart) ds.push(dataBarChart[i]);
+	 	for (i in dataBarChart) {
+		 	ds.push(dataBarChart[i]);
+		}
+
 	}
-	else if (region == "South/Latin America" || region == "North America") { //Combine North and South America
+	else if (region == "South/Latin America" || region == "North America") {
 		for (i in dataBarChart) {
-			 if(dataBarChart[i].region=="South/Latin America" || dataBarChart[i].region == "North America")	ds.push(dataBarChart[i]);
+			 if(dataBarChart[i].region=="South/Latin America" || dataBarChart[i].region == "North America"){
+			 	ds.push(dataBarChart[i]);
+		 	} 
 		}
 	}	
 	else {
 		for (i in dataBarChart) {
-			 if(dataBarChart[i].region==region) ds.push(dataBarChart[i]);
+			 if(dataBarChart[i].region==region){
+			 	ds.push(dataBarChart[i]);
+		 	} 
 		}
+
 	}	
 	return ds;
 }
 
-function showdsBarChart(op)
+function showWealthIneq(op)
 {
 	d3.select('#giniBarChart').attr("opacity", op);
 	d3.select('#giniBarChRect').attr("opacity", op);
@@ -491,10 +510,11 @@ function showdsBarChart(op)
 
 
 function dsBarChart(region) {
+
 	console.log('In dsBarChart');
 	
-	showdsBarChart("0");   //Hide and clear
-	showdsBarChart("100"); //Show
+	//showWealthIneq("0");   //Hide and clear
+	//showWealthIneq("100"); //Show
 	
 	var currDataBarChart = dataBarChosen(region);    
 	console.log("currDataBarChart dataBarChosen for region: " + region);
@@ -504,7 +524,7 @@ function dsBarChart(region) {
 	
 	
 	var margin = {top: 30, right: 5, bottom: 70, left: 50},
-	    width = 400 - margin.left - margin.right,
+	    width = 500 - margin.left - margin.right,
 	    height = 250 - margin.top - margin.bottom,
 	    colorBar = d3.interpolateBlues((63 - 20) / 44),
 	    barPadding = .1
@@ -539,7 +559,7 @@ function dsBarChart(region) {
 		    .append("svg")
 		    .attr("width", width + margin.left + margin.right)
 		    .attr("height", height + margin.top + margin.bottom)
-		    //.attr("transform", "translate(10, 410)")
+		    .attr("transform", "translate(" + margin.left +  "," + margin.top + ")")
 		    ;
 	/*----------------------- */
 	/* Add X axis - Country   */
@@ -548,8 +568,8 @@ function dsBarChart(region) {
 	    .attr("transform", `translate(${margin.left}, ${height + margin.top + 14} )`)
 	    .call(d3.axisBottom(xAxis))
 	    .selectAll("text")
-	    .attr("transform", "translate(-10,0)rotate(-35)")
-	    .style("text-anchor", "end");
+	      .attr("transform", "translate(-10,0)rotate(-35)")
+	      .style("text-anchor", "end");
 
 	/*-------------------------*/
         /* Add Y axis - Gini Index */
@@ -859,7 +879,7 @@ function updateLineChart(group, colorChosen) {
 
 }
     
-    //dsMapChart();
+    dsMapChart();
 	
     //if (priorregionGl != regionGl) {
     //   showWealthIneq("0");   //Hide and clear
@@ -870,21 +890,7 @@ function updateLineChart(group, colorChosen) {
     //dsLineChart();	  
 	  
     //d3.selectAll(".hideme").attr('visibility',visible);
-
-
-// init, on html load
-async function init() 
-{
-	// set up locations
-	//d3.select('#mapChartWI').attr("transform",  "translate(10,10)");
-	
-	//d3.select('#giniBarChart').attr("transform", "translate(410,10)");
-	//d3.select('#giniBarChRect').attr("transform", "translate(0,0)");
-	//d3.select('#giniBarChYaxis').attr("transform", "translate(50,44)");
-	//d3.select('#giniBarChXaxis').attr("transform", "translate(50,294)");
-	//d3.select('#giniBarChTitle').attr("transform", "translate(410, 10)");
-}
-	
+	   	    
 
     </script>
   </body>
