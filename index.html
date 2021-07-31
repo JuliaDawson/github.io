@@ -567,7 +567,7 @@ function dsBarChartWI(region) {
 			    .append("svg")
 			    .attr("width", width + margin.left + margin.right)
 			    .attr("height", height + margin.top + margin.bottom)
-			    .attr("transform", "translate(" + margin.left +  "," + margin.top + ")")
+			    //.attr("transform", "translate(" + margin.left +  "," + margin.top + ")")
 			    ;
 		/*----------------------- */
 		/* Add X axis - Country   */
@@ -583,7 +583,7 @@ function dsBarChartWI(region) {
 		/* Add Y axis - Gini Index */
 		/*-------------------------*/
 		d3.select("#giniBarChYaxis")
-		    .attr("transform", `translate(${margin.left}, ${margin.top + 14})`)
+		    //.attr("transform", `translate(${margin.left}, ${margin.top + 14})`)
 		    .call(d3.axisLeft(yAxis))
 
 		/*-------------------*/
