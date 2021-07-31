@@ -189,13 +189,13 @@ function clickme(d){
 /* start of Map Chart                                                                                          */
 /*------------------------------------------------------------------------------------------------------------*/
 function dsMapChart(){
-var height = 400;
-var width = 400;
+var height = 300;
+var width = 300;
 var margin = 10;	
 
 //d3.selectAll('svg > g > *').remove(); 
 
-var projection = d3.geoMercator().translate([width/2,height/2]).scale(70);
+var projection = d3.geoMercator().translate([width/2,height/2]).scale(60);
 var path = d3.geoPath().projection(projection);
 
 //Read Topo file and CSV containing economic information
@@ -212,7 +212,7 @@ d3.select("#mapChartWI")
 	.attr("transform", "translate(10,100)");
  var tooltip = d3.select("div.tooltip");
 	
- d3.select("#mapChartTT");
+ d3.select("#mapChartWITT");
 		
  var countries = topojson.feature(values[0], values[0].objects.countries).features; 
   
@@ -502,6 +502,7 @@ function showWealthIneq(op)
 	d3.select('#giniBarChYaxis').html('');
 	d3.select('#giniBarChXaxis').html('');
 	d3.select('#giniBarChChTitle').html('');
+	d3.select('#giniBarChChLabels').html('');
 	}
 	
 }
