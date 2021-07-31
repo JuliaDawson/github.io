@@ -22,7 +22,7 @@
 	    
 #lineChart {    
 	position:absolute;
-	top:300px;
+	top:10px;
 	left:310px;
 	height: 150px;
 }
@@ -86,7 +86,7 @@ div.tooltip {
 }
 
 .title {
-    font-family: Roboto;
+	 font-family: Roboto;
     font-size: 15px;	
 		
 }
@@ -139,7 +139,7 @@ td {
 <body onload="init()">
 <div class="tooltip"></div>  		
 <div class="titlediv">
-	<p id="ScreenTitle" class="titlep">Wealth Inequality in our world -click-or-zoom-</p>
+	<p id="ScreenTitle" class="titlep">Wealth Inequality in our world (click, zoom)</p>
 </div>	
 <div class="bodydiv">
     <svg width=1000 height=500>
@@ -189,13 +189,13 @@ function clickme(d){
 /* start of Map Chart                                                                                          */
 /*------------------------------------------------------------------------------------------------------------*/
 function dsMapChart(){
-var height = 300;
-var width = 300;
+var height = 400;
+var width = 400;
 var margin = 10;	
 
-d3.selectAll('svg > g > *').remove(); 
+//d3.selectAll('svg > g > *').remove(); 
 
-var projection = d3.geoMercator().translate([width/2,height/2]).scale(60);
+var projection = d3.geoMercator().translate([width/2,height/2]).scale(70);
 var path = d3.geoPath().projection(projection);
 
 //Read Topo file and CSV containing economic information
@@ -216,7 +216,7 @@ d3.select("#mapChartWI")
 		
  var countries = topojson.feature(values[0], values[0].objects.countries).features; 
   
-d3.select("#mapChartPath")	
+d3.select("#mapChartWIPath")	
         .selectAll('path')
 	.data(countries)
 	.enter().append('path')
@@ -467,8 +467,8 @@ function dataBarChosen(region) {
 
 	}
 	else if (region == "South/Latin America" || region == "North America") {
+		regionName = "North and South America";
 		for (i in dataBarChart) {
-			 regionName = "North and South America";
 			 if(dataBarChart[i].region=="South/Latin America" || dataBarChart[i].region == "North America"){
 			 	ds.push(dataBarChart[i]);
 		 	} 
@@ -476,7 +476,7 @@ function dataBarChosen(region) {
 	}	
 	else {
 		for (i in dataBarChart) {
-			 regionName = region;
+		         regionName = region;
 			 if(dataBarChart[i].region==region){
 			 	ds.push(dataBarChart[i]);
 		 	} 
@@ -495,7 +495,7 @@ function showWealthIneq(op)
 	d3.select('#giniBarChTitle').attr("opacity", op);
 	d3.select('#giniBarChLabels').attr("opacity", op);
 	
-	if (op == 0)
+	if (op == '0')
 	{
 	d3.select('#giniBarChart').html('');
 	d3.select('#giniBarChRect').html('');
@@ -511,8 +511,8 @@ function dsBarChart(region) {
 
 	console.log('In dsBarChart');
 	
-	showWealthIneq(0);   //Hide and clear
-	showWealthIneq(100); //Show
+	//showWealthIneq("0");   //Hide and clear
+	//showWealthIneq("100"); //Show
 	
 	var currDataBarChart = dataBarChosen(region);    
 	console.log("currDataBarChart dataBarChosen for region: " + region);
@@ -901,8 +901,6 @@ async function init()
 	
 }	
 	
-	   	    
-
     </script>
   </body>
 </html>
