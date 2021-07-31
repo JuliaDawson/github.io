@@ -204,7 +204,7 @@ var worldmap = d3.json("countries-110m-edited_wout_Antarctica.json");
 
 Promise.all([worldmap]).then(values => {
 
-d3.select("#mapBarChTitle").append("text")
+d3.select("#mapTitle").append("text")
 	.attr("x", (width + margin.left + margin.right)/2)
 	.attr("y", 0)
 	.attr("class","titlep")				
