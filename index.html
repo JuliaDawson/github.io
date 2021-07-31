@@ -683,11 +683,14 @@ function dsLineChartWI(region) {
 
 	console.log('In dsLineChartWI, region:', region);
 	
+	console.log('dsLineChartWI: ?region, priorregionGl?:', region, priorregionGl);
 	if (region != priorregionGl && region != "") {
 	
 		if (priorregionGl != "") {
+			console.log('dsLineChartWI: clear region, priorregionGl:', region, priorregionGl);
 			showLineChartWI("0");   //Hide and clear
 		}
+		console.log('dsLineChartWI: show region, priorregionGl:', region, priorregionGl);
 		showLineChartWI("100"); //Show
 
 		//var currDataBarChart = dataBarChosen(region); Let mapChart drive the re-read of data   
