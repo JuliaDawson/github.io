@@ -141,8 +141,8 @@ td {
 </div>	
 <div class="bodydiv">
     <svg width=1000 height=500>
+		<g id="mapChartWITitle" opacity="100" ></g>
 		<g id="mapChartWI" opacity="100" >
-			<g id="mapChartWITitle"></g>
 			<g id="mapChartWIPath"></g>
 			<g id="mapChartWITT"></g>
 		</g>
@@ -203,7 +203,13 @@ var worldmap = d3.json("countries-110m-edited_wout_Antarctica.json");
 
 Promise.all([worldmap]).then(values => {
 
-
+	
+d3.select("#mapChartWITitle")
+        .attr("x", (width / 2))             
+        .attr("y", 15)
+        .attr("text-anchor", "middle")  
+	.attr("class","title")	 
+        .text("World Map with Gini Index (click, zoom)");
 
 d3.select("#mapChartWI")
 	.append("svg:svg")
@@ -212,13 +218,7 @@ d3.select("#mapChartWI")
 	.text("World Map with Gini Index (click, zoom)")
 	.append("svg:g")                //make a group to hold our map chart
 	.attr("transform", "translate(10,100)");
-	
-d3.select("#mapChartWITitle")
-        .attr("x", (width / 2))             
-        .attr("y", 15)
-        .attr("text-anchor", "middle")  
-	.attr("class","title")	 
-        .text("World Map with Gini Index (click, zoom)");	
+
 	
  var tooltip = d3.select("div.tooltip");	
  d3.select("#mapChartWITT");		
@@ -910,8 +910,8 @@ function updateLineChart(group, colorChosen) {
 async function init() 
 {
 	// set up location
+	d3.select('#mapChartWITitle').attr("transform",  "translate(10,0)");	
 	d3.select('#mapChartWI').attr("transform",  "translate(10,0)");	
-	d3.select('#mapChartWITitle').attr("transform",  "translate(10,10)");	
 	d3.select('#giniBarChart').attr("transform",  "translate(340,0)");	   
 	d3.select('#giniBarChXaxis').attr("transform",  "translate(30,294)");	
 	d3.select('#giniBarChYaxis').attr("transform",  "translate(500,44)");		
