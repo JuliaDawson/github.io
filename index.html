@@ -157,6 +157,13 @@ td {
 			<g id="giniBarChTitle" class="titlep"></g>
 			<g id="giniBarChLabels"></g>
 		</g>
+		<g id="wiLineChart" opacity="100" >
+			<g id="wiLineChLine1"></g>
+			<g id="wiLineChLine2"></g>
+			<g id="wiLineChXaxis"></g>
+			<g id="wiLineChTitle" class="titlep"></g>
+			<g id="wiLineChLabels"></g>
+		</g>
 
     </svg>
 </div>
@@ -547,7 +554,7 @@ function dsBarChartWI(region) {
 		var margin = {top: 10, right: 30, bottom: 70, left: 10},
 		    width = 600 - margin.left - margin.right,
 		    height = 200 - margin.top - margin.bottom,
-		    colorBar = d3.interpolateBlues((63 - 20) / 44),
+		    colorBar = d3.interpolateBlues((52 - 20) / 30),
 		    barPadding = .1
 		;
 
@@ -673,238 +680,180 @@ function dsBarChartWI(region) {
 /* End of Bar Chart  Gini Index                                                                                          */
 /*============================================================================================================*/
 
+	
+/*============================================================================================================*/
+/* Start of Line Chart - Percent Income                                                                                          */
+/*============================================================================================================*/
+function showLineChartWI(op)
+{
+	console.log("showLineChartWI: opacity", op, " regionGl:", regionGl, " priorregionGl:", priorregionGl);	
+	d3.select('#wiLineChart').attr("opacity", op);
+	d3.select('#wiLineChLine1').attr("opacity", op);
+	d3.select('#wiLineChLine2').attr("opacity", op);
+	d3.select('#wiLineChXaxis').attr("opacity", op);
+	d3.select('#wiLineChTitle').attr("opacity", op);
+	d3.select('#wiLineChLabels').attr("opacity", op);
+	
+	if (op == '0')
+	{
+	console.log("showBarChartWI: opacity zero and emptied HTML");	
+	console.log("...clearing html rightn now...", regionGl, priorregionGl);
+	d3.select('#wiLineChLine1').html('');
+	d3.select('#wiLineChLine2').html('');
+	d3.select('#wiLineChXaxis').html('');
+	d3.select('#wiLineChTitle').html('');
+	d3.select('#wiLineChLabels').html('');
+	}
+}
 
-/*
-############# LINE CHART ##################
--------------------------------------------
-*/
 
-var datasetLineChart = [
-{ group: "All", category: 2008, measure: 289309 }, 
-{ group: "All", category: 2009, measure: 234998 }, 
-{ group: "All", category: 2010, measure: 310900 }, 
-{ group: "All", category: 2011, measure: 223900 }, 
-{ group: "All", category: 2012, measure: 234500 }, 
-{ group: "Sam", category: 2008, measure: 81006.52 }, 
-{ group: "Sam", category: 2009, measure: 70499.4 }, 
-{ group: "Sam", category: 2010, measure: 96379 }, 
-{ group: "Sam", category: 2011, measure: 64931 }, 
-{ group: "Sam", category: 2012, measure: 70350 }, 
-{ group: "Peter", category: 2008, measure: 63647.98 }, 
-{ group: "Peter", category: 2009, measure: 61099.48 }, 
-{ group: "Peter", category: 2010, measure: 87052 }, 
-{ group: "Peter", category: 2011, measure: 58214 }, 
-{ group: "Peter", category: 2012, measure: 58625 }, 
-{ group: "Rick", category: 2008, measure: 23144.72 }, 
-{ group: "Rick", category: 2009, measure: 14099.88 }, 
-{ group: "Rick", category: 2010, measure: 15545 }, 
-{ group: "Rick", category: 2011, measure: 11195 }, 
-{ group: "Rick", category: 2012, measure: 11725 }, 
-{ group: "John", category: 2008, measure: 34717.08 }, 
-{ group: "John", category: 2009, measure: 30549.74 }, 
-{ group: "John", category: 2010, measure: 34199 }, 
-{ group: "John", category: 2011, measure: 33585 }, 
-{ group: "John", category: 2012, measure: 35175 }, 
-{ group: "Lenny", category: 2008, measure: 69434.16 }, 
-{ group: "Lenny", category: 2009, measure: 46999.6 }, 
-{ group: "Lenny", category: 2010, measure: 62180 }, 
-{ group: "Lenny", category: 2011, measure: 40302 }, 
-{ group: "Lenny", category: 2012, measure: 42210 }, 
-{ group: "Paul", category: 2008, measure: 7232.725 }, 
-{ group: "Paul", category: 2009, measure: 4699.96 }, 
-{ group: "Paul", category: 2010, measure: 6218 }, 
-{ group: "Paul", category: 2011, measure: 8956 }, 
-{ group: "Paul", category: 2012, measure: 9380 }, 
-{ group: "Steve", category: 2008, measure: 10125.815 }, 
-{ group: "Steve", category: 2009, measure: 7049.94 }, 
-{ group: "Steve", category: 2010, measure: 9327 }, 
-{ group: "Steve", category: 2011, measure: 6717 }, 
-{ group: "Steve", category: 2012, measure: 7035 }
-]
-;
+function dsLineChartWI(region) {
 
-// set initial category value
-var group = "All";
-
-function datasetLineChartChosen(group) {
-	var ds = [];
-	for (x in datasetLineChart) {
-		 if(datasetLineChart[x].group==group){
-		 	ds.push(datasetLineChart[x]);
-		 } 
+	console.log('In dsLineChartWI, region:', region);
+	
+	if (region != priorregionGl && region != "") {
+	
+		if (priorregionGl != "") {
+			showLineChartWI("0");   //Hide and clear
 		}
-	return ds;
+		showLineChartWI("100"); //Show
+
+		//var currDataBarChart = dataBarChosen(region); Let BarChart drive the re-read of data   
+		console.log("currDataBarChart dataBarChosen for region: " + region);
+		console.log("currDataBarChart[0]: ", currDataBarChart[0]);
+		console.log("currDataBarChart.length: " + currDataBarChart.length);
+		console.log("currDataBarChart[length]: ", currDataBarChart[currDataBarChart.length-1]);
+
+
+		var margin = {top: 10, right: 10, bottom: 70, left: 10},
+		    width = 1000 - margin.left - margin.right,
+		    height = 200 - margin.top - margin.bottom,
+		    colorBar = d3.interpolateBlues((63 - 20) / 44),
+		    barPadding = .1
+		;
+
+		var xScale = d3.scaleLinear()
+				.domain([0, currDataBarChart.length])
+				.range([0, width])
+				;
+
+		var yScale = d3.scaleLog()
+			   .domain([d3.min(currDataBarChart, function(d) { return d.incPctLo10; }), d3.max(currDataBarChart, function(d) { return d.incPctHi10; })])
+			   .range([height, 0])
+			   ;
+
+		/*-----------------------*/
+		/* For X axis - Country  */
+		/*-----------------------*/
+		const xAxis = d3.scaleBand()
+		    .domain(currDataBarChart.map(d => d.countryName))
+		    .range([ 0, width]);
+
+		/*------------------------*/
+		/* For Y axis - Gini Index */
+		/*------------------------*/
+		const yAxis = d3.scaleLog()
+		    .domain(currDataBarChart.map(d => d.giniIndex))
+		    .range([d3.min(currDataBarChart, function(d) { return d.incPctLo10; }), d3.max(currDataBarChart, function(d) { return d.incPctHi10; })]);
+
+		d3.select("#wiLineChart")
+			    .append("svg")
+			    .attr("width", width + margin.left + margin.right)
+			    .attr("height", height + margin.top + margin.bottom)
+			    .attr("transform", "translate(" + margin.left +  "," + margin.top + ")")
+			    ;
+		/*----------------------- */
+		/* Add X axis - Country   */
+		/*----------------------- */
+		d3.select("#wiLineChXaxis")
+		    .attr("transform", `translate(0, ${height + margin.top + 4} )`)
+		    .call(d3.axisBottom(xAxis))
+		    .selectAll("text")
+		      .attr("transform", "translate(-10,0) rotate(-45)")
+		      .style("text-anchor", "end");
+
+		/*------------------------------------------------*/
+		/* Add Y axis - Income Percent, bottom and top 10 */
+		/*-----------------------------------------------*/
+		//d3.select("#wiLineChYaxis")
+		//    .attr("transform", `translate(${margin.left}, ${margin.top + 14})`)
+		//    .call(d3.axisLeft(yAxis))
+
+		/*-------------------*/
+		/* ...adding bars... */
+		/*-------------------*/
+		d3.select("#wiLineChRect").selectAll("rect")
+			   .data(currDataBarChart)
+			   .enter()
+			   .append("rect")
+				.attr("x", function(d, i) {
+				    return xScale(i);
+				})
+			   .attr("width", width / currDataBarChart.length - barPadding)   
+				.attr("y", function(d) {
+				    return yScale(d.incPctHi10);
+				})  
+				.attr("height", function(d) {
+				    return (height - yScale(d.incPctHi10) + 14);
+				})
+				.attr("fill", function(d) { 
+				     //console.log("d", d)
+				     //console.log("incPctHi10incPctHi10", d.incPctHi10)
+				     var col =  d3.interpolateBlues((d.incPctHi10 - 20) / 51); 
+				     //console.log("col", col)
+				     if (col) {
+					//console.log("found col", col, "for d", d)
+					return col
+				     } else {
+					return 'white'
+				     }
+				})
+				;
+
+		/*----------------------------------*/
+		/* ...adding labels on the bars ... */
+		/*----------------------------------*/		
+		d3.select("#wiLineChLabels").selectAll("text")
+		    .data(currDataBarChart)
+		    .enter()
+		    .append("text")
+		    .text(function(d) {
+			return d.incPctHi10;
+		     })
+		.attr("text-anchor", "middle")
+		.attr("transform", function(d, i) {
+    			var yVal = yScale(d.incPctHi10) - 10;
+    			var xVal = (i * (width / currDataBarChart.length)) + ((width / currDataBarChart.length - barPadding) / 2) + barPadding;
+    			return "translate(" + xVal + "," + yVal + ") rotate(270)";
+  			})
+		//.attr("x", function(d, i) {
+		//    return (i * (width / currDataBarChart.length)) + ((width / currDataBarChart.length - barPadding) / 2);
+		//})
+		//.attr("y", function(d) {
+		//    return yScale(d.giniIndex) + 14;
+		//})
+		.attr("class", "yOnBar")
+		;
+
+		// Title	
+		d3.select("#wiLineChTitle").append("text")
+			.attr("x", (width + margin.left + margin.right)/2)
+			.attr("y", 0)
+			.attr("class","title")				
+			.attr("text-anchor", "middle")
+			.text("Income % Top 10 versus Bottom 10 percentile, " + regionName)
+			;
+		showLineChartWI("100"); //should not need this, try to delete
+		console.log("dsLineChartWI: done displaying ", region, " instead of ", priorregionGl);
+		priorregionGl = region; //all done, save region to prior
+	} //region ne null	
 }
 
-function dsLineChartBasics() {
+/*============================================================================================================*/
+/* End of Line Chart - Percent Income                                                                                        */
+/*============================================================================================================*/
 
-	var margin = {top: 300, right: 10, bottom: 0, left: 50},
-	    width = 500 - margin.left - margin.right,
-	    height = 150 - margin.top - margin.bottom
-	    ;
-		
-		return {
-			margin : margin, 
-			width : width, 
-			height : height
-		}			
-		;
-}
-
-
-function dsLineChart() {
-
-	var firstDatasetLineChart = datasetLineChartChosen(group);    
-	
-	var basics = dsLineChartBasics();
-	
-	var margin = basics.margin,
-		width = basics.width,
-	        height = basics.height
-		;
-
-	var xScale = d3.scaleLinear()
-	    .domain([0, firstDatasetLineChart.length-1])
-	    .range([0, width])
-	    ;
-
-	var yScale = d3.scaleLinear()
-	    .domain([0, d3.max(firstDatasetLineChart, function(d) { return d.measure; })])
-	    .range([height, 0])
-	    ;
-	
-	var line = d3.line()
-	    //.x(function(d) { return xScale(d.category); })
-	    .x(function(d, i) { return xScale(i); })
-	    .y(function(d) { return yScale(d.measure); })
-	    ;
-	
-	var svg = d3.select("#lineChart").append("svg")
-	    .datum(firstDatasetLineChart)
-	    .attr("width", width + margin.left + margin.right)
-	    .attr("height", height + margin.top + margin.bottom)
-	    // create group and move it so that margins are respected (space for axis and title)
-	    
-	var plot = svg
-	    .append("g")
-	    .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
-	    .attr("id", "lineChartPlot")
-	    ;
-
-		/* descriptive titles as part of plot -- start */
-	var dsLength=firstDatasetLineChart.length;
-
-	plot.append("text")
-		.text(firstDatasetLineChart[dsLength-1].measure)
-		.attr("id","lineChartTitle2")
-		.attr("x",width/2)
-		.attr("y",height/2)	
-		;
-	/* descriptive titles -- end */
-	    
-	plot.append("path")
-	    .attr("class", "line")
-	    .attr("d", line)	
-	    // add color
-		.attr("stroke", "lightgrey")
-	    ;
-	  
-	plot.selectAll(".dot")
-	    .data(firstDatasetLineChart)
-	  	 .enter().append("circle")
-	    .attr("class", "dot")
-	    //.attr("stroke", function (d) { return d.measure==datasetMeasureMin ? "red" : (d.measure==datasetMeasureMax ? "green" : "steelblue") } )
-	    .attr("fill", function (d) { return d.measure==d3.min(firstDatasetLineChart, function(d) { return d.measure; }) ? "red" : (d.measure==d3.max(firstDatasetLineChart, function(d) { return d.measure; }) ? "green" : "white") } )
-	    //.attr("stroke-width", function (d) { return d.measure==datasetMeasureMin || d.measure==datasetMeasureMax ? "3px" : "1.5px"} )
-	    .attr("cx", line.x())
-	    .attr("cy", line.y())
-	    .attr("r", 3.5)
-	    .attr("stroke", "lightgrey")
-	    .append("title")
-	    .text(function(d) { return d.category + ": " + d.measure; })
-	    ;
-
-	svg.append("text")
-		.text("Performance 2012")
-		.attr("id","lineChartTitle1")	
-		.attr("x",margin.left + ((width + margin.right)/2))
-		.attr("y", 10)
-		;
-
-}
-
- /* ** UPDATE CHART ** */
- 
-/* updates bar chart on request */
-function updateLineChart(group, colorChosen) {
-
-	var currentDatasetLineChart = datasetLineChartChosen(group);   
-
-	var basics = dsLineChartBasics();
-	
-	var margin = basics.margin,
-		width = basics.width,
-	   height = basics.height
-		;
-
-	var xScale = d3.scale.linear()
-	    .domain([0, currentDatasetLineChart.length-1])
-	    .range([0, width])
-	    ;
-
-	var yScale = d3.scale.linear()
-	    .domain([0, d3.max(currentDatasetLineChart, function(d) { return d.measure; })])
-	    .range([height, 0])
-	    ;
-	
-	var line = d3.svg.line()
-    .x(function(d, i) { return xScale(i); })
-    .y(function(d) { return yScale(d.measure); })
-    ;
-
-   var plot = d3.select("#lineChartPlot")
-   	.datum(currentDatasetLineChart)
-	   ;
-	   
-	/* descriptive titles as part of plot -- start */
-	var dsLength=currentDatasetLineChart.length;
-	
-	plot.select("text")
-		.text(currentDatasetLineChart[dsLength-1].measure)
-		;
-	/* descriptive titles -- end */
-	   
-	plot
-	.select("path")
-		.transition()
-		.duration(750)			    
-	   .attr("class", "line")
-	   .attr("d", line)	
-	   // add color
-		.attr("stroke", colorChosen)
-	   ;
-	   
-	var path = plot
-		.selectAll(".dot")
-	   .data(currentDatasetLineChart)
-	   .transition()
-		.duration(750)
-	   .attr("class", "dot")
-	   .attr("fill", function (d) { return d.measure==d3.min(currentDatasetLineChart, function(d) { return d.measure; }) ? "red" : (d.measure==d3.max(currentDatasetLineChart, function(d) { return d.measure; }) ? "green" : "white") } )
-	   .attr("cx", line.x())
-	   .attr("cy", line.y())
-	   .attr("r", 3.5)
-	   // add color
-		.attr("stroke", colorChosen)
-	   ;
-	   
-	   path
-	   .selectAll("title")
-	   .text(function(d) { return d.category + ": " + formatAsInteger(d.measure); })	 
-	   ;  
-
-}
-    
+  
     dsMapChart();
 	
     //if (priorregionGl != regionGl) {
@@ -914,7 +863,7 @@ function updateLineChart(group, colorChosen) {
     //   priorregionGl = regionGl;
    //}
 	
-    dsLineChart();	  
+    dsLineChartWI();	  
 	  
     //d3.selectAll(".hideme").attr('visibility',visible);
 	
@@ -924,10 +873,7 @@ async function init()
 	//d3.select('#mapChartWITitle').attr("transform",  "translate(10,0)");	
 	d3.select('#mapChartWI').attr("transform",  "translate(10,0)");	
 	d3.select('#giniBarChart').attr("transform",  "translate(400,10)");	   
-	//d3.select('#giniBarChXaxis').attr("transform",  "translate(340,360)");	
-	//d3.select('#giniBarChYaxis').attr("transform",  "translate(500,44)");		
-	//d3.select('#giniBarChRect').attr("transform", "translate(60,26)");	
-	//d3.select('#giniBarChTitle').attr("transform", "translate(10,10)");	
+	d3.select('#lineChartWI').attr("transform",  "translate(10,300)");	
 }	
 	
     </script>
