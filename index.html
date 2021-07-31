@@ -298,7 +298,8 @@ d3.select("#mapChartWIPath")
 	     if (regionGl == "South/Latin America" || regionGl == "North America") {
 		regionName = "North and South/Latin America";     
 	     }
-             dsBarChartWI(regionGl);
+             dsBarChartWI(regionGl); //refresh Bar Chart
+             dsLineChartWI(regionGl); //refresh Line Chart
 	 }
  
       })
