@@ -518,7 +518,7 @@ function dsBarChartWI(region) {
 
 	console.log('In dsBarChartWI, region:', region);
 	
-	if (regionGl != priorregionGl) {
+	if (region != priorregionGl && region != "") {
 	
 		if (priorregionGl != "") {
 			showBarChartWI("0");   //Hide and clear
@@ -645,6 +645,7 @@ function dsBarChartWI(region) {
 			.attr("text-anchor", "middle")
 			.text("Distribution of Income - Gini Index, " + regionName)
 			;
+		priorregionGl = region; //all done, save region to prior
 	} //region ne null	
 }
 
