@@ -138,7 +138,7 @@ td {
 				 
 </style>
 </head>
-<body>
+<body onload="init()">
 <div class="tooltip"></div>  		
 <div class="titlediv">
 	<p id="ScreenTitle" class="titlep">Wealth Inequality</p>
@@ -890,7 +890,17 @@ function updateLineChart(group, colorChosen) {
     //dsLineChart();	  
 	  
     //d3.selectAll(".hideme").attr('visibility',visible);
-	   	    
+
+
+// init, on html load
+async function init() 
+{
+	// set up locations
+	d3.select('#mapChartWI').attr("transform",  "translate(10,10)");
+	
+	d3.select('#giniBarChart').attr("transform", "translate(10,510)");
+}
+	
 
     </script>
   </body>
