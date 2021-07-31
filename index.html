@@ -213,12 +213,11 @@ d3.select("#mapChartWI")
 	.attr("transform", "translate(10,100)");
 	
  var tooltip = d3.select("div.tooltip");	
- d3.select("#mapChartWITT")
-	.attr("transform", "translate(0,100)");
+ d3.select("#mapChartWITT");
 
-d3.select("#mapChartWITitle").append("text")
+ d3.select("#mapChartWITitle").append("text")
 	.attr("x", 0)
-	.attr("y", 0)
+	.attr("y", 15)
 	.attr("class","title")				
 	.attr("text-anchor", "middle")
 	.text("World Map with Gini Index (click, zoom)")
