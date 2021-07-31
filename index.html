@@ -581,7 +581,8 @@ function dsBarChartWI(region) {
 		/* Add X axis - Country   */
 		/*----------------------- */
 		d3.select("#giniBarChXaxis")
-		    .attr("transform", `translate(${margin.left}, ${height + margin.top + 14} )`)
+		    .attr("transform", `translate(0, ${height + margin.top} )`)
+		    //.attr("transform", `translate(${margin.left}, ${height + margin.top + 14} )`)
 		    .call(d3.axisBottom(xAxis))
 		    .selectAll("text")
 		      .attr("transform", "translate(-10,0)rotate(-35)")
