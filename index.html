@@ -645,6 +645,8 @@ function dsBarChartWI(region) {
 			.attr("text-anchor", "middle")
 			.text("Distribution of Income - Gini Index, " + regionName)
 			;
+		showBarChartWI("100"); //Show - should not need to do this...
+		console.log("dsBarChartWI: done displaying ", region, " instead of ", priorregionGl);
 		priorregionGl = region; //all done, save region to prior
 	} //region ne null	
 }
