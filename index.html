@@ -9,11 +9,6 @@
     <script src='https://d3js.org/topojson.v1.min.js'></script>
     <script src="https://d3js.org/d3-queue.v3.min.js"></script>
 
-    <style type="text/css">
-    .hideme {
-        hidden:true
-    }    
-`
 #mapChartWI {    
 	position:absolute;
 	top:10px;
@@ -36,13 +31,6 @@
 	width: 250px;
 	height: 250px;
 }
-
-.slice {
-   font-size: 12pt;
-   font-family: Verdana;
-   fill: white; //svg specific - instead of color
-   font-weight: bold;	
-  		} 
 
 div.tooltip {	
       color: black; 
@@ -137,33 +125,34 @@ td {
 }
 				 
 </style>
+	  
 </head>
 <body onload="init()">
-<div class="tooltip"></div>  		
-<div class="titlediv">
-	<p id="ScreenTitle" class="titlep">Wealth Inequality</p>
-</div>	
-<div class="bodydiv">
-    <svg width=1000 height=500>
-		<g id="mapChartWI" opacity="100" >
-			<g id="mapChartWIPath"></g>
-			<g id="mapChartPath"></g>
-			<g id="mapChartWITT"></g>
-		</g>
-		<g id="giniBarChart" opacity="100" >
-			<g id="giniBarChRect"></g>
-			<g id="giniBarChYaxis"></g>
-			<g id="giniBarChXaxis"></g>
-			<g id="giniBarChTitle"></g>
-			<g id="giniBarChLabels"></g>
-		</g>
-
-    </svg>
-</div>
-<div class="footerdiv">
-	<p><i> Data obtained from © 2021 The World Bank Group, All Rights Reserved.</p>
-	<p><small>CS416, Summer 2021 Julia E Dawson</small></p>
-</div>
+	<div class="tooltip"></div>  		
+	<div class="titlediv">
+		<p id="ScreenTitle" class="titlep">Wealth Inequality</p>
+	</div>	
+	<div class="bodydiv">
+		<svg width=1000 height=500>
+			<g id="mapChartWI" opacity="100" >
+				<g id="mapChartWIPath"></g>
+				<g id="mapChartPath"></g>
+				<g id="mapChartWITT"></g>
+			</g>
+			<g id="giniBarChart" opacity="100" >
+				<g id="giniBarChRect"></g>
+				<g id="giniBarChYaxis"></g>
+				<g id="giniBarChXaxis"></g>
+				<g id="giniBarChTitle"></g>
+				<g id="giniBarChLabels"></g>
+			</g>
+	    	</svg>
+	</div>
+	
+	<div class="footerdiv">
+		<p><i> Data obtained from © 2021 The World Bank Group, All Rights Reserved.</p>
+		<p><small>CS416, Summer 2021 Julia E Dawson</small></p>
+	</div>
  
 <script type="text/javascript">
 
@@ -173,7 +162,8 @@ let regionName = "Africa";
 let priorregionGl = '';	
 
 d3.selectAll(".tick")
-     .on("click",clickme)	    
+     .on("click",clickme)
+	
 function clickme(d){
     console.log("clickme " + d + d.id);	
     // Select element that should be shown
@@ -188,6 +178,7 @@ function clickme(d){
     // Show element, if appropriate
     if (show) element.style('display', 'block');
 }
+	
 /*============================================================================================================*/
 /* start of New for Map Chart                                                                                          */
 /*------------------------------------------------------------------------------------------------------------*/
@@ -488,7 +479,7 @@ function dataBarChosen(region) {
 	return ds;
 }
 
-function showWealthIneq(op)
+function showdsBarChart(op)
 {
 	d3.select('#giniBarChart').attr("opacity", op);
 	d3.select('#giniBarChRect').attr("opacity", op);
@@ -513,8 +504,8 @@ function dsBarChart(region) {
 
 	console.log('In dsBarChart');
 	
-	//showWealthIneq("0");   //Hide and clear
-	//showWealthIneq("100"); //Show
+	//showdsBarChart("0");   //Hide and clear
+	//showdsBarChart("100"); //Show
 	
 	var currDataBarChart = dataBarChosen(region);    
 	console.log("currDataBarChart dataBarChosen for region: " + region);
