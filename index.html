@@ -14,7 +14,7 @@
         hidden:true
     }    
 `
-#mapChart {    
+#mapChartWI {    
 	position:absolute;
 	top:10px;
 	left:10px;
@@ -44,7 +44,7 @@
    font-weight: bold;	
   		} 
 
-div.tooltip {	
+#mapChartWITT {	
       color: black; 
       font: normal 70%/1.4 Roboto;	
       background: yellow; 
@@ -138,13 +138,17 @@ td {
 				 
 </style>
 </head>
-<div class="tooltip"></div>  	
 <body>
 <div class="titlediv">
 	<p id="ScreenTitle" class="titlep">Wealth Inequality</p>
 </div>	
 <div class="bodydiv">
     <svg width=800 height=500>
+		<g id="mapChartWI" opacity="100" >
+			<g id="mapChartWIPath"></g>
+			<g id="mapChartPath"></g>
+			<g id="mapChartWITT"></g>
+		</g>
 		<g id="giniBarChart" opacity="100" >
 			<g id="giniBarChRect"></g>
 			<g id="giniBarChYaxis"></g>
@@ -202,18 +206,19 @@ var worldmap = d3.json("countries-110m-edited_wout_Antarctica.json");
 
 Promise.all([worldmap]).then(values => {
 	
-var plot = d3.select("#mapChart")
+d3.select("#mapChartWI")
 	.append("svg:svg")
 	.attr("width", width)           //set the width and height of our visualization (these will be attributes of the <svg> tag
 	.attr("height", height)
 	.append("svg:g")                //make a group to hold our map chart
 	.attr("transform", "translate(10,100)");
 
- var tooltip = d3.select("div.tooltip");
+ d3.select("#mapChartTT");
 		
  var countries = topojson.feature(values[0], values[0].objects.countries).features; 
-   
-   plot.selectAll('path')
+  
+d3.select("#mapChartPath")	
+        .selectAll('path')
 	.data(countries)
 	.enter().append('path')
 	.attr('class','country')
