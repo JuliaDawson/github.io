@@ -580,7 +580,7 @@ function dsBarChartWI(region) {
 		/* Add X axis - Country   */
 		/*----------------------- */
 		d3.select("#giniBarChXaxis")
-		    .attr("transform", `translate(0, ${height + margin.top + 6} )`)
+		    .attr("transform", `translate(0, ${height + margin.top + 4} )`)
 		    //.attr("transform", `translate(${margin.left}, ${height + margin.top + 14} )`)
 		    .call(d3.axisBottom(xAxis))
 		    .selectAll("text")
@@ -636,7 +636,7 @@ function dsBarChartWI(region) {
 			return d.giniIndex;
 		     })
 		.attr("text-anchor", "middle")
-                .attr("transform", "translate(-10,0)rotate(-90)")
+                //.attr("transform", "translate(-10,0)rotate(-90)")
 		.attr("x", function(d, i) {
 		    return (i * (width / currDataBarChart.length)) + ((width / currDataBarChart.length - barPadding) / 2);
 		})
@@ -654,7 +654,7 @@ function dsBarChartWI(region) {
 			.attr("text-anchor", "middle")
 			.text("Distribution of Income - Gini Index, " + regionName)
 			;
-		showBarChartWI("100"); //Show - should not need to do this...
+		showBarChartWI("100"); //should not need this, try to delete
 		console.log("dsBarChartWI: done displaying ", region, " instead of ", priorregionGl);
 		priorregionGl = region; //all done, save region to prior
 	} //region ne null	
@@ -913,7 +913,7 @@ async function init()
 	// set up location
 	//d3.select('#mapChartWITitle').attr("transform",  "translate(10,0)");	
 	d3.select('#mapChartWI').attr("transform",  "translate(10,0)");	
-	d3.select('#giniBarChart').attr("transform",  "translate(400,0)");	   
+	d3.select('#giniBarChart').attr("transform",  "translate(400,10)");	   
 	//d3.select('#giniBarChXaxis').attr("transform",  "translate(340,360)");	
 	//d3.select('#giniBarChYaxis').attr("transform",  "translate(500,44)");		
 	//d3.select('#giniBarChRect').attr("transform", "translate(60,26)");	
