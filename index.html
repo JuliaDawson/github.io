@@ -29,7 +29,7 @@
 	height: 150px;
 }
 
-#barChart {
+#giniBarChart {
 	position:absolute;
 	top:10px;
 	left:510px;
@@ -139,12 +139,45 @@ td {
 </style>
 </head>
 <div class="tooltip"></div>  	
-<body>
- 	  
-    <div id="mapChart" class=".hideme"></div>  
-    <div <g id="barChart" </g></div>  
-    <div id="lineChart" class=".hideme"></div>  
- 
+<body onload="init()">
+<div class="titlediv">
+	<p id="ScreenTitle" class="titlep">Wealth Inequality</p>
+</div>	
+	<svg width=800 height=500>
+		<g id="NextButtonG">
+			<foreignObject x="625" y="10" width="75" height="25">
+			<div><button id="nextbutton" width="100" height="25" type="button" onclick="OnNextButton()">Next</button></div>
+			</foreignObject>
+		</g>
+		<g id="FirstButtonG">
+			<foreignObject x="550" y="10" width="25" height="25">
+			<div><button id="firstbutton" width="100" height="25" type="button" onclick="OnFirstButton()" >1</button></div>
+			</foreignObject>
+		</g>
+		<g id="SecondButtonG"  opacity="0" >
+			<foreignObject x="575" y="10" width="25" height="25">
+			<div><button id="secondbutton" width="100" height="25" type="button" onclick="OnSecondButton()" >2</button></div>
+			</foreignObject>
+		</g>
+		<g id="ThirdButtonG"  opacity="0" >
+			<foreignObject x="600" y="10" width="25" height="25">
+			<div><button id="thirdbutton" width="100" height="25" type="button" onclick="OnThirdButton()" >3</button></div>
+			</foreignObject>
+		</g>
+		<g id="giniBarChart" opacity="0" >
+			<g id="giniBarChRect"></g>
+			<g id="giniBarChYaxis"></g>
+			<g id="giniBarChXaxis"></g>
+			<g id="giniBarChTitle"></g>
+			<g id="giniBarChLabels"></g>
+		</g>
+
+	</svg>
+</div>
+<div class="footerdiv">
+	<p><i> Data obtained from © 2021 The World Bank Group, All Rights Reserved.</p>
+	<p><small>SharedProsperityFinal by Julia E Dawson</small></p>
+</div>
  
 <script type="text/javascript">
 
@@ -473,6 +506,9 @@ function dsBarChart(region) {
 
 	console.log('In dsBarChart');
 	
+	showWeathIneq("0");   //Hide and clear
+	showWeathIneq("100"); //Show
+	
 	var currDataBarChart = dataBarChosen(region);    
 	console.log("currDataBarChart dataBarChosen for region: " + region);
 	console.log("currDataBarChart[0]: ", currDataBarChart[0]);
@@ -511,23 +547,17 @@ function dsBarChart(region) {
 	const yAxis = d3.scaleLinear()
 	    .domain(currDataBarChart.map(d => d.giniIndex))
 	    .range([d3.min(currDataBarChart, function(d) { return d.giniIndex; }), d3.max(currDataBarChart, function(d) { return d.giniIndex; })]);
-	/*-----------------------------------------------------end new add axis stuff */
-	d3.select('#barchart').html('');	     
-	var svg = d3.select("#barChart")
+	
+	d3.select("#giniBarChart")
 		    .append("svg")
 		    .attr("width", width + margin.left + margin.right)
 		    .attr("height", height + margin.top + margin.bottom)
-		    .attr("id","barChartPlot")
-		    ;
-	
-	var plot = svg
-		    .append("g")
 		    .attr("transform", "translate(" + margin.left +  "," + margin.top + ")")
 		    ;
 	/*----------------------- */
 	/* Add X axis - Country   */
 	/*----------------------- */
-	  svg.append("g")
+	d3.select("#giniBarChXaxis")
 	    .attr("transform", `translate(${margin.left}, ${height + margin.top + 14} )`)
 	    .call(d3.axisBottom(xAxis))
 	    .selectAll("text")
@@ -537,14 +567,14 @@ function dsBarChart(region) {
 	/*-------------------------*/
         /* Add Y axis - Gini Index */
 	/*-------------------------*/
-	  svg.append("g")
+	d3.select("#giniBarChYaxis")
 	    .attr("transform", `translate(${margin.left}, ${margin.top + 14})`)
 	    .call(d3.axisLeft(yAxis))
 
 	/*-------------------*/
 	/* ...adding bars... */
 	/*-------------------*/
-	plot.selectAll("rect")
+	d3.select("#giniBarChRect").selectAll("rect")
 		   .data(currDataBarChart)
 		   .enter()
 		   .append("rect")
@@ -575,7 +605,7 @@ function dsBarChart(region) {
 	/*----------------------------------*/
 	/* ...adding labels on the bars ... */
 	/*----------------------------------*/		
-	plot.selectAll("text")
+	d3.select("#giniBarChLabels").selectAll("text")
 	    .data(currDataBarChart)
 	    .enter()
 	    .append("text")
@@ -593,13 +623,33 @@ function dsBarChart(region) {
 	;
 	
 	// Title	
-	svg.append("text")
+	d3.select("#giniBarChTitle").append("text")
 		.attr("x", (width + margin.left + margin.right)/2)
 		.attr("y", 15)
 		.attr("class","title")				
 		.attr("text-anchor", "middle")
 		.text("Distribution of Income - Gini Index, " + regionName)
 		;
+}
+
+function showWealthIneq(op)
+{
+	d3.select('#giniBarChart').attr("opacity", op);
+	d3.select('#giniBarChRect').attr("opacity", op);
+	d3.select('#giniBarChYaxis').attr("opacity", op);
+	d3.select('#giniBarChXaxis').attr("opacity", op);
+	d3.select('#giniBarChTitle').attr("opacity", op);
+	d3.select('#giniBarChLabels').attr("opacity", op);
+	
+	if (op == '0')
+	{
+	d3.select('#giniBarChart').html('');
+	d3.select('#giniBarChRect').html('');
+	d3.select('#giniBarChYaxis').html('');
+	d3.select('#giniBarChXaxis').html('');
+	d3.select('#giniBarChChTitle').html('');
+	}
+	
 }
 /*============================================================================================================*/
 /*============================================================================================================*/
@@ -843,7 +893,7 @@ function updateLineChart(group, colorChosen) {
     
     dsMapChart();
     if (priorregionGl != regionGl) {
-       d3.select('#barchart').html('');	     
+       showWeathIneq("0");   //Hide and clear
        dsBarChart(regionGl);
        console.log("Charts refreshed because region changed from: <", priorregionGL, "> to: <", regionGl, ">"); 	    
        priorregionGl = regionGl;
