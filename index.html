@@ -584,7 +584,7 @@ function dsBarChartWI(region) {
 		    //.attr("transform", `translate(${margin.left}, ${height + margin.top + 14} )`)
 		    .call(d3.axisBottom(xAxis))
 		    .selectAll("text")
-		      .attr("transform", "translate(-10,0)rotate(-35)")
+		      .attr("transform", "translate(-10,0) rotate(-45)")
 		      .style("text-anchor", "end");
 
 		/*-------------------------*/
@@ -636,13 +636,17 @@ function dsBarChartWI(region) {
 			return d.giniIndex;
 		     })
 		.attr("text-anchor", "middle")
-                //.attr("transform", "translate(-10,0)rotate(-90)")
-		.attr("x", function(d, i) {
-		    return (i * (width / currDataBarChart.length)) + ((width / currDataBarChart.length - barPadding) / 2);
-		})
-		.attr("y", function(d) {
-		    return yScale(d.giniIndex) + 14;
-		})
+		.attr("transform", function(d, i) {
+    			var yVal = yScale(d.giniIndex) + 14;
+    			var xVal = (i * (width / currDataBarChart.length)) + ((width / currDataBarChart.length - barPadding) / 2);
+    			return "translate(" + xVal + "," + yVal + ") rotate(270)";
+  			})
+		//.attr("x", function(d, i) {
+		//    return (i * (width / currDataBarChart.length)) + ((width / currDataBarChart.length - barPadding) / 2);
+		//})
+		//.attr("y", function(d) {
+		//    return yScale(d.giniIndex) + 14;
+		//})
 		.attr("class", "yOnBar")
 		;
 
