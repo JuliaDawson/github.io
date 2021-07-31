@@ -173,7 +173,7 @@ var margin = 10;
 
 //d3.selectAll('svg > g > *').remove(); 
 
-var projection = d3.geoMercator().translate([width/2,height/2]).scale(50);
+var projection = d3.geoMercator().translate([width/2,height/2]).scale(55);
 var path = d3.geoPath().projection(projection);
 
 //Read Topo file and CSV containing economic information
@@ -267,6 +267,7 @@ d3.select("#mapChartWIPath")
 	     }
              dsBarChartWI(regionGl); //refresh Bar Chart
              dsLineChartWI(regionGl); //refresh Line Chart
+	     priorregionGl = regionGl; 	 
 	 }
  
       })
