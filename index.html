@@ -23,14 +23,14 @@
 #lineChart {    
 	position:absolute;
 	top:10px;
-	left:310px;
+	left:360px;
 	height: 150px;
 }
 
 #giniBarChart {
 	position:absolute;
 	top:10px;
-	left:310px;
+	left:360px;
 	width: 250px;
 	height: 250px;
 }
@@ -532,7 +532,7 @@ function dsBarChartWI(region) {
 		console.log("currDataBarChart[length]: ", currDataBarChart[currDataBarChart.length-1]);
 
 
-		var margin = {top: 30, right: 5, bottom: 70, left: 50},
+		var margin = {top: 10, right: 30, bottom: 70, left: 10},
 		    width = 500 - margin.left - margin.right,
 		    height = 250 - margin.top - margin.bottom,
 		    colorBar = d3.interpolateBlues((63 - 20) / 44),
