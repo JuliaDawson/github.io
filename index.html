@@ -459,35 +459,40 @@ d3.select("#mapChartWIPath")
 
 function dataBarChosen(region) {
 	var ds = [];
-	if (region == "All") {
-		regionName = "All";
-	 	for (i in dataBarChart) {
-		 	ds.push(dataBarChart[i]);
-		}
-
-	}
-	else if (region == "South/Latin America" || region == "North America") {
-		regionName = "North and South America";
-		for (i in dataBarChart) {
-			 if(dataBarChart[i].region=="South/Latin America" || dataBarChart[i].region == "North America"){
-			 	ds.push(dataBarChart[i]);
-		 	} 
-		}
-	}	
+	if (region == "") {
+		console.log("dataBarChosen: region is null, do nothing");
+	} //region is null
 	else {
-		for (i in dataBarChart) {
-		         regionName = region;
-			 if(dataBarChart[i].region==region){
-			 	ds.push(dataBarChart[i]);
-		 	} 
-		}
+		if (region == "All") {
+			regionName = "All";
+			for (i in dataBarChart) {
+				ds.push(dataBarChart[i]);
+			}
 
-	}	
-	return ds;
+		} //region is All
+		else if (region == "South/Latin America" || region == "North America") {
+			regionName = "North and South America";
+			for (i in dataBarChart) {
+				 if(dataBarChart[i].region=="South/Latin America" || dataBarChart[i].region == "North America"){
+					ds.push(dataBarChart[i]);
+				} 
+			} //region is *America
+		}	
+		else {
+			for (i in dataBarChart) {
+				 regionName = region;
+				 if(dataBarChart[i].region==region){
+					ds.push(dataBarChart[i]);
+				} 
+			}
+		} //region is one region		
+	} //region is not null	
+	return ds;   
 }
 
-function showWealthIneq(op)
+function showBarChartWI(op, region)
 {
+	console.log("showBarChartWI: opacity", op, "region:", region, " regionGl:", regionGl, " priorregionGl:", priorregionGl);	
 	d3.select('#giniBarChart').attr("opacity", op);
 	d3.select('#giniBarChRect').attr("opacity", op);
 	d3.select('#giniBarChYaxis').attr("opacity", op);
@@ -497,6 +502,7 @@ function showWealthIneq(op)
 	
 	if (op == '0')
 	{
+	console.log("showBarChartWI: opacity zero and emptied HTML");	
 	d3.select('#giniBarChart').html('');
 	d3.select('#giniBarChRect').html('');
 	d3.select('#giniBarChYaxis').html('');
@@ -504,144 +510,143 @@ function showWealthIneq(op)
 	d3.select('#giniBarChChTitle').html('');
 	d3.select('#giniBarChChLabels').html('');
 	}
-	
 }
 
 
-function dsBarChart(region) {
+function dsBarChartWI(region) {
 
-	console.log('In dsBarChart');
+	console.log('In dsBarChartWI, region:', region);
 	
-	//showWealthIneq("0");   //Hide and clear
-	//showWealthIneq("100"); //Show
+	if (region != "") {
 	
-	var currDataBarChart = dataBarChosen(region);    
-	console.log("currDataBarChart dataBarChosen for region: " + region);
-	console.log("currDataBarChart[0]: ", currDataBarChart[0]);
-	console.log("currDataBarChart.length: " + currDataBarChart.length);
-	console.log("currDataBarChart[length]: ", currDataBarChart[currDataBarChart.length-1]);
-	
-	
-	var margin = {top: 30, right: 5, bottom: 70, left: 50},
-	    width = 500 - margin.left - margin.right,
-	    height = 250 - margin.top - margin.bottom,
-	    colorBar = d3.interpolateBlues((63 - 20) / 44),
-	    barPadding = .1
-	;
-	
-			
-	var xScale = d3.scaleLinear()
-			.domain([0, currDataBarChart.length])
-			.range([0, width])
-			;
-						
-	var yScale = d3.scaleLinear()
-		   .domain([d3.min(currDataBarChart, function(d) { return d.giniIndex; }), d3.max(currDataBarChart, function(d) { return d.giniIndex; })])
-		   .range([height, 0])
-		   ;
-	
-	/*-----------------------*/
-	/* For X axis - Country  */
-	/*-----------------------*/
-	const xAxis = d3.scaleBand()
-	    .domain(currDataBarChart.map(d => d.countryName))
-	    .range([ 0, width]);
+		//showBarChartWI("0", region);   //Hide and clear
+		//showBarChartWI("100", region); //Show
 
-	/*------------------------*/
-	/* For Y axis - Gini Index */
-	/*------------------------*/
-	const yAxis = d3.scaleLinear()
-	    .domain(currDataBarChart.map(d => d.giniIndex))
-	    .range([d3.min(currDataBarChart, function(d) { return d.giniIndex; }), d3.max(currDataBarChart, function(d) { return d.giniIndex; })]);
-	
-	d3.select("#giniBarChart")
-		    .append("svg")
-		    .attr("width", width + margin.left + margin.right)
-		    .attr("height", height + margin.top + margin.bottom)
-		    .attr("transform", "translate(" + margin.left +  "," + margin.top + ")")
-		    ;
-	/*----------------------- */
-	/* Add X axis - Country   */
-	/*----------------------- */
-	d3.select("#giniBarChXaxis")
-	    .attr("transform", `translate(${margin.left}, ${height + margin.top + 14} )`)
-	    .call(d3.axisBottom(xAxis))
-	    .selectAll("text")
-	      .attr("transform", "translate(-10,0)rotate(-35)")
-	      .style("text-anchor", "end");
+		var currDataBarChart = dataBarChosen(region);    
+		console.log("currDataBarChart dataBarChosen for region: " + region);
+		console.log("currDataBarChart[0]: ", currDataBarChart[0]);
+		console.log("currDataBarChart.length: " + currDataBarChart.length);
+		console.log("currDataBarChart[length]: ", currDataBarChart[currDataBarChart.length-1]);
 
-	/*-------------------------*/
-        /* Add Y axis - Gini Index */
-	/*-------------------------*/
-	d3.select("#giniBarChYaxis")
-	    .attr("transform", `translate(${margin.left}, ${margin.top + 14})`)
-	    .call(d3.axisLeft(yAxis))
 
-	/*-------------------*/
-	/* ...adding bars... */
-	/*-------------------*/
-	d3.select("#giniBarChRect").selectAll("rect")
-		   .data(currDataBarChart)
-		   .enter()
-		   .append("rect")
-			.attr("x", function(d, i) {
-			    return xScale(i);
-			})
-		   .attr("width", width / currDataBarChart.length - barPadding)   
-			.attr("y", function(d) {
-			    return yScale(d.giniIndex);
-			})  
-			.attr("height", function(d) {
-			    return (height - yScale(d.giniIndex) + 14);
-			})
-			.attr("fill", function(d) { 
-		             //console.log("d", d)
-		             //console.log("giniIndex", d.giniIndex)
-		             var col =  d3.interpolateBlues((d.giniIndex - 20) / 44); 
-		             //console.log("col", col)
-		             if (col) {
-		                //console.log("found col", col, "for d", d)
-		                return col
-		             } else {
-		                return 'white'
-		             }
-	                })
-			;
-	
-	/*----------------------------------*/
-	/* ...adding labels on the bars ... */
-	/*----------------------------------*/		
-	d3.select("#giniBarChLabels").selectAll("text")
-	    .data(currDataBarChart)
-	    .enter()
-	    .append("text")
-	    .text(function(d) {
-		return d.giniIndex;
-	})
-	.attr("text-anchor", "middle")
-	.attr("x", function(d, i) {
-	    return (i * (width / currDataBarChart.length)) + ((width / currDataBarChart.length - barPadding) / 2);
-	})
-	.attr("y", function(d) {
-	    return yScale(d.giniIndex) + 14;
-	})
-	.attr("class", "yOnBar")
-	;
-	
-	// Title	
-	d3.select("#giniBarChTitle").append("text")
-		.attr("x", (width + margin.left + margin.right)/2)
-		.attr("y", 15)
-		.attr("class","title")				
-		.attr("text-anchor", "middle")
-		.text("Distribution of Income - Gini Index, " + regionName)
+		var margin = {top: 30, right: 5, bottom: 70, left: 50},
+		    width = 500 - margin.left - margin.right,
+		    height = 250 - margin.top - margin.bottom,
+		    colorBar = d3.interpolateBlues((63 - 20) / 44),
+		    barPadding = .1
 		;
+
+		var xScale = d3.scaleLinear()
+				.domain([0, currDataBarChart.length])
+				.range([0, width])
+				;
+
+		var yScale = d3.scaleLinear()
+			   .domain([d3.min(currDataBarChart, function(d) { return d.giniIndex; }), d3.max(currDataBarChart, function(d) { return d.giniIndex; })])
+			   .range([height, 0])
+			   ;
+
+		/*-----------------------*/
+		/* For X axis - Country  */
+		/*-----------------------*/
+		const xAxis = d3.scaleBand()
+		    .domain(currDataBarChart.map(d => d.countryName))
+		    .range([ 0, width]);
+
+		/*------------------------*/
+		/* For Y axis - Gini Index */
+		/*------------------------*/
+		const yAxis = d3.scaleLinear()
+		    .domain(currDataBarChart.map(d => d.giniIndex))
+		    .range([d3.min(currDataBarChart, function(d) { return d.giniIndex; }), d3.max(currDataBarChart, function(d) { return d.giniIndex; })]);
+
+		d3.select("#giniBarChart")
+			    .append("svg")
+			    .attr("width", width + margin.left + margin.right)
+			    .attr("height", height + margin.top + margin.bottom)
+			    .attr("transform", "translate(" + margin.left +  "," + margin.top + ")")
+			    ;
+		/*----------------------- */
+		/* Add X axis - Country   */
+		/*----------------------- */
+		d3.select("#giniBarChXaxis")
+		    .attr("transform", `translate(${margin.left}, ${height + margin.top + 14} )`)
+		    .call(d3.axisBottom(xAxis))
+		    .selectAll("text")
+		      .attr("transform", "translate(-10,0)rotate(-35)")
+		      .style("text-anchor", "end");
+
+		/*-------------------------*/
+		/* Add Y axis - Gini Index */
+		/*-------------------------*/
+		d3.select("#giniBarChYaxis")
+		    .attr("transform", `translate(${margin.left}, ${margin.top + 14})`)
+		    .call(d3.axisLeft(yAxis))
+
+		/*-------------------*/
+		/* ...adding bars... */
+		/*-------------------*/
+		d3.select("#giniBarChRect").selectAll("rect")
+			   .data(currDataBarChart)
+			   .enter()
+			   .append("rect")
+				.attr("x", function(d, i) {
+				    return xScale(i);
+				})
+			   .attr("width", width / currDataBarChart.length - barPadding)   
+				.attr("y", function(d) {
+				    return yScale(d.giniIndex);
+				})  
+				.attr("height", function(d) {
+				    return (height - yScale(d.giniIndex) + 14);
+				})
+				.attr("fill", function(d) { 
+				     //console.log("d", d)
+				     //console.log("giniIndex", d.giniIndex)
+				     var col =  d3.interpolateBlues((d.giniIndex - 20) / 44); 
+				     //console.log("col", col)
+				     if (col) {
+					//console.log("found col", col, "for d", d)
+					return col
+				     } else {
+					return 'white'
+				     }
+				})
+				;
+
+		/*----------------------------------*/
+		/* ...adding labels on the bars ... */
+		/*----------------------------------*/		
+		d3.select("#giniBarChLabels").selectAll("text")
+		    .data(currDataBarChart)
+		    .enter()
+		    .append("text")
+		    .text(function(d) {
+			return d.giniIndex;
+		})
+		.attr("text-anchor", "middle")
+		.attr("x", function(d, i) {
+		    return (i * (width / currDataBarChart.length)) + ((width / currDataBarChart.length - barPadding) / 2);
+		})
+		.attr("y", function(d) {
+		    return yScale(d.giniIndex) + 14;
+		})
+		.attr("class", "yOnBar")
+		;
+
+		// Title	
+		d3.select("#giniBarChTitle").append("text")
+			.attr("x", (width + margin.left + margin.right)/2)
+			.attr("y", 15)
+			.attr("class","title")				
+			.attr("text-anchor", "middle")
+			.text("Distribution of Income - Gini Index, " + regionName)
+			;
+	} //region ne null	
 }
 
-/*============================================================================================================*/
 /*============================================================================================================*/
 /* End of Bar Chart  Gini Index                                                                                          */
-/*============================================================================================================*/
 /*============================================================================================================*/
 
 
