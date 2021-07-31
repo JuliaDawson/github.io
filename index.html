@@ -139,7 +139,7 @@ td {
 <body onload="init()">
 <div class="tooltip"></div>  		
 <div class="titlediv">
-	<p id="ScreenTitle" class="titlep">Wealth Inequality</p>
+	<p id="ScreenTitle" class="titlep">Wealth Inequality in our world (click, zoom)</p>
 </div>	
 <div class="bodydiv">
     <svg width=1000 height=500>
@@ -190,8 +190,8 @@ function clickme(d){
 /* start of New for Map Chart                                                                                          */
 /*------------------------------------------------------------------------------------------------------------*/
 function dsMapChart(){
-var height = 400;
-var width = 400;
+var height = 300;
+var width = 300;
 var margin = 10;	
 
 //d3.selectAll('svg > g > *').remove(); 
@@ -276,6 +276,7 @@ d3.select("#mapChartPath")
 	     if (regionGl == "South/Latin America" || regionGl == "North America") {
 		regionName = "North and South/Latin America";     
 	     }
+	     else regionName = regionGL;	 
              dsBarChart(regionGl);
 	 }
  
@@ -893,9 +894,9 @@ async function init()
 {
 	// set up location
 	d3.select('#mapChartWI').attr("transform",  "translate(10,10)");	
-	d3.select('#giniBarChart').attr("transform",  "translate(410,10)");	   
-	d3.select('#giniBarChXaxis').attr("transform",  "translate(460,294)");	
-	d3.select('#giniBarChYaxis').attr("transform",  "translate(460,44)");		
+	d3.select('#giniBarChart').attr("transform",  "translate(310,10)");	   
+	d3.select('#giniBarChXaxis').attr("transform",  "translate(360,294)");	
+	d3.select('#giniBarChYaxis').attr("transform",  "translate(360,44)");		
 	d3.select('#giniBarChRect').attr("transform", "translate(60,40)");	
 }	
 	
