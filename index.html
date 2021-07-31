@@ -145,27 +145,7 @@ td {
 </div>	
 <div class="bodydiv">
     <svg width=800 height=500>
-		<g id="NextButtonG">
-			<foreignObject x="625" y="10" width="75" height="25">
-			<div><button id="nextbutton" width="100" height="25" type="button" onclick="OnNextButton()">Next</button></div>
-			</foreignObject>
-		</g>
-		<g id="FirstButtonG">
-			<foreignObject x="550" y="10" width="25" height="25">
-			<div><button id="firstbutton" width="100" height="25" type="button" onclick="OnFirstButton()" >1</button></div>
-			</foreignObject>
-		</g>
-		<g id="SecondButtonG"  opacity="0" >
-			<foreignObject x="575" y="10" width="25" height="25">
-			<div><button id="secondbutton" width="100" height="25" type="button" onclick="OnSecondButton()" >2</button></div>
-			</foreignObject>
-		</g>
-		<g id="ThirdButtonG"  opacity="0" >
-			<foreignObject x="600" y="10" width="25" height="25">
-			<div><button id="thirdbutton" width="100" height="25" type="button" onclick="OnThirdButton()" >3</button></div>
-			</foreignObject>
-		</g>
-		<g id="giniBarChart" opacity="0" >
+		<g id="giniBarChart" opacity="100" >
 			<g id="giniBarChRect"></g>
 			<g id="giniBarChYaxis"></g>
 			<g id="giniBarChXaxis"></g>
@@ -173,11 +153,11 @@ td {
 			<g id="giniBarChLabels"></g>
 		</g>
 
-	</svg>
+    </svg>
 </div>
 <div class="footerdiv">
 	<p><i> Data obtained from © 2021 The World Bank Group, All Rights Reserved.</p>
-	<p><small>SharedProsperityFinal by Julia E Dawson</small></p>
+	<p><small>CS416, Summer 2021 Julia E Dawson</small></p>
 </div>
  
 <script type="text/javascript">
@@ -526,8 +506,8 @@ function dsBarChart(region) {
 
 	console.log('In dsBarChart');
 	
-	showWealthIneq("0");   //Hide and clear
-	showWealthIneq("100"); //Show
+	//showWealthIneq("0");   //Hide and clear
+	//showWealthIneq("100"); //Show
 	
 	var currDataBarChart = dataBarChosen(region);    
 	console.log("currDataBarChart dataBarChosen for region: " + region);
@@ -893,12 +873,13 @@ function updateLineChart(group, colorChosen) {
 }
     
     dsMapChart();
-    if (priorregionGl != regionGl) {
-       showWealthIneq("0");   //Hide and clear
+	
+    //if (priorregionGl != regionGl) {
+    //   showWealthIneq("0");   //Hide and clear
        dsBarChart(regionGl);
-       console.log("Charts refreshed because region changed from: <", priorregionGl, "> to: <", regionGl, ">"); 	    
-       priorregionGl = regionGl;
-   }
+    //   console.log("Charts refreshed because region changed from: <", priorregionGl, "> to: <", regionGl, ">"); 	    
+    //   priorregionGl = regionGl;
+   //}
     //dsLineChart();	  
 	  
     //d3.selectAll(".hideme").attr('visibility',visible);
