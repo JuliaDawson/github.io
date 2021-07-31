@@ -144,7 +144,7 @@ td {
 	<p id="ScreenTitle" class="titlep">Wealth Inequality</p>
 </div>	
 <div class="bodydiv">
-    <svg width=800 height=500>
+    <svg width=1000 height=500>
 		<g id="mapChartWI" opacity="100" >
 			<g id="mapChartWIPath"></g>
 			<g id="mapChartPath"></g>
@@ -890,6 +890,17 @@ function updateLineChart(group, colorChosen) {
     //dsLineChart();	  
 	  
     //d3.selectAll(".hideme").attr('visibility',visible);
+	
+async function init() 
+{
+	// set up location
+	d3.select('#mapChartWI').attr("transform",  "translate(10,10)");	
+	d3.select('#giniBarChart').attr("transform",  "translate(410,10)");	   
+	d3.select('#giniBarChXaxis').attr("transform",  "translate(460,294)");	
+	d3.select('#giniBarChYaxis').attr("transform",  "translate(460,44)");		
+	d3.select('#giniBarChRect').attr("transform", "translate(60,40)");	
+}	
+	
 	   	    
 
     </script>
