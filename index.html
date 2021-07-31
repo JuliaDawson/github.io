@@ -518,10 +518,10 @@ function dsBarChartWI(region) {
 
 	console.log('In dsBarChartWI, region:', region);
 	
-	if (region != "") {
+	if (region != "" and regionGl != previousregionGl) {
 	
-		//showBarChartWI("0", region);   //Hide and clear
-		//showBarChartWI("100", region); //Show
+		showBarChartWI("0", region);   //Hide and clear
+		showBarChartWI("100", region); //Show
 
 		var currDataBarChart = dataBarChosen(region);    
 		console.log("currDataBarChart dataBarChosen for region: " + region);
@@ -810,8 +810,6 @@ function dsLineChart() {
 
 }
 
-
-
  /* ** UPDATE CHART ** */
  
 /* updates bar chart on request */
@@ -900,9 +898,9 @@ async function init()
 {
 	// set up location
 	d3.select('#mapChartWI').attr("transform",  "translate(10,10)");	
-	d3.select('#giniBarChart').attr("transform",  "translate(310,10)");	   
+	d3.select('#giniBarChart').attr("transform",  "translate(340,10)");	   
 	d3.select('#giniBarChXaxis').attr("transform",  "translate(30,294)");	
-	d3.select('#giniBarChYaxis').attr("transform",  "translate(460,44)");		
+	d3.select('#giniBarChYaxis').attr("transform",  "translate(500,44)");		
 	d3.select('#giniBarChRect').attr("transform", "translate(60,40)");	
 	d3.select('#giniBarChTitle').attr("transform", "translate(10,10)");	
 	
