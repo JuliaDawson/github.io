@@ -254,7 +254,7 @@ var plot = d3.select("#mapChart")
 	 if (regionGl != d.properties.region) {
 	     console.log("Region changed from:", regionGl, " To:", d.properties.region);	 
              regionGl = d.properties.region;
-	     if (regionGL == "South/Latin America" || regionGL == "North America") {
+	     if (regionGl == "South/Latin America" || regionGl == "North America") {
 		regionName = "North and South/Latin America";     
 	     }
              dsBarChart(regionGl);
