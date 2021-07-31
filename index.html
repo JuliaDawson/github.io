@@ -136,7 +136,7 @@ td {
 				 
 </style>
 </head>
-<body>
+<body onload="init()">
 <div class="tooltip"></div>  		
 <div class="titlediv">
 	<p id="ScreenTitle" class="titlep">Wealth Inequality in our world (click, zoom)</p>
@@ -189,13 +189,13 @@ function clickme(d){
 /* start of Map Chart                                                                                          */
 /*------------------------------------------------------------------------------------------------------------*/
 function dsMapChart(){
-var height = 300;
-var width = 300;
+var height = 400;
+var width = 400;
 var margin = 10;	
 
 //d3.selectAll('svg > g > *').remove(); 
 
-var projection = d3.geoMercator().translate([width/2,height/2]).scale(60);
+var projection = d3.geoMercator().translate([width/2,height/2]).scale(70);
 var path = d3.geoPath().projection(projection);
 
 //Read Topo file and CSV containing economic information
@@ -486,7 +486,7 @@ function dataBarChosen(region) {
 	return ds;
 }
 
-function showBarChartWI(op)
+function showWealthIneq(op)
 {
 	d3.select('#giniBarChart').attr("opacity", op);
 	d3.select('#giniBarChRect').attr("opacity", op);
@@ -495,7 +495,7 @@ function showBarChartWI(op)
 	d3.select('#giniBarChTitle').attr("opacity", op);
 	d3.select('#giniBarChLabels').attr("opacity", op);
 	
-	if (op == "0")
+	if (op == '0')
 	{
 	d3.select('#giniBarChart').html('');
 	d3.select('#giniBarChRect').html('');
@@ -511,8 +511,8 @@ function dsBarChart(region) {
 
 	console.log('In dsBarChart');
 	
-	//showBarChartWI("0");  
-	//showBarChartWI("100"); 
+	//showWealthIneq("0");   //Hide and clear
+	//showWealthIneq("100"); //Show
 	
 	var currDataBarChart = dataBarChosen(region);    
 	console.log("currDataBarChart dataBarChosen for region: " + region);
@@ -889,7 +889,18 @@ function updateLineChart(group, colorChosen) {
 	  
     //d3.selectAll(".hideme").attr('visibility',visible);
 	
-
+async function init() 
+{
+	// set up location
+	d3.select('#mapChartWI').attr("transform",  "translate(10,10)");	
+	d3.select('#giniBarChart').attr("transform",  "translate(310,10)");	   
+	d3.select('#giniBarChXaxis').attr("transform",  "translate(30,294)");	
+	d3.select('#giniBarChYaxis').attr("transform",  "translate(460,44)");		
+	d3.select('#giniBarChRect').attr("transform", "translate(60,40)");	
+	d3.select('#giniBarChTitle').attr("transform", "translate(310,10)");	
+	
+}	
+	
     </script>
   </body>
 </html>
