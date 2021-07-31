@@ -843,6 +843,7 @@ function updateLineChart(group, colorChosen) {
     
     dsMapChart();
     if (priorregionGl != regionGl) {
+       d3.select('#barchart').html('');	     
        dsBarChart(regionGl);
        console.log("Charts refreshed because region changed from: <", priorregionGL, "> to: <", regionGl, ">"); 	    
        priorregionGl = regionGl;
