@@ -149,7 +149,8 @@ td {
 <script type="text/javascript">
 
 //Set the initial region value
-let regionGl = "Africa";	
+let regionGl = "Africa";
+let regionName = "Africa";	
 let priorregionGl = '';	
 
 d3.selectAll(".tick")
@@ -253,6 +254,9 @@ var plot = d3.select("#mapChart")
 	 if (regionGl != d.properties.region) {
 	     console.log("Region changed from:", regionGl, " To:", d.properties.region);	 
              regionGl = d.properties.region;
+	     if (regionGL == "South/Latin America" || regionGL == "North America") {
+		regionName = "North and South/Latin America";     
+	     }
              dsBarChart(regionGl);
 	 }
  
@@ -445,8 +449,15 @@ function dataBarChosen(region) {
 		}
 
 	}
+	else if (region == "South/Latin America" || regionGL == "North America") {
+		for (i in dataBarChart) {
+			 if(dataBarChart[i].region=="South/Latin America" || dataBarChart[i].region == "North America"){
+			 	ds.push(dataBarChart[i]);
+		 	} 
+		}
+	}	
 	else {
-	 	for (i in dataBarChart) {
+		for (i in dataBarChart) {
 			 if(dataBarChart[i].region==region){
 			 	ds.push(dataBarChart[i]);
 		 	} 
@@ -587,7 +598,7 @@ function dsBarChart(region) {
 		.attr("y", 15)
 		.attr("class","title")				
 		.attr("text-anchor", "middle")
-		.text("Distribution of Income - Gini Index")
+		.text("Distribution of Income - Gini Index, ", regionName)
 		;
 }
 /*============================================================================================================*/
