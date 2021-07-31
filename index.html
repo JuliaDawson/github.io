@@ -15,20 +15,20 @@
 	top:10px;
 	left:10px;
 	height: 400px;
-	width: 500px;
+	width: 400px;
 }
 	    
 #lineChart {    
 	position:absolute;
 	top:10px;
-	left:510px;
+	left:410px;
 	height: 150px;
 }
 
 #giniBarChart {
 	position:absolute;
 	top:10px;
-	left:510px;
+	left:410px;
 	width: 250px;
 	height: 250px;
 }
@@ -137,7 +137,6 @@ td {
 		<svg width=1000 height=500>
 			<g id="mapChartWI" opacity="100" >
 				<g id="mapChartWIPath"></g>
-				<g id="mapChartPath"></g>
 				<g id="mapChartWITT"></g>
 			</g>
 			<g id="giniBarChart" opacity="100" >
@@ -185,7 +184,7 @@ function clickme(d){
 /*------------------------------------------------------------------------------------------------------------*/
 function dsMapChart(){
 var height = 400;
-var width = 500;
+var width = 400;
 var margin = 10;	
 
 //d3.selectAll('svg > g > *').remove(); 
@@ -204,7 +203,7 @@ d3.select("#mapChartWI")
 	.attr("width", width)           //set the width and height of our visualization (these will be attributes of the <svg> tag
 	.attr("height", height)
 	.append("svg:g")                //make a group to hold our map chart
-	.attr("transform", "translate(10,100)");
+	.attr("transform", "translate(10,10)");
  var tooltip = d3.select("div.tooltip");
 	
  d3.select("#mapChartTT");
@@ -277,8 +276,6 @@ d3.select("#mapChartPath")
 
 })
 }
-
-
 /*------------------------------------------------------------------------------------------------------------*/	    
 /* End of New for Map Chart                                                                                          */
 /*============================================================================================================*/
@@ -457,25 +454,17 @@ d3.select("#mapChartPath")
 function dataBarChosen(region) {
 	var ds = [];
 	if (region == "All") {
-	 	for (i in dataBarChart) {
-		 	ds.push(dataBarChart[i]);
-		}
-
+	 	for (i in dataBarChart) ds.push(dataBarChart[i]);
 	}
-	else if (region == "South/Latin America" || region == "North America") {
+	else if (region == "South/Latin America" || region == "North America") { //Combine North and South America
 		for (i in dataBarChart) {
-			 if(dataBarChart[i].region=="South/Latin America" || dataBarChart[i].region == "North America"){
-			 	ds.push(dataBarChart[i]);
-		 	} 
+			 if(dataBarChart[i].region=="South/Latin America" || dataBarChart[i].region == "North America")	ds.push(dataBarChart[i]);
 		}
 	}	
 	else {
 		for (i in dataBarChart) {
-			 if(dataBarChart[i].region==region){
-			 	ds.push(dataBarChart[i]);
-		 	} 
+			 if(dataBarChart[i].region==region) ds.push(dataBarChart[i]);
 		}
-
 	}	
 	return ds;
 }
@@ -502,11 +491,10 @@ function showdsBarChart(op)
 
 
 function dsBarChart(region) {
-
 	console.log('In dsBarChart');
 	
-	//showdsBarChart("0");   //Hide and clear
-	//showdsBarChart("100"); //Show
+	showdsBarChart("0");   //Hide and clear
+	showdsBarChart("100"); //Show
 	
 	var currDataBarChart = dataBarChosen(region);    
 	console.log("currDataBarChart dataBarChosen for region: " + region);
@@ -516,7 +504,7 @@ function dsBarChart(region) {
 	
 	
 	var margin = {top: 30, right: 5, bottom: 70, left: 50},
-	    width = 500 - margin.left - margin.right,
+	    width = 400 - margin.left - margin.right,
 	    height = 250 - margin.top - margin.bottom,
 	    colorBar = d3.interpolateBlues((63 - 20) / 44),
 	    barPadding = .1
@@ -560,8 +548,8 @@ function dsBarChart(region) {
 	    .attr("transform", `translate(${margin.left}, ${height + margin.top + 14} )`)
 	    .call(d3.axisBottom(xAxis))
 	    .selectAll("text")
-	      .attr("transform", "translate(-10,0)rotate(-35)")
-	      .style("text-anchor", "end");
+	    .attr("transform", "translate(-10,0)rotate(-35)")
+	    .style("text-anchor", "end");
 
 	/*-------------------------*/
         /* Add Y axis - Gini Index */
