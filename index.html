@@ -209,8 +209,8 @@ d3.select("#mapChartWI")
 	.attr("width", width)           //set the width and height of our visualization (these will be attributes of the <svg> tag
 	.attr("height", height)
 	.append("text")
-	.attr("x", 0)
-	.attr("y", 15)
+	//.attr("x", 10)
+	//.attr("y", 15)
 	.attr("class","title")				
 	.attr("text-anchor", "middle")
 	.text("World Map with Gini Index (click, zoom)")
@@ -218,16 +218,7 @@ d3.select("#mapChartWI")
 	.attr("transform", "translate(10,100)");
 	
  var tooltip = d3.select("div.tooltip");	
- d3.select("#mapChartWITT");
-
-//d3.select("#mapChartWITitle").append("text")
-//	.attr("x", 0)
-//	.attr("y", 15)
-//	.attr("class","title")				
-//	.attr("text-anchor", "middle")
-//	.text("World Map with Gini Index (click, zoom)")
-//;	
-		
+ d3.select("#mapChartWITT");		
  var countries = topojson.feature(values[0], values[0].objects.countries).features; 
   
 d3.select("#mapChartWIPath")	
