@@ -512,7 +512,7 @@ function dsBarChart(region) {
 	    .domain(currDataBarChart.map(d => d.giniIndex))
 	    .range([d3.min(currDataBarChart, function(d) { return d.giniIndex; }), d3.max(currDataBarChart, function(d) { return d.giniIndex; })]);
 	/*-----------------------------------------------------end new add axis stuff */
-	
+	d3.select('#barchart').html('');	     
 	var svg = d3.select("#barChart")
 		    .append("svg")
 		    .attr("width", width + margin.left + margin.right)
