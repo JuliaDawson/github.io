@@ -9,30 +9,13 @@
     <script src="https://d3js.org/d3-queue.v3.min.js"></script>
 
     <style type="text/css">
-    .hideme {
-        hidden:true
-    }    
-`
-//#mapChartWI {    
-//	position:absolute;
-//	top:0px;
-//	left:10px;
-//}
-	    
+   
 #lineChart {    
 	position:absolute;
 	top:10px;
 	left:360px;
 	height: 150px;
 }
-
-//#giniBarChart {
-//	position:absolute;
-//	top:0px;
-//	left:360px;
-//	width: 250px;
-//	height: 250px;
-//}
 
 .slice {
    font-size: 12pt;
@@ -137,8 +120,9 @@ td {
 	/*font-style: italic;*/
 }
 				 
-</style>
+</style>	  
 </head>
+	
 <body onload="init()">
 <div class="tooltip"></div>  		
 <div class="titlediv">
@@ -168,7 +152,7 @@ td {
     </svg>
 </div>
 <div class="footerdiv">
-	<p><i><small> Data obtained from © 2021 The World Bank Group, All Rights Reserved.          CS416, Summer 2021 Julia Dawson</small></p>
+	<p><i><small>CS416, Summer 2021, Julia Dawson                Data obtained from © 2021 The World Bank Group, All Rights Reserved.</small></p>
 </div>
  
 <script type="text/javascript">
@@ -179,22 +163,6 @@ let regionName = '';
 let priorregionGl = '';	
 let currDataBarChart = [];		    	
 
-d3.selectAll(".tick")
-     .on("click",clickme)	    
-function clickme(d){
-    console.log("clickme " + d + d.id);	
-    // Select element that should be shown
-    const element = d3.select("#"+d.id); // Or however you're deriving id
-
-    // Determine whether the element needs to be shown or hidden
-    const show = element.style('display') === 'none';
-
-    // Hide any tooltip that may be shown
-    d3.selectAll('.tooltip').style('display', 'show'); //was none
-
-    // Show element, if appropriate
-    if (show) element.style('display', 'block');
-}
 /*============================================================================================================*/
 /* start of Map Chart                                                                                          */
 /*------------------------------------------------------------------------------------------------------------*/
@@ -722,7 +690,7 @@ function dsLineChartWI(region) {
 		}
 		showLineChartWI("100"); //Show
 
-		//var currDataBarChart = dataBarChosen(region); Let BarChart drive the re-read of data   
+		//var currDataBarChart = dataBarChosen(region); Let mapChart drive the re-read of data   
 		console.log("currDataBarChart dataBarChosen for region: " + region);
 		console.log("currDataBarChart[0]: ", currDataBarChart[0]);
 		console.log("currDataBarChart.length: " + currDataBarChart.length);
@@ -857,17 +825,24 @@ function dsLineChartWI(region) {
 /* End of Line Chart - Percent Income                                                                                        */
 /*============================================================================================================*/
 
+
+/*============================================================================================================*/
+/* ...Run dsMapChart now... 
+ *    dsMapChart detects a click on a Country, whereupon only the Region of Country is read from the CSV data.
+ *    The CSV data is displayed on the bar chart and line chart. The map will tell them to refresh if the
+ *    region has changed, and thus the data to present has changed, due to a click on one of the map countries */
+/*============================================================================================================*/
   
-    dsMapChart();
+    dsMapChart(); //mapChart will cause barChart and lineChart to refresh if necessary
 	
     //if (priorregionGl != regionGl) {
     //   showWealthIneq("0");   //Hide and clear
-    dsBarChartWI(regionGl);
+    //   dsBarChartWI(regionGl);
     //   console.log("Charts refreshed because region changed from: <", priorregionGl, "> to: <", regionGl, ">"); 	    
     //   priorregionGl = regionGl;
    //}
 	
-    dsLineChartWI();	  
+    // dsLineChartWI();	  
 	  
     //d3.selectAll(".hideme").attr('visibility',visible);
 	
@@ -875,8 +850,8 @@ async function init()
 {
 	// set up location
 	//d3.select('#mapChartWITitle').attr("transform",  "translate(10,0)");	
-	d3.select('#mapChartWI').attr("transform",  "translate(10,0)");	
-	d3.select('#giniBarChart').attr("transform",  "translate(400,10)");	   
+	d3.select('#mapChartWI').attr("transform",   "translate(10,0)");	
+	d3.select('#giniBarChart').attr("transform", "translate(400,10)");	   
 	d3.select('#lineChartWI').attr("transform",  "translate(10,300)");	
 }	
 	
