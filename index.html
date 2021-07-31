@@ -150,7 +150,7 @@ td {
 
 //Set the initial region value
 let regionGl = "Africa";	
-	
+let priorregionGl = '';	
 
 d3.selectAll(".tick")
      .on("click",clickme)	    
@@ -831,6 +831,11 @@ function updateLineChart(group, colorChosen) {
 }
     
     dsMapChart();
+    if (priorregionGl != regionGl) {
+       dsBarChart(regionGl);
+       console.log("Charts refreshed because region changed from: <", priorregionGL, "> to: <", regionGl, ">"); 	    
+       priorregionGl = regionGl;
+   }
     //dsLineChart();	  
 	  
     //d3.selectAll(".hideme").attr('visibility',visible);
