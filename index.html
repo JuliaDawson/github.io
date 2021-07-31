@@ -459,8 +459,8 @@ d3.select("#mapChartWIPath")
 
 function dataBarChosen(region) {
 	var ds = [];
-	if (region == "") {
-		console.log("dataBarChosen: region is null, do nothing");
+	if (region == "" || region == priorregionGl) {
+		console.log("dataBarChosen: region is null or same as before:", region, priorregionGl);
 	} //region is null
 	else {
 		if (region == "All") {
@@ -503,7 +503,7 @@ function showBarChartWI(op)
 	if (op == '0')
 	{
 	console.log("showBarChartWI: opacity zero and emptied HTML");	
-	setTimeout(() => {  console.log("...clearing html rightn now..."); }, 500);	
+	console.log("...clearing html rightn now...", regionGl, priorregionGl);
 	d3.select('#giniBarChart').html('');
 	d3.select('#giniBarChRect').html('');
 	d3.select('#giniBarChYaxis').html('');
