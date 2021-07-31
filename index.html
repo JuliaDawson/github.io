@@ -83,10 +83,15 @@ div.tooltip {
     font-size: 11px;
 }
 
+.titlep {
+    font-family: Roboto;
+    font-size: 18px;
+    font-weight: bold;	
+}
+	    
 .title {
     font-family: Roboto;
-    font-size: 15px;	
-		
+    font-size: 15px;			
 }
 
 .xAxis {
@@ -638,7 +643,7 @@ function dsBarChartWI(region) {
 		.attr("text-anchor", "middle")
 		.attr("transform", function(d, i) {
     			var yVal = yScale(d.giniIndex) - 10;
-    			var xVal = (i * (width / currDataBarChart.length)) + ((width / currDataBarChart.length - barPadding) / 2);
+    			var xVal = (i * (width / currDataBarChart.length)) + ((width / currDataBarChart.length - barPadding) / 2) + barPadding;
     			return "translate(" + xVal + "," + yVal + ") rotate(270)";
   			})
 		//.attr("x", function(d, i) {
