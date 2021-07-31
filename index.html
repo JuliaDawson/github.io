@@ -13,11 +13,11 @@
         hidden:true
     }    
 `
-#mapChartWI {    
-	position:absolute;
-	top:0px;
-	left:10px;
-}
+//#mapChartWI {    
+//	position:absolute;
+//	top:0px;
+//	left:10px;
+//}
 	    
 #lineChart {    
 	position:absolute;
@@ -910,7 +910,8 @@ function updateLineChart(group, colorChosen) {
 async function init() 
 {
 	// set up location
-	d3.select('#mapChartWI').attr("transform",  "translate(10,10)");	
+	d3.select('#mapChartWI').attr("transform",  "translate(10,0)");	
+	d3.select('#mapChartWITitle').attr("transform",  "translate(10,10)");	
 	d3.select('#giniBarChart').attr("transform",  "translate(340,0)");	   
 	d3.select('#giniBarChXaxis').attr("transform",  "translate(30,294)");	
 	d3.select('#giniBarChYaxis').attr("transform",  "translate(500,44)");		
