@@ -495,7 +495,7 @@ function showBarChartWI(op)
 	d3.select('#giniBarChTitle').attr("opacity", op);
 	d3.select('#giniBarChLabels').attr("opacity", op);
 	
-	if (op == 0)
+	if (op == "0")
 	{
 	d3.select('#giniBarChart').html('');
 	d3.select('#giniBarChRect').html('');
@@ -511,8 +511,8 @@ function dsBarChart(region) {
 
 	console.log('In dsBarChart');
 	
-	showBarChartWI(0);   //Hide and clear
-	showBarChartWI(100); //Show
+	showBarChartWI("0");   //Hide and clear
+	showBarChartWI("100"); //Show
 	
 	var currDataBarChart = dataBarChosen(region);    
 	console.log("currDataBarChart dataBarChosen for region: " + region);
