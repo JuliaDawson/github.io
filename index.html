@@ -426,7 +426,7 @@ function dsScattChartSP1(region) {
 
 		var margin = {top: 10, right: 10, bottom: 30, left: 40},
 		    width = 600 - margin.left - margin.right,
-		    height = 210;
+		    height = 180;
 		    //height = 200 - margin.top - margin.bottom,
 	                
 		/*--------------------------------------------------------*/
@@ -550,7 +550,7 @@ function dsScattChartSP1(region) {
 		// Title	
 		d3.select("#scattChSP1Title").append("text")
 			.attr("x", width /2)
-			.attr("y", 250)
+			.attr("y", 230)
 			.attr("class","title")				
 			.attr("text-anchor", "middle")
 			.text("Avg $ per day Total Population vs Bottom 40% for Region " + regionName)
@@ -614,7 +614,7 @@ function dsScattChartSP2(region) {
 
 		var margin = {top: 10, right: 10, bottom: 30, left: 40},
 		    width = 600 - margin.left - margin.right,
-		    height = 210;
+		    height = 180;
 		    //height = 200 - margin.top - margin.bottom,
 	                
 		/*--------------------------------------------------------*/
@@ -738,7 +738,7 @@ function dsScattChartSP2(region) {
 		// Title	
 		d3.select("#scattChSP2Title").append("text")
 			.attr("x", width /2)
-			.attr("y", 250)
+			.attr("y", 230)
 			.attr("class","title")				
 			.attr("text-anchor", "middle")
 			.text("Income Growth Total Population vs Bottom 40% for Region " + regionName)
@@ -770,7 +770,7 @@ async function init()
 	//d3.select('#mapChartWITitle').attr("transform",  "translate(10,0)");	
 	d3.select('#mapChartWI').attr("transform",   "translate(10,0)");	
 	d3.select('#scattChartSP1').attr("transform",  "translate(400,15)");	
-	d3.select('#scattChartSP2').attr("transform",  "translate(400,300)");	
+	d3.select('#scattChartSP2').attr("transform",  "translate(400,250)");	
 }	
 	
     </script>
