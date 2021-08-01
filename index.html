@@ -733,7 +733,7 @@ function dsScattChartWI(region) {
 		/* Add X axis - Income share percent of highest 10 percentile   */
 		/*------------------------------------------------------------- */
 		d3.select("#scattChWIXaxis")
-		    .attr("transform", `translate(0, " + height + ")")
+		    .attr("transform", "translate(0, " + height + ")")
 		    .call(xAxis)
 		    .append("text")
       		    .attr("class", "label")
