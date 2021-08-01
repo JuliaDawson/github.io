@@ -513,7 +513,7 @@ function dsScattChartSP1(region) {
  			.attr("fill", function(d) { 
 				     //console.log("d", d)
 				     //console.log("giniIndex", d.giniIndex)
-				     var col =  d3.interpolateBlues(d.dollperdayTotPop - 20 / 86) 
+				     var col =  d3.interpolateBlues(d.dollperdayTotPop/86) 
 				     //console.log("col", col)
 				     if (col) {
 					//console.log("found col", col, "for d", d)
