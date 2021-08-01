@@ -769,7 +769,7 @@ function dsScattChartWI(region) {
 			.html( "<b>" + d.countryName + "</b>"  
 			      + "<br>" +  "Gini Index: "   + d.giniIndex  
 			      + "<br>" +  "Top10 Income%: "  + "<b>" + d.incPctHi10  + "</b>"
-			      + "<br>" +  "Bottom10 Income%: "  + "<b>" + d.incPctLo10  + "</b>" );
+			      + "<br>" +  "Bottom10 Income%: "  + "<b>" + d.incPctLo10  + "</b>" )
 		      })
 		    .on("mousemove",function(d){
 		       tooltip.classed("hidden", false)
@@ -791,7 +791,7 @@ function dsScattChartWI(region) {
 		// Title	
 		d3.select("#scattChWITitle").append("text")
 			.attr("x", width /2)
-			.attr("y", yScale(5) - 24)
+			.attr("y", 245)
 			.attr("class","title")				
 			.attr("text-anchor", "middle")
 			.text("Income % Top 10 versus Bottom 10 percentile for Region " + regionName)
