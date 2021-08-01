@@ -20,14 +20,6 @@ var worldmap = d3.json("countries-110m-edited_wout_Antarctica.json");
 
 Promise.all([worldmap]).then(values => {
 
-	
-d3.select("#mapChartBigTitle")
-        .attr("x", (width / 2))             
-        .attr("y", 15)
-        .attr("text-anchor", "middle")  
-	.attr("class","title")	 
-        .text("World Map with Gini Index (click, zoom)");
-
 d3.select("#mapChartBig")
 	.append("svg:svg")
 	.attr("width", width)           //set the width and height of our visualization (these will be attributes of the <svg> tag
