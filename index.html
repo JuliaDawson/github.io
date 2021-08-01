@@ -761,20 +761,22 @@ function dsScattChartWI(region) {
 					return 'white'
 				     }
 				})
-      			.on("mouseover", function(d) {
-          			tooltip.transition()
-               			.duration(200)
-               			.style("opacity", .9);
-          			tooltip.html(d.countryName + "<br/> (" + xValue(d) 
-	        			+ ", " + yValue(d) + ")")
-               				.style("left", (d3.event.pageX + 5) + "px")
-               				.style("top", (d3.event.pageY - 28) + "px");
-      					})
-      				.on("mouseout", function(d) {
-          				tooltip.transition()
-               				.duration(500)
-               				.style("opacity", 0);
-      					});
+			.on("mousemove",function(d){
+			       tooltip.classed("hidden", false)
+				       .style("top", (d3.event.pageY) + "px")
+				       .style("left", (d3.event.pageX + 10) + "px")
+				       .html( "<b>" + d.countryName + "</b>"  
+				           + "<br>" +  "Gini Index: "   + d.giniIndex  
+				           + "<br>" +  "Top10 Income%: "  + "<b>" + d.incPctHi10  + "</b>"
+				           + "<br>" +  "Bottom10 Income%: "  + "<b>" + d.incPctLo10  + "</b>" );
+			     })	
+		        .on("mouseout",function(d,i){
+			    d3.select(this)
+			      .attr("stroke","black")
+			      .attr("stroke-width",1);
+			      tooltip.classed("hidden", true);
+			      console.log("Scatt Mouseout: " + this);  
+		            });
 
 
 		// Title	
@@ -785,7 +787,7 @@ function dsScattChartWI(region) {
 			.attr("text-anchor", "middle")
 			.text("Income % Top 10 versus Bottom 10 percentile for Region " + regionName)
 			;
-		showscattChartWI("100"); //should not need this, try to delete
+		showScattChartWI("100"); //should not need this, try to delete
 		console.log("dsScattChartWI: done displaying ", region, " instead of ", priorregionGl);
 		//priorregionGl = region; all done, save region to prior
 	} //region ne null	
@@ -822,7 +824,7 @@ async function init()
 	//d3.select('#mapChartWITitle').attr("transform",  "translate(10,0)");	
 	d3.select('#mapChartWI').attr("transform",   "translate(10,0)");	
 	d3.select('#giniBarChart').attr("transform", "translate(400,10)");	   
-	d3.select('#scattChartWI').attr("transform",  "translate(400,230)");	
+	d3.select('#scattChartWI').attr("transform",  "translate(400,240)");	
 }	
 	
     </script>
