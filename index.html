@@ -782,7 +782,7 @@ function dsScattChartWI(region) {
 		// Title	
 		d3.select("#scattChWITitle").append("text")
 			.attr("x", width /2)
-			.attr("y", yScale(d3.max(function(d) { return d.incPctLo10; })) - 20)
+			.attr("y", yScale(5) - 24)
 			.attr("class","title")				
 			.attr("text-anchor", "middle")
 			.text("Income % Top 10 versus Bottom 10 percentile for Region " + regionName)
