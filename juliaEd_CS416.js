@@ -135,6 +135,7 @@ function opPage3(op)
 function dsMapChartBig() {
 var width = 1000;
 var height = 500;
+var margin = 10;	
 
 var projection = d3.geoMercator().translate([width/2,height/2]).scale(90);
 var path = d3.geoPath().projection(projection);
@@ -145,13 +146,6 @@ var worldmap = d3.json("countries-110m-edited_wout_Antarctica.json");
 
 Promise.all([worldmap]).then(values => {
 
-	
-d3.select("#mapChartBigTitle")
-        .attr("x", (width / 2))             
-        .attr("y", 15)
-        .attr("text-anchor", "middle")  
-	.attr("class","title")	 
-        .text("World Map with Gini Index (click, zoom)");
 
 d3.select("#mapChartBig")
 	.append("svg:svg")
@@ -159,7 +153,13 @@ d3.select("#mapChartBig")
 	.attr("height", height)
 	.text("World Map with Gini Index (click, zoom)")
 	.append("svg:g")                //make a group to hold our map chart
-	.attr("transform", "translate(10,100)");
+	.attr("transform", "translate(10,100)")
+        .append(text)
+		.attr("x", (width / 2))             
+		.attr("y", margin)
+		.attr("text-anchor", "middle")  
+		.attr("class","title")	 
+		.text("World Map with Gini Index (click, zoom)");
 
 	
  var tooltip = d3.select("div.tooltip");	
