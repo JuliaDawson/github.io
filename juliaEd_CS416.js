@@ -2,22 +2,18 @@
 let regionGl = '';
 let regionName = '';	
 let priorregionGl = '';	
-let currDataBarChart = [];	
+let currDataBarChart = [];
 
-function readMapData() {
-	var projection = d3.geoMercator().translate([width/2,height/2]).scale(90);
-	var path = d3.geoPath().projection(projection);
+var projection = d3.geoMercator().translate([width/2,height/2]).scale(90);
+var path = d3.geoPath().projection(projection);
 
-	//Read Topo file and CSV containing economic information
-	//var worldmap = d3.json("https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json");
-	var worldmap = d3.json("countries-110m-edited_wout_Antarctica.json");
+//Read Topo file and CSV containing economic information
+//var worldmap = d3.json("https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json");
+var worldmap = d3.json("countries-110m-edited_wout_Antarctica.json");
 
-	Promise.all([worldmap]).then(values => {
-		var countrey = topojson.feature(values[0], values[0].objects.countries).features; 
-	})
-    	return countrey;
-}
-var countries = readMapData(); // read the map data once
+Promise.all([worldmap]).then(values => {
+	var countries = topojson.feature(values[0], values[0].objects.countries).features; 
+})
 
 function toPage1() {
 	console.log("toPage1: are here...");
