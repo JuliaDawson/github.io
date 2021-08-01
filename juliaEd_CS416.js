@@ -9,8 +9,8 @@ var path = d3.geoPath().projection(projection);
 
 //Read Topo file and CSV containing economic information
 //var worldmap = d3.json("https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json");
-const worldmap = await d3.json("countries-110m-edited_wout_Antarctica.json");
-var countries = topojson.feature(worldmap, worldmap.objects.countries).features; 
+//const worldmap = await d3.json("countries-110m-edited_wout_Antarctica.json");
+//var countries = topojson.feature(worldmap, worldmap.objects.countries).features; 
 
 //Promise.all([worldmap]).then(values => {
 //	var countries = topojson.feature(values[0], values[0].objects.countries).features; 
@@ -1570,6 +1570,9 @@ function dsScattChartSP2(region) {
 	
 async function init() 
 {
+	const worldmap = await d3.json("countries-110m-edited_wout_Antarctica.json");
+	var countries = topojson.feature(worldmap, worldmap.objects.countries).features; 
+	
 	// set up location
 	d3.select('#mapChartBig').attr("transform",   "translate(10,100)");	
 	d3.select('#scattChartSP1').attr("transform",  "translate(400,15)");	
@@ -1579,5 +1582,5 @@ async function init()
 	d3.select('#scattChartSP2').attr("transform",  "translate(400,250)");
 	
 	//Show page 1 the first time...
-	showPage1();
+	showPage1(countries);
 }	
