@@ -89,3 +89,10 @@ Promise.all([worldmap, econcsv]).then(values => {
       })
 
 });
+async function init() 
+{
+	// set up locations
+	//d3.select('#mapChartWI').attr("transform",   "translate(10,0)");	
+	//d3.select('#scattChartSP1').attr("transform",  "translate(400,15)");	
+	//d3.select('#scattChartSP2').attr("transform",  "translate(400,250)");	
+}
