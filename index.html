@@ -675,7 +675,7 @@ function dsScattChartWI(region) {
 		/* For X axis - Income share (%) of highest 10 percentile */
 		/*--------------------------------------------------------*/
 		var xValue = function(d) { return d.incPctHi10;}, // data -> value
-		    xScale = d3.scale.linear()
+		    xScale = d3.scaleLinear()
        			    .domain([d3.min(currDataBarChart, function(d) { return d.incPctHi10; })-1, d3.max(currDataBarChart, function(d) { return d.incPctHi10; })+1])
 		            .range([0, width]), // value -> display
 		    xMap = function(d) { return xScale(xValue(d));}, // data -> display
@@ -685,7 +685,7 @@ function dsScattChartWI(region) {
 		/* For Y axis - Income share (%) of lowest 10 percentile */
 		/*-------------------------------------------------------*/
 		var yValue = function(d) { return d.incPctLo10;}, // data -> value
-		    yScale = d3.scale.linear()
+		    yScale = d3.scaleLinear()
 		            .domain([d3.min(currDataBarChart, function(d) { return d.incPctLo10; })-1, d3.max(currDataBarChart, function(d) { return d.incPctLo10; })+1])
 		            .range([height, 0]), // value -> display
 		    yMap = function(d) { return yScale(yValue(d));}, // data -> display
