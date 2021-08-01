@@ -84,22 +84,6 @@ d3.select("#mapChartBigPath")
          tooltip.classed("hidden", true);
 	 console.log("Mouseout: " + this);  
       })
-     .on("click",function(d,i){
-	 console.log("Click: ", d.properties.region, regionGl); 
-	 if (regionGl != d.properties.region) {
-	     console.log("Region changed from:", regionGl, " To:", d.properties.region);	 
-             regionGl = d.properties.region;
-		 
-             currDataBarChart = dataBarChosen(regionGl); //Refine data to clicked Region
-		 
-	     if (regionGl == "South/Latin America" || regionGl == "North America") {
-		regionName = "North and South/Latin America";     
-	     }
-             dsScattChartSP1(regionGl); //refresh Scatter Chart 1
-             dsScattChartSP2(regionGl); //refresh Scatter Chart 1
-	     priorregionGl = regionGl; 	 
-	 } 
-      })
 })
 }	
 /*------------------------------------------------------------------------------------------------------------*/	    
@@ -115,7 +99,7 @@ d3.select("#mapChartBigPath")
 async function init() 
 {
 	// set up locations
-	d3.select('#mapChartBig').attr("transform",   "translate(10,0)");	
+	d3.select('#mapChartBig').attr("transform",   "translate(10,100)");	
 	//d3.select('#mapChartWI').attr("transform",   "translate(10,0)");	
 	//d3.select('#scattChartSP1').attr("transform",  "translate(400,15)");	
 	//d3.select('#scattChartSP2').attr("transform",  "translate(400,250)");	
