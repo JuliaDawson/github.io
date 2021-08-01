@@ -4,6 +4,16 @@ let regionName = '';
 let priorregionGl = '';	
 let currDataBarChart = [];		    	
 
+function toPage1() {
+	showPage1();
+}
+function toPage2() {
+	showPage2();
+}
+function toPage3() {
+	showPage3();
+}
+
 function showPage1() {
 	opPage2("0");
 	opPage3("0");
