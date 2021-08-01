@@ -5,6 +5,7 @@ let priorregionGl = '';
 let currDataBarChart = [];		    	
 
 function toPage1() {
+	console.log("toPage1: are here...");
 	showPage1();
 }
 function toPage2() {
@@ -15,6 +16,7 @@ function toPage3() {
 }
 
 function showPage1() {
+	console.log("showPage1: are here...");
 	opPage2("0");
 	opPage3("0");
 	opPage1("100");
