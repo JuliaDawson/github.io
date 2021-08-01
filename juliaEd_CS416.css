@@ -23,6 +23,7 @@ div.tooltip {
 .axis text {
     font-family: Roboto;
     font-size: 11px;
+    fill: white;  	
 }
 
 .titlep {
@@ -47,6 +48,6 @@ div.tooltip {
 .yOnBar {
     font-family: Roboto;
     font-size: 9px;
-    fill: whit;
+    fill: white;
 }
   
