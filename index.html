@@ -8,7 +8,42 @@
     <script src="https://d3js.org/d3-queue.v3.min.js"></script>
   <link rel="stylesheet" href="styles.css">
 </head>
-<body>
+<body onload="init()">
+
+<div class="tooltip"></div>  		
+<div class="titlediv">
+	<p id="ScreenTitle" class="titlep" style="text-align:center">Shared Prosperity in our world</p>
+</div>	
+<div class="bodydiv">
+    <svg width=1000 height=500>
+		<g id="mapChartWITitle" opacity="100" ></g>
+		<g id="mapChartWI" opacity="100" >
+			<g id="mapChartWIPath"></g>
+			<g id="mapChartWITT"></g>
+		</g>
+		<g id="scattChartSP1" opacity="100" >
+			<g id="scattChSP1Spots"></g>
+			<g id="scattChSP1Xaxis"></g>
+			<g id="scattChSP1Yaxis"></g>
+			<g id="scattChSP1Title" class="titlep"></g>
+			<g id="scattChSP1Labels"></g>
+			<g id="scattChSP1TT"></g>
+		</g>
+		<g id="scattChartSP2" opacity="100" >
+			<g id="scattChSP2Spots"></g>
+			<g id="scattChSP2Xaxis"></g>
+			<g id="scattChSP2Yaxis"></g>
+			<g id="scattChSP2Title" class="titlep"></g>
+			<g id="scattChSP2Labels"></g>
+			<g id="scattChSP2TT"></g>
+		</g>
+
+    </svg>
+</div>
+<div class="footerdiv">
+	<p><i><small>CS416, Summer 2021, Julia Dawson .................... Data obtained from © 2021 The World Bank Group, All Rights Reserved.</small></p>
+</div>    
+    
 <script type="text/javascript" src="juliaEd_CS416.js"></script>
 </body>
 </html>
