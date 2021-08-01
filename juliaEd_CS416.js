@@ -697,8 +697,8 @@ function dsBarChartWI(region) {
 		d3.select("#giniBarChLabels").selectAll("text")
 		    .data(currDataBarChart)
 		    .enter()
+                    .attr("class", "y axis")
 		    .append("text")
-		    .attr("class","xaxis")
 		    .text(function(d) {
 			return d.giniIndex;
 		     })
@@ -834,10 +834,10 @@ function dsScattChartWI(region) {
 		/* Add Y axis - Income share percent of lowest 10 percentile. */
 		/*------------------------------------------------------------*/
 		d3.select("#scattChWIYaxis")
-			.attr("class", "yaxis")
+                    .attr("class", "y axis")
       			.call(yAxis)
     			.append("text")
-      			.attr("class", "label")
+                    .attr("class", "y axis")
       			.attr("transform", "rotate(-90)")
       			.attr("y", 6)
       			.attr("dy", ".71em")
@@ -1257,9 +1257,9 @@ function dsScattChartSP1(region) {
 		/*------------------------------------------------------------- */
 		d3.select("#scattChSP1Xaxis")
 		    .attr("transform", "translate(0, " + height + ")")
+                    .attr("class", "y axis")
 		    .call(xAxis)
 		    .append("text")
-      		    .attr("class", "xaxis")
       		    .attr("x", width)
       		    .attr("y", -6)
 		    .style("text-anchor", "end")
@@ -1272,10 +1272,9 @@ function dsScattChartSP1(region) {
 		/* Add Y axis - Dollars per day of lowest 40 percentile       */
 		/*------------------------------------------------------------*/
 		d3.select("#scattChSP1Yaxis")
-			.attr("class", "yaxis")
+                    .attr("class", "y axis")
       			.call(yAxis)
     			.append("text")
-      			.attr("class", "label")
       			.attr("transform", "rotate(-90)")
       			.attr("y", 6)
       			.attr("dy", ".71em")
