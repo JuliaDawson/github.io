@@ -701,9 +701,9 @@ function dsLineChartWI(region) {
 		console.log("currDataBarChart[length]: ", currDataBarChart[currDataBarChart.length-1]);
 
 
-		var margin = {top: 10, right: 10, bottom: 70, left: 10},
+		var margin = {top: 10, right: 10, bottom: 50, left: 10},
 		    width = 900 - margin.left - margin.right,
-		    height = 300,
+		    height = 250,
 		    //height = 200 - margin.top - margin.bottom,
 		    colorBar = d3.interpolateBlues((52 - 20) / 33),
 		    barPadding = .1
@@ -714,8 +714,8 @@ function dsLineChartWI(region) {
 				.range([0, width])
 				;
 
-		var yScale = d3.scaleLinear()
-			   .domain([d3.min(currDataBarChart, function(d) { return d.incPctHi10; }), d3.max(currDataBarChart, function(d) { return d.incPctHi10; })])
+		var yScale = d3.scaleLog()
+			   .domain([d3.min(currDataBarChart, function(d) { return d.incPctLo10; }), d3.max(currDataBarChart, function(d) { return d.incPctHi10; })])
 			   .range([height, 0])
 			   ;
 
@@ -731,7 +731,7 @@ function dsLineChartWI(region) {
 		/*----------------------------------------------------*/
 		const yAxis = d3.scaleLog()
 		    .domain(currDataBarChart.map(d => d.incPctHi10))
-		    .range([d3.min(currDataBarChart, function(d) { return d.incPctHi10; }), d3.max(currDataBarChart, function(d) { return d.incPctHi10; })]);
+		    .range([d3.min(currDataBarChart, function(d) { return d.incPctLo10; }), d3.max(currDataBarChart, function(d) { return d.incPctHi10; })]);
 
 		d3.select("#lineChartWI")
 			    .append("svg")
