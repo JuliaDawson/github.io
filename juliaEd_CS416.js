@@ -651,7 +651,8 @@ function dsBarChartWI(region) {
 		    .call(d3.axisBottom(xAxis))
 		    .selectAll("text")
 		      .attr("transform", "translate(-10,0) rotate(-45)")
-		      .style("text-anchor", "end");
+		      .style("text-anchor", "end")
+		      .attr("class", "yOnBar");
 
 		/*-------------------------*/
 		/* Add Y axis - Gini Index */
