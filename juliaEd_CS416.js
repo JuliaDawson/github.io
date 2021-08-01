@@ -68,7 +68,7 @@ function opPage1(op)
 	d3.select('#page1Footer').attr("opacity", op);
 	d3.select('#mapChartBigPath').attr("opacity", op);
 	d3.select('#mapChartBigTT').attr("opacity", op);
-	if (op == '0')
+	if (op == "0")
 	{
 	d3.select('#mapChartBigPath').html('');
 	d3.select('#mapChartBigTT').html('');
@@ -88,7 +88,7 @@ function opPage2(op)
 	d3.select('#scattChWITitle').attr("opacity", op);
 	d3.select('#scattChWILabels').attr("opacity", op);
 	
-	if (op == '0')
+	if (op == "0")
 	{
 	d3.select('#mapChartWIPath').html('');
 	d3.select('#mapChartWITT').html('');
@@ -113,7 +113,7 @@ function opPage3(op)
 	d3.select('#scattChSP1Title').attr("opacity", op);
 	d3.select('#scattChSP1Labels').attr("opacity", op);
 
-	if (op == '0')
+	if (op == "0")
 	{
 		d3.select('#mapChartSPPath').html('');
 		d3.select('#mapChartSPTT').html('');
@@ -292,10 +292,9 @@ d3.select("#mapChartWIPath")
 	.data(countries)
 	.enter().append('path')
 	.attr('class','country')
-	 //.attr('fill', 'lightgrey')
 	.attr("fill", function(d) { 
-             //console.log("d", d)
-             //console.log("giniIndex", d.properties.giniindex)
+             console.log("d", d)
+             console.log("giniIndex", d.properties.giniindex)
              var col =  d3.interpolateBlues((d.properties.giniindex - 20) / 44); 
              //console.log("col", col)
              if (col) {
@@ -310,9 +309,9 @@ d3.select("#mapChartWIPath")
 	   .attr('d', path)
 	   //.attr('fake', d=> console.log(d.properties.name))
     .on("mouseover", function(d,i) {
-      //console.log("mouseover  ",d.properties.name);	   
-      //console.log("mouseover  ",d.properties.region);	   
-      //console.log("mouseover  ",d.properties.giniindex);	   
+      console.log("mouseover  ",d.properties.name);	   
+      console.log("mouseover  ",d.properties.region);	   
+      console.log("mouseover  ",d.properties.giniindex);	   
       d3.select(this)
 	      .attr("stroke","black").attr("stroke-width",4);
       //      .attr("fill","orange").attr("stroke-width",2);
