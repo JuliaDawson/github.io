@@ -1,6 +1,6 @@
 body {
 	margin: 0;
-	background: #ffe6cc;
+	background: green;
 	text-align: center;
 }   
 
@@ -29,22 +29,24 @@ div.tooltip {
     font-family: Roboto;
     font-size: 18px;
     font-weight: bold;	
+    fill: white;
 }
 	    
 .title {
     font-family: Roboto;
     font-size: 15px;			
+    fill: white;
 }
 
 .xAxis {
     font-family: Roboto;
     font-size: 10px;
-    fill: black;
+    fill: white;
 }  
 
 .yOnBar {
     font-family: Roboto;
     font-size: 9px;
-    fill: black;
+    fill: whit;
 }
   
