@@ -64,10 +64,9 @@ function showPage3() {
 function opPage1(op)
 {
 	console.log("opPage1: opacity", op);	
-	d3.select('#page1Header').attr("opacity", op);
-	d3.select('#page1Footer').attr("opacity", op);
-	d3.select('#mapChartBigPath').attr("opacity", op);
-	d3.select('#mapChartBigTT').attr("opacity", op);
+	//d3.select('#page1Header').attr("opacity", op);
+	//d3.select('#page1Footer').attr("opacity", op);
+	d3.select('#mapChartBig').attr("opacity", op);
 	if (op == "0")
 	{
 	d3.select('#mapChartBigPath').html('');
@@ -77,21 +76,20 @@ function opPage1(op)
 function opPage2(op)
 {
 	console.log("opPage2: opacity", op);	
-	d3.select('#page2Header').attr("opacity", op);
-	d3.select('#page2Footer').attr("opacity", op);
-	d3.select('#mapChartWIPath').attr("opacity", op);
-	d3.select('#mapChartWITT').attr("opacity", op);
+	//d3.select('#page2Header').attr("opacity", op);
+	//d3.select('#page2Footer').attr("opacity", op);
+	d3.select('#mapChartWI').attr("opacity", op);
+	d3.select('#giniBarChart').attr("opacity", op);
 	d3.select('#scattChartWI').attr("opacity", op);
-	d3.select('#scattChWISpots').attr("opacity", op);
-	d3.select('#scattChWIXaxis').attr("opacity", op);
-	d3.select('#scattChWIYaxis').attr("opacity", op);
-	d3.select('#scattChWITitle').attr("opacity", op);
-	d3.select('#scattChWILabels').attr("opacity", op);
 	
 	if (op == "0")
 	{
 	d3.select('#mapChartWIPath').html('');
 	d3.select('#mapChartWITT').html('');
+	d3.select('#giniBarChRect').html('');
+	d3.select('#giniBarChXaxis').html('');
+	d3.select('#giniBarChTitle').html('');
+	d3.select('#giniBarChLabels').html('');
 	d3.select('#scattChWISpots').html('');
 	d3.select('#scattChWIXaxis').html('');
 	d3.select('#scattChWIYaxis').html('');
@@ -102,16 +100,10 @@ function opPage2(op)
 function opPage3(op)
 {
 	console.log("opPage3: opacity", op);	
-	d3.select('#page3Header').attr("opacity", op);
-	d3.select('#page3Footer').attr("opacity", op);
-	d3.select('#mapChartSPPath').attr("opacity", op);
-	d3.select('#mapChartSPTT').attr("opacity", op);
+	//d3.select('#page3Header').attr("opacity", op);
+	//d3.select('#page3Footer').attr("opacity", op);
+	d3.select('#mapChartSP').attr("opacity", op);
 	d3.select('#scattChartSP1').attr("opacity", op);
-	d3.select('#scattChSP1Spots').attr("opacity", op);
-	d3.select('#scattChSP1Xaxis').attr("opacity", op);
-	d3.select('#scattChSP1Yaxis').attr("opacity", op);
-	d3.select('#scattChSP1Title').attr("opacity", op);
-	d3.select('#scattChSP1Labels').attr("opacity", op);
 
 	if (op == "0")
 	{
@@ -122,6 +114,13 @@ function opPage3(op)
 		d3.select('#scattChSP1Yaxis').html('');
 		d3.select('#scattChSP1Title').html('');
 		d3.select('#scattChSP1Labels').html('');
+		d3.select('#scattChSP2TT').html('');
+		d3.select('#scattChSP2Spots').html('');
+		d3.select('#scattChSP2Xaxis').html('');
+		d3.select('#scattChSP2Yaxis').html('');
+		d3.select('#scattChSP2Title').html('');
+		d3.select('#scattChSP2Labels').html('');
+		d3.select('#scattChSP2TT').html('');
 	}
 }
 
