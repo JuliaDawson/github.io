@@ -2,7 +2,7 @@
 let regionGl = '';
 let regionName = '';	
 let priorregionGl = '';	
-let currDataBarChart = [];		    	
+let currDataBarChart = [];
 
 function toPage1() {
 	console.log("toPage1: are here...");
@@ -247,6 +247,8 @@ var height = 300;
 var width = 300;
 var margin = 10;	
 
+console.log("dsMapChartWI: I am here");
+	
 //d3.selectAll('svg > g > *').remove(); 
 
 var projection = d3.geoMercator().translate([width/2,height/2]).scale(55);
@@ -256,7 +258,10 @@ var path = d3.geoPath().projection(projection);
 //var worldmap = d3.json("https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json");
 var worldmap = d3.json("countries-110m-edited_wout_Antarctica.json");
 
+console.log("dsMapChartWI: before promise");
+	
 Promise.all([worldmap]).then(values => {
+console.log("dsMapChartWI: after promise");
 
 	
 d3.select("#mapChartWITitle")
@@ -266,6 +271,8 @@ d3.select("#mapChartWITitle")
 	.attr("class","title")	 
         .text("World Map with Gini Index (click, zoom)");
 
+console.log("dsMapChartWI: after #mapChartWITitle");
+	
 d3.select("#mapChartWI")
 	.append("svg:svg")
 	.attr("width", width)           //set the width and height of our visualization (these will be attributes of the <svg> tag
