@@ -24,14 +24,14 @@ var worldmap = d3.json("countries-110m-edited_wout_Antarctica.json");
 Promise.all([worldmap]).then(values => {
 
 	
-d3.select("#mapChartWITitle")
+d3.select("#mapChartSPTitle")
         .attr("x", (width / 2))             
         .attr("y", 15)
         .attr("text-anchor", "middle")  
 	.attr("class","title")	 
         .text("World Map with Gini Index (click, zoom)");
 
-d3.select("#mapChartWI")
+d3.select("#mapChartSP")
 	.append("svg:svg")
 	.attr("width", width)           //set the width and height of our visualization (these will be attributes of the <svg> tag
 	.attr("height", height)
@@ -41,10 +41,10 @@ d3.select("#mapChartWI")
 
 	
  var tooltip = d3.select("div.tooltip");	
- d3.select("#mapChartWITT");		
+ d3.select("#mapChartSPTT");		
  var countries = topojson.feature(values[0], values[0].objects.countries).features; 
   
-d3.select("#mapChartWIPath")	
+d3.select("#mapChartSPPath")	
         .selectAll('path')
 	.data(countries)
 	.enter().append('path')
@@ -640,8 +640,7 @@ function dsScattChartSP2(region) {
 async function init() 
 {
 	// set up location
-	//d3.select('#mapChartWITitle').attr("transform",  "translate(10,0)");	
-	d3.select('#mapChartWI').attr("transform",   "translate(10,0)");	
+	d3.select('#mapChartSP').attr("transform",   "translate(10,0)");	
 	d3.select('#scattChartSP1').attr("transform",  "translate(400,15)");	
 	d3.select('#scattChartSP2').attr("transform",  "translate(400,250)");	
 }	
