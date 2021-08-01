@@ -13,9 +13,7 @@
 <body onload="init()">
 
 <div class="tooltip"></div>  		
-<div class="titlediv">
-	<p id="ScreenTitle" class="titlep" style="text-align:center">Shared Prosperity in our world</p>
-</div>	
+	
 <div class="bodydiv">
     <svg width=1000 height=500>
 	<!--------- Pages 1: Gini Index Map -------------> 
@@ -28,7 +26,7 @@ A Gini index of zero represents perfect equality and 100 represents perfect ineq
 		</foreignObject>
 	</g>
 	    
-	<g id="mapChartBig" opacity="0" >
+	<g id="mapChartBig" opacity="100" >
 		<g id="mapChartBigPath"></g>
 		<g id="mapChartBigTT"></g>
 	        <g id="mapChartBigFooter"></g>
@@ -42,19 +40,19 @@ A Gini index of zero represents perfect equality and 100 represents perfect ineq
 	</g>
 	    
 	<!--------- Pages 2 and 3: mini-Map ------------->    
-	<g id="mapChartWI" opacity="100" >
+	<g id="mapChartWI" opacity="0" >
 		<g id="mapChartWIPath"></g>
 		<g id="mapChartWITT"></g>
 	</g>
 
 	<!--------- Pages 2: bar chart and scatterplot, Wealth Inequality ------------->    
-	<g id="giniBarChart" opacity="100" >
+	<g id="giniBarChart" opacity="0" >
 		<g id="giniBarChRect"></g>
 		<g id="giniBarChXaxis"></g>
 		<g id="giniBarChTitle" class="titlep"></g>
 		<g id="giniBarChLabels"></g>
 	</g>
-	<g id="scattChartWI" opacity="100" >
+	<g id="scattChartWI" opacity="0" >
 		<g id="scattChWISpots"></g>
 		<g id="scattChWIXaxis"></g>
 		<g id="scattChWIYaxis"></g>
