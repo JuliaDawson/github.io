@@ -112,6 +112,7 @@ td {
 			<g id="scattChWIYaxis"></g>
 			<g id="scattChWITitle" class="titlep"></g>
 			<g id="scattChWILabels"></g>
+			<g id="scattChWITT"></g>
 		</g>
 
     </svg>
@@ -702,10 +703,13 @@ function dsScattChartWI(region) {
     			//.attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 			      
 		// add the tooltip area to the webpage
+		
+		
 		var tooltip = d3.select("#scattChWITT")
     			.attr("class", "tooltip")
     			.style("opacity", 0);	      
-
+ 		var tooltip = d3.select("div.tooltip");	
+ 		d3.select("#scattChWITT");		
 		/*------------------------------------------------------------- */
 		/* Add X axis - Income share percent of highest 10 percentile   */
 		/*------------------------------------------------------------- */
@@ -793,7 +797,7 @@ function dsScattChartWI(region) {
 		// Title	
 		d3.select("#scattChWITitle").append("text")
 			.attr("x", width /2)
-			.attr("y", 260)
+			.attr("y", 255)
 			.attr("class","title")				
 			.attr("text-anchor", "middle")
 			.text("Income % Top 10 versus Bottom 10 percentile for Region " + regionName)
