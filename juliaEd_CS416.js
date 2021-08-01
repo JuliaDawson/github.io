@@ -910,7 +910,7 @@ function dsScattChartWI(region) {
 			.attr("y", 245)
 			.attr("class","title")				
 			.attr("text-anchor", "middle")
-			.text("Income % Top 10 versus Bottom 10 percentile for Region " + regionName)
+			.text("Income Share(%) : of Top 10-%ile versus Bottom 10-%ile: for Region " + regionName)
 			;
 		showScattChartWI("100"); //should not need this, try to delete
 		console.log("dsScattChartWI: done displaying ", region, " instead of ", priorregionGl);
@@ -1346,10 +1346,9 @@ function dsScattChartSP1(region) {
 			.attr("y", 230)
 			.attr("class","title")				
 			.attr("text-anchor", "middle")
-			.text("Avg $ per day Total Population vs Bottom 40% for Region " + regionName)
+			.text("Avg $ per day: Total Population vs Bottom 40-%ile: for Region " + regionName)
 			;
 		showScattChartSP1("100"); //should not need this, try to delete
-		console.log("dsScattChartSP1: done displaying ", region, " instead of ", priorregionGl);
 	} //region ne null	
 }
 
@@ -1530,7 +1529,7 @@ function dsScattChartSP2(region) {
 			.attr("y", 230)
 			.attr("class","title")				
 			.attr("text-anchor", "middle")
-			.text("Income Growth Total Population vs Bottom 40% for Region " + regionName)
+			.text("Income Growth: Total Population vs Bottom 40-%ile: for Region " + regionName)
 			;
 		showScattChartSP1("100"); //should not need this, try to delete
 		console.log("dsScattChartSP2: done displaying ", region, " instead of ", priorregionGl);
