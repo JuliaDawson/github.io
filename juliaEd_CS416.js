@@ -819,6 +819,7 @@ function dsScattChartWI(region) {
 		/*------------------------------------------------------------- */
 		d3.select("#scattChWIXaxis")
 		    .attr("transform", "translate(0, " + height + ")")
+                    .attr("class", "y axis")
 		    .call(xAxis)
 		    .append("text")
       		    .attr("class", "label")
