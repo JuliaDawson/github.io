@@ -1,3 +1,9 @@
+head {
+    <script src='https://d3js.org/d3.v5.min.js'></script>
+    <script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
+    <script src='https://d3js.org/topojson.v1.min.js'></script>
+    <script src="https://d3js.org/d3-queue.v3.min.js"></script>
+}
 body {
 	margin: 0;
 	background: green;
