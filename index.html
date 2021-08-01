@@ -749,10 +749,12 @@ function dsScattChartWI(region) {
       			.attr("r", 3.5)
       			.attr("cx", xMap)
       			.attr("cy", yMap)
-  			.attr("fill", function(d) { 
+			.attr("stroke-width",1)
+ 			.attr("stroke","black")
+ 			.attr("fill", function(d) { 
 				     //console.log("d", d)
 				     //console.log("giniIndex", d.giniIndex)
-				     var col =  d3.interpolateBlues((d.giniIndex - 20) / 44); 
+				     var col =  d3.interpolateBlues((d.giniIndex - 20) / 44) 
 				     //console.log("col", col)
 				     if (col) {
 					//console.log("found col", col, "for d", d)
@@ -762,7 +764,7 @@ function dsScattChartWI(region) {
 				     }
 				})
 		    .on("mouseover", function(d,i) {
-		      console.log("Scatt mouseover  ",d.countryNname, d.region, d.giniIndex, d.incPctLo10, d.incPctHi10);	   
+		      console.log("Scatt mouseover  ",d.countryNname, d.region, d.giniIndex, d.incPctLo10, d.incPctHi10)	   
 		      d3.select(this)
 			      .attr("stroke","black").attr("stroke-width",4)
 		               return tooltip.style("hidden", false)
@@ -778,20 +780,20 @@ function dsScattChartWI(region) {
 			      .html( "<b>" + d.countryName + "</b>"  
 			      + "<br>" +  "Gini Index: "   + d.giniIndex  
 			      + "<br>" +  "Top10 Income%: "  + "<b>" + d.incPctHi10  + "</b>"
-			      + "<br>" +  "Bottom10 Income%: "  + "<b>" + d.incPctLo10  + "</b>" );
+			      + "<br>" +  "Bottom10 Income%: "  + "<b>" + d.incPctLo10  + "</b>" )
 		     })	
 		     .on("mouseout",function(d,i){
 			 d3.select(this)
 			 .attr("stroke","black")
-			 .attr("stroke-width",1);
-			 tooltip.classed("hidden", true);
-			 console.log("Mouseout: " + this);  
+			 .attr("stroke-width",1)
+			 tooltip.classed("hidden", true)
+			 console.log("Mouseout: " + this)  
 		      });
 
 		// Title	
 		d3.select("#scattChWITitle").append("text")
 			.attr("x", width /2)
-			.attr("y", 245)
+			.attr("y", 260)
 			.attr("class","title")				
 			.attr("text-anchor", "middle")
 			.text("Income % Top 10 versus Bottom 10 percentile for Region " + regionName)
