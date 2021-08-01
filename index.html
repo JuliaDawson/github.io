@@ -671,18 +671,22 @@ function dsScattChartWI(region) {
 		    height = 250;
 		    //height = 200 - margin.top - margin.bottom,
 	                
-		// setup x 
+		/*--------------------------------------------------------*/
+		/* For X axis - Income share (%) of highest 10 percentile */
+		/*--------------------------------------------------------*/
 		var xValue = function(d) { return d.incPctHi10;}, // data -> value
 		    xScale = d3.scale.linear()
-       			    .domain([d3.min(currDataBarChart, function(d) { return d.incPctHi10; }), d3.max(currDataBarChart, function(d) { return d.incPctHi10; })])
+       			    .domain([d3.min(currDataBarChart, function(d) { return d.incPctHi10; })-1, d3.max(currDataBarChart, function(d) { return d.incPctHi10; })+1])
 		            .range([0, width]), // value -> display
 		    xMap = function(d) { return xScale(xValue(d));}, // data -> display
 		    xAxis = d3.axis().scale(xScale).orient("bottom");
 
-		// setup y
+		/*-------------------------------------------------------*/
+		/* For Y axis - Income share (%) of lowest 10 percentile */
+		/*-------------------------------------------------------*/
 		var yValue = function(d) { return d.incPctLo10;}, // data -> value
 		    yScale = d3.scale.linear()
-		            .domain([d3.min(currDataBarChart, function(d) { return d.incPctLo10; }), d3.max(currDataBarChart, function(d) { return d.incPctLo10; })])
+		            .domain([d3.min(currDataBarChart, function(d) { return d.incPctLo10; })-1, d3.max(currDataBarChart, function(d) { return d.incPctLo10; })+1])
 		            .range([height, 0]), // value -> display
 		    yMap = function(d) { return yScale(yValue(d));}, // data -> display
 		    yAxis = d3.axis().scale(yScale).orient("left");
@@ -691,30 +695,6 @@ function dsScattChartWI(region) {
 		var cValue = function(d) { return ((d.giniIndex - 20)/ 33);},
                     color = d3.interpolateBlues();
   		
-		var xScale = d3.scaleLinear()
-			   .domain([d3.min(currDataBarChart, function(d) { return d.incPctHi10; })-1, d3.max(currDataBarChart, function(d) { return d.incPctHi10; })+1])
-		           .range([0, width])
-			   ;
-
-		var yScale = d3.scaleLinear()
-			   .domain([d3.min(currDataBarChart, function(d) { return d.incPctLo10; })-1, d3.max(currDataBarChart, function(d) { return d.incPctLo10; })+1])
-			   .range([height, 0])                                                                
-			   ;
-
-		/*----------------------------------------------------*/
-		/* For Y axis - Income share (%) of lowest 10 percentile */
-		/*----------------------------------------------------*/
-		const xAxis = d3.scaleLinear()
-		    .domain(currDataBarChart.map(d => d.incPctHi10))
-		    .range([d3.min(currDataBarChart, function(d) { return d.incPctHi10; })-1, d3.max(currDataBarChart, function(d) { return d.incPctHi10; })+1]);
-
-		/*----------------------------------------------------*/                          
-		/* For Y axis - Income share (%) of lowest 10 percentile */
-		/*----------------------------------------------------*/
-		const yAxis = d3.scaleLinear()
-		    .domain(currDataBarChart.map(d => d.incPctLo10))
-		    .range([d3.min(currDataBarChart, function(d) { return d.incPctLo10; })-1, d3.max(currDataBarChart, function(d) { return d.incPctLo10; })+1]);
-
 		// add the graph canvas to the body of the webpage
 		d3.select("#scattChartWI")
 			.append("svg")
