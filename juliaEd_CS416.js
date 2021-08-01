@@ -698,7 +698,7 @@ function dsBarChartWI(region) {
 		    .data(currDataBarChart)
 		    .enter()
 		    .append("text")
-		    .attr("fill","white")
+		    .attr("class","xaxis"
 		    .text(function(d) {
 			return d.giniIndex;
 		     })
@@ -828,7 +828,7 @@ function dsScattChartWI(region) {
 		    .attr("transform", "translate(0, " + height + ")")
 		    .call(xAxis)
 		    .append("text")
-      		    .attr("class", "label")
+      		    .attr("class", "xaxis")
       		    .attr("x", width)
       		    .attr("y", -6)
 		    .style("text-anchor", "end")
@@ -841,7 +841,7 @@ function dsScattChartWI(region) {
 		/* Add Y axis - Income share percent of lowest 10 percentile. */
 		/*------------------------------------------------------------*/
 		d3.select("#scattChWIYaxis")
-			.attr("class", "y axis")
+			.attr("class", "yaxis")
       			.call(yAxis)
     			.append("text")
       			.attr("class", "label")
@@ -1266,7 +1266,7 @@ function dsScattChartSP1(region) {
 		    .attr("transform", "translate(0, " + height + ")")
 		    .call(xAxis)
 		    .append("text")
-      		    .attr("class", "label")
+      		    .attr("class", "xaxis")
       		    .attr("x", width)
       		    .attr("y", -6)
 		    .style("text-anchor", "end")
@@ -1279,7 +1279,7 @@ function dsScattChartSP1(region) {
 		/* Add Y axis - Dollars per day of lowest 40 percentile       */
 		/*------------------------------------------------------------*/
 		d3.select("#scattChSP1Yaxis")
-			.attr("class", "y axis")
+			.attr("class", "yaxis")
       			.call(yAxis)
     			.append("text")
       			.attr("class", "label")
@@ -1449,7 +1449,7 @@ function dsScattChartSP2(region) {
 		    .attr("transform", "translate(0, " + height + ")")
 		    .call(xAxis)
 		    .append("text")
-      		    .attr("class", "label")
+      		    .attr("class", "xaxis")
       		    .attr("x", width)
       		    .attr("y", -6)
 		    .style("text-anchor", "end")
@@ -1462,7 +1462,7 @@ function dsScattChartSP2(region) {
 		/* Add Y axis - Income Growth of lowest 40 percentile       */
 		/*------------------------------------------------------------*/
 		d3.select("#scattChSP2Yaxis")
-			.attr("class", "y axis")
+			.attr("class", "yaxis")
       			.call(yAxis)
     			.append("text")
       			.attr("class", "label")
