@@ -2,19 +2,7 @@
 let regionGl = '';
 let regionName = '';	
 let priorregionGl = '';	
-let currDataBarChart = [];
-
-var projection = d3.geoMercator().translate([width/2,height/2]).scale(90);
-var path = d3.geoPath().projection(projection);
-
-//Read Topo file and CSV containing economic information
-//var worldmap = d3.json("https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json");
-//const worldmap = await d3.json("countries-110m-edited_wout_Antarctica.json");
-//var countries = topojson.feature(worldmap, worldmap.objects.countries).features; 
-
-//Promise.all([worldmap]).then(values => {
-//	var countries = topojson.feature(values[0], values[0].objects.countries).features; 
-//})
+let currDataBarChart = [];		    	
 
 function toPage1() {
 	console.log("toPage1: are here...");
@@ -149,14 +137,14 @@ function dsMapChartBig() {
 var width = 1000;
 var height = 500;
 
-//var projection = d3.geoMercator().translate([width/2,height/2]).scale(90);
-//var path = d3.geoPath().projection(projection);
+var projection = d3.geoMercator().translate([width/2,height/2]).scale(90);
+var path = d3.geoPath().projection(projection);
 
 //Read Topo file and CSV containing economic information
 //var worldmap = d3.json("https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json");
-//var worldmap = d3.json("countries-110m-edited_wout_Antarctica.json");
+var worldmap = d3.json("countries-110m-edited_wout_Antarctica.json");
 
-//Promise.all([worldmap]).then(values => {
+Promise.all([worldmap]).then(values => {
 
 	
 d3.select("#mapChartBigTitle")
@@ -177,7 +165,7 @@ d3.select("#mapChartBig")
 	
  var tooltip = d3.select("div.tooltip");	
  d3.select("#mapChartBigTT");		
- //var countries = topojson.feature(values[0], values[0].objects.countries).features; 
+ var countries = topojson.feature(values[0], values[0].objects.countries).features; 
   
 d3.select("#mapChartBigPath")	
         .selectAll('path')
@@ -230,7 +218,7 @@ d3.select("#mapChartBigPath")
          tooltip.classed("hidden", true);
 	 console.log("Mouseout: " + this);  
       })
-//})
+})
 }	
 /*------------------------------------------------------------------------------------------------------------*/	    
 /* End of Map Chart Big                                                                                         */
@@ -1570,9 +1558,6 @@ function dsScattChartSP2(region) {
 	
 async function init() 
 {
-	const worldmap = await d3.json("countries-110m-edited_wout_Antarctica.json");
-	var countries = topojson.feature(worldmap, worldmap.objects.countries).features; 
-	
 	// set up location
 	d3.select('#mapChartBig').attr("transform",   "translate(10,100)");	
 	d3.select('#scattChartSP1').attr("transform",  "translate(400,15)");	
@@ -1582,5 +1567,5 @@ async function init()
 	d3.select('#scattChartSP2').attr("transform",  "translate(400,250)");
 	
 	//Show page 1 the first time...
-	showPage1(countries);
+	showPage2();
 }	
