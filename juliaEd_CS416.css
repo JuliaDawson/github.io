@@ -20,9 +20,16 @@ div.tooltip {
       padding: 2px;				
 }	    
 
+
+.annot text {
+    font-family: Roboto;
+    font-size: 12px;
+    fill: white;  	
+}
+
 .axis text {
     font-family: Roboto;
-    font-size: 11px;
+    font-size: 10px;
     fill: white;  	
 }
 
@@ -43,11 +50,24 @@ div.tooltip {
     font-family: Roboto;
     font-size: 10px;
     fill: white;
-}  
+}
+
+.yAxis {
+    font-family: Roboto;
+    font-size: 10px;
+    fill: white;
+} 
 
 .yOnBar {
     font-family: Roboto;
     font-size: 9px;
     fill: white;
 }
+
+.label {
+    font-family: Roboto;
+    font-size: 10px;
+    fill: white;
+}
+
   
