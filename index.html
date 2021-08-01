@@ -762,12 +762,11 @@ function dsScattChartWI(region) {
 				     }
 				})
 		    .on("mouseover", function(d,i) {
-		      console.log("Scatt mouseover  ",d.name, d.region, d.giniIndex, d.incPctLo10, d.incPctHi10);	   
+		      console.log("Scatt mouseover  ",d.countryNname, d.region, d.giniIndex, d.incPctLo10, d.incPctHi10);	   
 		      d3.select(this)
 			      .attr("stroke","black").attr("stroke-width",4);
-		      //      .attr("fill","orange").attr("stroke-width",2);
-		      //return tooltip.style("hidden", false).html("Country: " + d.properties.name + d.properties.region  + d.properties.giniindex)
-		      return tooltip.style("hidden", false)
+		              .attr("fill","orange").attr("stroke-width",2);
+		               return tooltip.style("hidden", false)
 			.html( "<b>" + d.countryName + "</b>"  
 			      + "<br>" +  "Gini Index: "   + d.giniIndex  
 			      + "<br>" +  "Top10 Income%: "  + "<b>" + d.incPctHi10  + "</b>"
@@ -777,8 +776,7 @@ function dsScattChartWI(region) {
 		       tooltip.classed("hidden", false)
 			       .style("top", (d3.event.pageY) + "px")
 			       .style("left", (d3.event.pageX + 10) + "px")
-			       //.html("Country: " + d.properties.name + d.properties.region + d.properties.giniindex)
-			.html( "<b>" + d.countryName + "</b>"  
+			      .html( "<b>" + d.countryName + "</b>"  
 			      + "<br>" +  "Gini Index: "   + d.giniIndex  
 			      + "<br>" +  "Top10 Income%: "  + "<b>" + d.incPctHi10  + "</b>"
 			      + "<br>" +  "Bottom10 Income%: "  + "<b>" + d.incPctLo10  + "</b>" );
