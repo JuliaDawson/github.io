@@ -698,7 +698,7 @@ function dsBarChartWI(region) {
 		    .data(currDataBarChart)
 		    .enter()
 		    .append("text")
-		    .attr("class","xaxis"
+		    .attr("class","xaxis")
 		    .text(function(d) {
 			return d.giniIndex;
 		     })
@@ -708,14 +708,7 @@ function dsBarChartWI(region) {
     			var xVal = (i * (width / currDataBarChart.length)) + ((width / currDataBarChart.length - barPadding) / 2) + barPadding;
     			return "translate(" + xVal + "," + yVal + ") rotate(270)";
   			})
-		//.attr("x", function(d, i) {
-		//    return (i * (width / currDataBarChart.length)) + ((width / currDataBarChart.length - barPadding) / 2);
-		//})
-		//.attr("y", function(d) {
-		//    return yScale(d.giniIndex) + 14;
-		//})
-		.attr("class", "yOnBar")
-		;
+		.attr("class", "yOnBar");
 
 		// Title	
 		d3.select("#giniBarChTitle").append("text")
