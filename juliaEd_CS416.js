@@ -9,7 +9,7 @@ var path = d3.geoPath().projection(projection);
 
 //Read Topo file and CSV containing economic information
 //var worldmap = d3.json("https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json");
-var worldmap = await d3.json("countries-110m-edited_wout_Antarctica.json");
+const worldmap = await d3.json("countries-110m-edited_wout_Antarctica.json");
 var countries = topojson.feature(worldmap, worldmap.objects.countries).features; 
 
 //Promise.all([worldmap]).then(values => {
