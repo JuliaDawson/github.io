@@ -513,7 +513,7 @@ function dsScattChartSP1(region) {
  			.attr("fill", function(d) { 
 				     //console.log("d", d)
 				     //console.log("giniIndex", d.giniIndex)
-				     var col =  d3.interpolateBlues((d.giniIndex - 20) / 44) 
+				     var col =  d3.interpolateBlues(d.dollperdayTotPop - 20 / 86) 
 				     //console.log("col", col)
 				     if (col) {
 					//console.log("found col", col, "for d", d)
@@ -528,7 +528,6 @@ function dsScattChartSP1(region) {
 			      .attr("stroke","black").attr("stroke-width",4)
 		               return tooltip.style("hidden", false)
 			.html( "<b>" + d.countryName + "</b>"  
-			      + "<br>" +  "Gini Index: "   + d.giniIndex  
 			      + "<br>" +  "Avg $ per day Total Pop: "  + "<b>" + d.dollperdayTotPop  + "</b>"
 			      + "<br>" +  "Avg $ per day Bottom 40%: "  + "<b>" + d.dollperdayBot40  + "</b>" )
 		      })
@@ -537,7 +536,6 @@ function dsScattChartSP1(region) {
 			       .style("top", (d3.event.pageY) + "px")
 			       .style("left", (d3.event.pageX + 10) + "px")
 			.html( "<b>" + d.countryName + "</b>"  
-			      + "<br>" +  "Gini Index: "   + d.giniIndex  
 			      + "<br>" +  "Avg $ per day Total Pop: "  + "<b>" + d.dollperdayTotPop  + "</b>"
 			      + "<br>" +  "Avg $ per day Bottom 40%: "  + "<b>" + d.dollperdayBot40  + "</b>" )
 		     })	
@@ -646,7 +644,7 @@ function dsScattChartSP2(region) {
     			.attr("width", width + margin.left + margin.right)
     			.attr("height", height + margin.top + margin.bottom)
   			.append("g")
-    			.attr("transform", "translate(20,20)");
+    			.attr("transform", "translate(400,250)");
     			//.attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 			      
 		// add the tooltip area to the webpage		
@@ -703,7 +701,7 @@ function dsScattChartSP2(region) {
  			.attr("fill", function(d) { 
 				     //console.log("d", d)
 				     //console.log("giniIndex", d.giniIndex)
-				     var col =  d3.interpolateBlues((d.giniIndex - 20) / 44) 
+				     var col =  d3.interpolateBlues((d.incGrowthTotPop + 6) / 17) 
 				     //console.log("col", col)
 				     if (col) {
 					//console.log("found col", col, "for d", d)
@@ -713,12 +711,11 @@ function dsScattChartSP2(region) {
 				     }
 				})
 		    .on("mouseover", function(d,i) {
-		      console.log("Scatt2 mouseover  ",d.countryNname, d.region, d.giniIndex, d.incGrowthTotPop, d.incGrowthBot40)	   
+		      console.log("Scatt2 mouseover  ",d.countryNname, d.region, d.incGrowthTotPop, d.incGrowthBot40)	   
 		      d3.select(this)
 			      .attr("stroke","black").attr("stroke-width",4)
 		               return tooltip.style("hidden", false)
 			.html( "<b>" + d.countryName + "</b>"  
-			      + "<br>" +  "Gini Index: "   + d.giniIndex  
 			      + "<br>" +  "Income Growth Total Pop: "  + "<b>" + d.incGrowthTotPop  + "</b>"
 			      + "<br>" +  "Income Growth Bottom 40%: "  + "<b>" + d.incGrowthBot40  + "</b>" )
 		      })
@@ -727,7 +724,6 @@ function dsScattChartSP2(region) {
 			       .style("top", (d3.event.pageY) + "px")
 			       .style("left", (d3.event.pageX + 10) + "px")
 			.html( "<b>" + d.countryName + "</b>"  
-			      + "<br>" +  "Gini Index: "   + d.giniIndex  
 			      + "<br>" +  "Income Growth Total Pop: "  + "<b>" + d.incGrowthTotPop  + "</b>"
 			      + "<br>" +  "Income Growth Bottom 40%: "  + "<b>" + d.incGrowthBot40  + "</b>" )
 		     })	
@@ -748,7 +744,7 @@ function dsScattChartSP2(region) {
 			.text("Income Growth Total Population vs Bottom 40% for Region " + regionName)
 			;
 		showScattChartSP1("100"); //should not need this, try to delete
-		console.log("dsScattChartSP1: done displaying ", region, " instead of ", priorregionGl);
+		console.log("dsScattChartSP2: done displaying ", region, " instead of ", priorregionGl);
 	} //region ne null	
 }
 
