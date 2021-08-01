@@ -4,6 +4,63 @@ let regionName = '';
 let priorregionGl = '';	
 let currDataBarChart = [];		    	
 
+function showPage1() {
+	opPage2("0");
+	opPage3("0");
+	opPage1("100");
+}
+function showPage2() {
+	opPage1("0");
+	opPage3("0");
+	opPage2("100");
+}
+function showPage3() {
+	opPage1("0");
+	opPage2("0");
+	opPage3("100");
+}
+
+function opPage1(op)
+{
+	console.log("opPage1: opacity", op);	
+	d3.select('#page1Header').attr("opacity", op);
+	d3.select('#page1Footer').attr("opacity", op);
+}
+function opPage2(op)
+{
+	console.log("opPage2: opacity", op);	
+	d3.select('#page2Header').attr("opacity", op);
+	d3.select('#page2Footer').attr("opacity", op);
+	d3.select('#mapChartWIPath').attr("opacity", op);
+	d3.select('#mapChartWITT').attr("opacity", op);
+}
+function opPage3(op)
+{
+	console.log("opPage3: opacity", op);	
+	d3.select('#page3Header').attr("opacity", op);
+	d3.select('#page3Footer').attr("opacity", op);
+	d3.select('#mapChartSPPath').attr("opacity", op);
+	d3.select('#mapChartSPTT').attr("opacity", op);
+	d3.select('#scattChartSP1').attr("opacity", op);
+	d3.select('#scattChSP1Spots').attr("opacity", op);
+	d3.select('#scattChSP1Xaxis').attr("opacity", op);
+	d3.select('#scattChSP1Yaxis').attr("opacity", op);
+	d3.select('#scattChSP1Title').attr("opacity", op);
+	d3.select('#scattChSP1Labels').attr("opacity", op);
+
+	if (op == '0')
+	{
+		console.log("opPage3: opacity zero and emptied HTML");	
+		console.log("...clearing html right now...", regionGl, priorregionGl);
+		d3.select('#mapChartSPPath').html('');
+		d3.select('#mapChartSPTT').html('');
+		d3.select('#scattChSP1Spots').html('');
+		d3.select('#scattChSP1Xaxis').html('');
+		d3.select('#scattChSP1Yaxis').html('');
+		d3.select('#scattChSP1Title').html('');
+		d3.select('#scattChSP1Labels').html('');
+	}
+}
 /*============================================================================================================*/
 /* start of Map Chart                                                                                          */
 /*------------------------------------------------------------------------------------------------------------*/
