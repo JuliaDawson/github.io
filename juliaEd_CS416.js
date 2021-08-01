@@ -697,8 +697,7 @@ function dsBarChartWI(region) {
 		d3.select("#giniBarChLabels").selectAll("text")
 		    .data(currDataBarChart)
 		    .enter()
-                    .attr("class", "y axis")
-		    .append("text")
+  		    .append("text")
 		    .text(function(d) {
 			return d.giniIndex;
 		     })
@@ -708,7 +707,7 @@ function dsBarChartWI(region) {
     			var xVal = (i * (width / currDataBarChart.length)) + ((width / currDataBarChart.length - barPadding) / 2) + barPadding;
     			return "translate(" + xVal + "," + yVal + ") rotate(270)";
   			})
-		.attr("class", "yOnBar");
+		.attr("class", "y axis");
 
 		// Title	
 		d3.select("#giniBarChTitle").append("text")
