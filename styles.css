@@ -1,4 +1,9 @@
-   
+body {
+	margin: 0;
+	background: green;
+	text-align: center;
+}   
+
 div.tooltip {	
       color: black; 
       font: normal 70%/1.4 Roboto;	
