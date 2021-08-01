@@ -762,9 +762,7 @@ function dsScattChartWI(region) {
 				     }
 				})
 		    .on("mouseover", function(d,i) {
-		      //console.log("mouseover  ",d.properties.name);	   
-		      //console.log("mouseover  ",d.properties.region);	   
-		      //console.log("mouseover  ",d.properties.giniindex);	   
+		      console.log("Scatt mouseover  ",d.name, d.region, d.giniIndex, d.incPctLo10, d.incPctHi10);	   
 		      d3.select(this)
 			      .attr("stroke","black").attr("stroke-width",4);
 		      //      .attr("fill","orange").attr("stroke-width",2);
