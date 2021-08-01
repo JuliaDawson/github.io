@@ -266,11 +266,6 @@ d3.select("#mapChartWIPath")
 		regionName = "North and South/Latin America";     
 	     }
              dsBarChartWI(regionGl); //refresh Bar Chart
-	     console.log("Looking for garbage data...");
-             for (i in currDataBarChart)
-	     {
-		console.log(i, currDataBarChart[i].countryName, currDataBarChart[i].region, currDataBarChart[i].incPctHi10, currDataBarChart[i].incPctLo10); 
-	     }
              dsLineChartWI(regionGl); //refresh Line Chart
 	     priorregionGl = regionGl; 	 
 	 } 
@@ -708,7 +703,8 @@ function dsLineChartWI(region) {
 
 		var margin = {top: 10, right: 10, bottom: 70, left: 10},
 		    width = 900 - margin.left - margin.right,
-		    height = 200 - margin.top - margin.bottom,
+		    height = 300,
+		    //height = 200 - margin.top - margin.bottom,
 		    colorBar = d3.interpolateBlues((52 - 20) / 33),
 		    barPadding = .1
 		;
@@ -718,7 +714,7 @@ function dsLineChartWI(region) {
 				.range([0, width])
 				;
 
-		var yScale = d3.scaleLog()
+		var yScale = d3.scaleLinear()
 			   .domain([d3.min(currDataBarChart, function(d) { return d.incPctHi10; }), d3.max(currDataBarChart, function(d) { return d.incPctHi10; })])
 			   .range([height, 0])
 			   ;
