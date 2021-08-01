@@ -707,7 +707,7 @@ function dsBarChartWI(region) {
     			var xVal = (i * (width / currDataBarChart.length)) + ((width / currDataBarChart.length - barPadding) / 2) + barPadding;
     			return "translate(" + xVal + "," + yVal + ") rotate(270)";
   			})
-		.attr("class", "y axis");
+		.attr("class", "yOnBar");
 
 		// Title	
 		d3.select("#giniBarChTitle").append("text")
