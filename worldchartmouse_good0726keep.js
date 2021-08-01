@@ -8,10 +8,10 @@ let currDataBarChart = [];
 /* start of Map Chart Big                                                                                          */
 /*------------------------------------------------------------------------------------------------------------*/
 function dsMapChartBig() {
-var width = 900;
-var height = 400;
+var width = 1000;
+var height = 500;
 
-var projection = d3.geoMercator().translate([width/2,height/2]).scale(100);
+var projection = d3.geoMercator().translate([width/2,height/2]).scale(90);
 var path = d3.geoPath().projection(projection);
 
 //Read Topo file and CSV containing economic information
