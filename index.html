@@ -669,7 +669,7 @@ function dsScattChartWI(region) {
 
 		var margin = {top: 10, right: 10, bottom: 30, left: 40},
 		    width = 600 - margin.left - margin.right,
-		    height = 225;
+		    height = 210;
 		    //height = 200 - margin.top - margin.bottom,
 	                
 		/*--------------------------------------------------------*/
@@ -702,9 +702,7 @@ function dsScattChartWI(region) {
     			.attr("transform", "translate(100,400)");
     			//.attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 			      
-		// add the tooltip area to the webpage
-		
-		
+		// add the tooltip area to the webpage		
 		var tooltip = d3.select("#scattChWITT")
     			.attr("class", "tooltip")
     			.style("opacity", 0);	      
@@ -797,7 +795,7 @@ function dsScattChartWI(region) {
 		// Title	
 		d3.select("#scattChWITitle").append("text")
 			.attr("x", width /2)
-			.attr("y", 255)
+			.attr("y", 250)
 			.attr("class","title")				
 			.attr("text-anchor", "middle")
 			.text("Income % Top 10 versus Bottom 10 percentile for Region " + regionName)
