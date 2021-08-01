@@ -262,17 +262,15 @@ d3.select("#mapChartWIPath")
 		 
              currDataBarChart = dataBarChosen(regionGl); //Refine data to clicked Region
 		 
+	     if (regionGl == "South/Latin America" || regionGl == "North America") {
+		regionName = "North and South/Latin America";     
+	     }
+             dsBarChartWI(regionGl); //refresh Bar Chart
 	     console.log("Looking for garbage data...");
              for (i in currDataBarChart)
 	     {
 		console.log(i, currDataBarChart[i].countryName, currDataBarChart[i].region, currDataBarChart[i].incPctHi10, currDataBarChart[i].incPctLo10); 
 	     }
-		 
-	     if (regionGl == "South/Latin America" || regionGl == "North America") {
-		regionName = "North and South/Latin America";     
-	     }
-             dsBarChartWI(regionGl); //refresh Bar Chart
-	     console.log("Looking for garbage, line 269, i, incPctHi10:", i, ...); 
              dsLineChartWI(regionGl); //refresh Line Chart
 	     priorregionGl = regionGl; 	 
 	 } 
