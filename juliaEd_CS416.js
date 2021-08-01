@@ -25,6 +25,13 @@ function opPage1(op)
 	console.log("opPage1: opacity", op);	
 	d3.select('#page1Header').attr("opacity", op);
 	d3.select('#page1Footer').attr("opacity", op);
+	d3.select('#mapChartBigPath').attr("opacity", op);
+	d3.select('#mapChartBigTT').attr("opacity", op);
+	if (op == '0')
+	{
+	d3.select('#mapChartBigPath').html('');
+	d3.select('#mapChartBigTT').html('');
+	}
 }
 function opPage2(op)
 {
@@ -33,6 +40,23 @@ function opPage2(op)
 	d3.select('#page2Footer').attr("opacity", op);
 	d3.select('#mapChartWIPath').attr("opacity", op);
 	d3.select('#mapChartWITT').attr("opacity", op);
+	d3.select('#scattChartWI').attr("opacity", op);
+	d3.select('#scattChWISpots').attr("opacity", op);
+	d3.select('#scattChWIXaxis').attr("opacity", op);
+	d3.select('#scattChWIYaxis').attr("opacity", op);
+	d3.select('#scattChWITitle').attr("opacity", op);
+	d3.select('#scattChWILabels').attr("opacity", op);
+	
+	if (op == '0')
+	{
+	d3.select('#mapChartWIPath').html('');
+	d3.select('#mapChartWITT').html('');
+	d3.select('#scattChWISpots').html('');
+	d3.select('#scattChWIXaxis').html('');
+	d3.select('#scattChWIYaxis').html('');
+	d3.select('#scattChWITitle').html('');
+	d3.select('#scattChWILabels').html('');
+	}
 }
 function opPage3(op)
 {
@@ -50,8 +74,6 @@ function opPage3(op)
 
 	if (op == '0')
 	{
-		console.log("opPage3: opacity zero and emptied HTML");	
-		console.log("...clearing html right now...", regionGl, priorregionGl);
 		d3.select('#mapChartSPPath').html('');
 		d3.select('#mapChartSPTT').html('');
 		d3.select('#scattChSP1Spots').html('');
