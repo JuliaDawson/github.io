@@ -698,6 +698,7 @@ function dsBarChartWI(region) {
 		    .data(currDataBarChart)
 		    .enter()
 		    .append("text")
+		    .attr("fill","white")
 		    .text(function(d) {
 			return d.giniIndex;
 		     })
