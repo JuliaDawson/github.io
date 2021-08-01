@@ -13,12 +13,28 @@ function showPage2() {
 	opPage1("0");
 	opPage3("0");
 	opPage2("100");
+	
+	/*============================================================================================================*/
+	/* ...Run dsMapChartWI now... 
+	 *    dsMapChartSP detects a click on a Country, whereupon only the Region of Country is read from the CSV data.
+	 *    The CSV data is displayed on the bar chart and line chart. The map will tell them to refresh if the
+	 *    region has changed, and thus the data to present has changed, due to a click on one of the map countries */
+	/*============================================================================================================*/
+        dsMapChartWI(); //mapChart will cause barChart and lineChart to refresh if necessary}
 }
 function showPage3() {
 	opPage1("0");
 	opPage2("0");
 	opPage3("100");
-}
+	
+	/*============================================================================================================*/
+	/* ...Run dsMapChartSP now... 
+	 *    dsMapChartSP detects a click on a Country, whereupon only the Region of Country is read from the CSV data.
+	 *    The CSV data is displayed on the bar chart and line chart. The map will tell them to refresh if the
+	 *    region has changed, and thus the data to present has changed, due to a click on one of the map countries */
+	/*============================================================================================================*/
+        dsMapChartSP(); //mapChart will cause barChart and lineChart to refresh if necessary}
+}	
 
 function opPage1(op)
 {
@@ -84,9 +100,9 @@ function opPage3(op)
 	}
 }
 /*============================================================================================================*/
-/* start of Map Chart                                                                                          */
+/* start of Map Chart SP                                                                                         */
 /*------------------------------------------------------------------------------------------------------------*/
-function dsMapChart(){
+function dsMapChartSP(){
 var height = 300;
 var width = 300;
 var margin = 10;	
@@ -193,7 +209,7 @@ d3.select("#mapChartSPPath")
 })
 }
 /*------------------------------------------------------------------------------------------------------------*/	    
-/* End of Map Chart                                                                                          */
+/* End of Map Chart SP                                                                                         */
 /*============================================================================================================*/
 
 	    
@@ -705,14 +721,7 @@ function dsScattChartSP2(region) {
 /*============================================================================================================*/
 
 
-/*============================================================================================================*/
-/* ...Run dsMapChart now... 
- *    dsMapChart detects a click on a Country, whereupon only the Region of Country is read from the CSV data.
- *    The CSV data is displayed on the bar chart and line chart. The map will tell them to refresh if the
- *    region has changed, and thus the data to present has changed, due to a click on one of the map countries */
-/*============================================================================================================*/
-  
-    dsMapChart(); //mapChart will cause barChart and lineChart to refresh if necessary
+
 	
 
 	
