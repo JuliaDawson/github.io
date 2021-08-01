@@ -676,7 +676,7 @@ function dsScattChartWI(region) {
 		/*--------------------------------------------------------*/
 		var xValue = function(d) { return d.incPctHi10;}, // data -> value
 		    xScale = d3.scaleLinear()
-       			    .domain([d3.min(currDataBarChart, function(d) { return d.incPctHi10; })-1, d3.max(currDataBarChart, function(d) { return d.incPctHi10; })+1])
+       			    .domain([d3.min(currDataBarChart, function(d) { return d.incPctHi10; }), d3.max(currDataBarChart, function(d) { return d.incPctHi10; })])
 		            .range([0, width]), // value -> display
 		    xMap = function(d) { return xScale(xValue(d));}, // data -> display
 		    xAxis = d3.axisBottom(xScale);
@@ -686,7 +686,7 @@ function dsScattChartWI(region) {
 		/*-------------------------------------------------------*/
 		var yValue = function(d) { return d.incPctLo10;}, // data -> value
 		    yScale = d3.scaleLinear()
-		            .domain([d3.min(currDataBarChart, function(d) { return d.incPctLo10; })-1, d3.max(currDataBarChart, function(d) { return d.incPctLo10; })+1])
+		            .domain([d3.min(currDataBarChart, function(d) { return d.incPctLo10; }), d3.max(currDataBarChart, function(d) { return d.incPctLo10; })])
 		            .range([height, 0]), // value -> display
 		    yMap = function(d) { return yScale(yValue(d));}, // data -> display
 		    yAxis = d3.axisLeft(yScale);
