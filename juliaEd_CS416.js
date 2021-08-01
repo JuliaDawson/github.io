@@ -308,9 +308,9 @@ d3.select("#mapChartWIPath")
 	   .attr('d', path)
 	   //.attr('fake', d=> console.log(d.properties.name))
     .on("mouseover", function(d,i) {
-      console.log("mouseover  ",d.properties.name);	   
-      console.log("mouseover  ",d.properties.region);	   
-      console.log("mouseover  ",d.properties.giniindex);	   
+      //console.log("mouseover  ",d.properties.name);	   
+      //console.log("mouseover  ",d.properties.region);	   
+      //console.log("mouseover  ",d.properties.giniindex);	   
       d3.select(this)
 	      .attr("stroke","black").attr("stroke-width",4);
       //      .attr("fill","orange").attr("stroke-width",2);
@@ -542,24 +542,24 @@ function dataBarChosenWI(region) {
 	else {
 		if (region == "All") {
 			regionName = "All";
-			for (i in dataBarChart) {
-				ds.push(dataBarChart[i]);
+			for (i in dataBarChartWI) {
+				ds.push(dataBarChartWI[i]);
 			}
 
 		} //region is All
 		else if (region == "South/Latin America" || region == "North America") {
 			regionName = "North and South America";
-			for (i in dataBarChart) {
-				 if(dataBarChart[i].region=="South/Latin America" || dataBarChart[i].region == "North America"){
-					ds.push(dataBarChart[i]);
+			for (i in dataBarChartWI) {
+				 if(dataBarChartWI[i].region=="South/Latin America" || dataBarChartWI[i].region == "North America"){
+					ds.push(dataBarChartWI[i]);
 				} 
 			} //region is *America
 		}	
 		else {
-			for (i in dataBarChart) {
+			for (i in dataBarChartWI) {
 				 regionName = region;
-				 if(dataBarChart[i].region==region){
-					ds.push(dataBarChart[i]);
+				 if(dataBarChartWI[i].region==region){
+					ds.push(dataBarChartWI[i]);
 				} 
 			}
 		} //region is one region		
@@ -571,19 +571,12 @@ function showBarChartWI(op)
 {
 	console.log("showBarChartWI: opacity", op, " regionGl:", regionGl, " priorregionGl:", priorregionGl);	
 	d3.select('#giniBarChart').attr("opacity", op);
-	d3.select('#giniBarChRect').attr("opacity", op);
-	d3.select('#giniBarChYaxis').attr("opacity", op);
-	d3.select('#giniBarChXaxis').attr("opacity", op);
-	d3.select('#giniBarChTitle').attr("opacity", op);
-	d3.select('#giniBarChLabels').attr("opacity", op);
 	
 	if (op == '0')
 	{
 	console.log("showBarChartWI: opacity zero and emptied HTML");	
 	console.log("...clearing html rightn now...", regionGl, priorregionGl);
-	//d3.select('#giniBarChart').html('');
 	d3.select('#giniBarChRect').html('');
-	d3.select('#giniBarChYaxis').html('');
 	d3.select('#giniBarChXaxis').html('');
 	d3.select('#giniBarChTitle').html('');
 	d3.select('#giniBarChLabels').html('');
@@ -747,11 +740,6 @@ function showScattChartWI(op)
 {
 	console.log("showScattChartWI: opacity", op, " regionGl:", regionGl, " priorregionGl:", priorregionGl);	
 	d3.select('#scattChartWI').attr("opacity", op);
-	d3.select('#scattChWISpots').attr("opacity", op);
-	d3.select('#scattChWIXaxis').attr("opacity", op);
-	d3.select('#scattChWIYaxis').attr("opacity", op);
-	d3.select('#scattChWITitle').attr("opacity", op);
-	d3.select('#scattChWILabels').attr("opacity", op);
 	
 	if (op == '0')
 	{
@@ -762,6 +750,7 @@ function showScattChartWI(op)
 	d3.select('#scattChWIYaxis').html('');
 	d3.select('#scattChWITitle').html('');
 	d3.select('#scattChWILabels').html('');
+	d3.select('#scattChWITT').html('');
 	}
 }
 
@@ -1160,24 +1149,24 @@ function dataBarChosenSP(region) {
 	else {
 		if (region == "All") {
 			regionName = "All";
-			for (i in dataBarChart) {
-				ds.push(dataBarChart[i]);
+			for (i in dataBarChartSP) {
+				ds.push(dataBarChartSP[i]);
 			}
 
 		} //region is All
 		else if (region == "South/Latin America" || region == "North America") {
 			regionName = "North and South America";
-			for (i in dataBarChart) {
-				 if(dataBarChart[i].region=="South/Latin America" || dataBarChart[i].region == "North America"){
-					ds.push(dataBarChart[i]);
+			for (i in dataBarChartSP) {
+				 if(dataBarChartSP[i].region=="South/Latin America" || dataBarChartSP[i].region == "North America"){
+					ds.push(dataBarChartSP[i]);
 				} 
 			} //region is *America
 		}	
 		else {
-			for (i in dataBarChart) {
+			for (i in dataBarChartSP) {
 				 regionName = region;
-				 if(dataBarChart[i].region==region){
-					ds.push(dataBarChart[i]);
+				 if(dataBarChartSP[i].region==region){
+					ds.push(dataBarChartSP[i]);
 				} 
 			}
 		} //region is one region		
@@ -1192,11 +1181,6 @@ function showScattChartSP1(op)
 {
 	console.log("showScattChartSP2: opacity", op, " regionGl:", regionGl, " priorregionGl:", priorregionGl);	
 	d3.select('#scattChartSP1').attr("opacity", op);
-	d3.select('#scattChSP1Spots').attr("opacity", op);
-	d3.select('#scattChSP1Xaxis').attr("opacity", op);
-	d3.select('#scattChSP1Yaxis').attr("opacity", op);
-	d3.select('#scattChSP1Title').attr("opacity", op);
-	d3.select('#scattChSP1Labels').attr("opacity", op);
 	
 	if (op == '0')
 	{
@@ -1207,6 +1191,7 @@ function showScattChartSP1(op)
 	d3.select('#scattChSP1Yaxis').html('');
 	d3.select('#scattChSP1Title').html('');
 	d3.select('#scattChSP1Labels').html('');
+	d3.select('#scattChSP1TT').html('');
 	}
 }
 
@@ -1378,11 +1363,6 @@ function showScattChartSP2(op)
 {
 	console.log("showScattChartSP2: opacity", op, " regionGl:", regionGl, " priorregionGl:", priorregionGl);	
 	d3.select('#scattChartSP2').attr("opacity", op);
-	d3.select('#scattChSP2Spots').attr("opacity", op);
-	d3.select('#scattChSP2Xaxis').attr("opacity", op);
-	d3.select('#scattChSP2Yaxis').attr("opacity", op);
-	d3.select('#scattChSP2Title').attr("opacity", op);
-	d3.select('#scattChSP2Labels').attr("opacity", op);
 	
 	if (op == '0')
 	{
@@ -1393,6 +1373,7 @@ function showScattChartSP2(op)
 	d3.select('#scattChSP2Yaxis').html('');
 	d3.select('#scattChSP2Title').html('');
 	d3.select('#scattChSP2Labels').html('');
+	d3.select('#scattChSP2TT').html('');
 	}
 }
 
