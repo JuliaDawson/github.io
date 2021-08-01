@@ -679,7 +679,7 @@ function dsScattChartWI(region) {
        			    .domain([d3.min(currDataBarChart, function(d) { return d.incPctHi10; })-1, d3.max(currDataBarChart, function(d) { return d.incPctHi10; })+1])
 		            .range([0, width]), // value -> display
 		    xMap = function(d) { return xScale(xValue(d));}, // data -> display
-		    xAxis = d3.axis().scale(xScale).orient("bottom");
+		    xAxis = d3.axisBottom(xScale).orient("bottom");
 
 		/*-------------------------------------------------------*/
 		/* For Y axis - Income share (%) of lowest 10 percentile */
@@ -689,7 +689,7 @@ function dsScattChartWI(region) {
 		            .domain([d3.min(currDataBarChart, function(d) { return d.incPctLo10; })-1, d3.max(currDataBarChart, function(d) { return d.incPctLo10; })+1])
 		            .range([height, 0]), // value -> display
 		    yMap = function(d) { return yScale(yValue(d));}, // data -> display
-		    yAxis = d3.axis().scale(yScale).orient("left");
+		    yAxis = d3.axisLeft(yScale).orient("left");
 		
 		// setup fill color to relate to giniIndex 
 		var cValue = function(d) { return ((d.giniIndex - 20)/ 33);},
