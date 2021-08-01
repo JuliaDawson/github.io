@@ -18,8 +18,35 @@
 </div>	
 	
 <div class="bodydiv">
-    <svg width=1000 height=500>
+   <!-====================================================-> 
+   <!--------- S V G  dimensions              -------------> 
+   <svg width=1000 height=500>
 	    
+	<!-====================================================-> 
+	<!--------- Interactive Slide Show Buttons -------------> 
+	<g id="buttonNext">
+		<foreignObject x="625" y="10" width="75" height="25">
+		<div><button id="nextbutton" width="100" height="25" type="button" onclick="onNext()">Next</button></div>
+		</foreignObject>
+	</g>
+	<g id="buttonPage1">
+		<foreignObject x="550" y="10" width="25" height="25">
+		<div><button id="button1" width="50" height="20" type="button" onclick="onPage1()" >1</button></div>
+		</foreignObject>
+	</g>
+	<g id="buttonPage2"  opacity="0" >
+		<foreignObject x="575" y="10" width="25" height="25">
+		<div><button id="button2" width="50" height="20" type="button" onclick="onPage2()" >2</button></div>
+		</foreignObject>
+	</g>
+	<g id="buttonPage3"  opacity="0" >
+		<foreignObject x="600" y="10" width="25" height="25">
+		<div><button id="button3" width="50" height="20" type="button" onclick="onPage3()" >3</button></div>
+		</foreignObject>
+	</g>
+	    
+	    
+	<!-=============================================-> 
 	<!--------- Pages 1: Gini Index Map -------------> 
 	<g id="page1Header" opacity="100">
 		<foreignObject x="0" y="0" width="1000" height="100">
@@ -43,7 +70,16 @@ A Gini index of zero represents perfect equality and 100 represents perfect ineq
 		</foreignObject>
 	</g>
 	    
-	<!--------- Pages 2: mini-Map, bar chart and scatterplot, Wealth Inequality ------------->    
+	<!-=====================================================================================-> 
+	<!--------- Pages 2: mini-Map, bar chart and scatterplot, Wealth Inequality ------------->  
+	<g id="page2Header" opacity="100">
+		<foreignObject x="0" y="0" width="1000" height="100">
+			<div>
+				<p><b>Gini Index</b> measures the deviation of prosperity (distribution of income or consumption expenditure) from a perfectly equal distribution, within a population.
+A Gini index of zero represents perfect equality and 100 represents perfect inequality. However, in our data zero means that no Gini Index was available.</p>				
+			</div>
+		</foreignObject>
+	</g>	    
 	<g id="mapChartWI" opacity="0" >
 		<g id="mapChartWIPath"></g>
 		<g id="mapChartWITT"></g>
@@ -62,9 +98,24 @@ A Gini index of zero represents perfect equality and 100 represents perfect ineq
 		<g id="scattChWILabels"></g>
 		<g id="scattChWITT"></g>
 	</g>
+	<g id="page2Footer" opacity="100">
+		<foreignObject x="0" y="450" width="1000" height="100">
+			<div>
+			<p>Gini Index: missing = 0,   minimum = 24.2 (Slovenia),    maximum = 63 (South Africa),     median= 36.9 <br><b>Zoom in/out | Hover over country for more information | Next to Continue</b></p>				
+			</div>
+		</foreignObject>
+	</g>
 	    
+	<!-==============================================================-> 
 	<!--------- Page 3: scatterplots, Shared Prosperity  ------------->    
-	<g id="mapChartSP" opacity="0" >
+	<g id="page3Header" opacity="100">
+		<foreignObject x="0" y="0" width="1000" height="100">
+			<div>
+				<p><b>Gini Index</b> measures the deviation of prosperity (distribution of income or consumption expenditure) from a perfectly equal distribution, within a population.
+A Gini index of zero represents perfect equality and 100 represents perfect inequality. However, in our data zero means that no Gini Index was available.</p>				
+			</div>
+		</foreignObject>
+	</g>	<g id="mapChartSP" opacity="0" >
 		<g id="mapChartSPPath"></g>
 		<g id="mapChartSPTT"></g>
 	</g>
@@ -83,6 +134,13 @@ A Gini index of zero represents perfect equality and 100 represents perfect ineq
 		<g id="scattChSP2Title" class="titlep"></g>
 		<g id="scattChSP2Labels"></g>
 		<g id="scattChSP2TT"></g>
+	</g>
+	<g id="page3Footer" opacity="100">
+		<foreignObject x="0" y="450" width="1000" height="100">
+			<div>
+			<p>Gini Index: missing = 0,   minimum = 24.2 (Slovenia),    maximum = 63 (South Africa),     median= 36.9 <br><b>Zoom in/out | Hover over country for more information | Next to Continue</b></p>				
+			</div>
+		</foreignObject>
 	</g>
 
     </svg>
