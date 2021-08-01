@@ -141,12 +141,12 @@ td {
 			<g id="giniBarChTitle" class="titlep"></g>
 			<g id="giniBarChLabels"></g>
 		</g>
-		<g id="wiLineChart" opacity="100" >
-			<g id="wiLineChLine1"></g>
-			<g id="wiLineChLine2"></g>
-			<g id="wiLineChXaxis"></g>
-			<g id="wiLineChTitle" class="titlep"></g>
-			<g id="wiLineChLabels"></g>
+		<g id="lineChartWI" opacity="100" >
+			<g id="lineChWILine1"></g>
+			<g id="lineChWILine2"></g>
+			<g id="lineChWIXaxis"></g>
+			<g id="lineChWITitle" class="titlep"></g>
+			<g id="lineChWILabels"></g>
 		</g>
 
     </svg>
@@ -733,7 +733,7 @@ function dsLineChartWI(region) {
 		    .domain(currDataBarChart.map(d => d.incPctHi10))
 		    .range([d3.min(currDataBarChart, function(d) { return d.incPctHi10; }), d3.max(currDataBarChart, function(d) { return d.incPctHi10; })]);
 
-		d3.select("#wiLineChart")
+		d3.select("#lineChartWI")
 			    .append("svg")
 			    .attr("width", width + margin.left + margin.right)
 			    .attr("height", height + margin.top + margin.bottom)
@@ -743,7 +743,7 @@ function dsLineChartWI(region) {
 		/*----------------------- */
 		/* Add X axis - Country   */
 		/*----------------------- */
-		d3.select("#wiLineChXaxis")
+		d3.select("#lineChWIXaxis")
 		    .attr("transform", `translate(0, ${height + margin.top + 4} )`)
 		    .call(d3.axisBottom(xAxis))
 		    .selectAll("text")
@@ -753,14 +753,14 @@ function dsLineChartWI(region) {
 		/*------------------------------------------------*/
 		/* Add Y axis - Income Percent, bottom and top 10 */
 		/*-----------------------------------------------*/
-		//d3.select("#wiLineChYaxis")
+		//d3.select("#lineChWIYaxis")
 		//    .attr("transform", `translate(${margin.left}, ${margin.top + 14})`)
 		//    .call(d3.axisLeft(yAxis))
 
 		/*-------------------*/
 		/* ...adding bars... */
 		/*-------------------*/
-		d3.select("#wiLineChRect").selectAll("rect")
+		d3.select("#lineChWIRect").selectAll("rect")
 			   .data(currDataBarChart)
 			   .enter()
 			   .append("rect")
@@ -791,7 +791,7 @@ function dsLineChartWI(region) {
 		/*----------------------------------*/
 		/* ...adding labels on the bars ... */
 		/*----------------------------------*/		
-		d3.select("#wiLineChLabels").selectAll("text")
+		d3.select("#lineChWILabels").selectAll("text")
 		    .data(currDataBarChart)
 		    .enter()
 		    .append("text")
@@ -814,7 +814,7 @@ function dsLineChartWI(region) {
 		;
 
 		// Title	
-		d3.select("#wiLineChTitle").append("text")
+		d3.select("#lineChWITitle").append("text")
 			.attr("x", (width + margin.left + margin.right)/2)
 			.attr("y", 0)
 			.attr("class","title")				
