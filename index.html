@@ -21,7 +21,7 @@
     <svg width=1000 height=500>
 	    
 	<!--------- Pages 1: Gini Index Map -------------> 
-	<g id="page1Header" opacity="0">
+	<g id="page1Header" opacity="100">
 		<foreignObject x="0" y="0" width="1000" height="100">
 			<div>
 				<p><b>Gini Index</b> measures the deviation of prosperity (distribution of income or consumption expenditure) from a perfectly equal distribution, within a population.
@@ -30,12 +30,12 @@ A Gini index of zero represents perfect equality and 100 represents perfect ineq
 		</foreignObject>
 	</g>
 	    
-	<g id="mapChartBig" opacity="0" >
+	<g id="mapChartBig" opacity="100" >
 		<g id="mapChartBigPath"></g>
 		<g id="mapChartBigTT"></g>
 	        <g id="mapChartBigFooter"></g>
 	</g>
-	<g id="page1Footer" opacity="0">
+	<g id="page1Footer" opacity="100">
 		<foreignObject x="0" y="450" width="1000" height="100">
 			<div>
 			<p>Gini Index: missing = 0,   minimum = 24.2 (Slovenia),    maximum = 63 (South Africa),     median= 36.9 <br><b>Zoom in/out | Hover over country for more information | Next to Continue</b></p>				
@@ -43,13 +43,11 @@ A Gini index of zero represents perfect equality and 100 represents perfect ineq
 		</foreignObject>
 	</g>
 	    
-	<!--------- Pages 2 and 3: mini-Map ------------->    
+	<!--------- Pages 2: mini-Map, bar chart and scatterplot, Wealth Inequality ------------->    
 	<g id="mapChartWI" opacity="0" >
 		<g id="mapChartWIPath"></g>
 		<g id="mapChartWITT"></g>
 	</g>
-
-	<!--------- Pages 2: bar chart and scatterplot, Wealth Inequality ------------->    
 	<g id="giniBarChart" opacity="0" >
 		<g id="giniBarChRect"></g>
 		<g id="giniBarChXaxis"></g>
@@ -66,6 +64,10 @@ A Gini index of zero represents perfect equality and 100 represents perfect ineq
 	</g>
 	    
 	<!--------- Page 3: scatterplots, Shared Prosperity  ------------->    
+	<g id="mapChartSP" opacity="0" >
+		<g id="mapChartSPPath"></g>
+		<g id="mapChartSPTT"></g>
+	</g>
 	<g id="scattChartSP1" opacity="0" >
 		<g id="scattChSP1Spots"></g>
 		<g id="scattChSP1Xaxis"></g>
