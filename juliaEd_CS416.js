@@ -1438,10 +1438,10 @@ function dsScattChartSP2(region) {
 		/*------------------------------------------------------------- */
 		d3.select("#scattChSP2Xaxis")
 		    .attr("transform", "translate(0, " + height + ")")
+                     .attr("class", "y axis")
 		    .call(xAxis)
 		    .append("text")
-      		    .attr("class", "xaxis")
-      		    .attr("x", width)
+     		    .attr("x", width)
       		    .attr("y", -6)
 		    .style("text-anchor", "end")
 		    .text("Income Growth of Total Population");
@@ -1453,10 +1453,9 @@ function dsScattChartSP2(region) {
 		/* Add Y axis - Income Growth of lowest 40 percentile       */
 		/*------------------------------------------------------------*/
 		d3.select("#scattChSP2Yaxis")
-			.attr("class", "yaxis")
-      			.call(yAxis)
+                   .attr("class", "y axis")
+     			.call(yAxis)
     			.append("text")
-      			.attr("class", "label")
       			.attr("transform", "rotate(-90)")
       			.attr("y", 6)
       			.attr("dy", ".71em")
