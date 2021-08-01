@@ -1552,8 +1552,9 @@ async function init()
 {
 	// set up location
 	d3.select('#mapChartBig').attr("transform",   "translate(10,100)");	
-	d3.select('#scattChartSP1').attr("transform",  "translate(400,15)");	
-	d3.select('#scattChartSP2').attr("transform",  "translate(400,250)");
+	d3.select('#mapChartWI').attr("transform",   "translate(10,0)");	
+	d3.select('#giniBarChart').attr("transform",  "translate(400,15)");	
+	d3.select('#scattChartWI').attr("transform",  "translate(400,250)");
 	d3.select('#mapChartSP').attr("transform",   "translate(10,0)");	
 	d3.select('#scattChartSP1').attr("transform",  "translate(400,15)");	
 	d3.select('#scattChartSP2').attr("transform",  "translate(400,250)");
