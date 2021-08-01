@@ -285,7 +285,8 @@ d3.select("#mapChartWI")
  var tooltip = d3.select("div.tooltip");	
  d3.select("#mapChartWITT");		
  var countries = topojson.feature(values[0], values[0].objects.countries).features; 
-  
+ console.log("dsMapChartWI: after var Countries");
+ 
 d3.select("#mapChartWIPath")	
         .selectAll('path')
 	.data(countries)
@@ -353,6 +354,11 @@ d3.select("#mapChartWIPath")
 	     priorregionGl = regionGl; 	 
 	 } 
       })
+ console.log("dsMapChartWI: after #mapChartWIPath");
+	
+opPage2("100");
+console.log("dsMapChartWI: after opPage2");
+	
 })
 }
 /*------------------------------------------------------------------------------------------------------------*/	    
