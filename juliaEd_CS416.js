@@ -822,7 +822,6 @@ function dsScattChartWI(region) {
                     .attr("class", "y axis")
 		    .call(xAxis)
 		    .append("text")
-      		    .attr("class", "label")
       		    .attr("x", width)
       		    .attr("y", -6)
 		    .style("text-anchor", "end")
