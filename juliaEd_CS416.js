@@ -1567,5 +1567,5 @@ async function init()
 	d3.select('#scattChartSP2').attr("transform",  "translate(400,250)");
 	
 	//Show page 1 the first time...
-	showPage2();
+	showPage1();
 }	
