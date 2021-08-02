@@ -5,7 +5,6 @@ let priorregionGl = '';
 let currDataBarChart = [];
 
 function toPage1() {
-	console.log("toPage1: are here...");
 	showPage1();
 }
 function toPage2() {
@@ -16,7 +15,7 @@ function toPage3() {
 }
 
 function showPage1() {
-	console.log("showPage1: are here...");
+//	console.log("showPage1: are here...");
 	opPage2("0");
 	opPage3("0");
 	opPage1("100");
@@ -215,7 +214,6 @@ d3.select("#mapChartBigPath")
 	 .attr("stroke","black")
 	 .attr("stroke-width",1);
          tooltip.classed("hidden", true);
-	 console.log("Mouseout: " + this);  
       })
 })
 }	
@@ -246,7 +244,7 @@ var height = 300;
 var width = 300;
 var margin = 10;	
 
-console.log("dsMapChartWI: I am here");
+//console.log("dsMapChartWI: I am here");
 	
 //d3.selectAll('svg > g > *').remove(); 
 
@@ -257,10 +255,10 @@ var path = d3.geoPath().projection(projection);
 //var worldmap = d3.json("https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json");
 var worldmap = d3.json("countries-110m-edited_wout_Antarctica.json");
 
-console.log("dsMapChartWI: before promise");
+//console.log("dsMapChartWI: before promise");
 	
 Promise.all([worldmap]).then(values => {
-console.log("dsMapChartWI: after promise");
+//console.log("dsMapChartWI: after promise");
 
 	
 d3.select("#mapChartWITitle")
@@ -270,7 +268,7 @@ d3.select("#mapChartWITitle")
 	.attr("class","title")	 
         .text("World Map with Gini Index (click, zoom)");
 
-console.log("dsMapChartWI: after #mapChartWITitle");
+//console.log("dsMapChartWI: after #mapChartWITitle");
 	
 d3.select("#mapChartWI")
 	.append("svg:svg")
@@ -284,7 +282,7 @@ d3.select("#mapChartWI")
  var tooltip = d3.select("div.tooltip");	
  d3.select("#mapChartWITT");		
  var countries = topojson.feature(values[0], values[0].objects.countries).features; 
- console.log("dsMapChartWI: after var Countries");
+ //console.log("dsMapChartWI: after var Countries");
  
 d3.select("#mapChartWIPath")	
         .selectAll('path')
@@ -292,8 +290,8 @@ d3.select("#mapChartWIPath")
 	.enter().append('path')
 	.attr('class','country')
 	.attr("fill", function(d) { 
-             console.log("d", d)
-             console.log("giniIndex", d.properties.giniindex)
+             //console.log("d", d)
+             //console.log("giniIndex", d.properties.giniindex)
              var col =  d3.interpolateBlues((d.properties.giniindex - 20) / 44); 
              //console.log("col", col)
              if (col) {
@@ -334,12 +332,12 @@ d3.select("#mapChartWIPath")
 	 .attr("stroke","black")
 	 .attr("stroke-width",1);
          tooltip.classed("hidden", true);
-	 console.log("Mouseout: " + this);  
+	 //console.log("Mouseout: " + this);  
       })
      .on("click",function(d,i){
-	 console.log("Click: ", d.properties.region, regionGl); 
+	 //console.log("Click: ", d.properties.region, regionGl); 
 	 if (regionGl != d.properties.region) {
-	     console.log("Region changed from:", regionGl, " To:", d.properties.region);	 
+	     //console.log("Region changed from:", regionGl, " To:", d.properties.region);	 
              regionGl = d.properties.region;
 		 
              currDataBarChart = dataBarChosenWI(regionGl); //Refine data to clicked Region
@@ -352,10 +350,10 @@ d3.select("#mapChartWIPath")
 	     priorregionGl = regionGl; 	 
 	 } 
       })
- console.log("dsMapChartWI: after #mapChartWIPath");
+ //console.log("dsMapChartWI: after #mapChartWIPath");
 	
 opPage2("100");
-console.log("dsMapChartWI: after opPage2");
+//console.log("dsMapChartWI: after opPage2");
 	
 })
 }
@@ -537,7 +535,7 @@ console.log("dsMapChartWI: after opPage2");
 function dataBarChosenWI(region) {
 	var ds = [];
 	if (region == "" || region == priorregionGl) {
-		console.log("dataBarChosen: region is null or same as before:", region, priorregionGl);
+		//console.log("dataBarChosen: region is null or same as before:", region, priorregionGl);
 	} //region is null
 	else {
 		if (region == "All") {
@@ -569,13 +567,13 @@ function dataBarChosenWI(region) {
 
 function showBarChartWI(op)
 {
-	console.log("showBarChartWI: opacity", op, " regionGl:", regionGl, " priorregionGl:", priorregionGl);	
+	//console.log("showBarChartWI: opacity", op, " regionGl:", regionGl, " priorregionGl:", priorregionGl);	
 	d3.select('#giniBarChart').attr("opacity", op);
 	
 	if (op == '0')
 	{
-	console.log("showBarChartWI: opacity zero and emptied HTML");	
-	console.log("...clearing html rightn now...", regionGl, priorregionGl);
+	//console.log("showBarChartWI: opacity zero and emptied HTML");	
+	//console.log("...clearing html rightn now...", regionGl, priorregionGl);
 	d3.select('#giniBarChRect').html('');
 	d3.select('#giniBarChXaxis').html('');
 	d3.select('#giniBarChTitle').html('');
@@ -586,7 +584,7 @@ function showBarChartWI(op)
 
 function dsBarChartWI(region) {
 
-	console.log('In dsBarChartWI, region:', region);
+	//console.log('In dsBarChartWI, region:', region);
 	
 //	if (region != priorregionGl && region != "") {
 	if (region != "") {
@@ -597,10 +595,6 @@ function dsBarChartWI(region) {
 		showBarChartWI("100"); //Show
 
 
-		console.log("currDataBarChart dataBarChosen for region: " + region);
-		console.log("currDataBarChart[0]: ", currDataBarChart[0]);
-		console.log("currDataBarChart.length: " + currDataBarChart.length);
-		console.log("currDataBarChart[length]: ", currDataBarChart[currDataBarChart.length-1]);
 
 
 		var margin = {top: 10, right: 30, bottom: 70, left: 10},
@@ -717,7 +711,7 @@ function dsBarChartWI(region) {
 			.text("Distribution of Income - Gini Index, " + regionName)
 			;
 		showBarChartWI("100"); //should not need this, try to delete
-		console.log("dsBarChartWI: done displaying ", region, " instead of ", priorregionGl);
+		//console.log("dsBarChartWI: done displaying ", region, " instead of ", priorregionGl);
 		//priorregionGl = region; all done, save region to prior
 	} //region ne null	
 }
@@ -732,13 +726,13 @@ function dsBarChartWI(region) {
 /*============================================================================================================*/
 function showScattChartWI(op)
 {
-	console.log("showScattChartWI: opacity", op, " regionGl:", regionGl, " priorregionGl:", priorregionGl);	
+	//console.log("showScattChartWI: opacity", op, " regionGl:", regionGl, " priorregionGl:", priorregionGl);	
 	d3.select('#scattChartWI').attr("opacity", op);
 	
 	if (op == '0')
 	{
-	console.log("showScattChartWI: opacity zero and emptied HTML");	
-	console.log("...clearing html right now...", regionGl, priorregionGl);
+	//console.log("showScattChartWI: opacity zero and emptied HTML");	
+	//console.log("...clearing html right now...", regionGl, priorregionGl);
 	d3.select('#scattChWISpots').html('');
 	d3.select('#scattChWIXaxis').html('');
 	d3.select('#scattChWIYaxis').html('');
@@ -751,24 +745,20 @@ function showScattChartWI(op)
 
 function dsScattChartWI(region) {
 
-	console.log('In dsScattChartWI, region:', region);
+	//console.log('In dsScattChartWI, region:', region);
 	
-	console.log('dsScattChartWI: ?region, priorregionGl?:', region, priorregionGl);
+	//console.log('dsScattChartWI: ?region, priorregionGl?:', region, priorregionGl);
 	//if (region != priorregionGl && region != "") {
 	if (region != "") {
 	
 		if (priorregionGl != "") {
-			console.log('dsScattChartWI: clear region, priorregionGl:', region, priorregionGl);
+			//console.log('dsScattChartWI: clear region, priorregionGl:', region, priorregionGl);
 			showScattChartWI("0");   //Hide and clear
 		}
-		console.log('dsScattChartWI: show region, priorregionGl:', region, priorregionGl);
+		//console.log('dsScattChartWI: show region, priorregionGl:', region, priorregionGl);
 		showScattChartWI("100"); //Show
 
 		//var currDataBarChart = dataBarChosen(region); Let mapChart drive the re-read of data   
-		console.log("currDataBarChart dataBarChosen for region: " + region);
-		console.log("currDataBarChart[0]: ", currDataBarChart[0]);
-		console.log("currDataBarChart.length: " + currDataBarChart.length);
-		console.log("currDataBarChart[length]: ", currDataBarChart[currDataBarChart.length-1]);
 
 
 		var margin = {top: 10, right: 10, bottom: 30, left: 40},
@@ -870,7 +860,7 @@ function dsScattChartWI(region) {
 				     }
 				})
 		    .on("mouseover", function(d,i) {
-		      console.log("Scatt mouseover  ",d.countryNname, d.region, d.giniIndex, d.incPctLo10, d.incPctHi10)	   
+		      //console.log("Scatt mouseover  ",d.countryNname, d.region, d.giniIndex, d.incPctLo10, d.incPctHi10)	   
 		      d3.select(this)
 			      .attr("stroke","black").attr("stroke-width",4)
 		               return tooltip.style("hidden", false)
@@ -893,7 +883,7 @@ function dsScattChartWI(region) {
 			 .attr("stroke","black")
 			 .attr("stroke-width",1)
 			 tooltip.classed("hidden", true)
-			 console.log("Mouseout: " + this)  
+			 //console.log("Mouseout: " + this)  
 		      });
 
 		// Title	
@@ -905,7 +895,7 @@ function dsScattChartWI(region) {
 			.text("Income Share(%) : of Top 10-%ile versus Bottom 10-%ile: for Region " + regionName)
 			;
 		showScattChartWI("100"); //should not need this, try to delete
-		console.log("dsScattChartWI: done displaying ", region, " instead of ", priorregionGl);
+		//console.log("dsScattChartWI: done displaying ", region, " instead of ", priorregionGl);
 		//priorregionGl = region; all done, save region to prior
 	} //region ne null	
 }
@@ -1011,12 +1001,12 @@ d3.select("#mapChartSPPath")
 	 .attr("stroke","black")
 	 .attr("stroke-width",1);
          tooltip.classed("hidden", true);
-	 console.log("Mouseout: " + this);  
+	 //console.log("Mouseout: " + this);  
       })
      .on("click",function(d,i){
-	 console.log("Click: ", d.properties.region, regionGl); 
+	 //console.log("Click: ", d.properties.region, regionGl); 
 	 if (regionGl != d.properties.region) {
-	     console.log("Region changed from:", regionGl, " To:", d.properties.region);	 
+	     //console.log("Region changed from:", regionGl, " To:", d.properties.region);	 
              regionGl = d.properties.region;
 		 
              currDataBarChart = dataBarChosenSP(regionGl); //Refine data to clicked Region
@@ -1138,7 +1128,7 @@ d3.select("#mapChartSPPath")
 function dataBarChosenSP(region) {
 	var ds = [];
 	if (region == "" || region == priorregionGl) {
-		console.log("dataBarChosenSP: region is null or same as before:", region, priorregionGl);
+		//console.log("dataBarChosenSP: region is null or same as before:", region, priorregionGl);
 	} //region is null
 	else {
 		if (region == "All") {
@@ -1173,13 +1163,13 @@ function dataBarChosenSP(region) {
 /*============================================================================================================*/
 function showScattChartSP1(op)
 {
-	console.log("showScattChartSP2: opacity", op, " regionGl:", regionGl, " priorregionGl:", priorregionGl);	
+	//console.log("showScattChartSP2: opacity", op, " regionGl:", regionGl, " priorregionGl:", priorregionGl);	
 	d3.select('#scattChartSP1').attr("opacity", op);
 	
 	if (op == '0')
 	{
-	console.log("showScattChartWI: opacity zero and emptied HTML");	
-	console.log("...clearing html right now...", regionGl, priorregionGl);
+	//console.log("showScattChartWI: opacity zero and emptied HTML");	
+	//console.log("...clearing html right now...", regionGl, priorregionGl);
 	d3.select('#scattChSP1Spots').html('');
 	d3.select('#scattChSP1Xaxis').html('');
 	d3.select('#scattChSP1Yaxis').html('');
@@ -1192,21 +1182,17 @@ function showScattChartSP1(op)
 
 function dsScattChartSP1(region) {
 
-	console.log('dsScattChartSP1: ?region, priorregionGl?:', region, priorregionGl);
+	//console.log('dsScattChartSP1: ?region, priorregionGl?:', region, priorregionGl);
 	if (region != "") {
 	
 		if (priorregionGl != "") {
-			console.log('dsScattChartSP1: clear region, priorregionGl:', region, priorregionGl);
+			//console.log('dsScattChartSP1: clear region, priorregionGl:', region, priorregionGl);
 			showScattChartSP1("0");   //Hide and clear
 		}
-		console.log('dsScattChartSP1: show region, priorregionGl:', region, priorregionGl);
+		//console.log('dsScattChartSP1: show region, priorregionGl:', region, priorregionGl);
 		showScattChartSP1("100"); //Show
 
 		//var currDataBarChart = dataBarChosen(region); Let mapChart drive the re-read of data   
-		console.log("currDataBarChart dataBarChosen for region: " + region);
-		console.log("currDataBarChart[0]: ", currDataBarChart[0]);
-		console.log("currDataBarChart.length: " + currDataBarChart.length);
-		console.log("currDataBarChart[length]: ", currDataBarChart[currDataBarChart.length-1]);
 
 
 		var margin = {top: 10, right: 10, bottom: 30, left: 40},
@@ -1307,7 +1293,7 @@ function dsScattChartSP1(region) {
 				     }
 				})
 		    .on("mouseover", function(d,i) {
-		      console.log("Scatt1 mouseover  ",d.countryNname, d.region, d.giniIndex, d.dollperdayTotPop, d.dollperdayBot40)	   
+		      //console.log("Scatt1 mouseover  ",d.countryNname, d.region, d.giniIndex, d.dollperdayTotPop, d.dollperdayBot40)	   
 		      d3.select(this)
 			      .attr("stroke","black").attr("stroke-width",4)
 		               return tooltip.style("hidden", false)
@@ -1328,7 +1314,7 @@ function dsScattChartSP1(region) {
 			 .attr("stroke","black")
 			 .attr("stroke-width",1)
 			 tooltip.classed("hidden", true)
-			 console.log("Mouseout: " + this)  
+			 //console.log("Mouseout: " + this)  
 		      });
 
 		// Title	
@@ -1353,13 +1339,13 @@ function dsScattChartSP1(region) {
 /*============================================================================================================*/
 function showScattChartSP2(op)
 {
-	console.log("showScattChartSP2: opacity", op, " regionGl:", regionGl, " priorregionGl:", priorregionGl);	
+	//console.log("showScattChartSP2: opacity", op, " regionGl:", regionGl, " priorregionGl:", priorregionGl);	
 	d3.select('#scattChartSP2').attr("opacity", op);
 	
 	if (op == '0')
 	{
-	console.log("showScattChartWI: opacity zero and emptied HTML");	
-	console.log("...clearing html right now...", regionGl, priorregionGl);
+	//console.log("showScattChartWI: opacity zero and emptied HTML");	
+	//console.log("...clearing html right now...", regionGl, priorregionGl);
 	d3.select('#scattChSP2Spots').html('');
 	d3.select('#scattChSP2Xaxis').html('');
 	d3.select('#scattChSP2Yaxis').html('');
@@ -1372,23 +1358,19 @@ function showScattChartSP2(op)
 
 function dsScattChartSP2(region) {
 
-	console.log('In dsScattChartSP2, region:', region);
+	//console.log('In dsScattChartSP2, region:', region);
 	
-	console.log('dsScattChartSP2: ?region, priorregionGl?:', region, priorregionGl);
+	//console.log('dsScattChartSP2: ?region, priorregionGl?:', region, priorregionGl);
 	if (region != "") {
 	
 		if (priorregionGl != "") {
-			console.log('dsScattChartSP2: clear region, priorregionGl:', region, priorregionGl);
+			//console.log('dsScattChartSP2: clear region, priorregionGl:', region, priorregionGl);
 			showScattChartSP2("0");   //Hide and clear
 		}
-		console.log('dsScattChartSP2: show region, priorregionGl:', region, priorregionGl);
+		//console.log('dsScattChartSP2: show region, priorregionGl:', region, priorregionGl);
 		showScattChartSP2("100"); //Show
 
 		//var currDataBarChart = dataBarChosen(region); Let mapChart drive the re-read of data   
-		console.log("currDataBarChart dataBarChosen for region: " + region);
-		console.log("currDataBarChart[0]: ", currDataBarChart[0]);
-		console.log("currDataBarChart.length: " + currDataBarChart.length);
-		console.log("currDataBarChart[length]: ", currDataBarChart[currDataBarChart.length-1]);
 
 
 		var margin = {top: 10, right: 10, bottom: 30, left: 40},
@@ -1489,7 +1471,7 @@ function dsScattChartSP2(region) {
 				     }
 				})
 		    .on("mouseover", function(d,i) {
-		      console.log("Scatt2 mouseover  ",d.countryNname, d.region, d.incGrowthTotPop, d.incGrowthBot40)	   
+		      //console.log("Scatt2 mouseover  ",d.countryNname, d.region, d.incGrowthTotPop, d.incGrowthBot40)	   
 		      d3.select(this)
 			      .attr("stroke","black").attr("stroke-width",4)
 		               return tooltip.style("hidden", false)
@@ -1510,7 +1492,7 @@ function dsScattChartSP2(region) {
 			 .attr("stroke","black")
 			 .attr("stroke-width",1)
 			 tooltip.classed("hidden", true)
-			 console.log("Mouseout: " + this)  
+			 //console.log("Mouseout: " + this)  
 		      });
 
 		// Title	
@@ -1522,7 +1504,7 @@ function dsScattChartSP2(region) {
 			.text("Income Growth: Total Population vs Bottom 40-%ile: for Region " + regionName)
 			;
 		showScattChartSP1("100"); //should not need this, try to delete
-		console.log("dsScattChartSP2: done displaying ", region, " instead of ", priorregionGl);
+		//console.log("dsScattChartSP2: done displaying ", region, " instead of ", priorregionGl);
 	} //region ne null	
 }
 
