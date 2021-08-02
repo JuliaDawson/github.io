@@ -63,9 +63,8 @@ function showPage3() {
 
 function opPage1(op)
 {
-	console.log("opPage1: opacity", op);	
-	//d3.select('#page1Header').attr("opacity", op);
-	//d3.select('#page1Footer').attr("opacity", op);
+	d3.select('#page1Header').attr("opacity", op);
+	d3.select('#page1Footer').attr("opacity", op);
 	d3.select('#mapChartBig').attr("opacity", op);
 	if (op == "0")
 	{
@@ -75,9 +74,8 @@ function opPage1(op)
 }
 function opPage2(op)
 {
-	console.log("opPage2: opacity", op);	
-	//d3.select('#page2Header').attr("opacity", op);
-	//d3.select('#page2Footer').attr("opacity", op);
+	d3.select('#page2Header').attr("opacity", op);
+	d3.select('#page2Footer').attr("opacity", op);
 	d3.select('#mapChartWI').attr("opacity", op);
 	d3.select('#giniBarChart').attr("opacity", op);
 	d3.select('#scattChartWI').attr("opacity", op);
@@ -99,9 +97,8 @@ function opPage2(op)
 }
 function opPage3(op)
 {
-	console.log("opPage3: opacity", op);	
-	//d3.select('#page3Header').attr("opacity", op);
-	//d3.select('#page3Footer').attr("opacity", op);
+	d3.select('#page3Header').attr("opacity", op);
+	d3.select('#page3Footer').attr("opacity", op);
 	d3.select('#mapChartSP').attr("opacity", op);
 	d3.select('#scattChartSP1').attr("opacity", op);
 
